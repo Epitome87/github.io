@@ -34,9 +34,12 @@
   <meta name="twitter:creator"     content="@Epitome87">
 
   <!-- Icons & manifest -->
-  <link rel="icon" type="image/png" href="images/icons/favicon.png">
+  <link rel="icon" type="image/png" href="images/icons/favicon-96x-96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
+  <link rel="shortcut icon" href="images/icons/favicon.ico">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta name="apple-mobile-web-app-title" content="Matthew McGrath">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="images/icons/favicon.png">
 
   <!-- DNS prefetch for late-loading third-party origins.
        Lighter than preconnect — only resolves DNS, no TCP/TLS overhead.
@@ -123,14 +126,15 @@
       <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Dark mode" aria-pressed="true">
         <!-- Sun: shown in dark mode -->
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/>
-  <line x1="12" y1="1"  x2="12" y2="3"/>
-  <line x1="12" y1="21" x2="12" y2="23"/>
-  <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
-  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-  <line x1="1" y1="12" x2="3"  y2="12"/>
-  <line x1="21" y1="12" x2="23" y2="12"/>
-  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-  <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/></svg>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+        </svg>
         <!-- Moon: shown in light mode -->
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="icon-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
@@ -315,11 +319,11 @@
           <div class="project-card__img"><img src="images/thumbnails/preview-personal.webp" alt="Personal Portfolio" loading="lazy" decoding="async" width="400" height="220"><div class="project-card__num" aria-hidden="true">06</div></div>
           <div class="project-card__body">
             <h3 class="project-card__title">Personal Portfolio</h3>
-            <p class="project-card__desc">The site you're looking at. Perfect Lighthouse score. Ground-up design showcasing front-end craft.</p>
+            <p class="project-card__desc">The initial version of the site you're looking at. Highly-optimized with a perfect Lighthouse score. A simple yet bold portfolio that showcases my front-end and design skills.</p>
             <footer class="project-card__footer">
               <span class="project-card__tech">HTML · CSS · JS</span>
               <div class="project-card__links">
-                <a class="project-card__links-item" href="https://github.com/Epitome87/Personal-Portfolio" target="_blank" rel="noopener noreferrer" aria-label="View code for Personal Portfolio on GitHub">Code</a>
+                <a class="project-card__links-item" href="https://github.com/Epitome87/personal-portfolio-2032" target="_blank" rel="noopener noreferrer" aria-label="View code for Personal Portfolio on GitHub">Code</a>
                 <a href="https://epitome87.github.io/Personal-Portfolio/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Personal Portfolio">Live</a>
               </div>
             </footer>
@@ -757,7 +761,6 @@
 
     </div>
   </section>
-
 
   <!-- CONTACT -->
   <section class="contact" id="contact" aria-labelledby="contact-heading">

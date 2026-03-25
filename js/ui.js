@@ -55,13 +55,14 @@ if (hamburger && mobileMenu) {
 //   },
 //   { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
 // );
+
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, idx) => {
       setTimeout(() => {
         entry.target.classList.add('visible');
         revealObserver.unobserve(entry.target);
-      }, idx * 150); // TODO: Right now this must be >= the stagger numbers in layout.scss
+      }, idx * 50); // TODO: Right now this must be >= the stagger numbers in layout.scss
     });
   },
   { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
@@ -132,39 +133,6 @@ if (navLinks.length && sections.length) {
   updateActiveSection();
 }
 
-// ── Footer staggered entrance ────────────────────────────────
-const footerInner = document.querySelector('.footer__inner');
-if (footerInner) {
-  const footerObserver = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        console.log(entry);
-        if (entry.isIntersecting) {
-          footerInner.classList.add('is-visible');
-          footerObserver.unobserve(footerInner);
-        }
-      }
-    },
-    { threshold: 0.3 },
-  );
-  footerObserver.observe(footerInner);
-}
-
-// ── Back to top rocket button ────────────────────────────────
-if (backToTop) {
-  backToTop.addEventListener('click', () => {
-    // Trigger launch animation, then scroll to top once it's mid-launch
-    backToTop.classList.add('is-launching');
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 300);
-    setTimeout(() => {
-      // Reset button after it's scrolled away
-      backToTop.classList.remove('is-launching', 'is-visible');
-    }, 700);
-  });
-}
-
 // ── Portrait: wiggle on click, rocket on third click ─────────
 const portraitOuter = document.querySelector('.about__portrait-outer');
 
@@ -197,5 +165,38 @@ if (portraitOuter) {
     } else {
       portraitOuter.classList.remove('is-wiggling', 'is-wiggling-2');
     }
+  });
+}
+
+// ── Footer staggered entrance ────────────────────────────────
+const footerInner = document.querySelector('.footer__inner');
+if (footerInner) {
+  const footerObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        console.log(entry);
+        if (entry.isIntersecting) {
+          footerInner.classList.add('is-visible');
+          footerObserver.unobserve(footerInner);
+        }
+      }
+    },
+    { threshold: 0.3 },
+  );
+  footerObserver.observe(footerInner);
+}
+
+// ── Back to top rocket button ────────────────────────────────
+if (backToTop) {
+  backToTop.addEventListener('click', () => {
+    // Trigger launch animation, then scroll to top once it's mid-launch
+    backToTop.classList.add('is-launching');
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 300);
+    setTimeout(() => {
+      // Reset button after it's scrolled away
+      backToTop.classList.remove('is-launching', 'is-visible');
+    }, 700);
   });
 }
