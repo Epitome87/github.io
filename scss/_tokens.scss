@@ -1,0 +1,285 @@
+// ─── DESIGN TOKENS ────────────────────────────────────────────
+
+// ── Self-hosted fonts ──────────────────────────────────────────
+// Files live in fonts/ alongside index.html.
+// font-display: fallback — waits 100ms for the font, swaps if it loads within
+// ~3s, then gives up. Better brand consistency than optional without the jarring
+// layout shift of swap.
+// immediately and swaps in the custom font when loaded —
+// no render-blocking, no invisible text flash.
+
+// Clash Display (used for headings, hero name, section titles)
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/clash-display/ClashDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/clash-display/ClashDisplay-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/clash-display/ClashDisplay-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/clash-display/ClashDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+// Cabinet Grotesk (used for body text)
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: fallback;
+}
+
+// JetBrains Mono (used for mono/code labels, nav links, form labels)
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/jetbrains-mono/JetBrainsMono-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/jetbrains-mono/JetBrainsMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+// ── SASS Breakpoint variables ──────────────────────────────────
+$bp-xl: 1240px;
+$bp-lg: 1024px;
+$bp-md: 768px;
+$bp-sm: 640px;
+$bp-xs: 480px;
+
+// ── CSS Custom Properties ──────────────────────────────────────
+:root {
+  // Backgrounds — cool dark
+  --bg-base: #0b0f14;
+  --bg-raise: #101620;
+  --bg-float: #161e2c;
+  --bg-card: #1b2333;
+  --bg-card-hover: #202a3d;
+  --bg-nav: rgb(17, 24, 32); // nav pill background (dark)
+
+  --border: rgba(97, 166, 250, 0.09);
+  --border-bright: rgba(97, 166, 250, 0.2);
+
+  // Blue — primary accent
+  --blue: #61a6fa;
+  --blue-light: #93c5fd;
+  --blue-dim: #1e3a5f;
+  --blue-glow: rgba(97, 166, 250, 0.28);
+  --blue-glow-lg: rgba(97, 166, 250, 0.12);
+  --blue-pale: rgba(97, 166, 250, 0.1);
+
+  // Cyan — secondary accent
+  --cyan: #22d3ee;
+  --cyan-dim: rgba(34, 211, 238, 0.13);
+
+  // Marigold — complementary contrast
+  --amber: #fab561;
+  --amber-light: #fac27d;
+  --amber-dim: rgba(250, 181, 97, 0.14);
+  --amber-glow: rgba(250, 181, 97, 0.28);
+
+  // Text
+  --text-primary: #eef4ff;
+  --text-secondary: #94afd4;
+  --text-muted: #4a6080;
+  --text-inverse: #0b0f14;
+  --doc-text-strong: #0b0f14;
+  --doc-text: #333;
+  --doc-text-soft: #555;
+  --doc-text-muted: #666;
+  --doc-text-faint: #888;
+  --doc-border: #e2e8f0;
+  --doc-accent-soft: #bfdbfe;
+
+  // Typography — font families
+  --font-display: 'Clash Display', sans-serif;
+  --font-body: 'Cabinet Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  // Typography — size scale (UI text only; display/heading sizes use clamp())
+  // 2xs → xs → sm → base → md → lg
+  --text-2xs: 0.65rem; // tiny labels, mono stat text, legend
+  --text-xs: 0.72rem; // nav links, badges, buttons, section labels
+  --text-sm: 0.875rem; // secondary body, descriptions, skill chips
+  --text-base: 1rem; // primary body, base card text
+  --text-md: 1.1rem; // card headers, subheadings
+  --text-lg: 1.3rem; // larger card titles, form title
+  --text-xl: 1.45rem; // nav logo
+  --text-2xl: 1.6rem; // footer brand name
+
+  // Spacing
+  --space-1: 0.25rem;
+  --space-1-5: 0.375rem; // optical padding for icon boxes — between space-1 and space-2
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  // Layout
+  --nav-h: 72px;
+  --max-w: 1340px; //1280px;
+  // --page-pad: clamp(1.5rem, 5vw, 4.5rem);
+  --page-pad: clamp(1.5rem, 5vw, 3rem);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+
+  // Shadows
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-blue: 0 8px 36px var(--blue-glow);
+  --shadow-amber: 0 8px 32px var(--amber-glow);
+
+  // Border-radius — named shapes
+  --radius-pill: 999px; // pill / full-round (nav, buttons, badges)
+  --radius-circle: 50%; // perfect circle (avatars, dots)
+  --blur-nav: 14px;
+
+  // Easing — named cubic-bezier curves
+  --ease-spring: cubic-bezier(0.36, 0.07, 0.19, 0.97); // snappy spring (wiggles)
+  --ease-launch: cubic-bezier(0.25, 0.46, 0.45, 0.94); // ease-out-quart (launches)
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); // overshoot spring (pops)
+
+  // Status colours
+  --green: #10b981; // available / positive status
+
+  // Z-index scale
+  --z-base: 0;
+  // Portrait local stacking context (glow → image → ring)
+  --z-portrait-glow: 1;
+  --z-portrait-img: 2;
+  --z-portrait-ring: 3;
+  --z-raised: 1;
+  --z-overlay: 10;
+  --z-nav: 1000;
+  --z-tooltip: 9999;
+
+  // GitHub contribution graph colours (used in legend + JS-generated cells)
+  --gh-0: #111820;
+  --gh-1: #1e3a5f;
+  --gh-2: #2563a8;
+  --gh-3: #3b82d4;
+  --gh-4: #61a6fa;
+
+  // Typography — line-height scale
+  --leading-none: 1; // stat numbers, tight display text
+  --leading-tight: 1.1; // headings, card titles, section titles
+  --leading-snug: 1.25; // sub-headings, card sub-titles
+  --leading-normal: 1.65; // body text, descriptions, blurbs
+  --leading-loose: 1.8; // long-form prose, testimonials
+
+  // Typography — letter-spacing scale (positive only; negative stays inline)
+  --tracking-tight: 0.06em; // project tags, day labels, year buttons
+  --tracking-normal: 0.12em; // nav links, badges, dates, stat labels
+  --tracking-wide: 0.2em; // primary buttons, section labels, form submit
+
+  // Transitions
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 0.15s;
+  --t-base: 0.26s;
+  --t-slow: 0.48s;
+}
+
+// ── Light theme overrides ──────────────────────────────────────
+[data-theme='light'] {
+  --bg-base: #f4f7ff;
+  --bg-raise: #eaeff9;
+  --bg-float: #dde5f5;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f4ff;
+  --bg-nav: rgba(248, 250, 255, 0.98); // nav pill background (light)
+
+  --border: rgba(37, 99, 200, 0.12);
+  --border-bright: rgba(37, 99, 200, 0.25);
+
+  --blue: #2563c8;
+  --blue-light: #3b82f6;
+  --blue-dim: #bfdbfe;
+  --blue-glow: rgba(37, 99, 200, 0.2);
+  --blue-glow-lg: rgba(37, 99, 200, 0.08);
+  --blue-pale: rgba(37, 99, 200, 0.08);
+
+  --cyan: #0891b2;
+  --cyan-dim: rgba(8, 145, 178, 0.12);
+
+  --amber: #c38d4b;
+  --amber-light: #d4a060;
+  --amber-dim: rgba(195, 141, 75, 0.14);
+  --amber-glow: rgba(195, 141, 75, 0.24);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334e7a;
+  --text-muted: #7a92b8;
+  --text-inverse: #ffffff;
+
+  --shadow-md: 0 8px 32px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.14);
+  --shadow-blue: 0 8px 36px var(--blue-glow);
+  --shadow-amber: 0 8px 32px var(--amber-glow);
+
+  // GitHub graph — lighter cells on white background
+  --gh-0: #e2e8f4;
+  --gh-1: #bfdbfe;
+  --gh-2: #93c5fd;
+  --gh-3: #3b82f6;
+  --gh-4: #2563c8;
+}

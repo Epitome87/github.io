@@ -1,0 +1,216 @@
+// ── LAYOUT ────────────────────────────────────────────────────
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  overflow-x: hidden;
+
+  // Subtle noise grain overlay
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: 0.025; // intentional: barely-visible texture, must stay subtle
+    pointer-events: none;
+    z-index: var(--z-tooltip);
+
+    [data-theme='light'] & {
+      opacity: 0.012;
+    } // halved in light mode — grain more visible on pale bg
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+
+section {
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+.section-label {
+  @include mono-label(var(--text-xs), var(--tracking-wide), var(--blue));
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    flex-shrink: 0;
+    background: var(--blue);
+    border-radius: 1px;
+  }
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+// Scroll reveal
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-out);
+
+  &.from-left {
+    transform: translateX(-32px);
+  }
+  &.from-right {
+    transform: translateX(32px);
+  }
+  &.scale-in {
+    transform: scale(0.92);
+  }
+  &.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Stagger animation delays
+// Uses --stagger-step token (0.06s) as the delay increment
+.stagger {
+  @for $i from 1 through 12 {
+    > *:nth-child(#{$i}) {
+      transition-delay: #{0.05s + ($i - 1) * 0.06s};
+    }
+  }
+}
+
+// Page-padding responsive adjustments
+@media (max-width: $bp-lg) {
+  :root {
+    --page-pad: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+@media (max-width: $bp-sm) {
+  :root {
+    --page-pad: 1.25rem;
+  }
+
+  body {
+    font-size: var(--text-base);
+  }
+}
+// ── Accessibility utility ──────────────────────────────────────
+// Global utility — used by any component needing visually hidden text
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// ── Shared keyframes ───────────────────────────────────────────
+// blink — used by hero__available-dot and trust-item availability dot
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+// ── Back-to-top rocket button ──────────────────────────────────
+// Global fixed UI element — lives here, not in _footer.scss
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-circle);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md); // 0 4px 16px rgba(0,0,0,0.3) — close to original 20px spread
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out),
+    visibility var(--t-base) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    box-shadow var(--t-fast) var(--ease-out);
+  z-index: var(--z-overlay);
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    border-color: var(--blue);
+    box-shadow: 0 4px 24px var(--blue-glow);
+    transform: translateY(-3px);
+  }
+
+  &.is-launching {
+    animation: rocket-launch 0.6s var(--ease-launch) forwards;
+    pointer-events: none;
+  }
+}
+
+@keyframes rocket-launch {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  15% {
+    transform: translateY(-6px) rotate(-5deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-3px) rotate(5deg);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(-10px) rotate(-3deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-30px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(0deg);
+    opacity: 1;
+  }
+}

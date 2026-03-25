@@ -1,0 +1,355 @@
+// ── CONTACT ───────────────────────────────────────────────────
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.contact {
+  padding: var(--space-32) 0;
+  background: var(--bg-raise);
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    gap: var(--space-16);
+    margin-top: var(--space-16);
+    gap: var(--space-8);
+
+    align-items: center;
+    justify-content: center;
+    // max-width: 900px;
+    margin-inline: auto;
+
+    @media (max-width: $bp-lg) {
+      flex-direction: column;
+      > * {
+        align-self: center;
+        align-self: flex-start;
+      }
+    }
+
+    // Left column — flex so email floats to bottom
+    > .reveal.from-left {
+      // display: flex;
+      // max-width: 900px;
+      // align-self: flex-start;
+      // width: 45%;
+    }
+
+    > .contact__form {
+      // width: 55%;
+      // align-self: flex-start;
+      // background-color: unset;
+    }
+  }
+
+  &__tagline {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.8vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    color: var(--text-primary);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-5);
+
+    em {
+      font-style: normal;
+      color: var(--blue-light);
+      color: var(--amber);
+    }
+  }
+
+  &__blurb {
+    font-size: var(--text-md);
+    color: var(--text-secondary);
+    color: var(--text-primary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-5);
+  }
+
+  &__email {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-2);
+  }
+
+  &__email-label {
+    // @include mono-label($tracking: var(--tracking-normal), $color: var(--text-secondary));
+    font-size: var(--text-md);
+    color: var(--text-secondary);
+  }
+
+  &__email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition:
+      background var(--t-base) var(--ease-out),
+      border-color var(--t-base) var(--ease-out),
+      color var(--t-base) var(--ease-out),
+      box-shadow var(--t-base) var(--ease-out);
+
+    &:hover {
+      border-color: var(--blue);
+      background: var(--blue-pale);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-blue);
+
+      .contact__email-icon {
+        color: var(--blue);
+      }
+      .contact__email-address {
+        color: var(--blue-light);
+      }
+    }
+  }
+
+  &__email-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: color var(--t-base);
+  }
+
+  &__email-address {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color var(--t-base);
+  }
+
+  // Form area stuff
+  // new approach
+  .form {
+    width: 100%;
+    width: 49%;
+    // max-width: 900px;
+    align-self: flex-end;
+
+    @media (max-width: $bp-lg) {
+      align-self: flex-start;
+      width: 100%;
+    }
+
+    &__tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.8vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      color: var(--text-primary);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-5);
+
+      em {
+        font-style: normal;
+        color: var(--blue-light);
+        color: var(--amber);
+      }
+    }
+
+    &__blurb {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-5);
+    }
+
+    &__form {
+      // Todo: Not sure I like this card-like approach? Free-floating labels feel nice!
+      // @include card-base(var(--radius-xl), var(--space-8));
+      // @include card-base(var(--radius-md), var(--space-8));
+    }
+  }
+}
+
+.contact__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // align-items: flex-end;
+  justify-content: space-between;
+  // justify-content: center;
+  // height: 400px;
+  // gap: 5rem;
+  width: 49%;
+
+  @media (max-width: $bp-lg) {
+    align-self: flex-start;
+    width: 100%;
+  }
+}
+
+.contact__test {
+  display: flex;
+  flex-direction: column;
+}
+
+// Trust signals band
+.trust-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-12);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr 1fr;
+    border-radius: var(--radius-lg);
+  }
+
+  @media (max-width: $bp-xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-left: 1px solid var(--border);
+  transition: background var(--t-base);
+  text-decoration: none;
+  color: inherit;
+
+  &:first-child {
+    border-left: none;
+  }
+  &:hover {
+    background: var(--bg-card-hover);
+  }
+
+  // Responsive border adjustments
+  @media (max-width: $bp-md) {
+    &:nth-child(3) {
+      border-top: 1px solid var(--border);
+      border-left: none;
+    }
+    &:nth-child(4) {
+      border-top: 1px solid var(--border);
+    }
+  }
+
+  @media (max-width: $bp-xs) {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  // Availability dot
+  &:nth-child(2) .trust-item__value::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: var(--radius-circle);
+    margin-right: var(--space-2);
+    animation: blink 2s ease-in-out infinite;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  &__icon {
+    @include icon-box(40px, 9px);
+  }
+
+  &__label {
+    @include mono-label;
+    margin-bottom: 3px;
+  }
+
+  &__value {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: var(--leading-snug);
+  }
+}
+
+// Form elements
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+label {
+  @include mono-label(var(--text-xs), var(--tracking-wide), var(--text-secondary));
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--bg-float);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  outline: none;
+  transition:
+    border-color var(--t-base),
+    box-shadow var(--t-base);
+  resize: none;
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+  &:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px var(--blue-pale);
+  }
+}
+
+textarea {
+  min-height: 135px;
+  resize: vertical;
+}
+
+.form-submit {
+  justify-content: center;
+  margin-top: var(--space-2);
+  width: auto;
+  align-self: flex-start;
+
+  svg {
+    transition: transform var(--t-base) var(--ease-spring);
+  }
+
+  &:hover svg {
+    transform: translate(2px, -2px) rotate(8deg);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

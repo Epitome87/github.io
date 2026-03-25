@@ -1,0 +1,198 @@
+// ── SERVICES ──────────────────────────────────────────────────
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.services {
+  padding: var(--space-32) 0;
+  background: var(--bg-raise);
+
+  &__intro {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    max-width: 600px;
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-16);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+
+    @media (min-width: $bp-xl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__note {
+    margin-top: var(--space-10);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+
+    a {
+      color: var(--blue-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--t-base);
+
+      &:hover {
+        color: var(--text-primary);
+      }
+    }
+  }
+}
+
+.service-card {
+  @include card-base;
+  @include card-hover(-6px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  &:hover {
+    .service-card__icon {
+      background: var(--blue-pale);
+      border-color: var(--blue);
+    }
+  }
+
+  &--featured {
+    border-color: var(--blue-dim);
+    background: linear-gradient(160deg, var(--bg-card) 60%, rgba(97, 166, 250, 0.05) 100%);
+
+    &:hover {
+      border-color: var(--blue);
+      box-shadow:
+        var(--shadow-lg),
+        0 0 0 1px var(--blue-dim);
+    }
+
+    [data-theme='light'] & {
+      background: linear-gradient(160deg, var(--bg-card) 60%, rgba(37, 99, 200, 0.04) 100%);
+    }
+  }
+
+  &__badge {
+    @include mono-label(var(--text-2xs), var(--tracking-normal), var(--text-inverse));
+    position: absolute;
+    top: calc(-1 * var(--space-4));
+    left: var(--space-6);
+    font-weight: 500; // override mixin — badge needs medium weight
+    padding: var(--space-1) var(--space-3);
+    background: var(--blue);
+    border-radius: var(--radius-pill);
+  }
+
+  &__icon {
+    @include icon-box(44px, var(--space-1-5));
+    background: var(--bg-float); // override mixin — unfocused state uses darker bg
+    border-color: var(--border); // override mixin — subdued until hover
+    transition:
+      background var(--t-base),
+      border-color var(--t-base);
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__num {
+    @include mono-label(var(--text-2xs), var(--tracking-wide));
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    line-height: var(--leading-snug);
+
+    @media (min-width: $bp-md) {
+      min-block-size: calc(var(--leading-snug) * 2em);
+    }
+  }
+
+  &__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    flex: 1;
+
+    @media (min-width: $bp-md) {
+      min-block-size: calc(var(--leading-normal) * 5em);
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    li {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+
+      &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: var(--amber);
+        border-radius: var(--radius-circle);
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: auto;
+    flex-wrap: wrap;
+  }
+
+  &__price {
+    @include mono-label(var(--text-sm), var(--tracking-tight));
+
+    strong {
+      font-size: var(--text-base);
+      color: var(--amber);
+    }
+  }
+
+  &__btn {
+    @extend %btn-small;
+    padding: 0.5rem 1.2rem; // intentional: slightly smaller than standard %btn-small
+    background: var(--blue);
+    color: var(--text-inverse);
+    white-space: nowrap;
+    transition:
+      background var(--t-base),
+      box-shadow var(--t-base),
+      transform var(--t-base);
+
+    &:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-blue);
+    }
+  }
+}

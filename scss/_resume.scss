@@ -1,0 +1,296 @@
+// ── RESUME PAGE ───────────────────────────────────────────────
+// Styles for resume.html — the standalone resume page.
+// Depends on the main compiled stylesheet (css/main.css) for
+// tokens, reset, nav, and font-face declarations.
+// This file should be compiled separately to css/resume.css.
+//
+// Colour notes for the document panel (.resume-doc):
+// The panel mimics a paper document — white bg, dark text.
+// Most colours use site tokens. The following are intentional
+// document-mode values with no direct token equivalent:
+//   #e2e8f0  — light divider/border (no token this light)
+//   #bfdbfe  — section label underline (light blue, doc only)
+//   #333     — primary doc body text on white
+//   #555     — contact info text on white
+//   #666     — meta / secondary doc text on white
+//   #888     — muted doc text (dates, locations) on white
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+// ── Page wrapper ──────────────────────────────────────────────
+.resume-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+// ── Page header ───────────────────────────────────────────────
+.resume-page__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.resume-page__eyebrow {
+  @include mono-label(var(--text-2xs), var(--tracking-wide), var(--text-muted));
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.resume-page__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+
+  span {
+    color: var(--blue-light);
+  }
+}
+
+.resume-page__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.resume-page__btn-download {
+  svg {
+    display: block;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// ── Document panel ────────────────────────────────────────────
+.resume-doc {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: 3rem 3.5rem;
+  box-shadow: var(--shadow-lg); // 0 8px 32px rgba(0,0,0,0.5)
+  color: var(--doc-text); // document body text on white
+
+  @media (max-width: $bp-xs) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+// ── Document header ───────────────────────────────────────────
+.resume-doc__header {
+  margin-bottom: var(--space-5);
+}
+
+.resume-doc__name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--doc-text-strong);
+  margin-bottom: var(--space-1);
+}
+
+.resume-doc__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--blue); // site blue token — consistent with brand
+  margin-bottom: var(--space-3);
+}
+
+.resume-doc__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
+
+  a,
+  span {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    color: var(--doc-text-soft);
+    transition: color var(--t-base);
+  }
+
+  a:hover {
+    color: var(--blue);
+    text-decoration: underline;
+  }
+}
+
+// ── Divider ───────────────────────────────────────────────────
+.resume-doc__divider {
+  height: 1px;
+  background: var(--doc-border);
+  margin: var(--space-5) 0;
+}
+
+// ── Section ───────────────────────────────────────────────────
+.resume-doc__section {
+  margin-bottom: var(--space-6);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.resume-doc__section-label {
+  @include mono-label(var(--text-2xs), var(--tracking-wide), var(--blue));
+  border-bottom: 1px solid var(--doc-accent-soft);
+  padding-bottom: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+// ── Entry (experience / project) ─────────────────────────────
+// Adjacent sibling handles spacing — eliminates inline margin-top in HTML
+.resume-doc__entry + .resume-doc__entry {
+  margin-top: var(--space-4);
+}
+
+.resume-doc__entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-1);
+}
+
+.resume-doc__entry-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--doc-text-strong);
+}
+
+.resume-doc__entry-date {
+  @include mono-label(var(--text-2xs), var(--tracking-normal), var(--doc-text-faint));
+  text-transform: none;
+  white-space: nowrap;
+
+  @media (max-width: $bp-xs) {
+    white-space: normal;
+  }
+}
+
+.resume-doc__entry-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--doc-text-muted);
+  margin-bottom: var(--space-2);
+
+  a {
+    color: var(--blue);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.resume-doc__bullets {
+  padding-left: 0;
+}
+
+.resume-doc__bullet {
+  font-size: var(--text-sm);
+  color: var(--doc-text);
+  line-height: var(--leading-normal);
+  padding-left: var(--space-4);
+  position: relative;
+  margin-bottom: var(--space-1);
+
+  &::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+  }
+}
+
+// ── Education ─────────────────────────────────────────────────
+.resume-doc__edu-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+
+  @media (max-width: $bp-xs) {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+.resume-doc__edu-school {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--doc-text-strong);
+}
+
+.resume-doc__edu-location {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--doc-text-faint);
+}
+
+.resume-doc__edu-degree {
+  font-size: var(--text-sm);
+  color: var(--doc-text);
+  margin-bottom: var(--space-1);
+}
+
+.resume-doc__edu-detail {
+  font-size: 0.75rem;
+  color: var(--doc-text-muted);
+  line-height: var(--leading-normal);
+}
+
+// ── Skills ────────────────────────────────────────────────────
+.resume-doc__skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.resume-doc__skills-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.resume-doc__skills-category {
+  @include mono-label(var(--text-2xs), var(--tracking-normal), var(--blue));
+  font-weight: 700;
+  text-transform: none;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.resume-doc__skills-list {
+  color: var(--doc-text);
+}
+
+// ── Print ─────────────────────────────────────────────────────
+@media print {
+  .nav,
+  .resume-page__header {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .resume-page {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .resume-doc {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 1.5rem 2rem;
+  }
+}

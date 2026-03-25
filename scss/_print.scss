@@ -1,0 +1,117 @@
+// ── PRINT STYLES ──────────────────────────────────────────────
+// Ensures a readable, professional result when a recruiter
+// prints the page or saves it as a PDF.
+@use 'tokens' as *;
+
+@media print {
+  // Force white background and black text throughout
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  // Hide non-essential elements
+  .nav,
+  .hero__scroll-hint,
+  .ticker-strip,
+  .projects__cta-band,
+  .services,
+  .github,
+  .contact,
+  .footer,
+  .skip-nav,
+  .btn-primary,
+  .btn-ghost,
+  .btn--code,
+  .btn--live {
+    display: none !important;
+  }
+
+  // Page layout
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  // Force reveal/animated UI into its final readable state for print
+  .reveal,
+  .reveal.visible,
+  .footer__inner {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  [class$='__icon'],
+  [class*='__icon '] {
+    border-color: #999 !important;
+  }
+
+  section {
+    padding: 1.5rem 0;
+    page-break-inside: avoid;
+  }
+
+  // Hero — condensed for print
+  .hero {
+    min-height: auto;
+    padding: 1rem 0 0.5rem;
+  }
+
+  .hero__name {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero__tagline {
+    font-size: 11pt;
+  }
+  .hero__stats {
+    border-top: 1px solid #ccc;
+    padding-top: 0.5rem;
+  }
+
+  // Show full URLs for links
+  a[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 9pt;
+    color: #555 !important;
+  }
+
+  // But not for internal anchors or nav
+  a[href^='#']::after,
+  a[href^='javascript']::after {
+    content: '';
+  }
+
+  // Projects — single column
+  .projects__grid,
+  .experience__grid,
+  .why-hire__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  // Ensure page breaks don't split cards
+  .project-card,
+  .why-card,
+  .timeline-item {
+    page-break-inside: avoid;
+  }
+
+  // About portrait — smaller for print
+  .about__portrait {
+    width: 100px !important;
+    height: 120px !important;
+  }
+}

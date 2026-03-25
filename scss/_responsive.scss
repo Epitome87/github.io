@@ -1,0 +1,120 @@
+// ── RESPONSIVE OVERRIDES ──────────────────────────────────────
+// All media queries centralised here, using $bp-* from _tokens.scss.
+// Component-level breakpoints that are tightly coupled to their
+// component logic live in those files; this file handles
+// cross-cutting layout shifts.
+@use 'tokens' as *;
+
+@media (max-width: $bp-lg) {
+  .experience__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+  .about__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .about__portrait-wrap {
+    position: static;
+    display: flex;
+    gap: var(--space-6);
+    align-items: center;
+  }
+  .about__portrait {
+    width: 170px;
+    height: auto;
+  }
+  .contact__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .project-featured {
+    grid-template-columns: 1fr;
+  }
+  .project-featured__img {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+  .nav__hamburger {
+    display: flex;
+  }
+  .nav__inner {
+    padding: 0 var(--space-4);
+    height: 52px;
+  } // tighter on tablet
+
+  .hero__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero__actions {
+    width: 100%;
+  }
+  .hero__actions .btn-primary,
+  .hero__actions .btn-ghost {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .projects__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .projects__cta-band {
+    text-align: center;
+    justify-content: center;
+  }
+  .projects__cta-band::before {
+    display: none;
+  }
+
+  .about__portrait-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact__form {
+    padding: var(--space-6);
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: $bp-xs) {
+  .nav {
+    top: var(--space-2);
+    width: calc(100% - 1rem);
+  } // tighter on mobile
+  .nav__inner {
+    padding: 0 var(--space-3);
+    height: 48px;
+  }
+  .nav__logo {
+    font-size: var(--text-md);
+  }
+
+  .hero__name {
+    font-size: clamp(3.8rem, 17vw, 6rem);
+  }
+  .hero__stats {
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,45 @@
+// ============================================================
+//  main.scss — single entry point
+//  Compile with:  sass scss/main.scss css/main.css
+//  or watch with: sass --watch scss/main.scss css/main.css
+//
+//  Load order matters: tokens first (custom properties),
+//  then reset, then layout utilities, then components,
+//  then responsive overrides last.
+//
+//  Property ordering convention (used throughout all partials):
+//  1. Position:   position, top, right, bottom, left, inset, z-index
+//  2. Box model:  display, flex/grid props, width, height, padding,
+//                 margin, overflow, visibility, cursor
+//  3. Typography: font-family, font-size, font-weight, line-height,
+//                 letter-spacing, text-transform, text-align, color
+//  4. Visual:     background, border, border-radius, outline,
+//                 box-shadow, opacity, filter
+//  5. Animation:  transform, transition, animation
+// ============================================================
+
+// ── Foundation ───────────────────────────────────────────────
+@use 'tokens'; // CSS custom properties & design tokens
+@use 'mixins'; // shared mixins & placeholders
+@use 'reset'; // Normalize + base element styles
+@use 'layout'; // Container, grid utilities, scroll-reveal
+
+// ── Components (alphabetical within logical groups) ──────────
+@use 'nav';
+@use 'hero';
+@use 'ticker';
+@use 'buttons';
+@use 'projects';
+@use 'experience';
+@use 'about';
+@use 'why-hire';
+@use 'services';
+@use 'contact';
+@use 'coding';
+@use 'footer';
+
+// ── Responsive overrides (always last) ───────────────────────
+@use 'responsive';
+
+// ── Print styles ─────────────────────────────────────────────
+@use 'print';

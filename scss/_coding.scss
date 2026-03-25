@@ -1,0 +1,524 @@
+// ── CODING ACTIVITY ───────────────────────────────────────────
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+// LeetCode difficulty colours (not from design tokens — platform specific)
+$lc-easy: #22c55e;
+$lc-medium: #f59e0b;
+$lc-hard: #ef4444;
+
+// Contribution graph dimensions — domain-specific layout constants, not spacing tokens
+$cell-gap: 3px;
+$cell-radius: 3px;
+$scrollbar-radius: 2px;
+
+.github {
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+    flex-wrap: wrap;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  &__stat {
+    @include stat-card;
+
+    @media (max-width: $bp-xs) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__stat-num {
+    @include stat-card-num;
+  }
+
+  &__stat-label {
+    @include stat-card-label;
+  }
+
+  &__stat-sub {
+    @include stat-card-sub;
+  }
+
+  &__graph-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+  }
+
+  &__graph-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  &__graph-title {
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  &__graph-subtitle {
+    @include mono-label;
+  }
+
+  &__months {
+    display: flex;
+    margin-bottom: var(--space-2);
+    padding-left: 32px;
+    overflow: hidden;
+  }
+
+  &__month-label {
+    @include mono-label(var(--text-2xs), var(--tracking-tight));
+    flex-shrink: 0;
+  }
+
+  &__grid-body {
+    display: flex;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 28px;
+      pointer-events: none;
+      background: linear-gradient(to right, transparent, var(--bg-card));
+    }
+  }
+
+  &__day-labels {
+    display: flex;
+    flex-direction: column;
+    gap: $cell-gap;
+    margin-right: var(--space-2);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  &__day-label {
+    @include mono-label(var(--text-2xs), var(--tracking-tight));
+    display: flex;
+    align-items: center;
+    height: 13px;
+    width: 24px;
+  }
+
+  &__grid-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-float) transparent;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--bg-float);
+      border-radius: $scrollbar-radius;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    gap: $cell-gap;
+    align-items: flex-start;
+  }
+  &__week {
+    display: flex;
+    flex-direction: column;
+    gap: $cell-gap;
+    flex-shrink: 0;
+  }
+
+  &__day {
+    width: 13px;
+    height: 13px;
+    border-radius: $cell-radius;
+    background: var(--gh-color, var(--gh-0));
+    cursor: default;
+    position: relative;
+    transition:
+      transform var(--t-fast),
+      outline var(--t-fast);
+
+    &:hover {
+      transform: scale(1.35);
+      outline: 1.5px solid rgba(255, 255, 255, 0.35);
+      z-index: var(--z-overlay);
+    }
+  }
+
+  &__day,
+  &__legend-cell {
+    &[data-level='0'] {
+      --gh-color: var(--gh-0);
+    }
+    &[data-level='1'] {
+      --gh-color: var(--gh-1);
+    }
+    &[data-level='2'] {
+      --gh-color: var(--gh-2);
+    }
+    &[data-level='3'] {
+      --gh-color: var(--gh-3);
+    }
+    &[data-level='4'] {
+      --gh-color: var(--gh-4);
+    }
+  }
+
+  &__legend {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+    justify-content: flex-end;
+
+    &-label {
+      @include mono-label(var(--text-2xs), var(--tracking-tight));
+    }
+    &-cells {
+      display: flex;
+      gap: $cell-gap;
+    }
+    &-cell {
+      width: 13px;
+      height: 13px;
+      border-radius: $cell-radius;
+      background: var(--gh-color, var(--gh-0));
+    }
+  }
+
+  &__skeleton {
+    display: flex;
+    gap: $cell-gap;
+  }
+
+  &__skeleton-col {
+    display: flex;
+    flex-direction: column;
+    gap: $cell-gap;
+  }
+
+  &__skeleton-cell {
+    width: 13px;
+    height: 13px;
+    border-radius: $cell-radius;
+    background: var(--bg-float);
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+  }
+
+  &__tooltip {
+    position: fixed;
+    background: var(--bg-float);
+    border: 1px solid var(--border-bright);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s;
+    z-index: var(--z-tooltip);
+    box-shadow: var(--shadow-lg);
+  }
+
+  &__error {
+    @include mono-label(var(--text-sm));
+    text-align: center;
+    padding: var(--space-8);
+
+    a {
+      color: var(--blue-light);
+    }
+  }
+
+  &__year-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  &__year-btn {
+    @include mono-label(var(--text-2xs), var(--tracking-tight));
+    padding: var(--space-1) var(--space-3);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      background var(--t-base),
+      border-color var(--t-base),
+      color var(--t-base);
+
+    &:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-pale);
+    }
+    &.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--text-inverse);
+    }
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+// ── LeetCode stat card ─────────────────────────────────────────
+// Mirrors .github__stat visually but uses the leetcode__ namespace.
+.leetcode__stat {
+  @include stat-card;
+
+  &-num {
+    @include stat-card-num;
+  }
+  &-label {
+    @include stat-card-label;
+  }
+  &-sub {
+    @include stat-card-sub;
+  }
+}
+
+// ── Coding activity layout grid ────────────────────────────────
+.coding {
+  padding: var(--space-32) 0;
+  background: var(--bg-base);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-8);
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // GitHub spans full width as first row
+  &__col:first-child {
+    grid-column: 1 / -1;
+
+    .github__stats {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: $bp-lg) {
+      grid-column: auto;
+      .github__stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  &__col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+
+    @media (max-width: $bp-lg) {
+      padding: var(--space-4);
+    }
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--text-md);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--border);
+
+      svg {
+        color: var(--blue);
+        flex-shrink: 0;
+      }
+
+      &-link {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color var(--t-base);
+
+        .coding__col-header-arrow {
+          display: inline-block;
+          color: var(--text-muted);
+          transition:
+            color var(--t-base),
+            transform var(--t-base);
+        }
+
+        &:hover {
+          color: var(--blue);
+          .coding__col-header-arrow {
+            color: var(--blue);
+            transform: translate(1px, -1px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ── LeetCode card ──────────────────────────────────────────────
+.leetcode {
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    margin-bottom: var(--space-1);
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr 1fr;
+      .leetcode__stat:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @include stat-card-responsive('leetcode');
+  }
+
+  &__breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+  }
+
+  &__error {
+    @include mono-label(var(--text-sm));
+    padding: var(--space-4) 0;
+
+    a {
+      color: var(--blue-light);
+    }
+  }
+}
+
+// LeetCode difficulty bars
+.lc-bar-row {
+  display: grid;
+  grid-template-columns: 56px 1fr max-content;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.lc-bar-label {
+  @include mono-label(var(--text-2xs), var(--tracking-tight));
+  font-weight: 600; // override mixin default — needs bold for difficulty labels
+  white-space: nowrap;
+}
+.lc-easy {
+  color: $lc-easy;
+}
+.lc-medium {
+  color: $lc-medium;
+}
+.lc-hard {
+  color: $lc-hard;
+}
+
+.lc-bar-track {
+  height: 7px;
+  background: var(--bg-float);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.lc-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  width: 0%;
+  transition: width 1s var(--ease-out);
+}
+.lc-easy-fill {
+  background: $lc-easy;
+}
+.lc-medium-fill {
+  background: $lc-medium;
+}
+.lc-hard-fill {
+  background: $lc-hard;
+}
+
+.lc-bar-count {
+  @include mono-label(var(--text-2xs), var(--tracking-tight));
+  white-space: nowrap;
+  text-align: right;
+}
+
+// Codewars
+.codewars {
+  &__badge-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    align-items: flex-start;
+  }
+
+  &__badge-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    display: block;
+    transition: opacity var(--t-base);
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__blurb {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-normal);
+    font-style: italic;
+  }
+}

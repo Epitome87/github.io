@@ -1,0 +1,20 @@
+{
+  "name": "Matthew McGrath | Full-Stack Web Developer",
+  "short_name": "Matthew McGrath",
+  "description": "Portfolio of Matthew McGrath — Full-Stack Web Developer based in Riverside, CA.",
+  "lang": "en",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "categories": ["portfolio", "business"],
+  "icons": [
+    {
+      "src": "images/icons/favicon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

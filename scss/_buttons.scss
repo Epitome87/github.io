@@ -1,0 +1,103 @@
+// ── SHARED BUTTONS ────────────────────────────────────────────
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.btn-primary {
+  @include mono-label(var(--text-xs), var(--tracking-wide), var(--text-inverse));
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.85rem 2rem;
+  overflow: hidden;
+  font-weight: 700; // override mixin — primary button needs bold
+  background: var(--blue);
+  border-radius: var(--radius-sm);
+  transition:
+    background var(--t-base) var(--ease-out),
+    box-shadow var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-blue);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.btn-ghost {
+  @include mono-label(var(--text-xs), var(--tracking-wide), var(--text-secondary));
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.85rem 2rem;
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-sm);
+  transition:
+    background var(--t-base),
+    border-color var(--t-base),
+    color var(--t-base),
+    transform var(--t-base);
+
+  &:hover {
+    border-color: var(--blue-light);
+    background: var(--blue-pale);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+  }
+}
+
+.btn--code {
+  @extend %btn-small;
+  background: var(--bg-float);
+  border-color: var(--border-bright);
+  color: var(--text-secondary);
+  transition:
+    color var(--t-base),
+    background var(--t-base),
+    border-color var(--t-base);
+
+  &:hover {
+    border-color: var(--blue);
+    background: var(--blue-pale);
+    color: var(--blue-light);
+  }
+}
+
+.btn--live {
+  @extend %btn-small;
+  background: transparent;
+  border-color: var(--amber);
+  color: var(--amber);
+  transition:
+    color var(--t-base),
+    background var(--t-base),
+    box-shadow var(--t-base);
+
+  .btn--live-arrow {
+    display: inline-block;
+    transition: transform var(--t-base) var(--ease-spring);
+  }
+
+  &:hover {
+    background: var(--amber-dim);
+    box-shadow: var(--shadow-amber);
+
+    .btn--live-arrow {
+      transform: translate(1px, -1px);
+    }
+  }
+}

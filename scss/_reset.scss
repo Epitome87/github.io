@@ -1,0 +1,140 @@
+// ── RESET ─────────────────────────────────────────────────────
+// No @use needed here — tokens not referenced
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+address {
+  font-style: normal;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-dim);
+  border-radius: 3px;
+
+  &:hover {
+    background: var(--blue);
+  }
+}
+
+// ── Skip navigation link ───────────────────────────────────────
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4, 1rem);
+  z-index: var(--z-tooltip);
+  padding: var(--space-3, 0.75rem) var(--space-6, 1.5rem);
+  background: var(--blue, #61a6fa);
+  color: var(--text-inverse, #0b0f14);
+  font-family: var(--font-mono, monospace);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0;
+    outline: 3px solid var(--blue, #61a6fa);
+    outline-offset: 2px;
+  }
+}
+
+// ── Focus visible ──────────────────────────────────────────────
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--blue, #61a6fa);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+// Pill-shaped elements get matching border-radius on focus ring
+.nav__links a,
+.nav__cta,
+.nav__theme-toggle,
+.github__year-btn {
+  &:focus-visible {
+    border-radius: var(--radius-pill);
+  }
+}
+
+// ── Reduced motion ─────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
