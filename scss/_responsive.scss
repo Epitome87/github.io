@@ -97,7 +97,7 @@
 @media (max-width: $bp-xs) {
   .nav {
     top: var(--space-2);
-    width: calc(100% - 1rem);
+    // width: calc(100% - 1rem);
   } // tighter on mobile
   .nav__inner {
     padding: 0 var(--space-3);
@@ -111,7 +111,7 @@
     font-size: clamp(3.8rem, 17vw, 6rem);
   }
   .hero__stats {
-    flex-direction: column;
+    // flex-direction: column;
     gap: var(--space-5);
   }
   .projects__grid {

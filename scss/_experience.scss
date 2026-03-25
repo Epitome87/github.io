@@ -104,6 +104,11 @@
     transform: translateY(-3px);
     box-shadow: 0 4px 18px var(--blue-glow-lg);
 
+    &.visible {
+      // transition-delay: 0;
+      background-color: yellow;
+    }
+
     &::before {
       opacity: 1;
     }

@@ -12,6 +12,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  // new approach
+  scrollbar-gutter: stable; /* reserves space for scrollbar consistently */
 }
 
 body {

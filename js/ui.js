@@ -33,9 +33,7 @@ if (hamburger && mobileMenu) {
     mobileMenu.setAttribute('aria-hidden', String(!open));
   });
 
-  mobileMenu.querySelectorAll('a').forEach((a) =>
-    a.addEventListener('click', closeMobileMenu),
-  );
+  mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMobileMenu));
 
   // Close when clicking outside
   document.addEventListener('click', (e) => {
@@ -46,14 +44,25 @@ if (hamburger && mobileMenu) {
 }
 
 // ── Scroll reveal ────────────────────────────────────────────
+// const revealObserver = new IntersectionObserver(
+//   (entries) => {
+//     for (const entry of entries) {
+//       if (entry.isIntersecting) {
+//         entry.target.classList.add('visible');
+//         revealObserver.unobserve(entry.target);
+//       }
+//     }
+//   },
+//   { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
+// );
 const revealObserver = new IntersectionObserver(
   (entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
+    entries.forEach((entry, idx) => {
+      setTimeout(() => {
         entry.target.classList.add('visible');
         revealObserver.unobserve(entry.target);
-      }
-    }
+      }, idx * 150); // TODO: Right now this must be >= the stagger numbers in layout.scss
+    });
   },
   { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
 );
@@ -129,6 +138,7 @@ if (footerInner) {
   const footerObserver = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
+        console.log(entry);
         if (entry.isIntersecting) {
           footerInner.classList.add('is-visible');
           footerObserver.unobserve(footerInner);

@@ -148,11 +148,15 @@ $bp-xs: 480px;
   --font-mono: 'JetBrains Mono', monospace;
 
   // Typography — size scale (UI text only; display/heading sizes use clamp())
-  // 2xs → xs → sm → base → md → lg
-  --text-2xs: 0.65rem; // tiny labels, mono stat text, legend
-  --text-xs: 0.72rem; // nav links, badges, buttons, section labels
-  --text-sm: 0.875rem; // secondary body, descriptions, skill chips
+  // 2xs → xs → sm → base → md → lg → xl → 2xl
+  --text-2xs: 0.65rem; // 10.4px, tiny labels, mono stat text, legend
+  --text-2xs: clamp(0.563rem, 0.159vw + 0.527rem, 0.65rem); // 9px-10.4px
+  --text-xs: 0.72rem; // 11.52px, nav links, badges, buttons, section labels
+  --text-xs: clamp(0.594rem, 0.284vw + 0.53rem, 0.75rem); // 9.5px-12px
+  --text-sm: 0.875rem; // 14px, secondary body, descriptions, skill chips
+  --text-sm: clamp(0.75rem, 0.227vw + 0.699rem, 0.875rem); // 12px-14px
   --text-base: 1rem; // primary body, base card text
+  --text-base: 1rem; // 16px
   --text-md: 1.1rem; // card headers, subheadings
   --text-lg: 1.3rem; // larger card titles, form title
   --text-xl: 1.45rem; // nav logo

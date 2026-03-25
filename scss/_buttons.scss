@@ -18,11 +18,16 @@
     box-shadow var(--t-base) var(--ease-out),
     transform var(--t-base) var(--ease-out);
 
+  @media (max-width: $bp-xs) {
+    padding: 0.6rem 1.2rem;
+  }
+
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 60%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 100%);
     opacity: 0;
     transition: opacity var(--t-base);
   }
@@ -51,6 +56,10 @@
     border-color var(--t-base),
     color var(--t-base),
     transform var(--t-base);
+
+  @media (max-width: $bp-xs) {
+    padding: 0.6rem 1.2rem;
+  }
 
   &:hover {
     border-color: var(--blue-light);

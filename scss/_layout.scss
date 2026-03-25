@@ -93,7 +93,7 @@ section {
 // Uses --stagger-step token (0.06s) as the delay increment
 .stagger {
   @for $i from 1 through 12 {
-    > *:nth-child(#{$i}) {
+    > *:nth-child(#{$i}):not(.visible) {
       transition-delay: #{0.05s + ($i - 1) * 0.06s};
     }
   }
