@@ -243,6 +243,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   scrollbar-gutter: stable; /* reserves space for scrollbar consistently */
+  overflow-x: hidden;
 }
 
 body {
@@ -580,15 +581,11 @@ section {
 }
 .nav {
   position: fixed;
+  top: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: var(--z-nav);
-  top: calc(var(--space-2) + env(safe-area-inset-top, 32px));
-  left: 1rem;
-  right: 1rem;
-  width: auto;
-  width: min(100% - 2rem, var(--max-w));
-  margin-inline: auto;
-  margin-left: min(1rem, env(safe-area-inset-left));
-  margin-right: min(1rem, env(safe-area-inset-right));
+  width: min(100% - 3rem, var(--max-w));
 }
 .nav::before {
   content: "";
@@ -1378,6 +1375,7 @@ section {
 }
 .project-featured__body {
   padding: var(--space-10);
+  padding: var(--space-6);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1408,7 +1406,6 @@ section {
 .project-featured__links {
   display: flex;
   gap: var(--space-3);
-  flex-wrap: wrap;
 }
 
 .project-tags {
