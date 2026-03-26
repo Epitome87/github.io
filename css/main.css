@@ -100,6 +100,12 @@
   --text-primary: #eef4ff;
   --text-secondary: #94afd4;
   --text-muted: #4a6080;
+  --text-primary: #eef4ff;
+  --text-secondary: #b8c9e3;
+  --text-muted: #94a3b8;
+  --text-primary: #eef4ff;
+  --text-secondary: #b8c9e6; /* ~11:1 target */
+  --text-muted: #96a2bd;
   --text-inverse: #0b0f14;
   --doc-text-strong: #0b0f14;
   --doc-text: #333;
@@ -3144,15 +3150,15 @@ textarea {
 }
 
 .lc-easy {
-  color: #22c55e;
+  color: #1cbaba;
 }
 
 .lc-medium {
-  color: #f59e0b;
+  color: #ffb700;
 }
 
 .lc-hard {
-  color: #ef4444;
+  color: #e27575;
 }
 
 .lc-bar-track {
@@ -3171,15 +3177,15 @@ textarea {
 }
 
 .lc-easy-fill {
-  background: #22c55e;
+  background: #1cbaba;
 }
 
 .lc-medium-fill {
-  background: #f59e0b;
+  background: #ffb700;
 }
 
 .lc-hard-fill {
-  background: #ef4444;
+  background: #e27575;
 }
 
 .lc-bar-count {

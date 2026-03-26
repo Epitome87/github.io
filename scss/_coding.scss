@@ -2,12 +2,13 @@
 @use 'tokens' as *;
 @use 'mixins' as *;
 
-// LeetCode difficulty colours (not from design tokens — platform specific)
-$lc-easy: #22c55e;
-$lc-medium: #f59e0b;
-$lc-hard: #ef4444;
+// LeetCode difficulty colors do not pass contrast tests, so I brighten them up.
+// Easy: #22c55e, Medium: #f59e0b, Hard: #ef4444
+$lc-easy: #1cbaba;
+$lc-medium: #ffb700;
+$lc-hard: #e27575;
 
-// Contribution graph dimensions — domain-specific layout constants, not spacing tokens
+// Contribution graph dimensions
 $cell-gap: 3px;
 $cell-radius: 3px;
 $scrollbar-radius: 2px;

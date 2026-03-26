@@ -133,6 +133,16 @@ $bp-xs: 480px;
   --text-primary: #eef4ff;
   --text-secondary: #94afd4;
   --text-muted: #4a6080;
+
+  // Testing these three
+  --text-primary: #eef4ff; // or #F1F5F9 — your choice
+  --text-secondary: #b8c9e3; // balanced sweet spot (lighter than yours, softer than mine)
+  --text-muted: #94a3b8; // safe, accessible, still clearly de-emphasized
+
+  --text-primary: #eef4ff;
+  --text-secondary: #b8c9e6; /* ~11:1 target */
+  --text-muted: #96a2bd; //#9ca9c4; /* ~6:1 target */
+
   --text-inverse: #0b0f14;
   --doc-text-strong: #0b0f14;
   --doc-text: #333;
