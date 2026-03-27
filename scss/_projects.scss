@@ -109,9 +109,13 @@
   @include card-base(var(--radius-xl), 0); // no top-level padding — __body has var(--space-10)
   @include card-hover(0px, var(--shadow-lg)); // no lift — featured is full-width, shadow only
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: none;
   overflow: hidden;
   margin-bottom: var(--space-6);
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
 
   &:hover {
     .project-featured__img img {
@@ -121,7 +125,7 @@
   }
 
   &__img {
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/9; // I might prefer not setting aspect-ratio! With limited height
     overflow: hidden;
     background: var(--bg-float);
 
