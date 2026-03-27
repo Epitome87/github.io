@@ -134,14 +134,11 @@ $bp-xs: 480px;
   --text-secondary: #94afd4;
   --text-muted: #4a6080;
 
-  // Testing these three
-  --text-primary: #eef4ff; // or #F1F5F9 — your choice
-  --text-secondary: #b8c9e3; // balanced sweet spot (lighter than yours, softer than mine)
-  --text-muted: #94a3b8; // safe, accessible, still clearly de-emphasized
-
-  --text-primary: #eef4ff;
-  --text-secondary: #b8c9e6; /* ~11:1 target */
-  --text-muted: #96a2bd; //#9ca9c4; /* ~6:1 target */
+  // Testing slightly brighter text
+  --text-secondary: #b8c9e6; /* ~11:1 contrast */
+  --text-muted: #96a2bd; /* 6:1 contrast -- current live contrast */
+  --text-muted: #8f9bb9; // Slightly less contrast?
+  --text-muted: hsl(216, 27%, 60%); // Testing slightly bluer, even less contrast
 
   --text-inverse: #0b0f14;
   --doc-text-strong: #0b0f14;
@@ -191,7 +188,8 @@ $bp-xs: 480px;
   --nav-h: 72px;
   --max-w: 1340px; //1280px;
   // --page-pad: clamp(1.5rem, 5vw, 4.5rem);
-  --page-pad: clamp(1.5rem, 5vw, 3rem);
+  // --page-pad: clamp(1.5rem, 5vw, 3rem);
+    --page-pad: 1.25rem;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -213,7 +211,7 @@ $bp-xs: 480px;
   --ease-launch: cubic-bezier(0.25, 0.46, 0.45, 0.94); // ease-out-quart (launches)
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); // overshoot spring (pops)
 
-  // Status colours
+  // Status color
   --green: #10b981; // available / positive status
 
   // Z-index scale
@@ -227,7 +225,7 @@ $bp-xs: 480px;
   --z-nav: 1000;
   --z-tooltip: 9999;
 
-  // GitHub contribution graph colours (used in legend + JS-generated cells)
+  // GitHub contribution graph colors (used in legend + JS-generated cells)
   --gh-0: #111820;
   --gh-1: #1e3a5f;
   --gh-2: #2563a8;

@@ -14,15 +14,34 @@
 
   &__layout {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--space-16);
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
     margin-top: var(--space-16);
     align-items: start;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: auto 1fr;
+      gap: var(--space-16);
+    }
   }
 
   &__portrait-wrap {
-    position: sticky;
-    top: calc(var(--nav-h) + var(--space-8));
+    position: static;
+    display: flex;
+    gap: var(--space-6);
+    align-items: center;
+
+    // flex-direction: column;
+    align-items: flex-start;
+
+    @media (min-width: $bp-lg) {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--space-8));
+
+      display: block;
+      // gap: 0;
+      // align-items: initial;
+    }
   }
 
   &__portrait-outer {
@@ -55,14 +74,19 @@
   }
 
   &__portrait {
-    width: 250px;
-    height: 290px;
+    width: 170px;
+    height: auto;
     background: transparent;
     border: none;
     // Match the ring's border-radius so overflow:hidden clips to the same shape
     border-radius: var(--radius-xl);
     overflow: hidden;
     position: relative;
+
+    @media (min-width: $bp-lg) {
+      width: 250px;
+      height: 290px;
+    }
 
     // Glow pool — blooms on hover
     &::before {

@@ -9,21 +9,17 @@
   &__layout {
     display: flex;
     flex-direction: column;
-    flex-direction: row;
-    gap: var(--space-16);
-    margin-top: var(--space-16);
     gap: var(--space-8);
-
-    align-items: center;
+    margin-top: var(--space-16);
+    align-items: flex-start;
     justify-content: center;
-    // max-width: 900px;
     margin-inline: auto;
 
-    @media (max-width: $bp-lg) {
-      flex-direction: column;
+    @media (min-width: $bp-lg) {
+      flex-direction: row;
+      align-items: center;
+
       > * {
-        align-self: center;
-        align-self: flex-start;
       }
     }
 
@@ -128,13 +124,11 @@
   // new approach
   .form {
     width: 100%;
-    width: 49%;
-    // max-width: 900px;
-    align-self: flex-end;
+    align-self: flex-start;
 
-    @media (max-width: $bp-lg) {
-      align-self: flex-start;
-      width: 100%;
+    @media (min-width: $bp-lg) {
+      align-self: flex-end;
+      width: 49%;
     }
 
     &__tagline {
@@ -164,6 +158,10 @@
       // Todo: Not sure I like this card-like approach? Free-floating labels feel nice!
       // @include card-base(var(--radius-xl), var(--space-8));
       // @include card-base(var(--radius-md), var(--space-8));
+
+      @media (min-width: $bp-lg) {
+        padding: var(--space-6);
+      }
     }
   }
 }
@@ -171,17 +169,13 @@
 .contact__cta {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  // align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
-  // justify-content: center;
-  // height: 400px;
-  // gap: 5rem;
-  width: 49%;
+  width: 100%;
 
-  @media (max-width: $bp-lg) {
-    align-self: flex-start;
-    width: 100%;
+  @media (min-width: $bp-lg) {
+    algin-self: center;
+    width: 49%;
   }
 }
 
@@ -193,22 +187,22 @@
 // Trust signals band
 .trust-band {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: 0;
   margin-top: var(--space-10);
   margin-bottom: var(--space-12);
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
 
-  @media (max-width: $bp-md) {
-    grid-template-columns: 1fr 1fr;
-    border-radius: var(--radius-lg);
+  @media (min-width: $bp-xs) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: $bp-xs) {
-    grid-template-columns: 1fr;
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: var(--radius-md);
   }
 }
 
@@ -217,35 +211,51 @@
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-6);
-  border-left: 1px solid var(--border);
   transition: background var(--t-base);
   text-decoration: none;
   color: inherit;
 
-  &:first-child {
-    border-left: none;
-  }
-  &:hover {
-    background: var(--bg-card-hover);
-  }
+  // All items start with a top border
+  border-top: 1px solid var(--border);
 
   // Responsive border adjustments
-  @media (max-width: $bp-md) {
-    &:nth-child(3) {
-      border-top: 1px solid var(--border);
-      border-left: none;
+  &:first-child {
+    border-top: none;
+  }
+
+  &:nth-child(2) {
+    @media (min-width: $bp-xs) {
+      border-left: 1px solid var(--border);
     }
-    &:nth-child(4) {
-      border-top: 1px solid var(--border);
+
+    @media (min-width: $bp-md) {
+      border-top: none;
     }
   }
 
-  @media (max-width: $bp-xs) {
-    border-left: none;
-    border-top: 1px solid var(--border);
-    &:first-child {
+  &:nth-child(3) {
+    @media (min-width: $bp-sm) {
+      border-top: 1px solid var(--border);
+    }
+
+    @media (min-width: $bp-md) {
+      border-left: 1px solid var(--border);
       border-top: none;
     }
+  }
+
+  &:nth-child(4) {
+    @media (min-width: $bp-xs) {
+      border-left: 1px solid var(--border);
+    }
+
+    @media (min-width: $bp-md) {
+      border-top: none;
+    }
+  }
+
+  &:hover {
+    background: var(--bg-card-hover);
   }
 
   // Availability dot

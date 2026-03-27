@@ -76,12 +76,16 @@
   &__name {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(5.5rem, 14vw, 15rem);
+    font-size: clamp(3.8rem, 17vw, 6rem);
     line-height: 0.85;
     letter-spacing: -0.04em;
     color: var(--text-primary);
     margin-bottom: var(--space-10);
     position: relative;
+
+    @media (min-width: $bp-xs) {
+      font-size: clamp(5.5rem, 14vw, 15rem);
+    }
 
     &-line {
       display: block;
@@ -111,11 +115,17 @@
 
   &__bottom {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
     gap: var(--space-10);
     flex-wrap: wrap;
     animation: fade-up 0.8s 0.55s var(--ease-out) both;
+
+    @media (min-width: $bp-lg) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
   }
 
   &__tagline-block {
@@ -151,6 +161,32 @@
     gap: var(--space-4);
     flex-wrap: wrap;
 
+    width: 100%;
+
+    @media (min-width: $bp-lg) {
+      width: initial;
+    }
+
+    .btn-primary {
+      flex: 1;
+      justify-content: center;
+
+      @media (min-width: $bp-lg) {
+        flex: none;
+        justify-content: flex-start;
+      }
+    }
+
+    .btn-ghost {
+      flex: 1;
+      justify-content: center;
+
+      @media (min-width: $bp-lg) {
+        flex: none;
+        justify-content: flex-start;
+      }
+    }
+
     .btn-primary svg {
       transition: transform var(--t-base) var(--ease-spring);
     }
@@ -162,12 +198,16 @@
 
   &__stats {
     display: flex;
-    gap: var(--space-8);
+    gap: var(--space-5);
     flex-wrap: wrap;
     padding-top: var(--space-6);
     border-top: 1px solid var(--border);
     animation: fade-up 0.8s 0.7s var(--ease-out) both;
     flex-shrink: 0;
+
+    @media (min-screen: $bp-xs) {
+      gap: var(--space-8);
+    }
   }
 
   &__stat-num {

@@ -8,7 +8,8 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: 0.85rem 2rem;
+  padding: 0.6rem 1.2rem;
+
   overflow: hidden;
   font-weight: 700; // override mixin — primary button needs bold
   background: var(--blue);
@@ -18,8 +19,8 @@
     box-shadow var(--t-base) var(--ease-out),
     transform var(--t-base) var(--ease-out);
 
-  @media (max-width: $bp-xs) {
-    padding: 0.6rem 1.2rem;
+  @media (min-width: $bp-xs) {
+    padding: 0.85rem 2rem;
   }
 
   &::before {
@@ -47,7 +48,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: 0.85rem 2rem;
+  padding: 0.6rem 1.2rem;
   background: transparent;
   border: 1px solid var(--border-bright);
   border-radius: var(--radius-sm);
@@ -57,8 +58,8 @@
     color var(--t-base),
     transform var(--t-base);
 
-  @media (max-width: $bp-xs) {
-    padding: 0.6rem 1.2rem;
+  @media (min-width: $bp-xs) {
+    padding: 0.85rem 2rem;
   }
 
   &:hover {

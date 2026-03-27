@@ -8,10 +8,15 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
     margin-top: var(--space-16);
     align-items: start;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
   }
 }
 

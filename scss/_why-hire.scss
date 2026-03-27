@@ -8,18 +8,16 @@
 
   &__grid {
     display: grid;
-    li {
-      list-style: none;
-    } // suppress bullet — .why-card display:flex handles layout
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--space-5);
     margin-top: var(--space-16);
 
-    @media (max-width: $bp-lg) {
-      grid-template-columns: 1fr 1fr;
+    @media (min-width: $bp-sm) {
+      grid-template-columns: repeat(2, 1fr);
     }
-    @media (max-width: $bp-sm) {
-      grid-template-columns: 1fr;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

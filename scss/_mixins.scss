@@ -95,7 +95,8 @@
 // and stat-card-sub mixins on the inner elements.
 @mixin stat-card {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
   background: var(--bg-float);
@@ -138,16 +139,13 @@
 @mixin stat-card-responsive($prefix) {
   .#{$prefix}__stat {
     min-width: 0;
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-3) var(--space-4);
     gap: var(--space-2);
     flex-direction: column;
     align-items: flex-start;
 
-    @media (max-width: $bp-lg) {
+    @media (min-width: $bp-md) {
       padding: var(--space-2) var(--space-3);
-    }
-    @media (max-width: $bp-md) {
-      padding: var(--space-3) var(--space-4);
     }
   }
 

@@ -18,13 +18,13 @@
 //  5. Animation:  transform, transition, animation
 // ============================================================
 
-// ── Foundation ───────────────────────────────────────────────
+// Abstract styles
 @use 'tokens'; // CSS custom properties & design tokens
 @use 'mixins'; // shared mixins & placeholders
 @use 'reset'; // Normalize + base element styles
 @use 'layout'; // Container, grid utilities, scroll-reveal
 
-// ── Components (alphabetical within logical groups) ──────────
+// Component styles
 @use 'nav';
 @use 'hero';
 @use 'ticker';
@@ -38,8 +38,5 @@
 @use 'coding';
 @use 'footer';
 
-// ── Responsive overrides (always last) ───────────────────────
-@use 'responsive';
-
-// ── Print styles ─────────────────────────────────────────────
+// Print styles
 @use 'print';

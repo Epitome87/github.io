@@ -4,28 +4,15 @@
 
 .nav {
   position: fixed;
-  top: var(--space-4);
+  top: var(--space-2);
   left: 50%;
   transform: translateX(-50%);
   z-index: var(--z-nav);
   width: min(calc(100% - 3rem), var(--max-w));
 
-  // new approach
-  // width: 100%; /* instead of 100vw */
-  // max-width: 100%; /* prevents overflow */
-  // box-sizing: border-box; /* very important */
-  // padding-left: env(safe-area-inset-left);
-  // padding-right: env(safe-area-inset-right);
-
-  // top: calc(var(--space-2) + env(safe-area-inset-top, 32px));
-  // left: 1rem;
-  // right: 1rem;
-  // width: auto;
-  // width: min(calc(100% - 2rem - env(safe-area-inset)), var(--max-w));
-  // margin-inline: auto;
-  // max-width: 100%;
-  // margin-left: min(1rem, env(safe-area-inset-left));
-  // margin-right: min(1rem, env(safe-area-inset-right));
+  @media (min-width: $bp-xs) {
+    top: var(--space-4);
+  }
 
   &::before {
     content: '';
@@ -54,8 +41,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 var(--space-6);
-    height: 58px;
+    padding: 0 var(--space-3);
+    height: 48px;
     background: var(--bg-nav);
     backdrop-filter: blur(var(--blur-nav));
     -webkit-backdrop-filter: blur(var(--blur-nav));
@@ -70,6 +57,16 @@
       background var(--t-base),
       box-shadow var(--t-base);
 
+    @media (min-width: $bp-xs) {
+      padding: 0 var(--space-6);
+      height: 58px;
+    }
+
+    @media (min-width: $bp-lg) {
+      padding: 0 var(--space-4);
+      height: 52px;
+    }
+
     &.scrolled {
       background: rgba(17, 24, 32, 0.8);
       box-shadow:
@@ -80,13 +77,17 @@
 
   &__logo {
     font-family: var(--font-display);
-    font-size: var(--text-xl);
+    font-size: var(--text-md);
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: var(--space-2);
+
+    @media (min-width: $bp-xs) {
+      font-size: var(--text-xl);
+    }
 
     &-dot {
       color: var(--blue);
@@ -124,9 +125,13 @@
   }
 
   &__links {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 1.75rem;
+
+    @media (min-width: $bp-lg) {
+      display: flex;
+    }
 
     li {
       list-style: none;
@@ -166,6 +171,7 @@
 
   &__cta {
     @include mono-label(var(--text-xs), var(--tracking-normal), var(--text-inverse));
+    display: none;
     font-weight: 700; // override mixin — CTA needs bold
     padding: 0.5rem 1.25rem;
     background: var(--blue);
@@ -175,6 +181,10 @@
       box-shadow var(--t-base),
       transform var(--t-base);
     white-space: nowrap;
+
+    @media (min-width: $bp-lg) {
+      display: initial;
+    }
 
     &:hover {
       background: var(--blue-light);
@@ -228,11 +238,15 @@
   }
 
   &__hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 5px;
     padding: var(--space-2);
     cursor: pointer;
+
+    @media (min-width: $bp-lg) {
+      display: none;
+    }
 
     span {
       display: block;
