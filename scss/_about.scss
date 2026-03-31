@@ -31,10 +31,12 @@
 
   &__portrait-wrap {
     display: flex;
+    justify-content: center;
     align-items: flex-start;
     gap: var(--space-6);
 
     @include bp(lg) {
+      justify-content: flex-start;
       position: sticky;
       top: calc(var(--nav-h) + var(--space-8));
       display: block;
@@ -63,7 +65,7 @@
   }
 
   &__portrait {
-    width: 170px;
+    width: 200px;
     height: auto;
     background: transparent;
     border: 0;
@@ -149,30 +151,6 @@
   // Ring speeds up on hover, standalone rule since ring is a sibling of portrait
   &__portrait-outer:hover .about__portrait-ring::before {
     animation-duration: 1.5s;
-  }
-
-  &__name-badge {
-    margin-top: var(--space-5);
-    padding: var(--space-3) var(--space-5);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    text-align: center;
-
-    &-name {
-      display: block;
-      font-family: var(--font-display);
-      font-size: var(--text-base);
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    span {
-      font-family: var(--font-mono);
-      font-size: var(--text-2xs);
-      color: var(--primary-light);
-      letter-spacing: var(--tracking-normal);
-    }
   }
 
   &__text {
