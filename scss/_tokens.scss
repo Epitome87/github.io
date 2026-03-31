@@ -8,7 +8,7 @@
   src: url('../fonts/clash-display/ClashDisplay-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -16,7 +16,7 @@
   src: url('../fonts/clash-display/ClashDisplay-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,7 +24,7 @@
   src: url('../fonts/clash-display/ClashDisplay-Semibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -32,7 +32,7 @@
   src: url('../fonts/clash-display/ClashDisplay-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 // Cabinet Grotesk (used for body text)
@@ -41,7 +41,7 @@
   src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -49,7 +49,7 @@
   src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -57,7 +57,7 @@
   src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -65,7 +65,7 @@
   src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 // JetBrains Mono (used for mono/code labels, nav links, form labels)
@@ -74,7 +74,7 @@
   src: url('../fonts/jetbrains-mono/JetBrainsMono-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -82,7 +82,7 @@
   src: url('../fonts/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -90,7 +90,7 @@
   src: url('../fonts/jetbrains-mono/JetBrainsMono-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 // ===== SASS Breakpoint variables =====

@@ -59,10 +59,12 @@ if (hamburger && mobileMenu) {
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, idx) => {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }, idx * 50); // TODO: Right now this must be >= the stagger numbers in layout.scss
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }, idx * 50); // TODO: Right now this must be >= the stagger numbers in layout.scss
+      }
     });
   },
   { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
@@ -90,6 +92,32 @@ themeToggle?.addEventListener('click', () => {
 });
 
 // ── Active nav link on scroll ────────────────────────────────
+const codingSection = document.getElementById('coding');
+
+if (codingSection) {
+  const loadCodingModules = async () => {
+    try {
+      await Promise.all([
+        import('./leetcode.js'),
+        import('./github.js'),
+      ]);
+    } catch (err) {
+      console.warn('Coding modules failed to load:', err);
+    }
+  };
+
+  const codingObserver = new IntersectionObserver(
+    (entries, observer) => {
+      if (!entries[0]?.isIntersecting) return;
+      loadCodingModules();
+      observer.disconnect();
+    },
+    { rootMargin: '300px 0px' },
+  );
+
+  codingObserver.observe(codingSection);
+}
+
 const navLinks = document.querySelectorAll('.nav__links a[href^="#"]');
 const sections = document.querySelectorAll('main section[id], section[id]');
 
@@ -174,7 +202,6 @@ if (footerInner) {
   const footerObserver = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
-        console.log(entry);
         if (entry.isIntersecting) {
           footerInner.classList.add('is-visible');
           footerObserver.unobserve(footerInner);
