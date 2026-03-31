@@ -1,4 +1,7 @@
-// ── SKILLS & EXPERIENCE ───────────────────────────────────────
+/* ==========================================================================
+   SKILLS & EXPERIENCE
+   ========================================================================== */
+
 @use 'tokens' as *;
 @use 'mixins' as *;
 
@@ -13,7 +16,7 @@
     margin-top: var(--space-16);
     align-items: start;
 
-    @media (min-width: $bp-lg) {
+    @include bp(lg) {
       grid-template-columns: 1fr 1fr;
       gap: var(--space-16);
     }
@@ -26,7 +29,7 @@
   }
 
   &__label {
-    @include mono-label(var(--text-xs), var(--tracking-wide), var(--amber));
+    @include mono-label(var(--text-xs), var(--tracking-wide), var(--complementary));
     margin-bottom: var(--space-2);
 
     &--timeline {
@@ -47,9 +50,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  li {
-    list-style: none;
-  } // suppress bullet — layout handled by .skill-chip
 }
 
 .skill-chip {
@@ -77,24 +77,28 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--blue-pale), transparent);
+    background: linear-gradient(135deg, var(--primary-pale), transparent);
     opacity: 0;
     transition: opacity var(--t-base);
   }
 
-  img {
+  svg {
     position: relative;
     z-index: var(--z-raised);
     width: 22px;
     height: 22px;
-    object-fit: contain;
-    filter: saturate(0.55);
-    transition: filter var(--t-base);
+    opacity: 0.84;
+    filter: saturate(0.82) brightness(0.96);
+    flex-shrink: 0;
+    transition:
+      opacity var(--t-base),
+      filter var(--t-base);
   }
 
   // Icons that appear dark on a dark background (Next.js, Express, Three.js)
   &__img--invert {
-    filter: saturate(0.55) invert(0.55);
+    opacity: 0.78;
+    filter: grayscale(1) invert(1) brightness(0.94);
   }
 
   span {
@@ -104,10 +108,9 @@
 
   &:hover {
     transition-delay: 0s; // cancel stagger delay so all chips respond instantly on hover
-    border-color: var(--blue);
+    border-color: var(--primary);
     color: var(--text-primary);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 18px var(--blue-glow-lg);
+    box-shadow: 0 4px 18px var(--primary-glow-lg);
 
     &.visible {
       // transition-delay: 0;
@@ -116,25 +119,34 @@
     &::before {
       opacity: 1;
     }
-    img {
-      filter: saturate(1);
+    svg {
+      opacity: 1;
+      filter: saturate(1.08) brightness(1.14);
     }
     .skill-chip__img--invert {
-      filter: saturate(1) invert(0.55);
+      opacity: 1;
+      filter: grayscale(1) invert(1) brightness(1.16);
     }
   }
 
-  [data-theme='light'] & img {
-    filter: saturate(0.85);
+  [data-theme='light'] & svg {
+    opacity: 0.88;
+    filter: saturate(0.84) brightness(0.98);
   }
-  [data-theme='light'] &:hover img {
-    filter: saturate(1);
+
+  [data-theme='light'] &:hover svg {
+    opacity: 1;
+    filter: saturate(1.08) brightness(1.1);
   }
+
   [data-theme='light'] & .skill-chip__img--invert {
-    filter: saturate(0.85) invert(0);
+    opacity: 0.88;
+    filter: saturate(0.84) brightness(0.98) invert(0);
   }
+
   [data-theme='light'] &:hover .skill-chip__img--invert {
-    filter: saturate(1) invert(0);
+    opacity: 1;
+    filter: saturate(1.08) brightness(1.1) invert(0);
   }
 }
 
@@ -153,7 +165,7 @@
     top: 8px;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(to bottom, var(--blue), var(--cyan) 65%, transparent);
+    background: linear-gradient(to bottom, var(--primary), var(--cyan) 65%, transparent);
     opacity: 0.4; // intentional: subtle guide line, not full contrast
   }
 }
@@ -170,13 +182,15 @@
 
   &:hover {
     .timeline-item__icon {
-      border-color: var(--blue);
-      background: var(--blue-pale);
+      border-color: var(--primary);
+      background: var(--primary-pale);
     }
+
     .timeline-item__icon--work {
-      border-color: var(--amber);
-      background: var(--amber-dim);
+      border-color: var(--complementary);
+      background: var(--complementary-dim);
     }
+
     .timeline-item__icon--boot {
       border-color: var(--cyan);
       background: var(--cyan-dim);
@@ -189,7 +203,7 @@
     left: calc(-1 * var(--space-6) - 14px);
     top: 2px;
     border: 2px solid var(--border-bright);
-    background: var(--bg-raise); // override mixin's --blue-pale — icon sits on section bg
+    background: var(--bg-raise); // override mixin's --primary-pale — icon sits on section bg
     transition:
       border-color var(--t-base),
       background var(--t-base),
@@ -202,9 +216,10 @@
     }
 
     &--work {
-      color: var(--amber);
-      border-color: var(--amber-dim);
+      color: var(--complementary);
+      border-color: var(--complementary-dim);
     }
+
     &--boot {
       color: var(--cyan);
       border-color: var(--cyan-dim);
@@ -212,7 +227,7 @@
   }
 
   &__date {
-    @include mono-label($color: var(--blue-light));
+    @include mono-label($color: var(--primary-light));
     margin-bottom: var(--space-2);
   }
 

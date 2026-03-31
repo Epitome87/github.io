@@ -1,5 +1,6 @@
-// ── RESET ─────────────────────────────────────────────────────
-// No @use needed here — tokens not referenced
+/* ==========================================================================
+   RESETS
+   ========================================================================== */
 
 *,
 *::before,
@@ -12,7 +13,6 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  // new approach
   scrollbar-gutter: stable; /* reserves space for scrollbar consistently */
   overflow-x: hidden; // Todo: shouldn't need this with proper design!
 }
@@ -62,7 +62,7 @@ ol {
 
 button {
   cursor: pointer;
-  border: none;
+  border: 0;
   background: none;
 }
 
@@ -70,30 +70,32 @@ address {
   font-style: normal;
 }
 
-// Custom scrollbar
+// == Custom scrollbar =====
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-base);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--blue-dim);
+  background: var(--primary-dim);
   border-radius: 3px;
 
   &:hover {
-    background: var(--blue);
+    background: var(--primary);
   }
 }
 
-// ── Skip navigation link ───────────────────────────────────────
+// == Skip navigation link =====
 .skip-nav {
   position: absolute;
   top: -100%;
   left: var(--space-4, 1rem);
   z-index: var(--z-tooltip);
   padding: var(--space-3, 0.75rem) var(--space-6, 1.5rem);
-  background: var(--blue, #61a6fa);
+  background: var(--primary, #61a6fa);
   color: var(--text-inverse, #0b0f14);
   font-family: var(--font-mono, monospace);
   font-size: var(--text-sm);
@@ -104,18 +106,18 @@ address {
 
   &:focus {
     top: 0;
-    outline: 3px solid var(--blue, #61a6fa);
+    outline: 3px solid var(--primary, #61a6fa);
     outline-offset: 2px;
   }
 }
 
-// ── Focus visible ──────────────────────────────────────────────
+// == Focus visible =====
 *:focus {
   outline: none;
 }
 
 *:focus-visible {
-  outline: 2px solid var(--blue, #61a6fa);
+  outline: 2px solid var(--primary, #61a6fa);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -130,7 +132,7 @@ address {
   }
 }
 
-// ── Reduced motion ─────────────────────────────────────────────
+// == Reduced motion =====
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

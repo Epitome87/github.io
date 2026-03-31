@@ -1,4 +1,7 @@
-// ── WHY HIRE ME ───────────────────────────────────────────────
+/* ==========================================================================
+   WHY HIRE ME?
+   ========================================================================== */
+
 @use 'tokens' as *;
 @use 'mixins' as *;
 
@@ -6,22 +9,24 @@
   padding: var(--space-32) 0;
   background: var(--bg-raise);
 
+  // Grid layout for the cards
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-5);
     margin-top: var(--space-16);
 
-    @media (min-width: $bp-sm) {
+    @include bp(sm) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: $bp-lg) {
+    @include bp(lg) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 }
 
+// Card styles
 .why-card {
   @include card-base;
   @include card-hover(-4px);

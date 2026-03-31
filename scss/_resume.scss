@@ -45,7 +45,7 @@
   margin-bottom: var(--space-5);
 
   span {
-    color: var(--blue-light);
+    color: var(--primary-light);
   }
 }
 
@@ -74,7 +74,7 @@
   box-shadow: var(--shadow-lg); // 0 8px 32px rgba(0,0,0,0.5)
   color: var(--doc-text); // document body text on white
 
-  @media (min-width: $bp-xs) {
+  @include bp(xs) {
     padding: 3rem 3.5rem;
   }
 }
@@ -96,7 +96,7 @@
 .resume-doc__title {
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--blue); // site blue token — consistent with brand
+  color: var(--primary); // site blue token — consistent with brand
   margin-bottom: var(--space-3);
 }
 
@@ -114,7 +114,7 @@
   }
 
   a:hover {
-    color: var(--blue);
+    color: var(--primary);
     text-decoration: underline;
   }
 }
@@ -136,7 +136,7 @@
 }
 
 .resume-doc__section-label {
-  @include mono-label(var(--text-2xs), var(--tracking-wide), var(--blue));
+  @include mono-label(var(--text-2xs), var(--tracking-wide), var(--primary));
   border-bottom: 1px solid var(--doc-accent-soft);
   padding-bottom: var(--space-1);
   margin-bottom: var(--space-4);
@@ -168,7 +168,7 @@
   text-transform: none;
   white-space: normal;
 
-  @media (min-width: $bp-xs) {
+  @include bp(xs) {
     white-space: nowrap;
   }
 }
@@ -180,7 +180,7 @@
   margin-bottom: var(--space-2);
 
   a {
-    color: var(--blue);
+    color: var(--primary);
     &:hover {
       text-decoration: underline;
     }
@@ -203,7 +203,7 @@
     content: '–';
     position: absolute;
     left: 0;
-    color: var(--blue);
+    color: var(--primary);
   }
 }
 
@@ -217,7 +217,7 @@
   gap: var(--space-1);
   margin-bottom: var(--space-1);
 
-  @media (min-width: $bp-xs) {
+  @include bp(xs) {
     flex-direction: row;
     gap: var(--space-2);
   }
@@ -262,7 +262,7 @@
 }
 
 .resume-doc__skills-category {
-  @include mono-label(var(--text-2xs), var(--tracking-normal), var(--blue));
+  @include mono-label(var(--text-2xs), var(--tracking-normal), var(--primary));
   font-weight: 700;
   text-transform: none;
   min-width: 90px;

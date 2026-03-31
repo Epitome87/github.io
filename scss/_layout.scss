@@ -1,4 +1,7 @@
-// ── LAYOUT ────────────────────────────────────────────────────
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
 @use 'tokens' as *;
 @use 'mixins' as *;
 
@@ -40,7 +43,7 @@ section {
 }
 
 .section-label {
-  @include mono-label(var(--text-xs), var(--tracking-wide), var(--blue));
+  @include mono-label(var(--text-xs), var(--tracking-wide), var(--primary));
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -52,7 +55,7 @@ section {
     width: 22px;
     height: 2px;
     flex-shrink: 0;
-    background: var(--blue);
+    background: var(--primary);
     border-radius: 1px;
   }
 }
@@ -100,17 +103,7 @@ section {
 }
 
 // Page-padding responsive adjustments
-@media (min-width: $bp-sm) {
-  :root {
-    --page-pad: clamp(1.5rem, 4vw, 2.5rem);
-  }
-
-  body {
-    font-size: var(--text-base);
-  }
-}
-
-@media (min-width: $bp-lg) {
+@include bp(lg) {
   :root {
     --page-pad: clamp(1.5rem, 5vw, 3rem);
   }
@@ -178,8 +171,8 @@ section {
   }
 
   &:hover {
-    border-color: var(--blue);
-    box-shadow: 0 4px 24px var(--blue-glow);
+    border-color: var(--primary);
+    box-shadow: 0 4px 24px var(--primary-glow);
     transform: translateY(-3px);
   }
 

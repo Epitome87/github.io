@@ -1,4 +1,7 @@
-// ── FOOTER ────────────────────────────────────────────────────
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+   
 @use 'tokens' as *;
 @use 'mixins' as *;
 
@@ -16,7 +19,7 @@
     flex-wrap: wrap;
     text-align: center;
 
-    @media (min-width: $bp-lg) {
+    @include bp(lg) {
       // TODO: Undo text-align: center
       flex-direction: row;
       gap: var(--space-8);
@@ -59,7 +62,7 @@
 
     &-name {
       // Animated gradient covers both "Matthew" and the dot together
-      background: linear-gradient(90deg, var(--blue) 0%, var(--amber) 50%, var(--blue) 100%);
+      background: linear-gradient(90deg, var(--primary) 0%, var(--complementary) 50%, var(--primary) 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
@@ -76,8 +79,8 @@
       height: 32px;
       border-radius: var(--radius-circle);
       object-fit: cover;
-      // border: 2px solid var(--blue);
-      box-shadow: 0 0 10px var(--blue-glow);
+      // border: 2px solid var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
     }
   }
 
@@ -125,10 +128,10 @@
   }
 
   &:hover {
-    border-color: var(--blue);
-    color: var(--blue-light);
-    background: var(--blue-pale);
-    box-shadow: 0 6px 22px var(--blue-glow-lg);
+    border-color: var(--primary);
+    color: var(--primary-light);
+    background: var(--primary-pale);
+    box-shadow: 0 6px 22px var(--primary-glow-lg);
   }
 
   // ── Per-platform hover animations ───────────────────────────

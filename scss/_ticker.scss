@@ -1,4 +1,7 @@
-// ── TICKER STRIP ──────────────────────────────────────────────
+/* ==========================================================================
+   TICKER STRIP
+   ========================================================================== */
+
 @use 'tokens' as *;
 @use 'mixins' as *;
 
@@ -62,7 +65,7 @@
 
   &__head {
     font-family: var(--font-display);
-    font-size: var(--text-base);
+    font-size: var(--text-md);
     font-weight: 600;
     color: var(--text-primary);
   }
