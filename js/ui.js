@@ -3,13 +3,34 @@ const navInner = document.getElementById('nav-inner');
 const navEl = document.getElementById('nav');
 const backToTop = document.querySelector('.back-to-top');
 
+// Track scroll state to avoid unnecessary DOM updates
+let wasScrolled = false;
+let wasBackToTopVisible = false;
+
 window.addEventListener(
   'scroll',
   () => {
-    const isScrolled = window.scrollY > 80;
-    navInner?.classList.toggle('scrolled', isScrolled);
-    navEl?.classList.toggle('is-scrolled', isScrolled);
-    backToTop?.classList.toggle('is-visible', window.scrollY > document.body.scrollHeight / 2 - window.innerHeight / 2);
+    const scrollY = window.scrollY;
+    const isScrolled = scrollY > 80;
+    const isBackToTopVisible = scrollY > document.body.scrollHeight / 2 - window.innerHeight / 2;
+
+    // Return early if neither state has changed to avoid unnecessary DOM updates
+    if (isScrolled === wasScrolled && isBackToTopVisible === wasBackToTopVisible) {
+      return;
+    }
+
+    // Add scrolled class to nav after scrolling past hero, and remove when back at top
+    if (isScrolled !== wasScrolled) {
+      navInner?.classList.toggle('scrolled', isScrolled);
+      navEl?.classList.toggle('is-scrolled', isScrolled);
+      wasScrolled = isScrolled;
+    }
+
+    // Back to top button appears after scrolling past the first half of the page
+    if (isBackToTopVisible !== wasBackToTopVisible) {
+      backToTop?.classList.toggle('is-visible', isBackToTopVisible);
+      wasBackToTopVisible = isBackToTopVisible;
+    }
   },
   { passive: true },
 );
@@ -97,10 +118,7 @@ const codingSection = document.getElementById('coding');
 if (codingSection) {
   const loadCodingModules = async () => {
     try {
-      await Promise.all([
-        import('./leetcode.js'),
-        import('./github.js'),
-      ]);
+      await Promise.all([import('./leetcode.js'), import('./github.js')]);
     } catch (err) {
       console.warn('Coding modules failed to load:', err);
     }
@@ -122,23 +140,9 @@ const navLinks = document.querySelectorAll('.nav__links a[href^="#"]');
 const sections = document.querySelectorAll('main section[id], section[id]');
 
 if (navLinks.length && sections.length) {
-  const updateActiveSection = () => {
-    let currentId = null;
-    let bestTop = Infinity;
+  const activeSections = new Map();
 
-    for (const section of sections) {
-      const rect = section.getBoundingClientRect();
-      const topDistance = Math.abs(rect.top);
-      const inView = rect.top < window.innerHeight * 0.4 && rect.bottom > window.innerHeight * 0.2;
-
-      if (inView && topDistance < bestTop) {
-        bestTop = topDistance;
-        currentId = section.id;
-      }
-    }
-
-    if (!currentId) return;
-
+  const setActiveLink = (currentId) => {
     for (const link of navLinks) {
       const isActive = link.getAttribute('href') === `#${currentId}`;
       link.classList.toggle('active', isActive);
@@ -150,8 +154,34 @@ if (navLinks.length && sections.length) {
     }
   };
 
+  const updateActiveSection = () => {
+    let currentId = null;
+    let bestTop = Infinity;
+
+    for (const [section, rect] of activeSections) {
+      const topDistance = Math.abs(rect.top);
+
+      if (topDistance < bestTop) {
+        bestTop = topDistance;
+        currentId = section.id;
+      }
+    }
+
+    if (!currentId) return;
+
+    setActiveLink(currentId);
+  };
+
   const sectionObserver = new IntersectionObserver(
-    () => {
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          activeSections.set(entry.target, entry.boundingClientRect);
+        } else {
+          activeSections.delete(entry.target);
+        }
+      }
+
       updateActiveSection();
     },
     { rootMargin: '-10% 0px -60% 0px', threshold: 0 },
@@ -166,32 +196,64 @@ const portraitOuter = document.querySelector('.about__portrait-outer');
 
 if (portraitOuter) {
   let clickCount = 0;
+  let activePortraitAnimation = null;
+
+  const playPortraitAnimation = (keyframes, duration) => {
+    activePortraitAnimation?.cancel();
+    activePortraitAnimation = portraitOuter.animate(keyframes, {
+      duration,
+      easing: 'cubic-bezier(0.36, 0.07, 0.19, 0.97)',
+      fill: 'none',
+    });
+  };
 
   portraitOuter.addEventListener('click', () => {
     clickCount++;
 
     if (clickCount >= 3) {
       // Third click — blast off, never to return
-      portraitOuter.classList.remove('is-wiggling', 'is-wiggling-2');
+      activePortraitAnimation?.cancel();
       portraitOuter.classList.add('is-launching');
       return;
     }
 
-    // First click — normal wiggle, second click — more extreme wiggle
-    const wiggleClass = clickCount === 1 ? 'is-wiggling' : 'is-wiggling-2';
-    const otherClass = clickCount === 1 ? 'is-wiggling-2' : 'is-wiggling';
-    portraitOuter.classList.remove(wiggleClass, otherClass);
-    void portraitOuter.offsetWidth; // force reflow to restart animation
-    portraitOuter.classList.add(wiggleClass);
+    if (clickCount === 1) {
+      playPortraitAnimation(
+        [
+          { transform: 'rotate(0deg) translateY(0)', offset: 0 },
+          { transform: 'rotate(-6deg) translateY(-4px)', offset: 0.1 },
+          { transform: 'rotate(5deg) translateY(-8px)', offset: 0.25 },
+          { transform: 'rotate(-4deg) translateY(-3px)', offset: 0.4 },
+          { transform: 'rotate(3deg) translateY(-6px)', offset: 0.55 },
+          { transform: 'rotate(-2deg) translateY(-2px)', offset: 0.7 },
+          { transform: 'rotate(1deg) translateY(-1px)', offset: 0.85 },
+          { transform: 'rotate(0deg) translateY(0)', offset: 1 },
+        ],
+        700,
+      );
+    } else {
+      playPortraitAnimation(
+        [
+          { transform: 'rotate(0deg) translateY(0)', offset: 0 },
+          { transform: 'rotate(-14deg) translateY(-10px)', offset: 0.08 },
+          { transform: 'rotate(12deg) translateY(-20px)', offset: 0.2 },
+          { transform: 'rotate(-10deg) translateY(-8px)', offset: 0.33 },
+          { transform: 'rotate(8deg) translateY(-15px)', offset: 0.46 },
+          { transform: 'rotate(-6deg) translateY(-6px)', offset: 0.58 },
+          { transform: 'rotate(4deg) translateY(-8px)', offset: 0.7 },
+          { transform: 'rotate(-2deg) translateY(-3px)', offset: 0.82 },
+          { transform: 'rotate(1deg) translateY(-1px)', offset: 0.91 },
+          { transform: 'rotate(0deg) translateY(0)', offset: 1 },
+        ],
+        1100,
+      );
+    }
   });
 
-  // Clean up wiggle classes when animation ends
   // On launch: hide entirely so it doesn't block content below
   portraitOuter.addEventListener('animationend', () => {
     if (portraitOuter.classList.contains('is-launching')) {
       portraitOuter.classList.add('is-hidden');
-    } else {
-      portraitOuter.classList.remove('is-wiggling', 'is-wiggling-2');
     }
   });
 }

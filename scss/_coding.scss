@@ -460,7 +460,7 @@ $scrollbar-radius: 2px;
 
 .lc-bar-label {
   @include mono-label(var(--text-2xs), var(--tracking-tight));
-  font-weight: 600; // override mixin default — needs bold for difficulty labels
+  font-weight: 600; // Technically only have weight 400, so browser simulates this for us
   white-space: nowrap;
 }
 .lc-easy {

@@ -42,71 +42,10 @@
   &__blurb {
     font-size: var(--text-md);
     color: var(--text-secondary);
-    color: var(--text-primary);
     line-height: var(--leading-normal);
     margin-bottom: var(--space-5);
   }
 
-  &__email {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: var(--space-2);
-  }
-
-  &__email-label {
-    // @include mono-label($tracking: var(--tracking-normal), $color: var(--text-secondary));
-    font-size: var(--text-md);
-    color: var(--text-secondary);
-  }
-
-  &__email-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-1) var(--space-2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition:
-      background var(--t-base) var(--ease-out),
-      border-color var(--t-base) var(--ease-out),
-      color var(--t-base) var(--ease-out),
-      box-shadow var(--t-base) var(--ease-out);
-
-    &:hover {
-      border-color: var(--primary);
-      background: var(--primary-pale);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-primary);
-
-      .contact__email-icon {
-        color: var(--primary);
-      }
-      .contact__email-address {
-        color: var(--primary-light);
-      }
-    }
-  }
-
-  &__email-icon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    color: var(--text-muted);
-    transition: color var(--t-base);
-  }
-
-  &__email-address {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--text-secondary);
-    transition: color var(--t-base);
-  }
-
-  // Form area stuff
-  // new approach
   .form {
     width: 100%;
     align-self: flex-start;

@@ -5,22 +5,6 @@
 // Clash Display (used for headings, hero name, section titles)
 @font-face {
   font-family: 'Clash Display';
-  src: url('../fonts/clash-display/ClashDisplay-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Clash Display';
-  src: url('../fonts/clash-display/ClashDisplay-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Clash Display';
   src: url('../fonts/clash-display/ClashDisplay-Semibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
@@ -46,24 +30,8 @@
 
 @font-face {
   font-family: 'Cabinet Grotesk';
-  src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cabinet Grotesk';
   src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2') format('woff2');
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cabinet Grotesk';
-  src: url('../fonts/cabinet-grotesk/CabinetGrotesk-Extrabold.woff2') format('woff2');
-  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -71,24 +39,8 @@
 // JetBrains Mono (used for mono/code labels, nav links, form labels)
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('../fonts/jetbrains-mono/JetBrainsMono-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
   src: url('../fonts/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('../fonts/jetbrains-mono/JetBrainsMono-Medium.woff2') format('woff2');
-  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }

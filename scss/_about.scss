@@ -52,14 +52,6 @@
       animation-play-state: paused;
     }
 
-    &.is-wiggling {
-      animation: portrait-wiggle 0.7s var(--ease-spring);
-    }
-
-    &.is-wiggling-2 {
-      animation: portrait-wiggle-2 1.1s var(--ease-spring);
-    }
-
     &.is-launching {
       animation: portrait-rocket 1.6s var(--ease-launch) forwards;
       pointer-events: none;
@@ -198,14 +190,13 @@
 
   &__highlight {
     color: var(--primary-light);
-    font-weight: 800;
+    font-weight: 700;
   }
 
   &__resume-link {
     gap: var(--space-3);
     background: var(--bg-card);
     border-color: var(--complementary);
-    font-weight: 500;
 
     &:hover {
       border-color: var(--complementary);
@@ -232,39 +223,6 @@
   }
   50% {
     transform: translateY(-8px);
-  }
-}
-
-@keyframes portrait-wiggle-2 {
-  0% {
-    transform: rotate(0deg) translateY(0);
-  }
-  8% {
-    transform: rotate(-14deg) translateY(-10px);
-  }
-  20% {
-    transform: rotate(12deg) translateY(-20px);
-  }
-  33% {
-    transform: rotate(-10deg) translateY(-8px);
-  }
-  46% {
-    transform: rotate(8deg) translateY(-15px);
-  }
-  58% {
-    transform: rotate(-6deg) translateY(-6px);
-  }
-  70% {
-    transform: rotate(4deg) translateY(-8px);
-  }
-  82% {
-    transform: rotate(-2deg) translateY(-3px);
-  }
-  91% {
-    transform: rotate(1deg) translateY(-1px);
-  }
-  100% {
-    transform: rotate(0deg) translateY(0);
   }
 }
 
@@ -302,7 +260,7 @@
     transform: translateY(-8px) rotate(-1deg);
     opacity: 1;
   }
-  // Ignition — starts lifting
+  // Ignition - starts lifting
   52% {
     transform: translateY(-20px) rotate(1deg);
     opacity: 1;
@@ -311,7 +269,7 @@
     transform: translateY(-50px) rotate(0deg);
     opacity: 1;
   }
-  // Full acceleration — stays fully opaque the whole way
+  // Full acceleration - stays fully opaque the whole way
   100% {
     transform: translateY(-200vh) rotate(0deg);
     opacity: 1;
@@ -328,32 +286,5 @@
   }
   75% {
     transform: rotate(0.4deg);
-  }
-}
-
-@keyframes portrait-wiggle {
-  0% {
-    transform: rotate(0deg) translateY(0);
-  }
-  10% {
-    transform: rotate(-6deg) translateY(-4px);
-  }
-  25% {
-    transform: rotate(5deg) translateY(-8px);
-  }
-  40% {
-    transform: rotate(-4deg) translateY(-3px);
-  }
-  55% {
-    transform: rotate(3deg) translateY(-6px);
-  }
-  70% {
-    transform: rotate(-2deg) translateY(-2px);
-  }
-  85% {
-    transform: rotate(1deg) translateY(-1px);
-  }
-  100% {
-    transform: rotate(0deg) translateY(0);
   }
 }

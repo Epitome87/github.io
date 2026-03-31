@@ -19,16 +19,16 @@ const lcMediumBarEl = document.getElementById('lc-medium-bar');
 const lcHardBarEl = document.getElementById('lc-hard-bar');
 const hasLeetCodeDom = Boolean(
   leetcodeCard &&
-    lcTotalEl &&
-    lcAcceptEl &&
-    lcRankingEl &&
-    lcRankSubEl &&
-    lcEasyCountEl &&
-    lcMediumCountEl &&
-    lcHardCountEl &&
-    lcEasyBarEl &&
-    lcMediumBarEl &&
-    lcHardBarEl,
+  lcTotalEl &&
+  lcAcceptEl &&
+  lcRankingEl &&
+  lcRankSubEl &&
+  lcEasyCountEl &&
+  lcMediumCountEl &&
+  lcHardCountEl &&
+  lcEasyBarEl &&
+  lcMediumBarEl &&
+  lcHardBarEl,
 );
 
 async function loadLeetCode() {

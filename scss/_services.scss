@@ -87,7 +87,6 @@
     position: absolute;
     top: calc(-1 * var(--space-4));
     left: var(--space-6);
-    font-weight: 500; // override mixin — badge needs medium weight
     padding: var(--space-1) var(--space-3);
     background: var(--primary);
     border-radius: var(--radius-pill);

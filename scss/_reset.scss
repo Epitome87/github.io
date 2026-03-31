@@ -99,7 +99,7 @@ address {
   color: var(--text-inverse, #0b0f14);
   font-family: var(--font-mono, monospace);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 400; // normal weight for better readability
   border-radius: 0 0 8px 8px;
   text-decoration: none;
   transition: top 0.2s;
