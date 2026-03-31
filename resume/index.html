@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4f7ff" media="(prefers-color-scheme: light)" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Resume of Matthew McGrath, Full-Stack Web Developer based in Riverside, CA. Specializing in React, Next.js, Node.js and TypeScript."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Resume — Matthew McGrath | Full-Stack Web Developer" />
+    <meta
+      property="og:description"
+      content="Full-Stack Web Developer based in Riverside, CA. React, Next.js, Node.js, TypeScript. View my resume online or download as PDF."
+    />
+    <meta property="og:image" content="https://matthewmcgrath.dev/images/social/og-preview.png" />
+    <meta property="og:url" content="https://matthewmcgrath.dev/resume" />
+    <meta property="og:site_name" content="Matthew McGrath Portfolio" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Resume — Matthew McGrath | Full-Stack Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Full-Stack Web Developer based in Riverside, CA. React, Next.js, Node.js, TypeScript."
+    />
+    <meta name="twitter:image" content="https://matthewmcgrath.dev/images/social/og-preview.png" />
+    <meta name="twitter:creator" content="@Epitome87" />
+
+    <link rel="canonical" href="https://matthewmcgrath.dev/resume" />
+
+    <!-- Icons & manifest -->
+    <link rel="icon" type="image/png" href="../images/branding/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/branding/favicon.svg" />
+    <link rel="shortcut icon" href="../images/branding/favicon.ico" />
+    <link rel="apple-touch-icon" href="../images/branding/apple-touch-icon.png" sizes="180x180" />
+    <meta name="apple-mobile-web-app-title" content="Matthew McGrath" />
+    <link rel="manifest" href="../manifest.json" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="../fonts/clash-display/ClashDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="../fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../fonts/jetbrains-mono/JetBrainsMono-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- main.css provides tokens, reset, nav styles and font-face declarations -->
+    <!-- resume.css provides the page-specific styles compiled from _resume.scss -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/resume.css" />
+
+    <title>Resume | Matthew McGrath — Full-Stack Web Developer</title>
+  </head>
+  <body>
+    <a class="skip-nav" href="#main-content">Skip to main content</a>
+
+    <!-- NAV — identical to index.html except anchor hrefs use /# prefix -->
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <div class="nav__inner" id="nav-inner">
+        <a href="/" class="nav__logo" aria-label="Back to homepage" title="Back to homepage">
+          <img
+            class="nav__logo-avatar"
+            src="../images/branding/favicon-96x96.png"
+            alt=""
+            aria-hidden="true"
+            width="32"
+            height="32"
+          />
+          Matthew<span class="nav__logo-dot">.</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#coding">Activity</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="#" class="resume-nav-link active" aria-current="page">Resume</a></li>
+        </ul>
+        <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Dark mode" aria-pressed="true">
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            class="icon-sun"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            class="icon-moon"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <a href="/#contact" class="nav__cta">Hire Me</a>
+        <button
+          type="button"
+          class="nav__hamburger"
+          id="hamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <ul class="nav__mobile" id="mobile-menu" aria-hidden="true">
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#coding">Activity</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/resume.html" class="resume-nav-link active" aria-current="page">Resume</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content">
+      <div class="resume-page">
+        <!-- Page header -->
+        <header class="resume-page__header">
+          <span class="resume-page__eyebrow">Matthew McGrath</span>
+          <h1 class="resume-page__title">Resum<span>é</span></h1>
+          <div class="resume-page__actions">
+            <a
+              href="matthew-mcgrath-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="resume-page__btn-download btn-primary"
+              aria-label="Download resume as PDF, opens in new tab"
+            >
+              <svg
+                viewBox="0 0 14 14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 1v8M3 6l4 4 4-4M1 11h12" />
+              </svg>
+              Download PDF
+            </a>
+          </div>
+        </header>
+
+        <!-- Document panel -->
+        <article class="resume-doc" aria-label="Matthew McGrath resume">
+          <!-- Header -->
+          <header class="resume-doc__header">
+            <h2 class="resume-doc__name">Matthew McGrath</h2>
+            <p class="resume-doc__title">Full-Stack Web Developer</p>
+            <div class="resume-doc__contact">
+              <a href="mailto:matthew.mcgrath.b@gmail.com">matthew.mcgrath.b@gmail.com</a>
+              <a href="tel:+19095285426">(909) 528-5426</a>
+              <a href="https://matthewmcgrath.dev" target="_blank" rel="noopener noreferrer">matthewmcgrath.dev</a>
+              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer">github.com/Epitome87</a>
+              <a href="https://www.linkedin.com/in/matthew-b-mcgrath/" target="_blank" rel="noopener noreferrer"
+                >linkedin.com/in/matthew-b-mcgrath</a
+              >
+              <span>Riverside, CA</span>
+            </div>
+          </header>
+
+          <div class="resume-doc__divider"></div>
+
+          <!-- Education -->
+          <section class="resume-doc__section" aria-labelledby="resume-education">
+            <h3 class="resume-doc__section-label" id="resume-education">Education</h3>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__edu-header">
+                <span class="resume-doc__edu-school">Western Governors University</span>
+                <span class="resume-doc__edu-location">Salt Lake City, UT</span>
+              </div>
+              <p class="resume-doc__edu-degree">Bachelor of Science, Computer Science — <em>Expected July 2026</em></p>
+              <p class="resume-doc__edu-detail">
+                Relevant Coursework: Computer Architecture, Data Structures and Algorithms, Artificial Intelligence,
+                Java, Web Development, Back-End Programming
+              </p>
+            </div>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__edu-header">
+                <span class="resume-doc__edu-school">Westwood College</span>
+                <span class="resume-doc__edu-location">Denver, CO</span>
+              </div>
+              <p class="resume-doc__edu-degree">Bachelor of Science, Game Software Development — <em>2015</em></p>
+              <p class="resume-doc__edu-detail">
+                Cumulative GPA: 4.0/4.0 · Dean's List · Relevant Coursework: Assembly, Compiler Design, Software
+                Engineering, Operating Systems, Game Development
+              </p>
+            </div>
+          </section>
+
+          <div class="resume-doc__divider"></div>
+
+          <!-- Experience -->
+          <section class="resume-doc__section" aria-labelledby="resume-experience">
+            <h3 class="resume-doc__section-label" id="resume-experience">Work Experience</h3>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__entry-header">
+                <span class="resume-doc__entry-title">Web Developer — Freelance</span>
+                <span class="resume-doc__entry-date">Oct 2020 – July 2025</span>
+              </div>
+              <p class="resume-doc__entry-meta">Riverside, CA · Remote</p>
+              <ul class="resume-doc__bullets">
+                <li class="resume-doc__bullet">
+                  Created responsive, accessible websites utilizing React, HTML, CSS, and various frameworks
+                </li>
+                <li class="resume-doc__bullet">
+                  Implemented business logic using JavaScript, TypeScript, Node.js, and Express
+                </li>
+                <li class="resume-doc__bullet">
+                  Planned with and managed small groups of developers to create full-stack web apps
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__entry-header">
+                <span class="resume-doc__entry-title">Lead Game Developer — Pixel Psyche Studios</span>
+                <span class="resume-doc__entry-date">2009 – 2020</span>
+              </div>
+              <p class="resume-doc__entry-meta">Riverside, CA</p>
+              <ul class="resume-doc__bullets">
+                <li class="resume-doc__bullet">
+                  Independently developed and released two games for the Xbox Live marketplace
+                </li>
+                <li class="resume-doc__bullet">
+                  Designed a C#-based game engine from scratch, improving development time and reducing game logic
+                  complexity
+                </li>
+                <li class="resume-doc__bullet">
+                  Collaborated with 50+ game developers to playtest, improve, and create their dream games
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <div class="resume-doc__divider"></div>
+
+          <!-- Projects -->
+          <section class="resume-doc__section" aria-labelledby="resume-projects">
+            <h3 class="resume-doc__section-label" id="resume-projects">Projects</h3>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__entry-header">
+                <span class="resume-doc__entry-title">Matthew McGrath's Web Developer Portfolio</span>
+              </div>
+              <p class="resume-doc__entry-meta">
+                <a href="https://matthewmcgrath.dev" target="_blank" rel="noopener noreferrer">matthewmcgrath.dev</a>
+              </p>
+              <ul class="resume-doc__bullets">
+                <li class="resume-doc__bullet">
+                  Launched a portfolio website built with HTML, Sass, and vanilla JavaScript — achieving a perfect
+                  Lighthouse score
+                </li>
+                <li class="resume-doc__bullet">Designed with accessibility and SEO best practices throughout</li>
+              </ul>
+            </div>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__entry-header">
+                <span class="resume-doc__entry-title">Flat UI – Color Palette Picker</span>
+              </div>
+              <p class="resume-doc__entry-meta">
+                <a href="https://epitome87.github.io/React-Flat-UI/" target="_blank" rel="noopener noreferrer"
+                  >Live Demo</a
+                >
+              </p>
+              <ul class="resume-doc__bullets">
+                <li class="resume-doc__bullet">
+                  Developed a polished full-stack clone of the Flat UI website using React, React Router, and Material
+                  UI
+                </li>
+                <li class="resume-doc__bullet">
+                  Persistent local and global storage allows users to create and save custom color palettes
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__entry-header">
+                <span class="resume-doc__entry-title">Avatars in Grave Danger — Xbox 360 Game</span>
+              </div>
+              <p class="resume-doc__entry-meta">
+                <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </p>
+              <ul class="resume-doc__bullets">
+                <li class="resume-doc__bullet">
+                  Designed, programmed, and sold a wave-based arcade game for the Xbox 360 indie platform
+                </li>
+                <li class="resume-doc__bullet">
+                  Built a full game engine using tens of thousands of lines of C# — experienced by thousands of players
+                  with a 4.2/5.0 rating
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-doc__entry">
+              <div class="resume-doc__entry-header">
+                <span class="resume-doc__entry-title">Avatar Typing — Xbox 360 Game</span>
+              </div>
+              <p class="resume-doc__entry-meta">
+                <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </p>
+              <ul class="resume-doc__bullets">
+                <li class="resume-doc__bullet">
+                  Designed, programmed, and sold a light-hearted zombie typing game for the Xbox 360 indie platform
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <div class="resume-doc__divider"></div>
+
+          <!-- Skills -->
+          <section class="resume-doc__section" aria-labelledby="resume-skills">
+            <h3 class="resume-doc__section-label" id="resume-skills">Skills</h3>
+            <div class="resume-doc__skills-grid">
+              <div class="resume-doc__skills-row">
+                <span class="resume-doc__skills-category">Front End</span>
+                <span class="resume-doc__skills-list">JavaScript, TypeScript, HTML, CSS, Sass, Tailwind</span>
+              </div>
+              <div class="resume-doc__skills-row">
+                <span class="resume-doc__skills-category">Back End</span>
+                <span class="resume-doc__skills-list">Python, C#, Node.js, Express, PostgreSQL, MongoDB</span>
+              </div>
+              <div class="resume-doc__skills-row">
+                <span class="resume-doc__skills-category">Frameworks</span>
+                <span class="resume-doc__skills-list">React, Next.js, Angular</span>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <p class="footer__copy">Built with 🤍 and ☕ by Matthew McGrath &nbsp;·&nbsp; &copy; 2026</p>
+          <div class="footer__brand">
+            <img
+              src="../images/branding/favicon-96x96.png"
+              alt=""
+              aria-hidden="true"
+              class="footer__brand-avatar"
+              width="32"
+              height="32"
+              loading="lazy"
+              decoding="async"
+            /><span class="footer__brand-name">Matthew<span class="footer__brand-dot">.</span></span>
+          </div>
+          <div class="footer__socials">
+            <a
+              class="social-btn"
+              href="https://www.linkedin.com/in/matthew-b-mcgrath/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Matthew's LinkedIn profile"
+              data-social="linkedin"
+              ><svg aria-hidden="true"><use href="../images/sprites/icons.svg#i32"></use></svg></a>
+            <a
+              class="social-btn"
+              href="https://github.com/epitome87"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Matthew's GitHub profile"
+              data-social="github"
+              ><svg aria-hidden="true"><use href="../images/sprites/icons.svg#i33"></use></svg></a>
+            <a
+              class="social-btn"
+              href="https://x.com/Epitome87"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Matthew's X (Twitter) profile"
+              data-social="x"
+              ><svg aria-hidden="true"><use href="../images/sprites/icons.svg#i34"></use></svg></a>
+            <a
+              class="social-btn"
+              href="https://leetcode.com/u/epitome87/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Matthew's LeetCode profile"
+              data-social="leetcode"
+              ><svg aria-hidden="true"><use href="../images/sprites/icons.svg#i35"></use></svg></a>
+            <a
+              class="social-btn"
+              href="https://www.codewars.com/users/Epitome87"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Matthew's Codewars profile"
+              data-social="codewars"
+              ><svg aria-hidden="true"><use href="../images/sprites/icons.svg#i36"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" aria-label="Back to top" title="Back to top">🚀</button>
+
+    <!-- Theme init — runs before paint to prevent flash -->
+    <script>
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') ?? 'dark');
+    </script>
+
+    <!-- Nav JS — scroll behavior, theme toggle, mobile menu -->
+    <script src="../js/ui.js"></script>
+  </body>
+</html>
+
