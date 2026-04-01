@@ -6,8 +6,12 @@
 @use 'mixins' as *;
 
 .why-hire {
-  padding: var(--space-32) 0;
-  background: var(--bg-raise);
+  padding: var(--space-24) 0;
+  background-color: var(--bg-raise);
+
+  @include bp(lg) {
+    padding: var(--space-32) 0;
+  }
 
   // Grid layout for the cards
   &__grid {

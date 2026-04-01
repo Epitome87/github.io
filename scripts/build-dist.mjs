@@ -1,28 +1,19 @@
-﻿import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+﻿import { transform } from 'esbuild';
+import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { transform } from 'esbuild';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const srcDir = path.join(rootDir, 'src');
+const srcJsDir = path.join(srcDir, 'js');
 const distDir = path.join(rootDir, 'dist');
-const srcJsDir = path.join(rootDir, 'js');
 const distJsDir = path.join(distDir, 'js');
 
 const args = new Set(process.argv.slice(2));
 
-const copyTargets = [
-  'index.html',
-  'resume',
-  'images',
-  'fonts',
-  'manifest.json',
-  'robots.txt',
-  'sitemap.xml',
-  'CNAME',
-  'matthew-mcgrath-resume.pdf',
-];
+const copyTargets = ['index.html', 'resume', 'assets', 'manifest.json', 'robots.txt', 'sitemap.xml', 'CNAME'];
 
 const cleanDist = async () => {
   await rm(distDir, { recursive: true, force: true });
@@ -56,7 +47,7 @@ const copyDistAssets = async () => {
   await mkdir(distDir, { recursive: true });
 
   for (const target of copyTargets) {
-    const from = path.join(rootDir, target);
+    const from = path.join(srcDir, target);
     const to = path.join(distDir, target);
     await cp(from, to, { recursive: true });
   }

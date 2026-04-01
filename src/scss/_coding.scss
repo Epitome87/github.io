@@ -320,8 +320,12 @@ $scrollbar-radius: 2px;
 
 // ── Coding activity layout grid ────────────────────────────────
 .coding {
-  padding: var(--space-32) 0;
-  background: var(--bg-base);
+  padding: var(--space-24) 0;
+  background-color: var(--bg-base);
+
+  @include bp(lg) {
+    padding: var(--space-32) 0;
+  }
 
   &__grid {
     display: grid;

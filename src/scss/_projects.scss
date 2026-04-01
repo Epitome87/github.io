@@ -6,8 +6,12 @@
 @use 'mixins' as *;
 
 .projects {
-  padding: var(--space-32) 0;
-  background: var(--bg-base);
+  padding: var(--space-24) 0;
+  background-color: var(--bg-raise);
+
+  @include bp(lg) {
+    padding: var(--space-32) 0;
+  }
 
   &__head {
     display: flex;

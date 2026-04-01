@@ -1,6 +1,7 @@
 node_modules/
 dist/
 js/min/
+.vscode/
 .sass-cache/
 *.log
 npm-debug.log*
