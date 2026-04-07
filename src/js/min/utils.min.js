@@ -1,1 +1,0 @@
-const s="Epitome87",i="200px",a=async(r,e=12e3)=>{const o=new AbortController,n=setTimeout(()=>o.abort(),e);try{const t=await fetch(r,{signal:o.signal});if(!t.ok)throw new Error(`HTTP ${t.status}`);return await t.json()}finally{clearTimeout(n)}};export{i as FETCH_TRIGGER_DISTANCE,s as USERNAME,a as fetchWithTimeout};
