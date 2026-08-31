@@ -18,6 +18,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-5);
+    gap: var(--space-16);
     margin-top: var(--space-16);
 
     @include bp(sm) {
@@ -34,6 +35,12 @@
 .why-card {
   @include card-base;
   @include card-hover(-4px);
+
+  // TODO REMOVE??
+  // border: 1px solid var(--bg-float);
+  // padding: 1rem;
+  // border-radius: var(--radius-lg);
+
   display: flex;
   flex-direction: column;
   gap: var(--space-5);

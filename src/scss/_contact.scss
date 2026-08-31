@@ -115,7 +115,7 @@
   gap: 0;
   margin-top: var(--space-10);
   margin-bottom: var(--space-12);
-  background: var(--bg-card);
+  // background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -250,7 +250,9 @@ input[type='email'],
 textarea {
   width: 100%;
   padding: 0.85rem 1rem;
+  // background: hsl(220, 39%, 6%);
   background: var(--bg-float);
+  // background: var(--bg-raise);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);

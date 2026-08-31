@@ -56,12 +56,27 @@
 }
 
 .service-card {
-  @include card-base;
-  @include card-hover(-6px);
+  // @include card-base;
+  // @include card-hover(-6px);
+  // remove
+  background: var(--bg-card);
+  border: 1px solid var(--bg-float);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+
+  // box-shadow:
+  //   var(--shadow-lg),
+  //   0 0 0 1px var(--primary-dim);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 16px 32px -4px rgba(0, 0, 0, 0.5);
+
+  // end remove
   position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  gap: var(--space-10);
 
   &:hover {
     .service-card__icon {
@@ -72,7 +87,7 @@
 
   &--featured {
     border-color: var(--primary-dim);
-    background: linear-gradient(160deg, var(--bg-card) 60%, rgba(97, 166, 250, 0.05) 100%);
+    // background: linear-gradient(160deg, var(--bg-card) 60%, rgba(97, 166, 250, 0.05) 100%);
 
     &:hover {
       border-color: var(--primary);

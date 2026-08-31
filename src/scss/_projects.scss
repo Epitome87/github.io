@@ -59,8 +59,10 @@
   &__cta-band {
     margin-top: var(--space-16);
     padding: var(--space-10);
-    background: linear-gradient(135deg, var(--primary-dim) 0%, rgba(30, 58, 95, 0.38) 50%, var(--bg-card) 100%);
+    // background: linear-gradient(135deg, var(--primary-dim) 0%, rgba(30, 58, 95, 0.38) 50%, var(--bg-card) 100%);
+    background: linear-gradient(135deg, var(--bg-float) 0%, rgba(30, 58, 95, 0.08) 50%, var(--bg-card) 100%);
     border: 1px solid var(--border-bright);
+    // border: 1px solid var(--complementary);
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
@@ -114,8 +116,15 @@
 }
 
 .project-featured {
-  @include card-base(var(--radius-xl), 0); // no top-level padding — __body has var(--space-10)
-  @include card-hover(0px, var(--shadow-lg)); // no lift — featured is full-width, shadow only
+  // @include card-base(var(--radius-xl), 0); // no top-level padding — __body has var(--space-10)
+  // @include card-hover(0px, var(--shadow-lg)); // no lift — featured is full-width, shadow only
+  // remove?
+  border: 1px solid var(--bg-float);
+  border-radius: var(--radius-lg);
+  @include card-hover(0);
+  background: var(--bg-card);
+
+  // end remove?
   display: grid;
   overflow: hidden;
   margin-bottom: var(--space-6);
@@ -242,8 +251,16 @@
 }
 
 .project-card {
-  @include card-base(var(--radius-lg), 0); // no top-level padding — image is edge-to-edge, __body has its own padding
+  // @include card-base(var(--radius-lg), 0); // no top-level padding — image is edge-to-edge, __body has its own padding
+  // remove this border and radius
+  border: 1px solid var(--bg-float);
+  border-radius: var(--radius-lg);
   @include card-hover(-7px);
+  background: var(--bg-card);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 16px 32px -4px rgba(0, 0, 0, 0.5);
+  // end remove
   display: flex;
   flex-direction: column;
   overflow: hidden;

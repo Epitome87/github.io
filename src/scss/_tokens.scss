@@ -57,10 +57,11 @@ $breakpoints: (
 // ===== CSS Custom Properties =====
 :root {
   // Backgrounds, dark
-  --bg-base: #0b0f14;
-  --bg-raise: #101620;
-  --bg-float: #161e2c;
-  --bg-card: #1b2333;
+  --bg-base: hsl(220, 29%, 6%);
+  --bg-raise: hsl(220, 29%, 7%);
+  // --bg-raise: #101620;
+  --bg-float: rgba(203, 213, 225, 0.08); //#161e2c;
+  --bg-card: #12141a; //#1b2333;
   --bg-card-hover: #202a3d;
   --bg-nav: rgb(17, 24, 32);
 
@@ -69,7 +70,8 @@ $breakpoints: (
   --border-bright: rgba(97, 166, 250, 0.2);
 
   // Primary color pallette
-  --primary: #61a6fa;
+  //--primary:  #61a6fa;
+  --primary: hsl(213, 74%, 68%); // hsl(217, 91%, 60%);
   --primary-light: #93c5fd;
   --primary-dim: #1e3a5f;
   --primary-glow: rgba(97, 166, 250, 0.28);
@@ -82,6 +84,7 @@ $breakpoints: (
 
   // Complementary contrast palette, amber
   --complementary: #fab561;
+  // --complementary: hsl(33, 74%, 68%);
   --complementary-light: #fac27d;
   --complementary-dim: rgba(250, 181, 97, 0.14);
   --complementary-glow: rgba(250, 181, 97, 0.28);
@@ -91,9 +94,10 @@ $breakpoints: (
 
   // Text color palette
   --text-primary: #eef4ff;
-  --text-secondary: #b8c9e6; /* ~11:1 contrast */
-  --text-muted: hsl(216, 27%, 60%); /* ~7:1 contrast */
-  --text-inverse: #0b0f14;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1; //#b8c9e6; /* ~11:1 contrast */
+  --text-muted: hsl(213, 27%, 74%); //hsl(216, 27%, 60%); /* ~7:1 contrast */
+  --text-inverse: #050505; //#0b0f14;
 
   // Color palette for resume page
   --doc-text-strong: #0b0f14;
