@@ -316,6 +316,37 @@ $scrollbar-radius: 2px;
   &-sub {
     @include stat-card-sub;
   }
+
+  &--rank {
+    border-color: rgba(255, 183, 0, 0.3);
+    background: linear-gradient(145deg, var(--bg-card), rgba(255, 183, 0, 0.05));
+
+    &:hover {
+      border-color: rgba(255, 183, 0, 0.55);
+    }
+
+    .leetcode__stat-num {
+      color: #ffb700;
+      text-shadow: 0 0 16px rgba(255, 183, 0, 0.25);
+    }
+  }
+}
+
+.lc-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  color: #ffb700;
+  background: rgba(255, 183, 0, 0.12);
+  border: 1px solid rgba(255, 183, 0, 0.35);
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+  box-shadow: 0 2px 8px -2px rgba(255, 183, 0, 0.2);
 }
 
 // ── Coding activity layout grid ────────────────────────────────

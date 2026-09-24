@@ -1,3 +1,5 @@
+import './project-modal.js';
+
 // ── Nav scroll & back-to-top visibility ──────────────────────
 const navInner = document.getElementById('nav-inner');
 const navEl = document.getElementById('nav');
@@ -116,13 +118,22 @@ themeToggle?.addEventListener('click', () => {
 const codingSection = document.getElementById('coding');
 
 if (codingSection) {
+  let codingLoaded = false;
   const loadCodingModules = async () => {
+    if (codingLoaded) return;
+    codingLoaded = true;
     try {
       await Promise.all([import('./leetcode.js'), import('./github.js')]);
     } catch (err) {
       console.warn('Coding modules failed to load:', err);
     }
   };
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => loadCodingModules(), { timeout: 2000 });
+  } else {
+    setTimeout(loadCodingModules, 1000);
+  }
 
   const codingObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -287,5 +298,86 @@ if (backToTop) {
       // Reset button after it's scrolled away
       backToTop.classList.remove('is-launching', 'is-visible');
     }, 700);
+  });
+}
+
+
+// ── Contact Form Submission (AJAX + Honeypot + Time-trap) ────
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+const formSubmitBtn = document.getElementById('form-submit-btn');
+
+if (contactForm && formStatus && formSubmitBtn) {
+  let formInteractionStart = 0;
+
+  // Track when user first interacts with any form input
+  contactForm.addEventListener(
+    'focusin',
+    () => {
+      if (!formInteractionStart) formInteractionStart = Date.now();
+    },
+    { once: true },
+  );
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const honey = formData.get('_honey');
+
+    // Honeypot check: if filled by a bot, simulate success without sending
+    if (honey) {
+      contactForm.reset();
+      formStatus.className = 'form-status form-status--success is-visible';
+      formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+      return;
+    }
+
+    // Time-trap check: if submitted unnaturally fast (<1.8s), add a brief delay
+    const elapsedTime = formInteractionStart ? Date.now() - formInteractionStart : 0;
+    if (elapsedTime < 1800) {
+      await new Promise((r) => setTimeout(r, 1200));
+    }
+
+    const btnTextSpan = formSubmitBtn.querySelector('span');
+    const originalText = btnTextSpan ? btnTextSpan.textContent : formSubmitBtn.textContent;
+
+    // Loading state
+    if (btnTextSpan) btnTextSpan.textContent = 'Sending...';
+    formSubmitBtn.disabled = true;
+    formStatus.className = 'form-status';
+    formStatus.textContent = '';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        formInteractionStart = 0;
+        if (btnTextSpan) btnTextSpan.textContent = 'Sent! ✓';
+        formStatus.className = 'form-status form-status--success is-visible';
+        formStatus.textContent = "Thank you! Your message has been sent. I'll get back to you within 24 hours.";
+
+        setTimeout(() => {
+          if (btnTextSpan) btnTextSpan.textContent = originalText;
+          formSubmitBtn.disabled = false;
+        }, 5000);
+      } else {
+        throw new Error(`HTTP ${response.status}`);
+      }
+    } catch (err) {
+      console.warn('Form submission error:', err);
+      if (btnTextSpan) btnTextSpan.textContent = originalText;
+      formSubmitBtn.disabled = false;
+      formStatus.className = 'form-status form-status--error is-visible';
+      formStatus.innerHTML =
+        'Could not send message automatically. Please email me directly at <a href="mailto:matthew.mcgrath.b@gmail.com" style="text-decoration: underline;">matthew.mcgrath.b@gmail.com</a>.';
+    }
   });
 }

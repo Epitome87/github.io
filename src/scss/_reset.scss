@@ -133,6 +133,7 @@ address {
 }
 
 // == Reduced motion =====
+/* == Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -141,5 +142,113 @@ address {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Disable all scroll reveal animations */
+  .reveal,
+  .project-card,
+  .service-card,
+  .about__portrait-outer,
+  .back-to-top,
+  .ticker-item,
+  .why-card,
+  .coding__col,
+  .form-group {
+    /* Remove all transitions */
+    transition: none !important;
+    transform: none !important;
+
+    /* Disable any existing animations */
+    animation: none !important;
+  }
+
+  /* Ensure elements are always visible instantly */
+  .reveal:not(.visible),
+  .project-card,
+  .service-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Disable theme toggle animation */
+  #theme-toggle {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Disable back-to-top rocket animation */
+  .back-to-top {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Disable portrait bounce animation */
+  .about__portrait-outer {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Footer - stop pop-in animations (CRITICAL FIX!) */
+  /* This targets footer__inner > * which is the staggered entrance */
+  .footer__inner > *,
+  .footer__copy,
+  .footer__brand,
+  .footer__socials {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Hero name - stop character pop-in */
+  .hero__name-line--first span,
+  .hero__name-char {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Hero meta-row (status/location text) - CRITICAL FIX */
+  .hero__meta-row {
+    animation: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* Hero bottom container (everything else in hero) - CRITICAL FIX */
+  .hero__bottom {
+    animation: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* Hero stats div - CRITICAL FIX */
+  .hero__stats {
+    animation: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* Footer brand gradient */
+  .footer__brand-avatar,
+  .footer__brand-name {
+    animation: none !important;
+  }
+
+  /* Smooth scrolling should be instant, not smooth */
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Additional fallback for any remaining animations */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
   }
 }

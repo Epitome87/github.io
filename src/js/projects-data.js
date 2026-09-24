@@ -1,0 +1,136 @@
+/* ── Project Case Studies Data ── */
+export const PROJECTS_DATA = {
+  'grave-danger': {
+    id: 'grave-danger',
+    title: 'Avatars in Grave Danger',
+    category: 'Game Architecture · Systems Engineering',
+    tagline: 'Solo-developed commercial 3D wave-defense game published on Xbox Live',
+    stats: [
+      { label: 'Platform', value: 'Xbox 360 / Live' },
+      { label: 'Codebase', value: '100K+ lines C#' },
+      { label: 'Role', value: 'Solo Developer' },
+      { label: 'Framerate', value: 'Locked 60 FPS' },
+    ],
+    overview:
+      'Avatars in Grave Danger is a full 3D action wave-defense game published on the Xbox Live Indie Games marketplace. Players protect their Xbox Avatars from relentless hordes of undead across multiple maps with progressive weapon upgrades, boss battles, and global leaderboards.',
+    challenge:
+      'The Xbox 360 hardware ran a custom .NET Compact Framework with a non-generational Garbage Collector. Spawning hundreds of animated 3D enemies, projectile physics, and particle systems caused severe GC pauses and frame drops if heap allocations occurred during gameplay.',
+    architecture:
+      'Engineered a zero-allocation game loop utilizing custom object pools for all enemies, bullets, and particles. Built quadtree spatial partitioning for fast collision detection and frustum culling. Developed custom HLSL shaders for dynamic lighting, shadow mapping, and character skinning.',
+    techStack: ['C#', 'Microsoft XNA 4.0', 'HLSL Shaders', 'Blender 3D', 'Xbox Live APIs', 'FMOD Audio'],
+    codeUrl: 'https://github.com/Epitome87/Avatars-In-Grave-Danger',
+    liveUrl: 'https://www.youtube.com/watch?v=6DuTH5mqsXY',
+    liveLabel: 'Watch Gameplay Footage',
+    embedUrl: 'https://www.youtube.com/embed/6DuTH5mqsXY',
+  },
+  'flat-ui': {
+    id: 'flat-ui',
+    title: 'Flat UI Clone',
+    category: 'Front-End Engineering · Design Systems',
+    tagline: 'Full-stack color palette generator and design system application',
+    stats: [
+      { label: 'Framework', value: 'React' },
+      { label: 'UI Library', value: 'Material UI' },
+      { label: 'Formats', value: 'HEX, RGB, RGBA' },
+      { label: 'State', value: 'Local Storage Sync' },
+    ],
+    overview:
+      'A feature-rich clone of the popular Flat UI Colors web application. Allows designers and developers to browse curated palettes, create custom color collections, generate dynamic shades, and copy color values in multiple formats with instant audio-visual feedback.',
+    challenge:
+      'Generating harmonious color shades dynamically across different lightness and saturation scales while ensuring text readability on every background hue and keeping the UI fast and responsive during drag-and-drop palette reorganization.',
+    architecture:
+      'Implemented custom Chroma-js algorithms to compute dynamic color scales and luminance-based contrast ratios for accessible text overlays. Structured state management with React hooks and synchronized user palettes with LocalStorage. Used Material-UI with custom styled components.',
+    techStack: ['React', 'JavaScript (ES6+)', 'Material-UI', 'Chroma-js', 'React Router', 'CSS3'],
+    codeUrl: 'https://github.com/Epitome87/React-Flat-UI',
+    liveUrl: 'https://epitome87.github.io/React-Flat-UI/',
+    liveLabel: 'View Live Demo',
+  },
+  'frontend-collection': {
+    id: 'frontend-collection',
+    title: 'Frontend Collection',
+    category: 'UI/UX Architecture · CSS Systems',
+    tagline: 'Curated suite of accessible, production-grade component and page layouts',
+    stats: [
+      { label: 'Accessibility', value: 'WCAG AA Compliant' },
+      { label: 'Layouts', value: 'Grid & Flexbox' },
+      { label: 'CSS Arch', value: 'SASS BEM' },
+      { label: 'Responsiveness', value: 'Mobile-First' },
+    ],
+    overview:
+      'A collection of precision-engineered web components, pricing calculators, interactive dashboards, and full marketing landing pages built from professional Figma design specifications.',
+    challenge:
+      'Translating complex multi-column responsive designs into semantic, accessible HTML with zero layout shifts (CLS: 0), ensuring full keyboard navigation, ARIA live regions, and fluid typography without heavy JavaScript layout libraries.',
+    architecture:
+      'Organized using modular SASS with BEM methodology, custom design token hierarchies, fluid clamp() typography, and CSS Grid/Flexbox layouts. Engineered interactive widgets (theme toggles, modal dialogs, tab switchers) using lightweight vanilla JavaScript.',
+    techStack: ['HTML5 Semantic Architecture', 'SCSS / SASS', 'JavaScript (ES6+)', 'CSS Grid & Flexbox', 'ARIA a11y'],
+    codeUrl: 'https://github.com/Epitome87/front-end-mentor-journey',
+    liveUrl: 'https://github.com/Epitome87/front-end-mentor-journey',
+    liveLabel: 'View on GitHub',
+  },
+  'react-recipes': {
+    id: 'react-recipes',
+    title: 'Recipe App',
+    category: 'Full-Stack Web App · API Integration',
+    tagline: 'Interactive meal search and recipe discovery platform',
+    stats: [
+      { label: 'Frontend', value: 'React + Chakra UI' },
+      { label: 'Animations', value: 'Framer Motion' },
+      { label: 'API', value: 'RESTful Spoonacular' },
+      { label: 'Deployment', value: 'Vercel' },
+    ],
+    overview:
+      'A modern culinary exploration application that lets users search millions of recipes, filter by dietary requirements (vegetarian, keto, gluten-free), explore international cuisines, and view detailed ingredient breakdowns with instructions.',
+    challenge:
+      'Managing asynchronous API rate limits, implementing responsive live search debouncing, and providing smooth, staggered card animations without UI jank when fetching large image datasets.',
+    architecture:
+      'Built with React and custom hooks for API caching, debouncing, and error handling. Used Chakra UI for accessible component primitives and Framer Motion for staggered grid entrances and modal transitions. Deployed on Vercel with automatic CI/CD.',
+    techStack: ['React', 'Node.js', 'Chakra UI', 'Framer Motion', 'REST APIs', 'Vercel'],
+    codeUrl: 'https://github.com/Epitome87/React-Recipes',
+    liveUrl: 'https://react-recipes-d136loejp-epitome87.vercel.app/',
+    liveLabel: 'View Live Demo',
+  },
+  'omnifood': {
+    id: 'omnifood',
+    title: 'Omnifood',
+    category: 'Conversion UX · Modern CSS Architecture',
+    tagline: 'High-converting responsive landing page for an AI food subscription service',
+    stats: [
+      { label: 'Performance', value: 'Sub-second LCP' },
+      { label: 'Layout', value: 'Custom CSS Grid' },
+      { label: 'UX', value: 'Sticky Header + CTA' },
+      { label: 'SEO', value: 'Semantic Markup' },
+    ],
+    overview:
+      'A comprehensive, modern marketing website designed for an AI-powered healthy meal delivery startup. Features custom pricing tables, customer testimonial carousels, responsive meal cards, and conversion-optimized lead capture forms.',
+    challenge:
+      'Delivering rich visual imagery, customer social proof, and multi-step interactive forms while maintaining sub-second Largest Contentful Paint (LCP) and zero layout shifts across desktop, tablet, and mobile screens.',
+    architecture:
+      'Engineered with modern CSS Grid and Flexbox, utilizing responsive <picture> elements and WebP images. Built an IntersectionObserver-driven sticky navigation header with smooth scrolling and custom accessible form validation.',
+    techStack: ['HTML5', 'CSS3', 'Modern JavaScript', 'SASS / SCSS', 'Responsive Design'],
+    codeUrl: 'https://github.com/Epitome87/Omni-Food',
+    liveUrl: 'https://epitome87.github.io/Omni-Food/',
+    liveLabel: 'View Live Demo',
+  },
+  'personal-portfolio': {
+    id: 'personal-portfolio',
+    title: 'Personal Portfolio v1',
+    category: 'Web Performance · Design Systems',
+    tagline: 'Ultra-fast, minimalist developer portfolio with perfect Lighthouse scores',
+    stats: [
+      { label: 'Lighthouse', value: '100 / 100' },
+      { label: 'Bundle Size', value: '< 25 KB' },
+      { label: 'Theme', value: 'Dark / Light Mode' },
+      { label: 'Frameworks', value: 'Zero Dependencies' },
+    ],
+    overview:
+      'The initial generation of my developer portfolio, focused on raw speed, perfect accessibility, and a distinctive dark/light mode aesthetic without heavy runtime libraries.',
+    challenge:
+      'Achieving flawless 100/100 Lighthouse scores across Performance, Accessibility, Best Practices, and SEO while delivering custom typography, animations, and interactive theme toggling.',
+    architecture:
+      'Constructed with vanilla JavaScript and custom IntersectionObservers for scroll-reveals. Utilized a custom SCSS design token architecture with CSS custom properties for instant theme switching without page reloads.',
+    techStack: ['HTML5', 'Modern SCSS', 'Vanilla JavaScript (ES6+)', 'GitHub Pages'],
+    codeUrl: 'https://github.com/Epitome87/personal-portfolio-2023',
+    liveUrl: 'https://epitome87.github.io/personal-portfolio-2023',
+    liveLabel: 'View Live Demo',
+  },
+};
