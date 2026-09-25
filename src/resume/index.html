@@ -2,133 +2,71 @@
 <html lang="en" data-theme="dark">
 
 <head>
-  <!-- Character encoding -->
   <meta charset="UTF-8" />
-
-  <!-- Page identity -->
-  <title>Matthew McGrath | Full-Stack Web Developer</title>
-  <link rel="canonical" href="https://matthewmcgrath.dev" />
-
-  <!-- Viewport & theme -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f4f7ff" media="(prefers-color-scheme: light)" />
-
-  <!-- SEO -->
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Matthew McGrath" />
-  <meta name="description" content="Full-Stack Web Developer based in Riverside, CA. Specializing in React, Next.js, and Node.js — building responsive, accessible web experiences. 15+ years of coding experience. Open to full-time and freelance opportunities." />
+  <meta name="description" content="Resume of Matthew McGrath, Full-Stack Web Developer based in Riverside, CA. Specializing in React, Next.js, Node.js and TypeScript." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Matthew McGrath | Full-Stack Web Developer" />
-  <meta property="og:description" content="California-based Full-Stack Web Developer. React, Next.js, Node.js, and a decade of shipping real software. Available for freelance &amp; full-time roles." />
+  <meta property="og:title" content="Resume — Matthew McGrath | Full-Stack Web Developer" />
+  <meta property="og:description" content="Full-Stack Web Developer based in Riverside, CA. React, Next.js, Node.js, TypeScript. View my resume online or download as PDF." />
   <meta property="og:image" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
-  <meta property="og:url" content="https://matthewmcgrath.dev" />
+  <meta property="og:url" content="https://matthewmcgrath.dev/resume" />
   <meta property="og:site_name" content="Matthew McGrath Portfolio" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Matthew McGrath | Full-Stack Web Developer" />
-  <meta name="twitter:description" content="California-based Full-Stack Web Developer. React, Next.js, Node.js, and a decade of shipping real software." />
+  <meta name="twitter:title" content="Resume — Matthew McGrath | Full-Stack Web Developer" />
+  <meta name="twitter:description" content="Full-Stack Web Developer based in Riverside, CA. React, Next.js, Node.js, TypeScript." />
   <meta name="twitter:image" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
   <meta name="twitter:creator" content="@Epitome87" />
 
+  <link rel="canonical" href="https://matthewmcgrath.dev/resume" />
+
   <!-- Icons & manifest -->
-  <link rel="icon" type="image/png" href="assets/images/branding/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="assets/images/branding/favicon.svg" />
-  <link rel="shortcut icon" href="assets/images/branding/favicon.ico" />
-  <link rel="apple-touch-icon" href="assets/images/branding/apple-touch-icon.png" sizes="180x180" />
+  <link rel="icon" type="image/png" href="../assets/images/branding/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/branding/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/images/branding/favicon.ico" />
+  <link rel="apple-touch-icon" href="../assets/images/branding/apple-touch-icon.png" sizes="180x180" />
   <meta name="apple-mobile-web-app-title" content="Matthew McGrath" />
-  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="../manifest.json" />
 
-  <!-- DNS prefetch for late-loading third-party origins.
-       Lighter than preconnect — only resolves DNS, no TCP/TLS overhead.
-       Appropriate for resources loaded on scroll (skill icons, Codewars badge). -->
-  <link rel="dns-prefetch" href="https://www.codewars.com" />
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="../assets/fonts/clash-display/ClashDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../assets/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../assets/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../assets/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- Preload critical above-fold fonts -->
-  <link rel="preload" href="assets/fonts/clash-display/ClashDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/cabinet-grotesk/CabinetGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- main.css provides tokens, reset, nav styles and font-face declarations -->
+  <!-- resume.css provides the page-specific styles compiled from _resume.scss -->
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/resume.css" />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/main.css" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Matthew McGrath",
-      "url": "https://matthewmcgrath.dev",
-      "jobTitle": "Full-Stack Web Developer",
-      "description": "Full-stack web developer based in Riverside, CA specializing in React, Next.js, Node.js, and modern web technologies. Available for freelance and full-time roles.",
-      "image": "https://matthewmcgrath.dev/assets/images/social/og-preview.png",
-      "email": "matthew.mcgrath.b@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Riverside",
-        "addressRegion": "CA",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://github.com/Epitome87",
-        "https://www.linkedin.com/in/matthew-b-mcgrath/",
-        "https://x.com/Epitome87",
-        "https://leetcode.com/u/Epitome87/",
-        "https://www.codewars.com/users/Epitome87"
-      ],
-      "knowsAbout": [
-        "React",
-        "Next.js",
-        "Node.js",
-        "JavaScript",
-        "TypeScript",
-        "HTML",
-        "CSS",
-        "Sass",
-        "MongoDB",
-        "PostgreSQL",
-        "Express",
-        "Git",
-        "Tailwind CSS",
-        "Three.js"
-      ],
-      "hasOccupation": {
-        "@type": "Occupation",
-        "name": "Full-Stack Web Developer",
-        "occupationLocation": {
-          "@type": "City",
-          "name": "Riverside, CA"
-        },
-        "skills": "React, Next.js, Node.js, JavaScript, TypeScript, HTML, CSS, MongoDB, PostgreSQL"
-      }
-    }
-  </script>
+  <title>Resume | Matthew McGrath — Full-Stack Web Developer</title>
 </head>
 
 <body>
   <a class="skip-nav" href="#main-content">Skip to main content</a>
 
-  <!-- NAV -->
+  <!-- NAV — identical to index.html except anchor hrefs use /# prefix -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav__inner" id="nav-inner">
-      <a href="#home" class="nav__logo" aria-label="Back to top" title="Back to top">
-        <img class="nav__logo-avatar" src="assets/images/branding/favicon-96x96.png" alt="Matthew McGrath cartoon avatar" width="32" height="32" />
+      <a href="/" class="nav__logo" aria-label="Back to homepage" title="Back to homepage">
+        <img class="nav__logo-avatar" src="../assets/images/branding/favicon-96x96.png" alt="" aria-hidden="true" width="32" height="32" />
         Matthew<span class="nav__logo-dot">.</span>
       </a>
       <ul class="nav__links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#coding">Activity</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="resume/">Resume</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#coding">Activity</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="#" class="resume-nav-link active" aria-current="page">Resume</a></li>
       </ul>
       <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Dark mode" aria-pressed="true">
-        <!-- Sun: shown in dark mode -->
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
@@ -140,1218 +78,258 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
-        <!-- Moon: shown in light mode -->
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="icon-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       </button>
-      <a href="#contact" class="nav__cta">Hire Me</a>
+      <a href="/#contact" class="nav__cta">Hire Me</a>
       <button type="button" class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <ul class="nav__mobile" id="mobile-menu" aria-hidden="true">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#coding">Activity</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="resume/">Resume</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#coding">Activity</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/resume.html" class="resume-nav-link active" aria-current="page">Resume</a></li>
     </ul>
   </nav>
 
   <main id="main-content">
-    <!-- HERO -->
-    <section class="hero" id="home" aria-labelledby="hero-heading">
-      <div class="container hero__content">
-        <!-- Status + location -->
-        <div class="hero__meta-row">
-          <div class="hero__available">
-            <div class="hero__available-dot" aria-hidden="true"></div>
-            Available for hire
-          </div>
-          <span class="hero__location">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="hero__location-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z" />
-              <circle cx="12" cy="10" r="3" />
+    <div class="resume-page">
+      <!-- Page header -->
+      <header class="resume-page__header">
+        <span class="resume-page__eyebrow">Matthew McGrath</span>
+        <h1 class="resume-page__title">Resum<span>é</span></h1>
+        <div class="resume-page__actions">
+          <a href="../assets/docs/matthew-mcgrath-resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-page__btn-download btn-primary" aria-label="Download resume as PDF, opens in new tab">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 1v8M3 6l4 4 4-4M1 11h12" />
             </svg>
-            Riverside, CA
-          </span>
-        </div>
-
-        <!-- Comically-massive name with pop-in characters -->
-        <h1 class="hero__name" id="hero-heading" aria-label="Matthew McGrath">
-          <span class="hero__name-line hero__name-line--first"><span>Matthew</span></span>
-          <span class="hero__name-line hero__name-line--last" aria-hidden="true"><span class="hero__name-char" style="--char-i: 0">M</span><span class="hero__name-char" style="--char-i: 1">c</span><span class="hero__name-char" style="--char-i: 2">G</span><span class="hero__name-char" style="--char-i: 3">r</span><span class="hero__name-char" style="--char-i: 4">a</span><span class="hero__name-char" style="--char-i: 5">t</span><span class="hero__name-char" style="--char-i: 6">h</span></span>
-          <span class="sr-only">McGrath</span>
-        </h1>
-      </div>
-
-      <div class="container">
-        <div class="hero__bottom">
-          <!-- Tagline + CTAs -->
-          <div class="hero__tagline-block">
-            <p class="hero__tagline-lead">
-              Need a website that feels <span>modern</span> and <span>trustworthy</span>?
-            </p>
-            <p class="hero__tagline">
-              I design and build polished web experiences that are fast, accessible, and ready for real users.
-            </p>
-            <div class="hero__actions">
-              <a href="#projects" class="btn-primary">
-                View My Work
-                <!-- <svg viewBox="0 0 14 14" width="14" height="14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> -->
-              </a>
-              <a href="#contact" class="btn-ghost">Say Hello</a>
-            </div>
-          </div>
-          <!-- Professional Stats -->
-          <ul class="hero__stats">
-            <li>
-              <p class="hero__stat-num">15<span>+</span></p>
-              <p class="hero__stat-label">Years Coding</p>
-            </li>
-            <li>
-              <p class="hero__stat-num">2</p>
-              <p class="hero__stat-label">Games Shipped</p>
-            </li>
-            <li>
-              <p class="hero__stat-num">100K<span>+</span></p>
-              <p class="hero__stat-label">Lines Written</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects" id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="projects__head">
-          <div>
-            <p class="section-label">Selected Work</p>
-            <h2 class="section-title" id="projects-heading">Projects</h2>
-          </div>
-          <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" class="projects__more-link" aria-label="View more projects on GitHub, opens in new tab">
-            More on GitHub
-            <svg width="12" height="12" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i01"></use>
-            </svg>
+            Download PDF
           </a>
         </div>
+      </header>
 
-        <article class="project-featured reveal" data-project-id="grave-danger">
-          <div class="project-featured__img">
-            <img src="assets/images/projects/preview-grave-danger-1200.webp" srcset="
-                  assets/images/projects/preview-grave-danger-480.webp   480w,
-                  assets/images/projects/preview-grave-danger-800.webp   800w,
-                  assets/images/projects/preview-grave-danger-1200.webp 1200w
-                " sizes="(max-width: 1023px) calc(100vw - 2.5rem), 684px" alt="Avatars in Grave Danger" loading="lazy" decoding="async" width="400" height="220" />
+      <!-- Document panel -->
+      <article class="resume-doc" aria-label="Matthew McGrath resume">
+        <!-- Header -->
+        <header class="resume-doc__header">
+          <h2 class="resume-doc__name">Matthew McGrath</h2>
+          <p class="resume-doc__title">Full-Stack Web Developer</p>
+          <div class="resume-doc__contact">
+            <a href="mailto:matthew.mcgrath.b@gmail.com">matthew.mcgrath.b@gmail.com</a>
+            <a href="tel:+19095285426">(909) 528-5426</a>
+            <a href="https://matthewmcgrath.dev" target="_blank" rel="noopener noreferrer">matthewmcgrath.dev</a>
+            <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer">github.com/Epitome87</a>
+            <a href="https://www.linkedin.com/in/matthew-b-mcgrath/" target="_blank" rel="noopener noreferrer">linkedin.com/in/matthew-b-mcgrath</a>
+            <span>Riverside, CA</span>
           </div>
-          <div class="project-featured__body">
-            <p class="project-featured__num">Featured ✦ 01 <span class="project-featured__case-study-hint">· Click for Case Study ↗</span></p>
-            <h3 class="project-featured__title">Avatars in Grave Danger</h3>
-            <p class="project-featured__desc">
-              A 3D wave-defense game where you protect your avatar from hordes of the undead — built solo and
-              published on Xbox Live Indie Games. Over 100,000 lines of C# from concept to launch.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">C#</span>
-              <span class="project-tag">XNA Framework</span>
-              <span class="project-tag">Blender</span>
-              <span class="project-tag">Xbox Live</span>
-            </div>
-            <div class="project-featured__links">
-              <a href="https://github.com/Epitome87/Avatars-In-Grave-Danger" class="btn--code" target="_blank" rel="noopener noreferrer" aria-label="View code for Avatars in Grave Danger on GitHub">
-                <svg width="14" height="14" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i02"></use>
-                </svg>
-                Code
-              </a>
-              <a href="https://www.youtube.com/watch?v=6DuTH5mqsXY" class="btn--live" target="_blank" rel="noopener noreferrer" aria-label="Watch gameplay footage for Avatars in Grave Danger">Watch Footage <span class="btn--live-arrow" aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
+        </header>
 
-        <div class="projects__grid">
-          <article class="project-card reveal" data-project-id="flat-ui">
-            <div class="project-card__img">
-              <img src="assets/images/projects/preview-flat-ui-clone-800.webp" srcset="
-                    assets/images/projects/preview-flat-ui-clone-320.webp 320w,
-                    assets/images/projects/preview-flat-ui-clone-640.webp 640w,
-                    assets/images/projects/preview-flat-ui-clone-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Flat UI Clone" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">02</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
-            </div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Flat UI Clone</h3>
-              <p class="project-card__desc">
-                Fullstack, highly-polished clone of the Flat UI website. Incorporates every main feature and adds some
-                of its own.
-              </p>
-              <footer class="project-card__footer">
-                <span class="project-card__tech">React · Material UI</span>
-                <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/React-Flat-UI" target="_blank" rel="noopener noreferrer" aria-label="View code for Flat UI Clone on GitHub">Code</a>
-                  <a href="https://epitome87.github.io/React-Flat-UI/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Flat UI Clone">Live</a>
-                </div>
-              </footer>
-            </div>
-          </article>
-          <article class="project-card reveal" data-project-id="frontend-collection">
-            <div class="project-card__img">
-              <img src="assets/images/projects/preview-frontend-collection-800.webp" srcset="
-                    assets/images/projects/preview-frontend-collection-320.webp 320w,
-                    assets/images/projects/preview-frontend-collection-640.webp 640w,
-                    assets/images/projects/preview-frontend-collection-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Frontend Collection" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">03</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
-            </div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Frontend Collection</h3>
-              <p class="project-card__desc">
-                An assortment of frontend projects — from pricing cards to fully-realized, beautiful landing pages.
-              </p>
-              <footer class="project-card__footer">
-                <span class="project-card__tech">HTML · CSS3 · SASS · JS</span>
-                <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/front-end-mentor-journey" target="_blank" rel="noopener noreferrer" aria-label="View code for Frontend Collection on GitHub">Code</a>
-                </div>
-              </footer>
-            </div>
-          </article>
-          <article class="project-card reveal" data-project-id="react-recipes">
-            <div class="project-card__img">
-              <img src="assets/images/projects/preview-react-recipes-800.webp" srcset="
-                    assets/images/projects/preview-react-recipes-320.webp 320w,
-                    assets/images/projects/preview-react-recipes-640.webp 640w,
-                    assets/images/projects/preview-react-recipes-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Recipe App" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">04</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
-            </div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Recipe App</h3>
-              <p class="project-card__desc">
-                Fullstack app for searching and browsing recipes — smooth animations and a polished UI throughout.
-              </p>
-              <footer class="project-card__footer">
-                <span class="project-card__tech">React · Chakra · Framer · Node</span>
-                <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/React-Recipes" target="_blank" rel="noopener noreferrer" aria-label="View code for Recipe App on GitHub">Code</a>
-                  <a href="https://react-recipes-d136loejp-epitome87.vercel.app/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Recipe App">Live</a>
-                </div>
-              </footer>
-            </div>
-          </article>
-          <article class="project-card reveal" data-project-id="omnifood">
-            <div class="project-card__img">
-              <img src="assets/images/projects/preview-omnifood-800.webp" srcset="
-                    assets/images/projects/preview-omnifood-320.webp 320w,
-                    assets/images/projects/preview-omnifood-640.webp 640w,
-                    assets/images/projects/preview-omnifood-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Omnifood" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">05</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
-            </div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Omnifood</h3>
-              <p class="project-card__desc">
-                Large-scope landing page for a fictional food-delivery business. Fully-responsive with a
-                beautifully-crafted UX.
-              </p>
-              <footer class="project-card__footer">
-                <span class="project-card__tech">HTML · CSS3 · JS · SASS</span>
-                <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/Omni-Food" target="_blank" rel="noopener noreferrer" aria-label="View code for Omnifood on GitHub">Code</a>
-                  <a href="https://epitome87.github.io/Omni-Food/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Omnifood">Live</a>
-                </div>
-              </footer>
-            </div>
-          </article>
-          <article class="project-card reveal" data-project-id="personal-portfolio">
-            <div class="project-card__img">
-              <img src="assets/images/projects/preview-personal-800.webp" srcset="
-                    assets/images/projects/preview-personal-320.webp 320w,
-                    assets/images/projects/preview-personal-640.webp 640w,
-                    assets/images/projects/preview-personal-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Personal Portfolio" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">06</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
-            </div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Personal Portfolio</h3>
-              <p class="project-card__desc">
-                The initial version of the site you're looking at. Highly-optimized with a perfect Lighthouse score. A
-                simple yet bold portfolio that showcases my front-end and design skills.
-              </p>
-              <footer class="project-card__footer">
-                <span class="project-card__tech">HTML · CSS · JS</span>
-                <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/personal-portfolio-2023" target="_blank" rel="noopener noreferrer" aria-label="View code for Personal Portfolio (2023) on GitHub">Code</a>
-                  <a href="https://epitome87.github.io/personal-portfolio-2023" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Personal Portfolio (2023)">Live</a>
-                </div>
-              </footer>
-            </div>
-          </article>
-        </div>
+        <div class="resume-doc__divider"></div>
 
-        <div class="projects__cta-band reveal">
-          <div>
-            <p class="projects__cta-heading">Let's Work Together!</p>
-            <p class="projects__cta-desc">
-              Available for freelance projects and Frontend / Full-Stack Web Developer roles.
+        <!-- Education -->
+        <section class="resume-doc__section" aria-labelledby="resume-education">
+          <h3 class="resume-doc__section-label" id="resume-education">Education</h3>
+
+          <div class="resume-doc__entry">
+            <div class="resume-doc__edu-header">
+              <span class="resume-doc__edu-school">Western Governors University</span>
+              <span class="resume-doc__edu-location">Salt Lake City, UT</span>
+            </div>
+            <p class="resume-doc__edu-degree">Bachelor of Science, Computer Science — <em>Expected July 2026</em></p>
+            <p class="resume-doc__edu-detail">
+              Relevant Coursework: Computer Architecture, Data Structures and Algorithms, Artificial Intelligence,
+              Java, Web Development, Back-End Programming
             </p>
           </div>
-          <a href="#contact" class="btn-primary">Hire Me
-            <svg viewBox="0 0 14 14" width="14" height="14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-              <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <!-- SKILLS & EXPERIENCE -->
-    <section class="experience" id="experience" aria-labelledby="experience-heading">
-      <div class="container">
-        <p class="section-label">Background</p>
-        <h2 class="section-title" id="experience-heading">Skills &amp; Experience</h2>
-        <div class="experience__grid">
-          <div aria-label="Skills">
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Frontend</p>
-              <p class="skill-group__sublabel">Building interfaces that feel clear, polished, and fast.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-html5"></use>
-                  </svg>
-                  <span>HTML5</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-css3"></use>
-                  </svg>
-                  <span>CSS3</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-javascript"></use>
-                  </svg>
-                  <span>JavaScript</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-react"></use>
-                  </svg>
-                  <span>React</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-nextjs"></use>
-                  </svg>
-                  <span>Next.js</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-sass"></use>
-                  </svg>
-                  <span>Sass</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use>
-                  </svg>
-                  <span>Tailwind</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-storybook"></use>
-                  </svg>
-                  <span>Storybook</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-typescript"></use>
-                  </svg>
-                  <span>TypeScript</span>
-                </li>
-              </ul>
+          <div class="resume-doc__entry">
+            <div class="resume-doc__edu-header">
+              <span class="resume-doc__edu-school">Westwood College</span>
+              <span class="resume-doc__edu-location">Denver, CO</span>
             </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Backend</p>
-              <p class="skill-group__sublabel">APIs, logic, and data flow that keep everything running.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-python"></use>
-                  </svg>
-                  <span>Python</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-nodejs"></use>
-                  </svg>
-                  <span>Node.js</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-express"></use>
-                  </svg>
-                  <span>Express</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-mongodb"></use>
-                  </svg>
-                  <span>MongoDB</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-postgresql"></use>
-                  </svg>
-                  <span>PostgreSQL</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Tools</p>
-              <p class="skill-group__sublabel">The everyday toolkit behind a reliable workflow.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-git"></use>
-                  </svg>
-                  <span>Git</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-npm"></use>
-                  </svg>
-                  <span>NPM</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-postman"></use>
-                  </svg>
-                  <span>Postman</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-vscode"></use>
-                  </svg>
-                  <span>VS Code</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-trello"></use>
-                  </svg>
-                  <span>Trello</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Currently Leveling Up</p>
-              <p class="skill-group__sublabel">Expanding the stack through steady, hands-on practice.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-angular"></use>
-                  </svg>
-                  <span>Angular</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-reactnative"></use>
-                  </svg>
-                  <span>React Native</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-java"></use>
-                  </svg>
-                  <span>Java</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-chakraui"></use>
-                  </svg>
-                  <span>Chakra UI</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-threejs"></use>
-                  </svg>
-                  <span>Three.js</span>
-                </li>
-              </ul>
-            </div>
+            <p class="resume-doc__edu-degree">Bachelor of Science, Game Software Development — <em>2015</em></p>
+            <p class="resume-doc__edu-detail">
+              Cumulative GPA: 4.0/4.0 · Dean's List · Relevant Coursework: Assembly, Compiler Design, Software
+              Engineering, Operating Systems, Game Development
+            </p>
           </div>
-          <div aria-label="Timeline">
-            <!-- Education & experience timeline -->
-            <p class="skill-group__label skill-group__label--timeline">Timeline</p>
-            <ol class="timeline">
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i03"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2027-01">Expected January 2027</time>
-                <h3 class="timeline-item__title">B.S. Computer Science — Western Governors University</h3>
-                <p class="timeline-item__desc">
-                  Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.
-                </p>
+        </section>
+
+        <div class="resume-doc__divider"></div>
+
+        <!-- Experience -->
+        <section class="resume-doc__section" aria-labelledby="resume-experience">
+          <h3 class="resume-doc__section-label" id="resume-experience">Work Experience</h3>
+
+          <div class="resume-doc__entry">
+            <div class="resume-doc__entry-header">
+              <span class="resume-doc__entry-title">Web Developer — Freelance</span>
+              <span class="resume-doc__entry-date">Oct 2020 – July 2025</span>
+            </div>
+            <p class="resume-doc__entry-meta">Riverside, CA · Remote</p>
+            <ul class="resume-doc__bullets">
+              <li class="resume-doc__bullet">
+                Created responsive, accessible websites utilizing React, HTML, CSS, and various frameworks
               </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--work">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i04"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – Present</time>
-                <h3 class="timeline-item__title">Freelance Web Developer</h3>
-                <p class="timeline-item__desc">
-                  Producing and maintaining websites for clients using technology from vanilla HTML all the way to
-                  Next.js.
-                </p>
+              <li class="resume-doc__bullet">
+                Implemented business logic using JavaScript, TypeScript, Node.js, and Express
               </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--boot">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i05"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – 2022</time>
-                <h3 class="timeline-item__title">React Bootcamp</h3>
-                <p class="timeline-item__desc">
-                  Mastered modern React, Redux Toolkit, React Query, TypeScript, and Next.js. Built and deployed
-                  full-stack apps.
-                </p>
+              <li class="resume-doc__bullet">
+                Planned with and managed small groups of developers to create full-stack web apps
               </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--boot">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i06"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – 2022</time>
-                <h3 class="timeline-item__title">Web Development Bootcamp</h3>
-                <p class="timeline-item__desc">
-                  Deep dives into HTML5, CSS3, JavaScript, Node.js, MongoDB, PostgreSQL, and SASS.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--work">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i07"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2010">2010 – 2020</time>
-                <h3 class="timeline-item__title">Indie Game Developer</h3>
-                <p class="timeline-item__desc">
-                  Released and sold two Xbox Live games as a solo developer. Collaborated on several others and QA'd
-                  hundreds more.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i03"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2012">2012 – 2015</time>
-                <h3 class="timeline-item__title">B.S. Game Software Development — Westwood College</h3>
-                <p class="timeline-item__desc">
-                  4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i08"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2001">2001 – 2005</time>
-                <h3 class="timeline-item__title">Yucaipa High School</h3>
-                <p class="timeline-item__desc">
-                  3.9 GPA, Gifted &amp; Talented Education. First C++ and Java experience at age 15.
-                </p>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY HIRE ME -->
-    <section class="why-hire" id="why-hire" aria-labelledby="why-hire-heading">
-      <div class="container">
-        <p class="section-label">The Case For Matthew</p>
-        <h2 class="section-title" id="why-hire-heading">Why Hire Me?</h2>
-        <ul class="why-hire__grid">
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i09"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">Rare Full-Stack Range</h3>
-            <p class="why-card__body">
-              From C# game engines to React frontends to Node backends, I've built complete systems end to end. That
-              range means I can move between interface, logic, and architecture without losing the bigger picture.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i11"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">Reliable by Habit</h3>
-            <p class="why-card__body">
-              I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built
-              the kind of consistency clients can actually feel: dependable communication, dependable progress,
-              dependable follow-through.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i13"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">No Hand-Holding Needed</h3>
-            <p class="why-card__body">
-              A decade of solo development taught me how to take ownership of a problem, work through ambiguity, and
-              keep moving. I research, debug, and iterate until something works, then make sure I understand why it
-              works.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i12"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">Built for Teams</h3>
-            <p class="why-card__body">
-              I'm self-directed, but not siloed. I've worked with clients, collaborated on distributed projects, and
-              written code meant to be read and maintained by others. Clear communication and low-ego collaboration
-              are part of the job.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i16"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">Focused on Real Outcomes</h3>
-            <p class="why-card__body">
-              I'm not interested in clever code for its own sake. I care about building things that solve real
-              problems, support real goals, and feel good to use. The end result should work for the people using it,
-              not just the developer who built it.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i20"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">Detail Is Non-Negotiable</h3>
-            <p class="why-card__body">
-              I care deeply about the finish of what I ship: accessible markup, thoughtful UX, strong responsive
-              behavior, and code that stays clean under pressure. The small details are often what make a product feel
-              trustworthy.
-            </p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <p class="section-label">The Human Behind the Code</p>
-        <h2 class="section-title" id="about-heading">About Me</h2>
-        <div class="about__layout">
-          <div class="about__portrait-wrap reveal scale-in">
-            <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
-              <div class="about__portrait-ring" aria-hidden="true"></div>
-              <div class="about__portrait">
-                <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
-              </div>
-            </button>
-          </div>
-          <div class="about__text reveal">
-            <p>
-              Hi — I'm <span class="about__highlight">Matthew McGrath</span>, a California-based
-              <span class="about__highlight">Full-Stack Web Developer</span> with an obsession for beautiful,
-              functional design.
-            </p>
-            <p>
-              Since writing my first line of code at 15, I've had an unbound curiosity for programming and the
-              problem-solving it encapsulates. That curiosity led me to pursue a Bachelor's in Computer Science while
-              simultaneously developing indie games. After years of dedication and over 100,000 lines of code, I
-              released two fully independent games for the Xbox 360 Indie Games platform.
-            </p>
-            <p>
-              That passion turned my focus to the web. Through formal coursework and disciplined self-study across
-              React, Next.js, Node.js, and the full modern stack, I craft responsive, accessible, and performant web
-              experiences — the kind people love to use.
-            </p>
-            <p>
-              My go-to stack is React and Node.js, but I'm equally comfortable reaching for Next.js, PostgreSQL, or
-              whatever the project calls for.
-            </p>
-            <a href="/resume" target="_blank" rel="noopener noreferrer" class="about__resume-link btn-ghost" aria-label="View resume, opens in new tab">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i14"></use>
-              </svg>
-              View Resume
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scrolling trait ticker -->
-      <div class="ticker-strip" aria-hidden="true">
-        <div class="ticker-track">
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i15"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i16"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i17"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i12"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i18"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i19"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i20"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i15"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i16"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i17"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i12"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i18"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i19"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i20"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="services" id="services" aria-labelledby="services-heading">
-      <div class="container">
-        <p class="section-label">What I Offer</p>
-        <h2 class="section-title" id="services-heading">Services</h2>
-        <p class="services__intro">
-          Whether you need a polished landing page or a fully-featured web application, I bring the same care and
-          craft to every engagement. Here's how I can help.
-        </p>
-
-        <ul class="services__grid">
-          <li class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i21"></use>
-              </svg>
-            </div>
-            <!-- <div class="service-card__num" aria-hidden="true">01</div> -->
-            <h3 class="service-card__title">Landing Pages &amp; Marketing Sites</h3>
-            <p class="service-card__desc">
-              A fast, beautiful, fully-responsive website that converts visitors into customers. Built with semantic
-              HTML, hand-crafted CSS, and smooth interactions — no bloated page builders, just clean code that scores
-              well on Lighthouse.
-            </p>
-            <ul class="service-card__list">
-              <li>Custom design or from your mockup</li>
-              <li>Mobile-first, fully responsive</li>
-              <li>Contact forms &amp; CTA integration</li>
-              <li>Performance &amp; SEO optimised</li>
             </ul>
-            <div class="service-card__cta">
-              <span class="service-card__price">Starting from <strong>$300</strong></span>
-              <a href="#contact" class="service-card__btn">Get a Quote</a>
-            </div>
-          </li>
+          </div>
 
-          <li class="service-card service-card--featured reveal">
-            <div class="service-card__badge">Most Popular</div>
-            <div class="service-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i22"></use>
-              </svg>
+          <div class="resume-doc__entry">
+            <div class="resume-doc__entry-header">
+              <span class="resume-doc__entry-title">Lead Game Developer — Pixel Psyche Studios</span>
+              <span class="resume-doc__entry-date">2009 – 2020</span>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">02</div> -->
-            <h3 class="service-card__title">React &amp; Next.js Web Apps</h3>
-            <p class="service-card__desc">
-              Interactive, full-stack applications built with modern React, Next.js, and a Node/Express backend. From
-              recipe apps to dashboards — if it needs dynamic data, real-time updates, or user authentication, this is
-              the package.
-            </p>
-            <ul class="service-card__list">
-              <li>React / Next.js frontend</li>
-              <li>Node.js &amp; Express backend</li>
-              <li>MongoDB or PostgreSQL database</li>
-              <li>REST API design &amp; integration</li>
+            <p class="resume-doc__entry-meta">Riverside, CA</p>
+            <ul class="resume-doc__bullets">
+              <li class="resume-doc__bullet">
+                Independently developed and released two games for the Xbox Live marketplace
+              </li>
+              <li class="resume-doc__bullet">
+                Designed a C#-based game engine from scratch, improving development time and reducing game logic
+                complexity
+              </li>
+              <li class="resume-doc__bullet">
+                Collaborated with 50+ game developers to playtest, improve, and create their dream games
+              </li>
             </ul>
-            <div class="service-card__cta">
-              <span class="service-card__price">Starting from <strong>$800</strong></span>
-              <a href="#contact" class="service-card__btn">Get a Quote</a>
-            </div>
-          </li>
+          </div>
+        </section>
 
-          <li class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i23"></use>
-              </svg>
+        <div class="resume-doc__divider"></div>
+
+        <!-- Projects -->
+        <section class="resume-doc__section" aria-labelledby="resume-projects">
+          <h3 class="resume-doc__section-label" id="resume-projects">Projects</h3>
+
+          <div class="resume-doc__entry">
+            <div class="resume-doc__entry-header">
+              <span class="resume-doc__entry-title">Matthew McGrath's Web Developer Portfolio</span>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">03</div> -->
-            <h3 class="service-card__title">Site Fixes &amp; Improvements</h3>
-            <p class="service-card__desc">
-              Got an existing site that's slow, broken, or just needs a refresh? I can audit your codebase, squash
-              bugs, improve performance, and add new features without the overhead of a full rebuild.
+            <p class="resume-doc__entry-meta">
+              <a href="https://matthewmcgrath.dev" target="_blank" rel="noopener noreferrer">matthewmcgrath.dev</a>
             </p>
-            <ul class="service-card__list">
-              <li>Bug fixes &amp; debugging</li>
-              <li>Performance &amp; Lighthouse improvements</li>
-              <li>Responsive / mobile fixes</li>
-              <li>Feature additions to existing sites</li>
+            <ul class="resume-doc__bullets">
+              <li class="resume-doc__bullet">
+                Launched a portfolio website built with HTML, Sass, and vanilla JavaScript — achieving a perfect
+                Lighthouse score
+              </li>
+              <li class="resume-doc__bullet">Designed with accessibility and SEO best practices throughout</li>
             </ul>
-            <div class="service-card__cta">
-              <span class="service-card__price">From <strong>$50 / hr</strong></span>
-              <a href="#contact" class="service-card__btn">Get a Quote</a>
-            </div>
-          </li>
+          </div>
 
-          <li class="service-card reveal">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i24"></use>
-              </svg>
+          <div class="resume-doc__entry">
+            <div class="resume-doc__entry-header">
+              <span class="resume-doc__entry-title">Flat UI – Color Palette Picker</span>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">04</div> -->
-            <h3 class="service-card__title">Ongoing Maintenance &amp; Support</h3>
-            <p class="service-card__desc">
-              Keep your site healthy, secure, and up to date without thinking about it. Ideal for small businesses who
-              need a reliable developer on call without committing to a full-time hire.
+            <p class="resume-doc__entry-meta">
+              <a href="https://epitome87.github.io/React-Flat-UI/" target="_blank" rel="noopener noreferrer">Live Demo</a>
             </p>
-            <ul class="service-card__list">
-              <li>Monthly updates &amp; dependency patches</li>
-              <li>Content &amp; copy updates</li>
-              <li>Uptime monitoring &amp; quick fixes</li>
-              <li>Priority response within 24 hours</li>
+            <ul class="resume-doc__bullets">
+              <li class="resume-doc__bullet">
+                Developed a polished full-stack clone of the Flat UI website using React, React Router, and Material
+                UI
+              </li>
+              <li class="resume-doc__bullet">
+                Persistent local and global storage allows users to create and save custom color palettes
+              </li>
             </ul>
-            <div class="service-card__cta">
-              <span class="service-card__price">From <strong>$100 / mo</strong></span>
-              <a href="#contact" class="service-card__btn">Get a Quote</a>
-            </div>
-          </li>
-        </ul>
-
-        <p class="services__note">
-          Not sure which fits your project? <a href="#contact">Send me a message</a> and we'll figure it out together
-          — no commitment required.
-        </p>
-      </div>
-    </section>
-
-    <!-- CODING ACTIVITY -->
-    <section class="coding" id="coding" aria-labelledby="coding-heading">
-      <div class="container">
-        <div class="coding__head">
-          <div>
-            <p class="section-label">Daily Consistency</p>
-            <h2 class="section-title" id="coding-heading">Coding Activity</h2>
-          </div>
-        </div>
-
-        <!-- Two-column: GitHub stats left, LeetCode card right -->
-        <div class="coding__grid">
-          <!-- GitHub card -->
-          <div class="coding__col">
-            <div class="coding__col-header">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i02"></use>
-              </svg>
-              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__col-header-link" aria-label="View Matthew's GitHub profile, opens in new tab">GitHub <span class="coding__col-header-arrow" aria-hidden="true">↗</span></a>
-            </div>
-            <div class="github__stats reveal" id="github-stats" aria-live="polite" aria-atomic="true">
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-total">809</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Contributions</div>
-                  <div class="github__stat-sub">Past 12 months</div>
-                </div>
-              </div>
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-streak">1.9K</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Longest Streak</div>
-                  <div class="github__stat-sub">All time</div>
-                </div>
-              </div>
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-best">36</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Best Day</div>
-                  <div class="github__stat-sub" id="stat-best-date">Apr 1, 2022</div>
-                </div>
-              </div>
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-active-days">1.9K</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Active Days</div>
-                  <div class="github__stat-sub">All time</div>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <!-- LeetCode card -->
-          <div class="coding__col">
-            <div class="coding__col-header">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i25"></use>
-              </svg>
-              <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" class="coding__col-header-link" aria-label="View Matthew's LeetCode profile, opens in new tab">LeetCode <span class="coding__col-header-arrow" aria-hidden="true">↗</span></a>
+          <div class="resume-doc__entry">
+            <div class="resume-doc__entry-header">
+              <span class="resume-doc__entry-title">Avatars in Grave Danger — Xbox 360 Game</span>
             </div>
-            <div class="leetcode__card reveal" id="leetcode-card" aria-live="polite" aria-atomic="true">
-              <div class="leetcode__stats" id="leetcode-stats">
-                <div class="leetcode__stat">
-                  <div class="leetcode__stat-num" id="lc-total">1,267</div>
-                  <div class="leetcode__stat-info">
-                    <div class="leetcode__stat-label">Total Solved</div>
-                    <div class="leetcode__stat-sub">All difficulties</div>
-                  </div>
-                </div>
-                <div class="leetcode__stat">
-                  <div class="leetcode__stat-num" id="lc-accept">83.4%</div>
-                  <div class="leetcode__stat-info">
-                    <div class="leetcode__stat-label">Acceptance</div>
-                    <div class="leetcode__stat-sub">Submit rate</div>
-                  </div>
-                </div>
-                <div class="leetcode__stat">
-                  <div class="leetcode__stat-num" id="lc-ranking">15.1K</div>
-                  <div class="leetcode__stat-info">
-                    <div class="leetcode__stat-label">Global Rank</div>
-                    <div class="leetcode__stat-sub" id="lc-rank-sub">Top percentile</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Difficulty breakdown bars -->
-              <div class="leetcode__breakdown" id="leetcode-breakdown">
-                <div class="lc-bar-row">
-                  <span class="lc-bar-label lc-easy">Easy</span>
-                  <div class="lc-bar-track">
-                    <div class="lc-bar-fill lc-easy-fill" id="lc-easy-bar"></div>
-                  </div>
-                  <span class="lc-bar-count" id="lc-easy-count">825 / 966</span>
-                </div>
-                <div class="lc-bar-row">
-                  <span class="lc-bar-label lc-medium">Medium</span>
-                  <div class="lc-bar-track">
-                    <div class="lc-bar-fill lc-medium-fill" id="lc-medium-bar"></div>
-                  </div>
-                  <span class="lc-bar-count" id="lc-medium-count">428 / 2,117</span>
-                </div>
-                <div class="lc-bar-row">
-                  <span class="lc-bar-label lc-hard">Hard</span>
-                  <div class="lc-bar-track">
-                    <div class="lc-bar-fill lc-hard-fill" id="lc-hard-bar"></div>
-                  </div>
-                  <span class="lc-bar-count" id="lc-hard-count">14 / 977</span>
-                </div>
-              </div>
-            </div>
+            <p class="resume-doc__entry-meta">
+              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
+            <ul class="resume-doc__bullets">
+              <li class="resume-doc__bullet">
+                Designed, programmed, and sold a wave-based arcade game for the Xbox 360 indie platform
+              </li>
+              <li class="resume-doc__bullet">
+                Built a full game engine using tens of thousands of lines of C# — experienced by thousands of players
+                with a 4.2/5.0 rating
+              </li>
+            </ul>
           </div>
 
-          <!-- Codewars card -->
-          <div class="coding__col">
-            <div class="coding__col-header">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i26"></use>
-              </svg>
-              <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__col-header-link" aria-label="View Matthew's Codewars profile, opens in new tab">Codewars <span class="coding__col-header-arrow" aria-hidden="true">↗</span></a>
+          <div class="resume-doc__entry">
+            <div class="resume-doc__entry-header">
+              <span class="resume-doc__entry-title">Avatar Typing — Xbox 360 Game</span>
             </div>
-            <div class="codewars__badge-wrap">
-              <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="View Matthew McGrath on Codewars">
-                <img src="https://www.codewars.com/users/Epitome87/badges/large" alt="Codewars rank and honor badge for Epitome87" class="codewars__badge-img" loading="lazy" width="400" height="100" />
-              </a>
-              <p class="codewars__blurb">
-                Sharpening the problem-solving skills real projects demand, one kata at a time.
-              </p>
-            </div>
+            <p class="resume-doc__entry-meta">
+              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
+            <ul class="resume-doc__bullets">
+              <li class="resume-doc__bullet">
+                Designed, programmed, and sold a light-hearted zombie typing game for the Xbox 360 indie platform
+              </li>
+            </ul>
           </div>
-        </div>
+        </section>
 
-        <!-- GitHub contribution graph -->
-        <div class="github__graph-wrap reveal">
-          <div class="github__graph-header">
-            <div>
-              <p class="github__graph-title">Contribution Activity</p>
-              <p class="github__graph-subtitle" id="graph-subtitle">Loading...</p>
-            </div>
-            <div class="github__legend" aria-label="Legend">
-              <span class="github__legend-label">Less</span>
-              <div class="github__legend-cells">
-                <div class="github__legend-cell" data-level="0"></div>
-                <div class="github__legend-cell" data-level="1"></div>
-                <div class="github__legend-cell" data-level="2"></div>
-                <div class="github__legend-cell" data-level="3"></div>
-                <div class="github__legend-cell" data-level="4"></div>
-              </div>
-              <span class="github__legend-label">More</span>
-            </div>
-          </div>
-          <!-- Year selector — populated by JS once data loads -->
-          <div class="github__year-selector" id="github-year-selector" aria-label="Select year" role="group"></div>
-          <div class="github__months" id="github-months" aria-hidden="true"></div>
-          <div class="github__grid-body">
-            <div class="github__day-labels" aria-hidden="true">
-              <div class="github__day-label"></div>
-              <div class="github__day-label">Mon</div>
-              <div class="github__day-label"></div>
-              <div class="github__day-label">Wed</div>
-              <div class="github__day-label"></div>
-              <div class="github__day-label">Fri</div>
-              <div class="github__day-label"></div>
-            </div>
-            <div class="github__grid-scroll">
-              <div class="github__grid" id="github-grid" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="resume-doc__divider"></div>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <p class="section-label">Get In Touch</p>
-        <h2 class="section-title" id="contact-heading">Let's Talk</h2>
-
-        <!-- Trust signals -->
-        <ul class="trust-band reveal">
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i27"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Response Time</p>
-              <p class="trust-item__value">Within 24 hours</p>
+        <!-- Skills -->
+        <section class="resume-doc__section" aria-labelledby="resume-skills">
+          <h3 class="resume-doc__section-label" id="resume-skills">Skills</h3>
+          <div class="resume-doc__skills-grid">
+            <div class="resume-doc__skills-row">
+              <span class="resume-doc__skills-category">Front End</span>
+              <span class="resume-doc__skills-list">JavaScript, TypeScript, HTML, CSS, Sass, Tailwind</span>
             </div>
-          </li>
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i28"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Availability</p>
-              <p class="trust-item__value">Accepting projects now</p>
+            <div class="resume-doc__skills-row">
+              <span class="resume-doc__skills-category">Back End</span>
+              <span class="resume-doc__skills-list">Python, C#, Node.js, Express, PostgreSQL, MongoDB</span>
             </div>
-          </li>
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i11"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Working Hours</p>
-              <p class="trust-item__value">Mon – Fri, 8 AM – 8 PM PT</p>
-            </div>
-          </li>
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i29"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Location</p>
-              <p class="trust-item__value">Riverside, CA (Remote-friendly)</p>
-            </div>
-          </li>
-        </ul>
-
-        <!-- Contact CTA + form -->
-        <div class="contact__layout">
-          <!-- Contact CTA -->
-          <div class="contact__cta reveal from-left">
-            <p class="contact__tagline">Have a project? A role? <em>Let's make something great.</em></p>
-            <div class="contact__test">
-              <p class="contact__blurb">
-                I am currently open to freelance projects and full-time Front-End or Full-Stack roles. Whether it's a
-                quick hello or a detailed proposal - every message gets my full attention, a clear response, and a
-                result worth showing off.
-              </p>
+            <div class="resume-doc__skills-row">
+              <span class="resume-doc__skills-category">Frameworks</span>
+              <span class="resume-doc__skills-list">React, Next.js, Angular</span>
             </div>
           </div>
-          <!-- Contact form -->
-          <div class="reveal from-right form">
-            <div class="form__form">
-              <form id="contact-form" action="https://formsubmit.co/matthew.mcgrath.b@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
-                <input type="hidden" name="_subject" value="New message from matthewmcgrath.dev" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" required />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
-                </div>
-                <button type="submit" class="form-submit btn-primary" id="form-submit-btn">
-                  <span>Send Message</span>
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i31"></use>
-                  </svg>
-                </button>
-                <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </article>
+    </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <p class="footer__copy">Built with ❤️ and ☕ by Matthew McGrath &copy; 2026</p>
+        <p class="footer__copy">Built with 🤍 and ☕ by Matthew McGrath &nbsp;·&nbsp; &copy; 2026</p>
         <div class="footer__brand">
-          <img src="assets/images/branding/favicon-96x96.png" alt="" aria-hidden="true" class="footer__brand-avatar" width="32" height="32" loading="lazy" decoding="async" /><span class="footer__brand-name">Matthew<span class="footer__brand-dot">.</span></span>
+          <img src="../assets/images/branding/favicon-96x96.png" alt="" aria-hidden="true" class="footer__brand-avatar" width="32" height="32" loading="lazy" decoding="async" /><span class="footer__brand-name">Matthew<span class="footer__brand-dot">.</span></span>
         </div>
         <div class="footer__socials">
-          <a class="social-btn" href="https://www.linkedin.com/in/matthew-b-mcgrath/" target="_blank" rel="noopener noreferrer" aria-label="Matthew's LinkedIn profile, opens in new tab" data-social="linkedin"><svg aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i32"></use>
+          <a class="social-btn" href="https://www.linkedin.com/in/matthew-b-mcgrath/" target="_blank" rel="noopener noreferrer" aria-label="Matthew's LinkedIn profile" data-social="linkedin"><svg aria-hidden="true">
+              <use href="../assets/images/sprites/icons.svg#i32"></use>
             </svg>
           </a>
-          <a class="social-btn" href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's GitHub profile, opens in new tab" data-social="github"><svg aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i33"></use>
+          <a class="social-btn" href="https://github.com/epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's GitHub profile" data-social="github"><svg aria-hidden="true">
+              <use href="../assets/images/sprites/icons.svg#i33"></use>
             </svg>
           </a>
-          <a class="social-btn" href="https://x.com/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's X (Twitter) profile, opens in new tab" data-social="x"><svg aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i34"></use>
+          <a class="social-btn" href="https://x.com/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's X (Twitter) profile" data-social="x"><svg aria-hidden="true">
+              <use href="../assets/images/sprites/icons.svg#i34"></use>
             </svg>
           </a>
-          <a class="social-btn" href="https://leetcode.com/u/epitome87/" target="_blank" rel="noopener noreferrer" aria-label="Matthew's LeetCode profile, opens in new tab" data-social="leetcode"><svg aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i35"></use>
+          <a class="social-btn" href="https://leetcode.com/u/epitome87/" target="_blank" rel="noopener noreferrer" aria-label="Matthew's LeetCode profile" data-social="leetcode"><svg aria-hidden="true">
+              <use href="../assets/images/sprites/icons.svg#i35"></use>
             </svg>
           </a>
-          <a class="social-btn" href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's Codewars profile, opens in new tab" data-social="codewars"><svg aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i36"></use>
+          <a class="social-btn" href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's Codewars profile" data-social="codewars"><svg aria-hidden="true">
+              <use href="../assets/images/sprites/icons.svg#i36"></use>
             </svg>
           </a>
         </div>
@@ -1359,67 +337,16 @@
     </div>
   </footer>
 
-  <!-- Back to top (appears when scrolling down) -->
-  <button class="back-to-top" aria-label="Back to top" title="Back to top"><span aria-hidden="true">🚀</span></button>
+  <!-- Back to top -->
+  <button class="back-to-top" aria-label="Back to top" title="Back to top">🚀</button>
 
-  <script type="module" src="js/ui.js"></script>
-  <script src="js/analytics.js"></script>
+  <!-- Theme init — runs before paint to prevent flash -->
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') ?? 'dark');
+  </script>
 
-  <!-- PROJECT CASE STUDY DIALOG -->
-  <dialog id="project-modal" class="project-modal" aria-labelledby="modal-title" aria-modal="true">
-    <div class="project-modal__inner">
-      <header class="project-modal__header">
-        <button type="button" class="project-modal__close" id="modal-close-btn" aria-label="Close dialog">✕</button>
-        <p class="project-modal__category" id="modal-category">Category</p>
-        <h2 class="project-modal__title" id="modal-title">Project Title</h2>
-        <p class="project-modal__tagline" id="modal-tagline">Project Tagline</p>
-      </header>
-
-      <div class="project-modal__stats" id="modal-stats"></div>
-
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">Overview</h3>
-        <p class="project-modal__text" id="modal-overview"></p>
-      </div>
-
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">The Engineering Challenge</h3>
-        <div class="project-modal__callout project-modal__callout--challenge">
-          <p class="project-modal__text" id="modal-challenge"></p>
-        </div>
-      </div>
-
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">Architecture &amp; Solutions</h3>
-        <div class="project-modal__callout">
-          <p class="project-modal__text" id="modal-architecture"></p>
-        </div>
-      </div>
-
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">Technologies Used</h3>
-        <div class="project-modal__tags" id="modal-tags"></div>
-      </div>
-
-      <footer class="project-modal__footer">
-        <a href="#" class="project-modal__btn project-modal__btn--live" id="modal-live-btn" target="_blank" rel="noopener noreferrer">
-          <span>View Live Demo</span>
-          <svg width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-        </a>
-        <a href="#" class="project-modal__btn project-modal__btn--code" id="modal-code-btn" target="_blank" rel="noopener noreferrer">
-          <svg width="14" height="14" aria-hidden="true">
-            <use href="assets/images/sprites/icons.svg#i02"></use>
-          </svg>
-          View Source Code
-        </a>
-      </footer>
-    </div>
-  </dialog>
-
+  <!-- Nav JS — scroll behavior, theme toggle, mobile menu -->
+  <script src="../js/ui.js"></script>
 </body>
 
 </html>

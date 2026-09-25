@@ -54,7 +54,7 @@ export const PROJECTS_DATA = {
       { label: 'Accessibility', value: 'WCAG AA Compliant' },
       { label: 'Layouts', value: 'Grid & Flexbox' },
       { label: 'CSS Arch', value: 'SASS BEM' },
-      { label: 'Responsiveness', value: 'Mobile-First' },
+      { label: 'Responsive', value: 'Mobile-First' },
     ],
     overview:
       'A collection of precision-engineered web components, pricing calculators, interactive dashboards, and full marketing landing pages built from professional Figma design specifications.',
@@ -89,7 +89,7 @@ export const PROJECTS_DATA = {
     liveUrl: 'https://react-recipes-d136loejp-epitome87.vercel.app/',
     liveLabel: 'View Live Demo',
   },
-  'omnifood': {
+  omnifood: {
     id: 'omnifood',
     title: 'Omnifood',
     category: 'Conversion UX · Modern CSS Architecture',
