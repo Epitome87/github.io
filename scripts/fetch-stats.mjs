@@ -8,8 +8,8 @@ const rootDir = path.resolve(__dirname, '..');
 const outputPath = path.join(rootDir, 'src', 'js', 'stats-data.js');
 
 const USERNAME = 'Epitome87';
-const GITHUB_API_URL = `https://github-contributions-api.jogruber.de/v4/${USERNAME}`;
-const LEETCODE_API_URL = `https://leetcode-stats-api.herokuapp.com/${USERNAME}`;
+const GITHUB_ALL_API_URL = `https://github-contributions-api.jogruber.de/v4/${USERNAME}`;
+const GITHUB_LAST_API_URL = `https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`;
 
 async function fetchWithTimeout(url, options = {}, timeoutMs = 12000) {
   const controller = new AbortController();
@@ -25,31 +25,88 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 12000) {
   }
 }
 
+async function fetchLeetCodeStats(username) {
+  const sources = [
+    `https://alfa-leetcode-api.onrender.com/userProfile/${username}`,
+    `https://leetcode-stats-api.herokuapp.com/${username}`,
+    `https://leetcode-api-faisalshohag.vercel.app/${username}`,
+  ];
+
+  for (const url of sources) {
+    try {
+      console.log(`Fetching LeetCode from ${url}...`);
+      const data = await fetchWithTimeout(url, {}, 10000);
+      if (data && (data.totalSolved != null || data.solvedProblem != null)) {
+        const totalSolved = data.totalSolved ?? data.solvedProblem;
+        const totalSubmissions = data.matchedUserStats?.totalSubmissionNum?.[0]?.submissions;
+        const acSubmissions = data.matchedUserStats?.acSubmissionNum?.[0]?.submissions;
+        const computedAcceptance =
+          data.acceptanceRate != null
+            ? data.acceptanceRate
+            : totalSubmissions
+              ? (acSubmissions / totalSubmissions) * 100
+              : 83.4;
+
+        return {
+          status: 'success',
+          message: 'retrieved',
+          totalSolved,
+          totalQuestions: data.totalQuestions || 4060,
+          easySolved: data.easySolved ?? 0,
+          totalEasy: data.totalEasy || 966,
+          mediumSolved: data.mediumSolved ?? 0,
+          totalMedium: data.totalMedium || 2117,
+          hardSolved: data.hardSolved ?? 0,
+          totalHard: data.totalHard || 977,
+          acceptanceRate: Math.round(computedAcceptance * 100) / 100,
+          ranking: data.ranking ?? 15117,
+          contributionPoints: data.contributionPoint ?? data.contributionPoints ?? 0,
+          reputation: data.reputation ?? 0,
+          submissionCalendar: data.submissionCalendar ?? {},
+        };
+      }
+    } catch (err) {
+      console.warn(`LeetCode source failed (${url}):`, err.message);
+    }
+  }
+  return null;
+}
+
 async function main() {
   console.log('Fetching live stats snapshot for Epitome87...');
 
   let leetcodeData = null;
-  let githubData = null;
+  let githubLastData = null;
+  let githubAllData = null;
 
   try {
-    console.log('Fetching LeetCode stats...');
-    leetcodeData = await fetchWithTimeout(LEETCODE_API_URL);
-    console.log(`LeetCode fetched successfully (${leetcodeData.totalSolved} solved).`);
+    leetcodeData = await fetchLeetCodeStats(USERNAME);
+    if (leetcodeData) {
+      console.log(`LeetCode fetched successfully (${leetcodeData.totalSolved} solved, rank ${leetcodeData.ranking}).`);
+    }
   } catch (err) {
     console.warn('Failed to fetch live LeetCode stats:', err.message);
   }
 
   try {
-    console.log('Fetching GitHub contribution data...');
-    githubData = await fetchWithTimeout(GITHUB_API_URL);
-    console.log(
-      `GitHub data fetched successfully (${githubData.total ? Object.keys(githubData.total).length : 0} years).`,
-    );
+    console.log('Fetching GitHub trailing year contribution data (?y=last)...');
+    githubLastData = await fetchWithTimeout(GITHUB_LAST_API_URL);
+    console.log(`GitHub trailing year fetched successfully (${githubLastData.contributions?.length || 0} days).`);
   } catch (err) {
-    console.warn('Failed to fetch live GitHub stats:', err.message);
+    console.warn('Failed to fetch live GitHub trailing year stats:', err.message);
   }
 
-  if (!leetcodeData && !githubData) {
+  try {
+    console.log('Fetching GitHub full contribution history data...');
+    githubAllData = await fetchWithTimeout(GITHUB_ALL_API_URL);
+    console.log(
+      `GitHub full history fetched successfully (${githubAllData.total ? Object.keys(githubAllData.total).length : 0} years).`,
+    );
+  } catch (err) {
+    console.warn('Failed to fetch live GitHub all-years stats:', err.message);
+  }
+
+  if (!leetcodeData && !githubLastData && !githubAllData) {
     console.error(
       'Error: Could not fetch LeetCode or GitHub data. Aborting snapshot update to preserve existing data.',
     );
@@ -64,10 +121,11 @@ async function main() {
 
   const finalLeetCode = leetcodeData || existingStats.LEETCODE_SNAPSHOT;
   const finalGithubLast =
-    githubData && githubData.contributions
-      ? githubData.contributions.slice(-365)
+    githubLastData && Array.isArray(githubLastData.contributions)
+      ? githubLastData.contributions
       : existingStats.GITHUB_LAST_SNAPSHOT || [];
-  const finalGithubAll = githubData && githubData.contributions ? githubData : existingStats.GITHUB_SNAPSHOT || {};
+  const finalGithubAll =
+    githubAllData && githubAllData.contributions ? githubAllData : existingStats.GITHUB_SNAPSHOT || {};
 
   const fileContent = `/* Generated by scripts/fetch-stats.mjs - Build pre-baked snapshot */
 export const LEETCODE_SNAPSHOT = ${JSON.stringify(finalLeetCode, null, 2)};
