@@ -42,9 +42,7 @@
   <meta name="apple-mobile-web-app-title" content="Matthew McGrath" />
   <link rel="manifest" href="manifest.json" />
 
-  <!-- DNS prefetch for late-loading third-party origins.
-       Lighter than preconnect — only resolves DNS, no TCP/TLS overhead.
-       Appropriate for resources loaded on scroll (skill icons, Codewars badge). -->
+  <!-- DNS prefetch for late-loading third-party origins. -->
   <link rel="dns-prefetch" href="https://www.codewars.com" />
 
   <!-- Preload critical above-fold fonts -->
@@ -200,7 +198,6 @@
             <div class="hero__actions">
               <a href="#projects" class="btn-primary">
                 View My Work
-                <!-- <svg viewBox="0 0 14 14" width="14" height="14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> -->
               </a>
               <a href="#contact" class="btn-ghost">Say Hello</a>
             </div>
@@ -414,284 +411,388 @@
       </div>
     </section>
 
-    <!-- SKILLS & EXPERIENCE -->
+    <!-- EXPERIENCE & SKILLS STUDIO -->
     <section class="experience" id="experience" aria-labelledby="experience-heading">
       <div class="container">
-        <p class="section-label">Background</p>
-        <h2 class="section-title" id="experience-heading">Skills &amp; Experience</h2>
-        <div class="experience__grid">
-          <div aria-label="Skills">
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Frontend</p>
-              <p class="skill-group__sublabel">Building interfaces that feel clear, polished, and fast.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-html5"></use>
-                  </svg>
-                  <span>HTML5</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-css3"></use>
-                  </svg>
-                  <span>CSS3</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-javascript"></use>
-                  </svg>
-                  <span>JavaScript</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-react"></use>
-                  </svg>
-                  <span>React</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-nextjs"></use>
-                  </svg>
-                  <span>Next.js</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-sass"></use>
-                  </svg>
-                  <span>Sass</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use>
-                  </svg>
-                  <span>Tailwind</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-storybook"></use>
-                  </svg>
-                  <span>Storybook</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-typescript"></use>
-                  </svg>
-                  <span>TypeScript</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Backend</p>
-              <p class="skill-group__sublabel">APIs, logic, and data flow that keep everything running.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-python"></use>
-                  </svg>
-                  <span>Python</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-nodejs"></use>
-                  </svg>
-                  <span>Node.js</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-express"></use>
-                  </svg>
-                  <span>Express</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-mongodb"></use>
-                  </svg>
-                  <span>MongoDB</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-postgresql"></use>
-                  </svg>
-                  <span>PostgreSQL</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Tools</p>
-              <p class="skill-group__sublabel">The everyday toolkit behind a reliable workflow.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-git"></use>
-                  </svg>
-                  <span>Git</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-npm"></use>
-                  </svg>
-                  <span>NPM</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-postman"></use>
-                  </svg>
-                  <span>Postman</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-vscode"></use>
-                  </svg>
-                  <span>VS Code</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-trello"></use>
-                  </svg>
-                  <span>Trello</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Currently Leveling Up</p>
-              <p class="skill-group__sublabel">Expanding the stack through steady, hands-on practice.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-angular"></use>
-                  </svg>
-                  <span>Angular</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-reactnative"></use>
-                  </svg>
-                  <span>React Native</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-java"></use>
-                  </svg>
-                  <span>Java</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-chakraui"></use>
-                  </svg>
-                  <span>Chakra UI</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-threejs"></use>
-                  </svg>
-                  <span>Three.js</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div aria-label="Timeline">
-            <!-- Education & experience timeline -->
-            <p class="skill-group__label skill-group__label--timeline">Timeline</p>
-            <ol class="timeline">
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i03"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2027-01">Expected January 2027</time>
-                <h3 class="timeline-item__title">B.S. Computer Science — Western Governors University</h3>
-                <p class="timeline-item__desc">
-                  Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--work">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i04"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – Present</time>
-                <h3 class="timeline-item__title">Freelance Web Developer</h3>
-                <p class="timeline-item__desc">
-                  Producing and maintaining websites for clients using technology from vanilla HTML all the way to
-                  Next.js.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--boot">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i05"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – 2022</time>
-                <h3 class="timeline-item__title">React Bootcamp</h3>
-                <p class="timeline-item__desc">
-                  Mastered modern React, Redux Toolkit, React Query, TypeScript, and Next.js. Built and deployed
-                  full-stack apps.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--boot">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i06"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – 2022</time>
-                <h3 class="timeline-item__title">Web Development Bootcamp</h3>
-                <p class="timeline-item__desc">
-                  Deep dives into HTML5, CSS3, JavaScript, Node.js, MongoDB, PostgreSQL, and SASS.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--work">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i07"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2010">2010 – 2020</time>
-                <h3 class="timeline-item__title">Indie Game Developer</h3>
-                <p class="timeline-item__desc">
-                  Released and sold two Xbox Live games as a solo developer. Collaborated on several others and QA'd
-                  hundreds more.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i03"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2012">2012 – 2015</time>
-                <h3 class="timeline-item__title">B.S. Game Software Development — Westwood College</h3>
-                <p class="timeline-item__desc">
-                  4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i08"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2001">2001 – 2005</time>
-                <h3 class="timeline-item__title">Yucaipa High School</h3>
-                <p class="timeline-item__desc">
-                  3.9 GPA, Gifted &amp; Talented Education. First C++ and Java experience at age 15.
-                </p>
-              </li>
-            </ol>
-          </div>
+        <div class="experience__header">
+          <p class="section-label">Background</p>
+          <h2 class="section-title" id="experience-heading">Skills &amp; Experience Studio</h2>
+          <p class="experience__desc">
+            Explore 24 core competencies across modern web architecture. Click any skill chip or sidebar file to inspect live implementation patterns in the editor, or expand the Git console below for career milestones.
+          </p>
         </div>
+
+        <!-- 1. ALL 24 SKILLS IN RECRUITER QUICK-SCAN RADAR (NATURAL WRAP, ZERO SCROLLBARS) -->
+        <section class="radar-bar" aria-label="Technical Skills Radar">
+          <!-- Frontend Group (9) -->
+          <div class="radar-row">
+            <span class="radar-label">Frontend (9)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip active" id="chip-react" data-skill="react">⚛️ React</button>
+              <button type="button" class="radar-chip" id="chip-nextjs" data-skill="nextjs">▲ Next.js</button>
+              <button type="button" class="radar-chip" id="chip-typescript" data-skill="typescript">🔷 TypeScript</button>
+              <button type="button" class="radar-chip" id="chip-sass" data-skill="sass">🎨 Sass (SCSS)</button>
+              <button type="button" class="radar-chip" id="chip-tailwind" data-skill="tailwind">🌊 Tailwind</button>
+              <button type="button" class="radar-chip" id="chip-storybook" data-skill="storybook">📕 Storybook</button>
+              <button type="button" class="radar-chip" id="chip-javascript" data-skill="javascript">🟨 JavaScript</button>
+              <button type="button" class="radar-chip" id="chip-html5" data-skill="html5">🌐 HTML5</button>
+              <button type="button" class="radar-chip" id="chip-css3" data-skill="css3">🎨 CSS3</button>
+            </div>
+          </div>
+
+          <!-- Backend Group (5) -->
+          <div class="radar-row">
+            <span class="radar-label">Backend (5)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip" id="chip-nodejs" data-skill="nodejs">🟢 Node.js</button>
+              <button type="button" class="radar-chip" id="chip-express" data-skill="express">⚡ Express</button>
+              <button type="button" class="radar-chip" id="chip-postgresql" data-skill="postgresql">🐘 PostgreSQL</button>
+              <button type="button" class="radar-chip" id="chip-mongodb" data-skill="mongodb">🍃 MongoDB</button>
+              <button type="button" class="radar-chip" id="chip-python" data-skill="python">🐍 Python</button>
+            </div>
+          </div>
+
+          <!-- Tools Group (5) -->
+          <div class="radar-row">
+            <span class="radar-label">Tools &amp; VCS (5)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip" id="chip-git" data-skill="git">🐙 Git &amp; GitHub</button>
+              <button type="button" class="radar-chip" id="chip-npm" data-skill="npm">📦 NPM Tooling</button>
+              <button type="button" class="radar-chip" id="chip-postman" data-skill="postman">🚀 Postman</button>
+              <button type="button" class="radar-chip" id="chip-vscode" data-skill="vscode">💻 VS Code</button>
+              <button type="button" class="radar-chip" id="chip-trello" data-skill="trello">📋 Trello / Agile</button>
+            </div>
+          </div>
+
+          <!-- Leveling Up Group (5) -->
+          <div class="radar-row">
+            <span class="radar-label">Leveling Up (5)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip" id="chip-angular" data-skill="angular">🅰️ Angular</button>
+              <button type="button" class="radar-chip" id="chip-reactnative" data-skill="reactnative">📱 React Native</button>
+              <button type="button" class="radar-chip" id="chip-java" data-skill="java">☕ Java</button>
+              <button type="button" class="radar-chip" id="chip-chakraui" data-skill="chakraui">⚡ Chakra UI</button>
+              <button type="button" class="radar-chip" id="chip-threejs" data-skill="threejs">🧊 Three.js</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. THE COMPLETE 24-SKILLS IDE CHASSIS -->
+        <section class="ide-chassis" aria-label="Interactive Code Studio">
+          <div class="ide-window-header">
+            <div class="ide-dots" aria-hidden="true">
+              <div class="ide-dot dot-r"></div>
+              <div class="ide-dot dot-y"></div>
+              <div class="ide-dot dot-g"></div>
+            </div>
+            <span id="window-title-text">matthew-mcgrath // React.tsx</span>
+            <span style="color: var(--green, #22c55e); font-size: 0.7rem;">● 24 modules</span>
+          </div>
+
+          <!-- MOBILE FILE EXPLORER TOGGLE BAR -->
+          <div class="mobile-explorer-toggle-bar" id="mobile-explorer-toggle-bar" role="button" tabindex="0" aria-expanded="false" aria-label="Toggle mobile file explorer">
+            <div class="mob-exp-left">
+              <span>📁 EXPLORER:</span>
+              <span id="mob-current-file-label" style="color: var(--text-primary, #fff);">⚛️ React.tsx</span>
+            </div>
+            <span id="mob-exp-chevron" style="color: var(--primary-light, #38bdf8);">Browse Files (24) ▼</span>
+          </div>
+
+          <!-- MOBILE COLLAPSIBLE FILE TREE DRAWER -->
+          <div class="mobile-file-tree-drawer" id="mobile-file-drawer">
+            <div class="folder-header" data-folder-target="mob-folder-frontend">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 FRONTEND</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">9 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-frontend">
+              <div class="file-item active" id="mob-side-react" data-skill="react"><span>⚛️ React.tsx</span><span class="file-badge-subtle">Core</span></div>
+              <div class="file-item" id="mob-side-nextjs" data-skill="nextjs"><span>▲ Next.js.tsx</span><span class="file-badge-subtle">SSR</span></div>
+              <div class="file-item" id="mob-side-typescript" data-skill="typescript"><span>🔷 TypeScript.ts</span><span class="file-badge-subtle">Strict</span></div>
+              <div class="file-item" id="mob-side-sass" data-skill="sass"><span>🎨 Sass.scss</span><span class="file-badge-subtle">Tokens</span></div>
+              <div class="file-item" id="mob-side-tailwind" data-skill="tailwind"><span>🌊 Tailwind.css</span><span class="file-badge-subtle">Utility</span></div>
+              <div class="file-item" id="mob-side-storybook" data-skill="storybook"><span>📕 Storybook.ts</span><span class="file-badge-subtle">Design</span></div>
+              <div class="file-item" id="mob-side-javascript" data-skill="javascript"><span>🟨 JavaScript.js</span><span class="file-badge-subtle">ESNext</span></div>
+              <div class="file-item" id="mob-side-html5" data-skill="html5"><span>🌐 HTML5.html</span><span class="file-badge-subtle">A11y</span></div>
+              <div class="file-item" id="mob-side-css3" data-skill="css3"><span>🎨 CSS3.css</span><span class="file-badge-subtle">Grid</span></div>
+            </div>
+
+            <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-backend">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 BACKEND</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-backend">
+              <div class="file-item" id="mob-side-nodejs" data-skill="nodejs"><span>🟢 Node.mjs</span><span class="file-badge-subtle">Async</span></div>
+              <div class="file-item" id="mob-side-express" data-skill="express"><span>⚡ Express.js</span><span class="file-badge-subtle">REST</span></div>
+              <div class="file-item" id="mob-side-postgresql" data-skill="postgresql"><span>🐘 PostgreSQL.sql</span><span class="file-badge-subtle">ACID</span></div>
+              <div class="file-item" id="mob-side-mongodb" data-skill="mongodb"><span>🍃 MongoDB.ts</span><span class="file-badge-subtle">NoSQL</span></div>
+              <div class="file-item" id="mob-side-python" data-skill="python"><span>🐍 Python.py</span><span class="file-badge-subtle">Scripts</span></div>
+            </div>
+
+            <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-tools">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 TOOLS &amp; VCS</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-tools">
+              <div class="file-item" id="mob-side-git" data-skill="git"><span>🐙 Git.config</span><span class="file-badge-subtle">CI/CD</span></div>
+              <div class="file-item" id="mob-side-npm" data-skill="npm"><span>📦 package.json</span><span class="file-badge-subtle">NPM</span></div>
+              <div class="file-item" id="mob-side-postman" data-skill="postman"><span>🚀 Postman.json</span><span class="file-badge-subtle">API Test</span></div>
+              <div class="file-item" id="mob-side-vscode" data-skill="vscode"><span>💻 VSCode.json</span><span class="file-badge-subtle">IDE</span></div>
+              <div class="file-item" id="mob-side-trello" data-skill="trello"><span>📋 Trello.board</span><span class="file-badge-subtle">Agile</span></div>
+            </div>
+
+            <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-leveling">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 LEVELING UP</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-leveling">
+              <div class="file-item" id="mob-side-angular" data-skill="angular"><span>🅰️ Angular.ts</span><span class="file-badge-subtle">Signals</span></div>
+              <div class="file-item" id="mob-side-reactnative" data-skill="reactnative"><span>📱 ReactNative.tsx</span><span class="file-badge-subtle">Mobile</span></div>
+              <div class="file-item" id="mob-side-java" data-skill="java"><span>☕ Java.java</span><span class="file-badge-subtle">CS</span></div>
+              <div class="file-item" id="mob-side-chakraui" data-skill="chakraui"><span>⚡ ChakraUI.tsx</span><span class="file-badge-subtle">ARIA</span></div>
+              <div class="file-item" id="mob-side-threejs" data-skill="threejs"><span>🧊 ThreeJS.ts</span><span class="file-badge-subtle">WebGL</span></div>
+            </div>
+          </div>
+
+          <div class="ide-body">
+            <!-- Desktop 24-Files Explorer Sidebar with Collapsible Folders -->
+            <div class="ide-sidebar" id="desktop-sidebar">
+              <!-- Folder 1: Frontend -->
+              <div class="folder-header" data-folder-target="folder-frontend">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 FRONTEND</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">9 files</span>
+              </div>
+              <div class="folder-content" id="folder-frontend">
+                <div class="file-item active" id="side-react" data-skill="react"><span>⚛️ React.tsx</span><span class="file-badge-subtle">Core</span></div>
+                <div class="file-item" id="side-nextjs" data-skill="nextjs"><span>▲ Next.js.tsx</span><span class="file-badge-subtle">SSR</span></div>
+                <div class="file-item" id="side-typescript" data-skill="typescript"><span>🔷 TypeScript.ts</span><span class="file-badge-subtle">Strict</span></div>
+                <div class="file-item" id="side-sass" data-skill="sass"><span>🎨 Sass.scss</span><span class="file-badge-subtle">Tokens</span></div>
+                <div class="file-item" id="side-tailwind" data-skill="tailwind"><span>🌊 Tailwind.css</span><span class="file-badge-subtle">Utility</span></div>
+                <div class="file-item" id="side-storybook" data-skill="storybook"><span>📕 Storybook.ts</span><span class="file-badge-subtle">Design</span></div>
+                <div class="file-item" id="side-javascript" data-skill="javascript"><span>🟨 JavaScript.js</span><span class="file-badge-subtle">ESNext</span></div>
+                <div class="file-item" id="side-html5" data-skill="html5"><span>🌐 HTML5.html</span><span class="file-badge-subtle">A11y</span></div>
+                <div class="file-item" id="side-css3" data-skill="css3"><span>🎨 CSS3.css</span><span class="file-badge-subtle">Grid</span></div>
+              </div>
+
+              <!-- Folder 2: Backend -->
+              <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-backend">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 BACKEND</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              </div>
+              <div class="folder-content" id="folder-backend">
+                <div class="file-item" id="side-nodejs" data-skill="nodejs"><span>🟢 Node.mjs</span><span class="file-badge-subtle">Async</span></div>
+                <div class="file-item" id="side-express" data-skill="express"><span>⚡ Express.js</span><span class="file-badge-subtle">REST</span></div>
+                <div class="file-item" id="side-postgresql" data-skill="postgresql"><span>🐘 PostgreSQL.sql</span><span class="file-badge-subtle">ACID</span></div>
+                <div class="file-item" id="side-mongodb" data-skill="mongodb"><span>🍃 MongoDB.ts</span><span class="file-badge-subtle">NoSQL</span></div>
+                <div class="file-item" id="side-python" data-skill="python"><span>🐍 Python.py</span><span class="file-badge-subtle">Scripts</span></div>
+              </div>
+
+              <!-- Folder 3: Tools -->
+              <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-tools">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 TOOLS &amp; VCS</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              </div>
+              <div class="folder-content" id="folder-tools">
+                <div class="file-item" id="side-git" data-skill="git"><span>🐙 Git.config</span><span class="file-badge-subtle">CI/CD</span></div>
+                <div class="file-item" id="side-npm" data-skill="npm"><span>📦 package.json</span><span class="file-badge-subtle">NPM</span></div>
+                <div class="file-item" id="side-postman" data-skill="postman"><span>🚀 Postman.json</span><span class="file-badge-subtle">API Test</span></div>
+                <div class="file-item" id="side-vscode" data-skill="vscode"><span>💻 VSCode.json</span><span class="file-badge-subtle">IDE</span></div>
+                <div class="file-item" id="side-trello" data-skill="trello"><span>📋 Trello.board</span><span class="file-badge-subtle">Agile</span></div>
+              </div>
+
+              <!-- Folder 4: Leveling Up -->
+              <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-leveling">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 LEVELING UP</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              </div>
+              <div class="folder-content" id="folder-leveling">
+                <div class="file-item" id="side-angular" data-skill="angular"><span>🅰️ Angular.ts</span><span class="file-badge-subtle">Signals</span></div>
+                <div class="file-item" id="side-reactnative" data-skill="reactnative"><span>📱 ReactNative.tsx</span><span class="file-badge-subtle">Mobile</span></div>
+                <div class="file-item" id="side-java" data-skill="java"><span>☕ Java.java</span><span class="file-badge-subtle">CS</span></div>
+                <div class="file-item" id="side-chakraui" data-skill="chakraui"><span>⚡ ChakraUI.tsx</span><span class="file-badge-subtle">ARIA</span></div>
+                <div class="file-item" id="side-threejs" data-skill="threejs"><span>🧊 ThreeJS.ts</span><span class="file-badge-subtle">WebGL</span></div>
+              </div>
+            </div>
+
+            <!-- Main Pane -->
+            <div class="ide-main-pane">
+              <div class="tab-bar">
+                <div class="editor-tab" id="active-tab-title">
+                  <span>⚛️ React.tsx</span>
+                </div>
+                <span class="tab-cat-badge" id="active-tab-category">Frontend • Core Library</span>
+              </div>
+
+              <!-- Code Display Canvas -->
+              <div class="code-canvas" id="code-canvas-body">
+                <!-- Rendered dynamically via JS -->
+              </div>
+
+              <!-- Skill Description Footer -->
+              <div class="skill-desc-footer" id="skill-desc-text">
+                Primary UI building block used across production client projects and full-stack web applications.
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. COLLAPSIBLE CONSOLE DRAWER -->
+          <div class="ide-status-bar" id="console-drawer-status-bar" role="button" tabindex="0" aria-expanded="true" aria-label="Toggle career milestones git console">
+            <div class="status-left">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <circle cx="18" cy="18" r="3" />
+                <circle cx="6" cy="6" r="3" />
+                <path d="M6 21V9a9 9 0 0 0 9 9" />
+              </svg>
+              <span>🌿 Career Milestones &amp; Git History</span>
+              <span class="status-badge">7 Commits</span>
+            </div>
+            <span id="drawer-indicator-text" style="color: var(--primary-light, #38bdf8);">Click to Collapse ▼</span>
+          </div>
+
+          <!-- The Responsive Simplified Console Drawer -->
+          <div class="git-drawer open" id="console-drawer-panel">
+            <div class="drawer-inner">
+              <div class="console-header-line">
+                <div>
+                  <span>matthew@portfolio:~/career</span> $ <span class="cmd">git log --graph --oneline</span>
+                </div>
+                <span style="font-size: 0.7rem; color: var(--text-muted);">branch: main</span>
+              </div>
+
+              <!-- Responsive Milestone Stream -->
+              <div class="git-milestone-stream">
+                <!-- Milestone 1: WGU -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-purple">⭘──┐</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">7f2a91c</span>
+                      <time class="commit-date" datetime="2027-01">Expected Jan 2027</time>
+                    </div>
+                    <h3 class="milestone-title">B.S. Computer Science — Western Governors University</h3>
+                    <p class="milestone-desc">Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 2: Freelance -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-green">│ ⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">4b8e23f</span>
+                      <time class="commit-date" datetime="2021">2021 – Present</time>
+                    </div>
+                    <h3 class="milestone-title">Freelance Web Developer</h3>
+                    <p class="milestone-desc">Producing and maintaining websites for clients using technology from vanilla HTML all the way to Next.js.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 3: React Bootcamp -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-amber">│ ⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">9c118da</span>
+                      <time class="commit-date" datetime="2021">2021 – 2022</time>
+                    </div>
+                    <h3 class="milestone-title">React Bootcamp</h3>
+                    <p class="milestone-desc">Mastered modern React, Redux Toolkit, React Query, TypeScript, and Next.js. Built and deployed full-stack apps.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 4: Web Dev Bootcamp -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-amber">│ ⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">3e5d0a1</span>
+                      <time class="commit-date" datetime="2021">2021 – 2022</time>
+                    </div>
+                    <h3 class="milestone-title">Web Development Bootcamp</h3>
+                    <p class="milestone-desc">Deep dives into HTML5, CSS3, JavaScript, Node.js, MongoDB, PostgreSQL, and SASS.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 5: Indie Games -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-green">├──┘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">a104f67</span>
+                      <time class="commit-date" datetime="2010">2010 – 2020</time>
+                    </div>
+                    <h3 class="milestone-title">Indie Game Developer</h3>
+                    <p class="milestone-desc">Released and sold two Xbox Live games as a solo developer. Collaborated on several others and QA'd hundreds more.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 6: Westwood -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-purple">⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">18d9b23</span>
+                      <time class="commit-date" datetime="2012">2012 – 2015</time>
+                    </div>
+                    <h3 class="milestone-title">B.S. Game Software Development — Westwood College</h3>
+                    <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 7: High School -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-purple">⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">001init</span>
+                      <time class="commit-date" datetime="2001">2001 – 2005</time>
+                    </div>
+                    <h3 class="milestone-title">Yucaipa High School</h3>
+                    <p class="milestone-desc">3.9 GPA, Gifted &amp; Talented Education. First C++ and Java experience at age 15.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
     <!-- WHY HIRE ME -->
-    <section class="why-hire" id="why-hire" aria-labelledby="why-hire-heading">
+    <section class="why-hire" id="why-hire" aria-labelledby="why-heading">
       <div class="container">
-        <p class="section-label">The Case For Matthew</p>
-        <h2 class="section-title" id="why-hire-heading">Why Hire Me?</h2>
+        <div class="why-hire__head reveal">
+          <p class="section-label">Why Choose Me</p>
+          <h2 class="section-title" id="why-heading">Why Work With Matthew?</h2>
+          <p class="why-hire__subtitle">
+            What you get beyond clean code — a developer who thinks in outcomes, moves independently, and follows
+            through.
+          </p>
+        </div>
+
         <ul class="why-hire__grid">
           <!-- Top Left: Rare Full-Stack Range -->
           <li class="why-card reveal">
@@ -1040,7 +1141,6 @@
                 <use href="assets/images/sprites/icons.svg#i21"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">01</div> -->
             <h3 class="service-card__title">Landing Pages &amp; Marketing Sites</h3>
             <p class="service-card__desc">
               A fast, beautiful, fully-responsive website that converts visitors into customers. Built with semantic
@@ -1066,7 +1166,6 @@
                 <use href="assets/images/sprites/icons.svg#i22"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">02</div> -->
             <h3 class="service-card__title">React &amp; Next.js Web Apps</h3>
             <p class="service-card__desc">
               Interactive, full-stack applications built with modern React, Next.js, and a Node/Express backend. From
@@ -1091,7 +1190,6 @@
                 <use href="assets/images/sprites/icons.svg#i23"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">03</div> -->
             <h3 class="service-card__title">Site Fixes &amp; Improvements</h3>
             <p class="service-card__desc">
               Got an existing site that's slow, broken, or just needs a refresh? I can audit your codebase, squash
@@ -1115,7 +1213,6 @@
                 <use href="assets/images/sprites/icons.svg#i24"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">04</div> -->
             <h3 class="service-card__title">Ongoing Maintenance &amp; Support</h3>
             <p class="service-card__desc">
               Keep your site healthy, secure, and up to date without thinking about it. Ideal for small businesses who
@@ -1457,7 +1554,6 @@
 
       <div class="project-modal__stats" id="modal-stats"></div>
 
-      <!-- <div class="project-modal__video" id="modal-video-wrap" style="display: none; width: 100%; aspect-ratio: 16 / 9; margin: 0.5rem 0;"></div> -->
       <div class="project-modal__video" id="modal-video-wrap" hidden></div>
 
       <div class="project-modal__section">

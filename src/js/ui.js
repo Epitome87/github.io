@@ -1,4 +1,5 @@
 import './project-modal.js';
+import './skills-studio.js';
 
 // ── Nav scroll & back-to-top visibility ──────────────────────
 const navInner = document.getElementById('nav-inner');
@@ -300,7 +301,6 @@ if (backToTop) {
     }, 700);
   });
 }
-
 
 // ── Contact Form Submission (AJAX + Honeypot + Time-trap) ────
 const contactForm = document.getElementById('contact-form');
