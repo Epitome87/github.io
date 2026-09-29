@@ -1,11 +1,11 @@
 /* ==========================================================================
-   ABOUT
+   ABOUT — PURE OPEN CANVAS CHAPTER DECK
    ========================================================================== */
 
 @use 'tokens' as *;
 @use 'mixins' as *;
 
-// Register the custom property so CSS can interpolate the ring animation
+// Register the custom property for rotating gradient ring
 @property --ring-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -15,36 +15,48 @@
 .about {
   padding: var(--space-24) 0;
   background-color: var(--bg-base);
+  position: relative;
 
   @include bp(lg) {
     padding: var(--space-32) 0;
   }
 
-  &__layout {
+  // Section Header
+  &__header {
+    margin-bottom: var(--space-12);
+  }
+
+  // 2-Column Responsive Open Grid (Portrait Left, Deck Right)
+  &__deck-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-8);
-    margin-top: var(--space-16);
+    gap: var(--space-10);
     align-items: start;
 
     @include bp(lg) {
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 280px 1fr;
       gap: var(--space-16);
+      align-items: center;
     }
   }
 
-  &__portrait-wrap {
+  // Sticky Portrait Pane
+  &__portrait-pane {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: var(--space-6);
 
     @include bp(lg) {
       justify-content: flex-start;
       position: sticky;
       top: calc(var(--nav-h) + var(--space-8));
-      display: block;
     }
+  }
+
+  &__portrait-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
   }
 
   &__portrait-outer {
@@ -52,8 +64,12 @@
     display: inline-block;
     transform-origin: bottom center;
     animation: portrait-float 3s ease-in-out infinite;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
 
-    // Pause float on hover so it doesn't fight the ring/glow effects
     &:hover {
       animation-play-state: paused;
     }
@@ -69,16 +85,18 @@
   }
 
   &__portrait {
-    width: 200px;
-    height: auto;
+    width: 210px;
+    height: 250px;
     background: transparent;
-    border: 0;
-    // Match the ring's border-radius so overflow:hidden clips to the same shape
     border-radius: var(--radius-xl);
     overflow: hidden;
     position: relative;
 
-    // Glow, blooms on hover
+    @include bp(md) {
+      width: 240px;
+      height: 280px;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -95,7 +113,7 @@
       );
       filter: blur(14px);
       pointer-events: none;
-      z-index: var(--z-portrait-glow);
+      z-index: var(--z-portrait-glow, 1);
       opacity: 0.9;
     }
 
@@ -105,7 +123,7 @@
       object-fit: contain;
       object-position: bottom center;
       position: relative;
-      z-index: var(--z-portrait-img); // above the glow
+      z-index: var(--z-portrait-img, 2);
       filter: drop-shadow(0 -4px 18px rgba(97, 166, 250, 0.15));
       transform-origin: bottom center;
     }
@@ -119,15 +137,14 @@
       inset: -3px;
       border-radius: calc(var(--radius-xl) + 3px);
       pointer-events: none;
-      z-index: var(--z-portrait-ring); // above everything, border sits on top
+      z-index: var(--z-portrait-ring, 3);
 
-      // Animated gradient border, same technique as the nav pill
       &::before {
         content: '';
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        padding: 2px; // border thickness
+        padding: 2px;
         background: linear-gradient(
           var(--ring-angle, 0deg),
           transparent 20%,
@@ -136,7 +153,6 @@
           var(--primary-dim) 65%,
           transparent 80%
         );
-        // Mask trick: show gradient only at the edge, transparent inside
         -webkit-mask:
           linear-gradient(#fff 0 0) content-box,
           linear-gradient(#fff 0 0);
@@ -145,50 +161,222 @@
         animation: portrait-ring-spin 4s linear infinite;
       }
     }
-
-    @include bp(lg) {
-      width: 250px;
-      height: 290px;
-    }
   }
 
-  // Ring speeds up on hover, standalone rule since ring is a sibling of portrait
   &__portrait-outer:hover .about__portrait-ring::before {
     animation-duration: 1.5s;
   }
 
-  &__text {
-    p {
-      font-size: clamp(0.97rem, 1.3vw, 1.08rem);
-      color: var(--text-secondary);
-      line-height: var(--leading-loose);
-      margin-bottom: var(--space-5);
+  &__portrait-hint {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    color: var(--text-muted);
+    letter-spacing: var(--tracking-normal);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1-5);
+  }
 
-      &:last-of-type {
-        margin-bottom: var(--space-8);
+  // Story Pane
+  &__story-pane {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--border);
+
+    span {
+      color: var(--primary-light);
+    }
+  }
+
+  // 4-Segment Progress Track
+  &__track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  &__seg {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    outline: none;
+
+    &:hover .about__seg-bar {
+      background: var(--border-bright);
+    }
+
+    &.active {
+      .about__seg-bar {
+        background: var(--primary);
+        box-shadow: 0 0 10px var(--primary-glow);
+      }
+
+      .about__seg-lbl {
+        color: var(--primary-light);
+        font-weight: 700;
       }
     }
   }
 
-  &__highlight {
-    color: var(--primary-light);
-    font-weight: 700;
+  &__seg-bar {
+    height: 3px;
+    border-radius: 2px;
+    background: var(--border);
+    transition:
+      background-color 0.25s,
+      box-shadow 0.25s;
   }
 
-  &__resume-link {
-    gap: var(--space-3);
-    background: var(--bg-card);
-    border-color: var(--complementary);
+  &__seg-lbl {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-tight);
+    transition: color 0.2s;
+  }
+
+  // Slide Deck Viewport — CSS Grid Stack (Zero Height Shift)
+  // All slides stack in grid cell 1/1, naturally locking height to tallest slide
+  &__slides-viewport {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: start;
+  }
+
+  &__slide {
+    grid-area: 1 / 1 / 2 / 2;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(8px);
+    transition:
+      opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+  }
+
+  &__slide-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  &__title-prefix {
+    color: var(--primary-light);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  &__slide-prose {
+    font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+    color: var(--text-secondary);
+    line-height: var(--leading-loose);
+  }
+
+  // Streamlined Bottom Controls (Rock-solid, zero jump)
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--space-8);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border);
+  }
+
+  &__next-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    cursor: pointer;
+    transition:
+      color 0.2s,
+      transform 0.2s;
+    padding: var(--space-1) 0;
 
     &:hover {
-      border-color: var(--complementary);
-      color: var(--complementary);
-      background: var(--complementary-dim);
-      box-shadow: var(--shadow-complementary);
+      color: var(--primary-light);
+      transform: translateX(3px);
+    }
+
+    span.about__next-label {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+  }
+
+  &__arrow-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  &__arrow-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-circle);
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+      border-color: var(--primary-light);
+      color: var(--primary-light);
+      background: var(--primary-pale);
+      transform: scale(1.08);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
     }
   }
 }
 
+// Keyframe Animations
 @keyframes portrait-ring-spin {
   from {
     --ring-angle: 0deg;
@@ -209,7 +397,6 @@
 }
 
 @keyframes portrait-rocket {
-  // Long shuddering build-up before ignition
   0% {
     transform: translateY(0) rotate(0deg);
     opacity: 1;
@@ -242,7 +429,6 @@
     transform: translateY(-8px) rotate(-1deg);
     opacity: 1;
   }
-  // Ignition - starts lifting
   52% {
     transform: translateY(-20px) rotate(1deg);
     opacity: 1;
@@ -251,7 +437,6 @@
     transform: translateY(-50px) rotate(0deg);
     opacity: 1;
   }
-  // Full acceleration - stays fully opaque the whole way
   100% {
     transform: translateY(-200vh) rotate(0deg);
     opacity: 1;

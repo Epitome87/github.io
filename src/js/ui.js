@@ -1,3 +1,4 @@
+import './about.js';
 import './project-modal.js';
 import './skills-studio.js';
 
