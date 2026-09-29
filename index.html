@@ -42,9 +42,7 @@
   <meta name="apple-mobile-web-app-title" content="Matthew McGrath" />
   <link rel="manifest" href="manifest.json" />
 
-  <!-- DNS prefetch for late-loading third-party origins.
-       Lighter than preconnect — only resolves DNS, no TCP/TLS overhead.
-       Appropriate for resources loaded on scroll (skill icons, Codewars badge). -->
+  <!-- DNS prefetch for late-loading third-party origins. -->
   <link rel="dns-prefetch" href="https://www.codewars.com" />
 
   <!-- Preload critical above-fold fonts -->
@@ -200,7 +198,6 @@
             <div class="hero__actions">
               <a href="#projects" class="btn-primary">
                 View My Work
-                <!-- <svg viewBox="0 0 14 14" width="14" height="14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> -->
               </a>
               <a href="#contact" class="btn-ghost">Say Hello</a>
             </div>
@@ -414,319 +411,418 @@
       </div>
     </section>
 
-    <!-- SKILLS & EXPERIENCE -->
+    <!-- EXPERIENCE & SKILLS STUDIO -->
     <section class="experience" id="experience" aria-labelledby="experience-heading">
       <div class="container">
-        <p class="section-label">Background</p>
-        <h2 class="section-title" id="experience-heading">Skills &amp; Experience</h2>
-        <div class="experience__grid">
-          <div aria-label="Skills">
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Frontend</p>
-              <p class="skill-group__sublabel">Building interfaces that feel clear, polished, and fast.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-html5"></use>
-                  </svg>
-                  <span>HTML5</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-css3"></use>
-                  </svg>
-                  <span>CSS3</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-javascript"></use>
-                  </svg>
-                  <span>JavaScript</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-react"></use>
-                  </svg>
-                  <span>React</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-nextjs"></use>
-                  </svg>
-                  <span>Next.js</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-sass"></use>
-                  </svg>
-                  <span>Sass</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use>
-                  </svg>
-                  <span>Tailwind</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-storybook"></use>
-                  </svg>
-                  <span>Storybook</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-typescript"></use>
-                  </svg>
-                  <span>TypeScript</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Backend</p>
-              <p class="skill-group__sublabel">APIs, logic, and data flow that keep everything running.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-python"></use>
-                  </svg>
-                  <span>Python</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-nodejs"></use>
-                  </svg>
-                  <span>Node.js</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-express"></use>
-                  </svg>
-                  <span>Express</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-mongodb"></use>
-                  </svg>
-                  <span>MongoDB</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-postgresql"></use>
-                  </svg>
-                  <span>PostgreSQL</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Tools</p>
-              <p class="skill-group__sublabel">The everyday toolkit behind a reliable workflow.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-git"></use>
-                  </svg>
-                  <span>Git</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-npm"></use>
-                  </svg>
-                  <span>NPM</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-postman"></use>
-                  </svg>
-                  <span>Postman</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-vscode"></use>
-                  </svg>
-                  <span>VS Code</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-trello"></use>
-                  </svg>
-                  <span>Trello</span>
-                </li>
-              </ul>
-            </div>
-            <div class="skill-group reveal">
-              <p class="skill-group__label">Currently Leveling Up</p>
-              <p class="skill-group__sublabel">Expanding the stack through steady, hands-on practice.</p>
-              <ul class="skills-grid">
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-angular"></use>
-                  </svg>
-                  <span>Angular</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-reactnative"></use>
-                  </svg>
-                  <span>React Native</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-java"></use>
-                  </svg>
-                  <span>Java</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-chakraui"></use>
-                  </svg>
-                  <span>Chakra UI</span>
-                </li>
-                <li class="skill-chip reveal">
-                  <svg class="skill-chip__img--invert" aria-hidden="true">
-                    <use href="assets/images/sprites/skills.svg#skill-threejs"></use>
-                  </svg>
-                  <span>Three.js</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div aria-label="Timeline">
-            <!-- Education & experience timeline -->
-            <p class="skill-group__label skill-group__label--timeline">Timeline</p>
-            <ol class="timeline">
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i03"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2027-01">Expected January 2027</time>
-                <h3 class="timeline-item__title">B.S. Computer Science — Western Governors University</h3>
-                <p class="timeline-item__desc">
-                  Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--work">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i04"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – Present</time>
-                <h3 class="timeline-item__title">Freelance Web Developer</h3>
-                <p class="timeline-item__desc">
-                  Producing and maintaining websites for clients using technology from vanilla HTML all the way to
-                  Next.js.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--boot">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i05"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – 2022</time>
-                <h3 class="timeline-item__title">React Bootcamp</h3>
-                <p class="timeline-item__desc">
-                  Mastered modern React, Redux Toolkit, React Query, TypeScript, and Next.js. Built and deployed
-                  full-stack apps.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--boot">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i06"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2021">2021 – 2022</time>
-                <h3 class="timeline-item__title">Web Development Bootcamp</h3>
-                <p class="timeline-item__desc">
-                  Deep dives into HTML5, CSS3, JavaScript, Node.js, MongoDB, PostgreSQL, and SASS.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--work">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i07"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2010">2010 – 2020</time>
-                <h3 class="timeline-item__title">Indie Game Developer</h3>
-                <p class="timeline-item__desc">
-                  Released and sold two Xbox Live games as a solo developer. Collaborated on several others and QA'd
-                  hundreds more.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i03"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2012">2012 – 2015</time>
-                <h3 class="timeline-item__title">B.S. Game Software Development — Westwood College</h3>
-                <p class="timeline-item__desc">
-                  4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.
-                </p>
-              </li>
-              <li class="timeline-item reveal">
-                <div class="timeline-item__icon timeline-item__icon--edu">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i08"></use>
-                  </svg>
-                </div>
-                <time class="timeline-item__date" datetime="2001">2001 – 2005</time>
-                <h3 class="timeline-item__title">Yucaipa High School</h3>
-                <p class="timeline-item__desc">
-                  3.9 GPA, Gifted &amp; Talented Education. First C++ and Java experience at age 15.
-                </p>
-              </li>
-            </ol>
-          </div>
+        <div class="experience__header">
+          <p class="section-label">Background</p>
+          <h2 class="section-title" id="experience-heading">Skills &amp; Experience Studio</h2>
+          <p class="experience__desc">
+            Explore 24 core competencies across modern web architecture. Click any skill chip or sidebar file to inspect live implementation patterns in the editor, or expand the Git console below for career milestones.
+          </p>
         </div>
+
+        <!-- 1. ALL 24 SKILLS IN RECRUITER QUICK-SCAN RADAR (NATURAL WRAP, ZERO SCROLLBARS) -->
+        <section class="radar-bar" aria-label="Technical Skills Radar">
+          <!-- Frontend Group (9) -->
+          <div class="radar-row">
+            <span class="radar-label">Frontend (9)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip active" id="chip-react" data-skill="react">⚛️ React</button>
+              <button type="button" class="radar-chip" id="chip-nextjs" data-skill="nextjs">▲ Next.js</button>
+              <button type="button" class="radar-chip" id="chip-typescript" data-skill="typescript">🔷 TypeScript</button>
+              <button type="button" class="radar-chip" id="chip-sass" data-skill="sass">🎨 Sass (SCSS)</button>
+              <button type="button" class="radar-chip" id="chip-tailwind" data-skill="tailwind">🌊 Tailwind</button>
+              <button type="button" class="radar-chip" id="chip-storybook" data-skill="storybook">📕 Storybook</button>
+              <button type="button" class="radar-chip" id="chip-javascript" data-skill="javascript">🟨 JavaScript</button>
+              <button type="button" class="radar-chip" id="chip-html5" data-skill="html5">🌐 HTML5</button>
+              <button type="button" class="radar-chip" id="chip-css3" data-skill="css3">🎨 CSS3</button>
+            </div>
+          </div>
+
+          <!-- Backend Group (5) -->
+          <div class="radar-row">
+            <span class="radar-label">Backend (5)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip" id="chip-nodejs" data-skill="nodejs">🟢 Node.js</button>
+              <button type="button" class="radar-chip" id="chip-express" data-skill="express">⚡ Express</button>
+              <button type="button" class="radar-chip" id="chip-postgresql" data-skill="postgresql">🐘 PostgreSQL</button>
+              <button type="button" class="radar-chip" id="chip-mongodb" data-skill="mongodb">🍃 MongoDB</button>
+              <button type="button" class="radar-chip" id="chip-python" data-skill="python">🐍 Python</button>
+            </div>
+          </div>
+
+          <!-- Tools Group (5) -->
+          <div class="radar-row">
+            <span class="radar-label">Tools &amp; VCS (5)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip" id="chip-git" data-skill="git">🐙 Git &amp; GitHub</button>
+              <button type="button" class="radar-chip" id="chip-npm" data-skill="npm">📦 NPM Tooling</button>
+              <button type="button" class="radar-chip" id="chip-postman" data-skill="postman">🚀 Postman</button>
+              <button type="button" class="radar-chip" id="chip-vscode" data-skill="vscode">💻 VS Code</button>
+              <button type="button" class="radar-chip" id="chip-trello" data-skill="trello">📋 Trello / Agile</button>
+            </div>
+          </div>
+
+          <!-- Leveling Up Group (5) -->
+          <div class="radar-row">
+            <span class="radar-label">Leveling Up (5)</span>
+            <div class="radar-chips">
+              <button type="button" class="radar-chip" id="chip-angular" data-skill="angular">🅰️ Angular</button>
+              <button type="button" class="radar-chip" id="chip-reactnative" data-skill="reactnative">📱 React Native</button>
+              <button type="button" class="radar-chip" id="chip-java" data-skill="java">☕ Java</button>
+              <button type="button" class="radar-chip" id="chip-chakraui" data-skill="chakraui">⚡ Chakra UI</button>
+              <button type="button" class="radar-chip" id="chip-threejs" data-skill="threejs">🧊 Three.js</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. THE COMPLETE 24-SKILLS IDE CHASSIS -->
+        <section class="ide-chassis" aria-label="Interactive Code Studio">
+          <div class="ide-window-header">
+            <div class="ide-dots" aria-hidden="true">
+              <div class="ide-dot dot-r"></div>
+              <div class="ide-dot dot-y"></div>
+              <div class="ide-dot dot-g"></div>
+            </div>
+            <span id="window-title-text">matthew-mcgrath // React.tsx</span>
+            <span style="color: var(--green, #22c55e); font-size: 0.7rem;">● 24 modules</span>
+          </div>
+
+          <!-- MOBILE FILE EXPLORER TOGGLE BAR -->
+          <div class="mobile-explorer-toggle-bar" id="mobile-explorer-toggle-bar" role="button" tabindex="0" aria-expanded="false" aria-label="Toggle mobile file explorer">
+            <div class="mob-exp-left">
+              <span>📁 EXPLORER:</span>
+              <span id="mob-current-file-label" style="color: var(--text-primary, #fff);">⚛️ React.tsx</span>
+            </div>
+            <span id="mob-exp-chevron" style="color: var(--primary-light, #38bdf8);">Browse Files (24) ▼</span>
+          </div>
+
+          <!-- MOBILE COLLAPSIBLE FILE TREE DRAWER -->
+          <div class="mobile-file-tree-drawer" id="mobile-file-drawer">
+            <div class="folder-header" data-folder-target="mob-folder-frontend">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 FRONTEND</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">9 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-frontend">
+              <div class="file-item active" id="mob-side-react" data-skill="react"><span>⚛️ React.tsx</span><span class="file-badge-subtle">Core</span></div>
+              <div class="file-item" id="mob-side-nextjs" data-skill="nextjs"><span>▲ Next.js.tsx</span><span class="file-badge-subtle">SSR</span></div>
+              <div class="file-item" id="mob-side-typescript" data-skill="typescript"><span>🔷 TypeScript.ts</span><span class="file-badge-subtle">Strict</span></div>
+              <div class="file-item" id="mob-side-sass" data-skill="sass"><span>🎨 Sass.scss</span><span class="file-badge-subtle">Tokens</span></div>
+              <div class="file-item" id="mob-side-tailwind" data-skill="tailwind"><span>🌊 Tailwind.css</span><span class="file-badge-subtle">Utility</span></div>
+              <div class="file-item" id="mob-side-storybook" data-skill="storybook"><span>📕 Storybook.ts</span><span class="file-badge-subtle">Design</span></div>
+              <div class="file-item" id="mob-side-javascript" data-skill="javascript"><span>🟨 JavaScript.js</span><span class="file-badge-subtle">ESNext</span></div>
+              <div class="file-item" id="mob-side-html5" data-skill="html5"><span>🌐 HTML5.html</span><span class="file-badge-subtle">A11y</span></div>
+              <div class="file-item" id="mob-side-css3" data-skill="css3"><span>🎨 CSS3.css</span><span class="file-badge-subtle">Grid</span></div>
+            </div>
+
+            <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-backend">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 BACKEND</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-backend">
+              <div class="file-item" id="mob-side-nodejs" data-skill="nodejs"><span>🟢 Node.mjs</span><span class="file-badge-subtle">Async</span></div>
+              <div class="file-item" id="mob-side-express" data-skill="express"><span>⚡ Express.js</span><span class="file-badge-subtle">REST</span></div>
+              <div class="file-item" id="mob-side-postgresql" data-skill="postgresql"><span>🐘 PostgreSQL.sql</span><span class="file-badge-subtle">ACID</span></div>
+              <div class="file-item" id="mob-side-mongodb" data-skill="mongodb"><span>🍃 MongoDB.ts</span><span class="file-badge-subtle">NoSQL</span></div>
+              <div class="file-item" id="mob-side-python" data-skill="python"><span>🐍 Python.py</span><span class="file-badge-subtle">Scripts</span></div>
+            </div>
+
+            <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-tools">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 TOOLS &amp; VCS</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-tools">
+              <div class="file-item" id="mob-side-git" data-skill="git"><span>🐙 Git.config</span><span class="file-badge-subtle">CI/CD</span></div>
+              <div class="file-item" id="mob-side-npm" data-skill="npm"><span>📦 package.json</span><span class="file-badge-subtle">NPM</span></div>
+              <div class="file-item" id="mob-side-postman" data-skill="postman"><span>🚀 Postman.json</span><span class="file-badge-subtle">API Test</span></div>
+              <div class="file-item" id="mob-side-vscode" data-skill="vscode"><span>💻 VSCode.json</span><span class="file-badge-subtle">IDE</span></div>
+              <div class="file-item" id="mob-side-trello" data-skill="trello"><span>📋 Trello.board</span><span class="file-badge-subtle">Agile</span></div>
+            </div>
+
+            <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-leveling">
+              <div class="folder-title-left">
+                <span class="folder-chevron">▼</span>
+                <span>📁 LEVELING UP</span>
+              </div>
+              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+            </div>
+            <div class="folder-content" id="mob-folder-leveling">
+              <div class="file-item" id="mob-side-angular" data-skill="angular"><span>🅰️ Angular.ts</span><span class="file-badge-subtle">Signals</span></div>
+              <div class="file-item" id="mob-side-reactnative" data-skill="reactnative"><span>📱 ReactNative.tsx</span><span class="file-badge-subtle">Mobile</span></div>
+              <div class="file-item" id="mob-side-java" data-skill="java"><span>☕ Java.java</span><span class="file-badge-subtle">CS</span></div>
+              <div class="file-item" id="mob-side-chakraui" data-skill="chakraui"><span>⚡ ChakraUI.tsx</span><span class="file-badge-subtle">ARIA</span></div>
+              <div class="file-item" id="mob-side-threejs" data-skill="threejs"><span>🧊 ThreeJS.ts</span><span class="file-badge-subtle">WebGL</span></div>
+            </div>
+          </div>
+
+          <div class="ide-body">
+            <!-- Desktop 24-Files Explorer Sidebar with Collapsible Folders -->
+            <div class="ide-sidebar" id="desktop-sidebar">
+              <!-- Folder 1: Frontend -->
+              <div class="folder-header" data-folder-target="folder-frontend">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 FRONTEND</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">9 files</span>
+              </div>
+              <div class="folder-content" id="folder-frontend">
+                <div class="file-item active" id="side-react" data-skill="react"><span>⚛️ React.tsx</span><span class="file-badge-subtle">Core</span></div>
+                <div class="file-item" id="side-nextjs" data-skill="nextjs"><span>▲ Next.js.tsx</span><span class="file-badge-subtle">SSR</span></div>
+                <div class="file-item" id="side-typescript" data-skill="typescript"><span>🔷 TypeScript.ts</span><span class="file-badge-subtle">Strict</span></div>
+                <div class="file-item" id="side-sass" data-skill="sass"><span>🎨 Sass.scss</span><span class="file-badge-subtle">Tokens</span></div>
+                <div class="file-item" id="side-tailwind" data-skill="tailwind"><span>🌊 Tailwind.css</span><span class="file-badge-subtle">Utility</span></div>
+                <div class="file-item" id="side-storybook" data-skill="storybook"><span>📕 Storybook.ts</span><span class="file-badge-subtle">Design</span></div>
+                <div class="file-item" id="side-javascript" data-skill="javascript"><span>🟨 JavaScript.js</span><span class="file-badge-subtle">ESNext</span></div>
+                <div class="file-item" id="side-html5" data-skill="html5"><span>🌐 HTML5.html</span><span class="file-badge-subtle">A11y</span></div>
+                <div class="file-item" id="side-css3" data-skill="css3"><span>🎨 CSS3.css</span><span class="file-badge-subtle">Grid</span></div>
+              </div>
+
+              <!-- Folder 2: Backend -->
+              <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-backend">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 BACKEND</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              </div>
+              <div class="folder-content" id="folder-backend">
+                <div class="file-item" id="side-nodejs" data-skill="nodejs"><span>🟢 Node.mjs</span><span class="file-badge-subtle">Async</span></div>
+                <div class="file-item" id="side-express" data-skill="express"><span>⚡ Express.js</span><span class="file-badge-subtle">REST</span></div>
+                <div class="file-item" id="side-postgresql" data-skill="postgresql"><span>🐘 PostgreSQL.sql</span><span class="file-badge-subtle">ACID</span></div>
+                <div class="file-item" id="side-mongodb" data-skill="mongodb"><span>🍃 MongoDB.ts</span><span class="file-badge-subtle">NoSQL</span></div>
+                <div class="file-item" id="side-python" data-skill="python"><span>🐍 Python.py</span><span class="file-badge-subtle">Scripts</span></div>
+              </div>
+
+              <!-- Folder 3: Tools -->
+              <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-tools">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 TOOLS &amp; VCS</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              </div>
+              <div class="folder-content" id="folder-tools">
+                <div class="file-item" id="side-git" data-skill="git"><span>🐙 Git.config</span><span class="file-badge-subtle">CI/CD</span></div>
+                <div class="file-item" id="side-npm" data-skill="npm"><span>📦 package.json</span><span class="file-badge-subtle">NPM</span></div>
+                <div class="file-item" id="side-postman" data-skill="postman"><span>🚀 Postman.json</span><span class="file-badge-subtle">API Test</span></div>
+                <div class="file-item" id="side-vscode" data-skill="vscode"><span>💻 VSCode.json</span><span class="file-badge-subtle">IDE</span></div>
+                <div class="file-item" id="side-trello" data-skill="trello"><span>📋 Trello.board</span><span class="file-badge-subtle">Agile</span></div>
+              </div>
+
+              <!-- Folder 4: Leveling Up -->
+              <div class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-leveling">
+                <div class="folder-title-left">
+                  <span class="folder-chevron">▼</span>
+                  <span>📁 LEVELING UP</span>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              </div>
+              <div class="folder-content" id="folder-leveling">
+                <div class="file-item" id="side-angular" data-skill="angular"><span>🅰️ Angular.ts</span><span class="file-badge-subtle">Signals</span></div>
+                <div class="file-item" id="side-reactnative" data-skill="reactnative"><span>📱 ReactNative.tsx</span><span class="file-badge-subtle">Mobile</span></div>
+                <div class="file-item" id="side-java" data-skill="java"><span>☕ Java.java</span><span class="file-badge-subtle">CS</span></div>
+                <div class="file-item" id="side-chakraui" data-skill="chakraui"><span>⚡ ChakraUI.tsx</span><span class="file-badge-subtle">ARIA</span></div>
+                <div class="file-item" id="side-threejs" data-skill="threejs"><span>🧊 ThreeJS.ts</span><span class="file-badge-subtle">WebGL</span></div>
+              </div>
+            </div>
+
+            <!-- Main Pane -->
+            <div class="ide-main-pane">
+              <div class="tab-bar">
+                <div class="editor-tab" id="active-tab-title">
+                  <span>⚛️ React.tsx</span>
+                </div>
+                <span class="tab-cat-badge" id="active-tab-category">Frontend • Core Library</span>
+              </div>
+
+              <!-- Code Display Canvas -->
+              <div class="code-canvas" id="code-canvas-body">
+                <!-- Rendered dynamically via JS -->
+              </div>
+
+              <!-- Skill Description Footer -->
+              <div class="skill-desc-footer" id="skill-desc-text">
+                Primary UI building block used across production client projects and full-stack web applications.
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. COLLAPSIBLE CONSOLE DRAWER -->
+          <div class="ide-status-bar" id="console-drawer-status-bar" role="button" tabindex="0" aria-expanded="true" aria-label="Toggle career milestones git console">
+            <div class="status-left">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <circle cx="18" cy="18" r="3" />
+                <circle cx="6" cy="6" r="3" />
+                <path d="M6 21V9a9 9 0 0 0 9 9" />
+              </svg>
+              <span>🌿 Career Milestones &amp; Git History</span>
+              <span class="status-badge">7 Commits</span>
+            </div>
+            <span id="drawer-indicator-text" style="color: var(--primary-light, #38bdf8);">Click to Collapse ▼</span>
+          </div>
+
+          <!-- The Responsive Simplified Console Drawer -->
+          <div class="git-drawer open" id="console-drawer-panel">
+            <div class="drawer-inner">
+              <div class="console-header-line">
+                <div>
+                  <span>matthew@portfolio:~/career</span> $ <span class="cmd">git log --graph --oneline</span>
+                </div>
+                <span style="font-size: 0.7rem; color: var(--text-muted);">branch: main</span>
+              </div>
+
+              <!-- Responsive Milestone Stream -->
+              <div class="git-milestone-stream">
+                <!-- Milestone 1: WGU -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-purple">⭘──┐</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">7f2a91c</span>
+                      <time class="commit-date" datetime="2027-01">Expected Jan 2027</time>
+                    </div>
+                    <h3 class="milestone-title">B.S. Computer Science — Western Governors University</h3>
+                    <p class="milestone-desc">Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 2: Freelance -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-green">│ ⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">4b8e23f</span>
+                      <time class="commit-date" datetime="2021">2021 – Present</time>
+                    </div>
+                    <h3 class="milestone-title">Freelance Web Developer</h3>
+                    <p class="milestone-desc">Producing and maintaining websites for clients using technology from vanilla HTML all the way to Next.js.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 3: React Bootcamp -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-amber">│ ⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">9c118da</span>
+                      <time class="commit-date" datetime="2021">2021 – 2022</time>
+                    </div>
+                    <h3 class="milestone-title">React Bootcamp</h3>
+                    <p class="milestone-desc">Mastered modern React, Redux Toolkit, React Query, TypeScript, and Next.js. Built and deployed full-stack apps.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 4: Web Dev Bootcamp -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-amber">│ ⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">3e5d0a1</span>
+                      <time class="commit-date" datetime="2021">2021 – 2022</time>
+                    </div>
+                    <h3 class="milestone-title">Web Development Bootcamp</h3>
+                    <p class="milestone-desc">Deep dives into HTML5, CSS3, JavaScript, Node.js, MongoDB, PostgreSQL, and SASS.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 5: Indie Games -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-green">├──┘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">a104f67</span>
+                      <time class="commit-date" datetime="2010">2010 – 2020</time>
+                    </div>
+                    <h3 class="milestone-title">Indie Game Developer</h3>
+                    <p class="milestone-desc">Released and sold two Xbox Live games as a solo developer. Collaborated on several others and QA'd hundreds more.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 6: Westwood -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-purple">⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">18d9b23</span>
+                      <time class="commit-date" datetime="2012">2012 – 2015</time>
+                    </div>
+                    <h3 class="milestone-title">B.S. Game Software Development — Westwood College</h3>
+                    <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.</p>
+                  </div>
+                </div>
+
+                <!-- Milestone 7: High School -->
+                <div class="milestone-entry">
+                  <div class="milestone-node node-purple">⭘</div>
+                  <div class="milestone-content">
+                    <div class="milestone-meta-row">
+                      <span class="commit-sha">001init</span>
+                      <time class="commit-date" datetime="2001">2001 – 2005</time>
+                    </div>
+                    <h3 class="milestone-title">Yucaipa High School</h3>
+                    <p class="milestone-desc">3.9 GPA, Gifted &amp; Talented Education. First C++ and Java experience at age 15.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
     <!-- WHY HIRE ME -->
-    <section class="why-hire" id="why-hire" aria-labelledby="why-hire-heading">
+    <section class="why-hire" id="why-hire" aria-labelledby="why-heading">
       <div class="container">
-        <p class="section-label">The Case For Matthew</p>
-        <h2 class="section-title" id="why-hire-heading">Why Hire Me?</h2>
+        <div class="why-hire__head reveal">
+          <p class="section-label">Why Choose Me</p>
+          <h2 class="section-title" id="why-heading">Why Work With Matthew?</h2>
+          <p class="why-hire__subtitle">
+            What you get beyond clean code — a developer who thinks in outcomes, moves independently, and follows
+            through.
+          </p>
+        </div>
+
         <ul class="why-hire__grid">
+          <!-- Top Left: Rare Full-Stack Range -->
           <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i09"></use>
-              </svg>
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="why-card__title">Rare Full-Stack Range</h3>
             </div>
-            <h3 class="why-card__title">Rare Full-Stack Range</h3>
             <p class="why-card__body">
               From C# game engines to React frontends to Node backends, I've built complete systems end to end. That
               range means I can move between interface, logic, and architecture without losing the bigger picture.
             </p>
           </li>
 
+          <!-- Top Right: No Hand-Holding Needed -->
           <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i11"></use>
-              </svg>
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+              </div>
+              <h3 class="why-card__title">No Hand-Holding Needed</h3>
             </div>
-            <h3 class="why-card__title">Reliable by Habit</h3>
-            <p class="why-card__body">
-              I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built
-              the kind of consistency clients can actually feel: dependable communication, dependable progress,
-              dependable follow-through.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i13"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">No Hand-Holding Needed</h3>
             <p class="why-card__body">
               A decade of solo development taught me how to take ownership of a problem, work through ambiguity, and
               keep moving. I research, debug, and iterate until something works, then make sure I understand why it
@@ -734,45 +830,85 @@
             </p>
           </li>
 
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i12"></use>
-              </svg>
+          <!-- Middle Hero Centerpiece: Detail & Real Outcomes Non-Negotiable -->
+          <li class="why-card why-card--centerpiece reveal">
+            <div class="why-card__centerpiece-inner">
+              <div class="why-card__centerpiece-text">
+                <div class="why-card__head">
+                  <div class="why-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <circle cx="12" cy="12" r="6"></circle>
+                      <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                  </div>
+                  <h3 class="why-card__title why-card__title--centerpiece">Detail &amp; Real Outcomes Non-Negotiable</h3>
+                </div>
+                <p class="why-card__body">
+                  I'm not interested in clever code for its own sake. I care about building things that solve real problems, support real goals, and feel good to use. I pair that outcome-focus with uncompromising finish: accessible WCAG compliance, fluid responsive layouts across every device viewport, and code that stays clean under pressure.
+                </p>
+              </div>
+              <div class="why-card__centerpiece-stats" aria-label="Quality and performance benchmarks">
+                <div class="why-card__stat-item">
+                  <span class="why-card__stat-label">Lighthouse Audits</span>
+                  <span class="why-card__stat-val">98+ Score</span>
+                </div>
+                <div class="why-card__stat-item">
+                  <span class="why-card__stat-label">Accessibility</span>
+                  <span class="why-card__stat-val why-card__stat-val--green">WCAG AA</span>
+                </div>
+                <div class="why-card__stat-item">
+                  <span class="why-card__stat-label">Problem Solving</span>
+                  <span class="why-card__stat-val why-card__stat-val--amber">Top 1% Rank</span>
+                </div>
+              </div>
             </div>
-            <h3 class="why-card__title">Built for Teams</h3>
+          </li>
+
+          <!-- Bottom Left: Reliable by Habit -->
+          <li class="why-card reveal">
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3 class="why-card__title">Reliable by Habit</h3>
+            </div>
+            <p class="why-card__body">
+              I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built
+              the kind of consistency clients can actually feel: dependable communication, dependable progress,
+              dependable follow-through.
+              <span class="why-card__dots" aria-hidden="true">
+                <span class="why-card__dot why-card__dot--l1"></span>
+                <span class="why-card__dot why-card__dot--l3"></span>
+                <span class="why-card__dot why-card__dot--l4"></span>
+                <span class="why-card__dot why-card__dot--l2"></span>
+                <span class="why-card__dot why-card__dot--l4"></span>
+                <span class="why-card__dot why-card__dot--l3"></span>
+                <span class="why-card__dot why-card__dot--l4"></span>
+              </span>
+            </p>
+          </li>
+
+          <!-- Bottom Right: Built for Teams -->
+          <li class="why-card reveal">
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3 class="why-card__title">Built for Teams</h3>
+            </div>
             <p class="why-card__body">
               I'm self-directed, but not siloed. I've worked with clients, collaborated on distributed projects, and
               written code meant to be read and maintained by others. Clear communication and low-ego collaboration
               are part of the job.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i16"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">Focused on Real Outcomes</h3>
-            <p class="why-card__body">
-              I'm not interested in clever code for its own sake. I care about building things that solve real
-              problems, support real goals, and feel good to use. The end result should work for the people using it,
-              not just the developer who built it.
-            </p>
-          </li>
-
-          <li class="why-card reveal">
-            <div class="why-card__icon" aria-hidden="true">
-              <svg>
-                <use href="assets/images/sprites/icons.svg#i20"></use>
-              </svg>
-            </div>
-            <h3 class="why-card__title">Detail Is Non-Negotiable</h3>
-            <p class="why-card__body">
-              I care deeply about the finish of what I ship: accessible markup, thoughtful UX, strong responsive
-              behavior, and code that stays clean under pressure. The small details are often what make a product feel
-              trustworthy.
             </p>
           </li>
         </ul>
@@ -782,44 +918,105 @@
     <!-- ABOUT -->
     <section class="about" id="about" aria-labelledby="about-heading">
       <div class="container">
-        <p class="section-label">The Human Behind the Code</p>
-        <h2 class="section-title" id="about-heading">About Me</h2>
-        <div class="about__layout">
-          <div class="about__portrait-wrap reveal scale-in">
-            <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
-              <div class="about__portrait-ring" aria-hidden="true"></div>
-              <div class="about__portrait">
-                <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
-              </div>
-            </button>
+        <div class="about__header reveal">
+          <p class="section-label">The Human Behind the Code</p>
+          <h2 class="section-title" id="about-heading">About Me</h2>
+        </div>
+
+        <div class="about__deck-grid">
+          <!-- Left Stage: Pure Floating Interactive Portrait -->
+          <div class="about__portrait-pane reveal scale-in">
+            <div class="about__portrait-wrap">
+              <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
+                <div class="about__portrait-ring" aria-hidden="true"></div>
+                <div class="about__portrait">
+                  <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
+                </div>
+              </button>
+              <span class="about__portrait-hint" aria-hidden="true">Click portrait to launch</span>
+            </div>
           </div>
-          <div class="about__text reveal">
-            <p>
-              Hi — I'm <span class="about__highlight">Matthew McGrath</span>, a California-based
-              <span class="about__highlight">Full-Stack Web Developer</span> with an obsession for beautiful,
-              functional design.
-            </p>
-            <p>
-              Since writing my first line of code at 15, I've had an unbound curiosity for programming and the
-              problem-solving it encapsulates. That curiosity led me to pursue a Bachelor's in Computer Science while
-              simultaneously developing indie games. After years of dedication and over 100,000 lines of code, I
-              released two fully independent games for the Xbox 360 Indie Games platform.
-            </p>
-            <p>
-              That passion turned my focus to the web. Through formal coursework and disciplined self-study across
-              React, Next.js, Node.js, and the full modern stack, I craft responsive, accessible, and performant web
-              experiences — the kind people love to use.
-            </p>
-            <p>
-              My go-to stack is React and Node.js, but I'm equally comfortable reaching for Next.js, PostgreSQL, or
-              whatever the project calls for.
-            </p>
-            <a href="/resume" target="_blank" rel="noopener noreferrer" class="about__resume-link btn-ghost" aria-label="View resume, opens in new tab">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i14"></use>
-              </svg>
-              View Resume
-            </a>
+
+          <!-- Right Stage: Open Headline + Chapter Deck -->
+          <div class="about__story-pane reveal">
+            <h3 class="about__headline">
+              Hi — I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
+            </h3>
+
+            <!-- 4-Segment Progress Track -->
+            <div class="about__track" role="tablist" aria-label="About chapter navigation">
+              <button type="button" class="about__seg active" role="tab" aria-selected="true" data-chapter-index="0" id="about-tab-0" aria-controls="about-slide-0">
+                <div class="about__seg-bar" aria-hidden="true"></div>
+                <span class="about__seg-lbl">01 &bull; Origins</span>
+              </button>
+              <button type="button" class="about__seg" role="tab" aria-selected="false" data-chapter-index="1" id="about-tab-1" aria-controls="about-slide-1">
+                <div class="about__seg-bar" aria-hidden="true"></div>
+                <span class="about__seg-lbl">02 &bull; Web Shift</span>
+              </button>
+              <button type="button" class="about__seg" role="tab" aria-selected="false" data-chapter-index="2" id="about-tab-2" aria-controls="about-slide-2">
+                <div class="about__seg-bar" aria-hidden="true"></div>
+                <span class="about__seg-lbl">03 &bull; Stack</span>
+              </button>
+              <button type="button" class="about__seg" role="tab" aria-selected="false" data-chapter-index="3" id="about-tab-3" aria-controls="about-slide-3">
+                <div class="about__seg-bar" aria-hidden="true"></div>
+                <span class="about__seg-lbl">04 &bull; Mindset</span>
+              </button>
+            </div>
+
+            <!-- Slide Viewport -->
+            <div class="about__slides-viewport">
+              <!-- Slide 01 -->
+              <div class="about__slide active" id="about-slide-0" role="tabpanel" aria-labelledby="about-tab-0">
+                <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Indie Game Roots &amp; CS Foundation</h4>
+                <p class="about__slide-prose">
+                  Since writing my first line of code at 15, I've had an unbound curiosity for programming and the problem-solving it encapsulates. That curiosity led me to pursue a Bachelor's in Computer Science while simultaneously developing indie games. After years of dedication and over 100,000 lines of code, I released two fully independent games for the Xbox 360 Indie Games platform.
+                </p>
+              </div>
+
+              <!-- Slide 02 -->
+              <div class="about__slide" id="about-slide-1" role="tabpanel" aria-labelledby="about-tab-1">
+                <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Modern Web Focus &amp; Frontend Craft</h4>
+                <p class="about__slide-prose">
+                  That passion turned my focus to the web. Through formal coursework and disciplined self-study across React, Next.js, Node.js, and the full modern stack, I craft responsive, accessible, and performant web experiences — the kind people love to use.
+                </p>
+              </div>
+
+              <!-- Slide 03 -->
+              <div class="about__slide" id="about-slide-2" role="tabpanel" aria-labelledby="about-tab-2">
+                <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Go-To Stack &amp; Architectural Flexibility</h4>
+                <p class="about__slide-prose">
+                  My go-to stack is React and Node.js, but I'm equally comfortable reaching for Next.js, PostgreSQL, or whatever the project calls for. I adapt quickly to existing codebases and select the right tool for the specific job.
+                </p>
+              </div>
+
+              <!-- Slide 04 -->
+              <div class="about__slide" id="about-slide-3" role="tabpanel" aria-labelledby="about-tab-3">
+                <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Low-Ego Collaboration &amp; Reliability</h4>
+                <p class="about__slide-prose">
+                  Whether working solo or alongside a distributed team, I believe clear communication, disciplined follow-through, and low-ego collaboration are just as important as clean code. I build solutions meant to be read, maintained, and scaled with confidence.
+                </p>
+              </div>
+            </div>
+
+            <!-- Streamlined Bottom Controls -->
+            <div class="about__controls">
+              <button type="button" class="about__next-cta" data-about-action="next" aria-label="Proceed to next chapter">
+                <span>Up next:</span>
+                <span class="about__next-label" id="about-next-title">Modern Web Shift &rarr;</span>
+              </button>
+              <div class="about__arrow-group">
+                <button type="button" class="about__arrow-btn" data-about-action="prev" aria-label="Previous chapter">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button type="button" class="about__arrow-btn" data-about-action="next" aria-label="Next chapter">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1005,7 +1202,6 @@
                 <use href="assets/images/sprites/icons.svg#i21"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">01</div> -->
             <h3 class="service-card__title">Landing Pages &amp; Marketing Sites</h3>
             <p class="service-card__desc">
               A fast, beautiful, fully-responsive website that converts visitors into customers. Built with semantic
@@ -1031,7 +1227,6 @@
                 <use href="assets/images/sprites/icons.svg#i22"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">02</div> -->
             <h3 class="service-card__title">React &amp; Next.js Web Apps</h3>
             <p class="service-card__desc">
               Interactive, full-stack applications built with modern React, Next.js, and a Node/Express backend. From
@@ -1056,7 +1251,6 @@
                 <use href="assets/images/sprites/icons.svg#i23"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">03</div> -->
             <h3 class="service-card__title">Site Fixes &amp; Improvements</h3>
             <p class="service-card__desc">
               Got an existing site that's slow, broken, or just needs a refresh? I can audit your codebase, squash
@@ -1080,7 +1274,6 @@
                 <use href="assets/images/sprites/icons.svg#i24"></use>
               </svg>
             </div>
-            <!-- <div class="service-card__num" aria-hidden="true">04</div> -->
             <h3 class="service-card__title">Ongoing Maintenance &amp; Support</h3>
             <p class="service-card__desc">
               Keep your site healthy, secure, and up to date without thinking about it. Ideal for small businesses who
@@ -1109,167 +1302,159 @@
     <!-- CODING ACTIVITY -->
     <section class="coding" id="coding" aria-labelledby="coding-heading">
       <div class="container">
-        <div class="coding__head">
-          <div>
-            <p class="section-label">Daily Consistency</p>
-            <h2 class="section-title" id="coding-heading">Coding Activity</h2>
-          </div>
+        <div class="coding__head reveal">
+          <p class="section-label">Daily Consistency &amp; Problem Solving</p>
+          <h2 class="section-title" id="coding-heading">Coding Activity</h2>
         </div>
 
-        <!-- Two-column: GitHub stats left, LeetCode card right -->
         <div class="coding__grid">
-          <!-- GitHub card -->
-          <div class="coding__col">
-            <div class="coding__col-header">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i02"></use>
-              </svg>
-              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__col-header-link" aria-label="View Matthew's GitHub profile, opens in new tab">GitHub <span class="coding__col-header-arrow" aria-hidden="true">↗</span></a>
-            </div>
-            <div class="github__stats reveal" id="github-stats" aria-live="polite" aria-atomic="true">
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-total">809</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Contributions</div>
-                  <div class="github__stat-sub">Past 12 months</div>
-                </div>
-              </div>
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-streak">1.9K</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Longest Streak</div>
-                  <div class="github__stat-sub">All time</div>
-                </div>
-              </div>
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-best">36</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Best Day</div>
-                  <div class="github__stat-sub" id="stat-best-date">Apr 1, 2022</div>
-                </div>
-              </div>
-              <div class="github__stat">
-                <div class="github__stat-num" id="stat-active-days">1.9K</div>
-                <div class="github__stat-info">
-                  <div class="github__stat-label">Active Days</div>
-                  <div class="github__stat-sub">All time</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- LeetCode card -->
-          <div class="coding__col">
-            <div class="coding__col-header">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i25"></use>
-              </svg>
-              <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" class="coding__col-header-link" aria-label="View Matthew's LeetCode profile, opens in new tab">LeetCode <span class="coding__col-header-arrow" aria-hidden="true">↗</span></a>
-            </div>
-            <div class="leetcode__card reveal" id="leetcode-card" aria-live="polite" aria-atomic="true">
-              <div class="leetcode__stats" id="leetcode-stats">
-                <div class="leetcode__stat">
-                  <div class="leetcode__stat-num" id="lc-total">1,267</div>
-                  <div class="leetcode__stat-info">
-                    <div class="leetcode__stat-label">Total Solved</div>
-                    <div class="leetcode__stat-sub">All difficulties</div>
-                  </div>
-                </div>
-                <div class="leetcode__stat">
-                  <div class="leetcode__stat-num" id="lc-accept">83.4%</div>
-                  <div class="leetcode__stat-info">
-                    <div class="leetcode__stat-label">Acceptance</div>
-                    <div class="leetcode__stat-sub">Submit rate</div>
-                  </div>
-                </div>
-                <div class="leetcode__stat leetcode__stat--rank">
-                  <div class="leetcode__stat-num" id="lc-ranking">15.1K</div>
-                  <div class="leetcode__stat-info">
-                    <div class="leetcode__stat-label">Global Rank</div>
-                    <div class="leetcode__stat-sub" id="lc-rank-sub"><span class="lc-rank-badge">✦ Top 1%</span></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Difficulty breakdown bars -->
-              <div class="leetcode__breakdown" id="leetcode-breakdown">
-                <div class="lc-bar-row">
-                  <span class="lc-bar-label lc-easy">Easy</span>
-                  <div class="lc-bar-track">
-                    <div class="lc-bar-fill lc-easy-fill" id="lc-easy-bar"></div>
-                  </div>
-                  <span class="lc-bar-count" id="lc-easy-count">825 / 966</span>
-                </div>
-                <div class="lc-bar-row">
-                  <span class="lc-bar-label lc-medium">Medium</span>
-                  <div class="lc-bar-track">
-                    <div class="lc-bar-fill lc-medium-fill" id="lc-medium-bar"></div>
-                  </div>
-                  <span class="lc-bar-count" id="lc-medium-count">428 / 2,117</span>
-                </div>
-                <div class="lc-bar-row">
-                  <span class="lc-bar-label lc-hard">Hard</span>
-                  <div class="lc-bar-track">
-                    <div class="lc-bar-fill lc-hard-fill" id="lc-hard-bar"></div>
-                  </div>
-                  <span class="lc-bar-count" id="lc-hard-count">14 / 977</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Codewars card -->
-          <div class="coding__col">
-            <div class="coding__col-header">
-              <svg width="16" height="16" aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i26"></use>
-              </svg>
-              <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__col-header-link" aria-label="View Matthew's Codewars profile, opens in new tab">Codewars <span class="coding__col-header-arrow" aria-hidden="true">↗</span></a>
-            </div>
-            <div class="codewars__badge-wrap">
-              <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="View Matthew McGrath on Codewars">
-                <img src="https://www.codewars.com/users/Epitome87/badges/large" alt="Codewars rank and honor badge for Epitome87" class="codewars__badge-img" loading="lazy" width="400" height="100" />
-              </a>
-              <p class="codewars__blurb">
-                Sharpening the problem-solving skills real projects demand, one kata at a time.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- GitHub contribution graph -->
-        <div class="github__graph-wrap reveal">
-          <div class="github__graph-header">
+          <!-- LEFT CARD: GITHUB CONSISTENCY -->
+          <div class="coding__col coding__col--github reveal">
             <div>
-              <p class="github__graph-title">Contribution Activity</p>
-              <p class="github__graph-subtitle" id="graph-subtitle">Loading...</p>
-            </div>
-            <div class="github__legend" aria-label="Legend">
-              <span class="github__legend-label">Less</span>
-              <div class="github__legend-cells">
-                <div class="github__legend-cell" data-level="0"></div>
-                <div class="github__legend-cell" data-level="1"></div>
-                <div class="github__legend-cell" data-level="2"></div>
-                <div class="github__legend-cell" data-level="3"></div>
-                <div class="github__legend-cell" data-level="4"></div>
+              <div class="coding__col-header">
+                <div class="coding__col-heading">
+                  <svg width="20" height="20" aria-hidden="true">
+                    <use href="assets/images/sprites/icons.svg#i02"></use>
+                  </svg>
+                  <span>GitHub Consistency</span>
+                </div>
               </div>
-              <span class="github__legend-label">More</span>
+
+              <!-- 3 High-Impact GitHub Stats -->
+              <div class="coding__stats-row" id="github-stats" aria-live="polite" aria-atomic="true">
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="stat-total">809</span>
+                  <span class="coding__stat-label" id="stat-total-label">Contribs (12M)</span>
+                </div>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="stat-streak">1.9K</span>
+                  <span class="coding__stat-label">Day Streak</span>
+                </div>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="stat-repos">24+</span>
+                  <span class="coding__stat-label">Public Repos</span>
+                </div>
+              </div>
+
+              <!-- Heatmap + Multi-Year Selector Box -->
+              <div class="github__graph-wrap">
+                <div class="github__year-selector" id="github-year-selector" aria-label="Select year" role="group"></div>
+                <div class="github__months" id="github-months" aria-hidden="true"></div>
+                <div class="github__grid-body">
+                  <div class="github__day-labels" aria-hidden="true">
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Mon</div>
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Wed</div>
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Fri</div>
+                    <div class="github__day-label"></div>
+                  </div>
+                  <div class="github__grid-scroll">
+                    <div class="github__grid" id="github-grid" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Matching Footer on GitHub Card -->
+            <div class="coding__col-footer">
+              <span class="coding__footer-desc">Open-Source &amp; Private Commit Cadence</span>
+              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__footer-pill" aria-label="View Matthew's GitHub profile, opens in new tab">
+                <span>GitHub ↗</span>
+              </a>
             </div>
           </div>
-          <!-- Year selector — populated by JS once data loads -->
-          <div class="github__year-selector" id="github-year-selector" aria-label="Select year" role="group"></div>
-          <div class="github__months" id="github-months" aria-hidden="true"></div>
-          <div class="github__grid-body">
-            <div class="github__day-labels" aria-hidden="true">
-              <div class="github__day-label"></div>
-              <div class="github__day-label">Mon</div>
-              <div class="github__day-label"></div>
-              <div class="github__day-label">Wed</div>
-              <div class="github__day-label"></div>
-              <div class="github__day-label">Fri</div>
-              <div class="github__day-label"></div>
+
+          <!-- RIGHT CARD: ALGORITHM PROBLEM SOLVING -->
+          <div class="coding__col coding__col--algo reveal" id="leetcode-card">
+            <div>
+              <div class="coding__col-header">
+                <div class="coding__col-heading">
+                  <svg width="20" height="20" aria-hidden="true">
+                    <use href="assets/images/sprites/icons.svg#i25"></use>
+                  </svg>
+                  <span>Algorithm Problem Solving</span>
+                </div>
+              </div>
+
+              <!-- Dynamic 3-Stat Metric Row Matching Left Card -->
+              <div class="coding__stats-row" id="algo-stats-row" aria-live="polite" aria-atomic="true">
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="lc-stat-1">1,267</span>
+                  <span class="coding__stat-label" id="lc-stat-lbl-1">Total Solved</span>
+                </div>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num coding__stat-num--accent" id="lc-stat-2">Top 1%</span>
+                  <span class="coding__stat-label" id="lc-stat-lbl-2">Global Rank (#15.1K)</span>
+                </div>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="lc-stat-3">83.4%</span>
+                  <span class="coding__stat-label" id="lc-stat-lbl-3">Acceptance</span>
+                </div>
+              </div>
+
+              <!-- Integrated Platform Container Box -->
+              <div class="algo__container">
+                <!-- Tab Switcher Strip -->
+                <div class="algo__tabs" role="tablist" aria-label="Algorithmic platform selection">
+                  <button type="button" role="tab" aria-selected="true" aria-controls="panel-leetcode" id="tab-btn-lc" class="algo__tab-btn active">
+                    <span class="algo__tab-icon" style="color: #ffb700;" aria-hidden="true">⚡</span>
+                    <span>LeetCode</span>
+                  </button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="panel-codewars" id="tab-btn-cw" class="algo__tab-btn">
+                    <span class="algo__tab-icon" style="color: var(--complementary);" aria-hidden="true">🥋</span>
+                    <span>Codewars</span>
+                  </button>
+                </div>
+
+                <!-- 1. LEETCODE VIEW (DEFAULT) -->
+                <div class="algo__panel active" id="panel-leetcode" role="tabpanel" aria-labelledby="tab-btn-lc">
+                  <div class="leetcode__breakdown" id="leetcode-breakdown">
+                    <div class="lc-bar-row">
+                      <span class="lc-bar-label lc-easy">Easy</span>
+                      <div class="lc-bar-track">
+                        <div class="lc-bar-fill lc-easy-fill" id="lc-easy-bar"></div>
+                      </div>
+                      <span class="lc-bar-count" id="lc-easy-count">825 / 966</span>
+                    </div>
+                    <div class="lc-bar-row">
+                      <span class="lc-bar-label lc-medium">Medium</span>
+                      <div class="lc-bar-track">
+                        <div class="lc-bar-fill lc-medium-fill" id="lc-medium-bar"></div>
+                      </div>
+                      <span class="lc-bar-count" id="lc-medium-count">428 / 2,117</span>
+                    </div>
+                    <div class="lc-bar-row">
+                      <span class="lc-bar-label lc-hard">Hard</span>
+                      <div class="lc-bar-track">
+                        <div class="lc-bar-fill lc-hard-fill" id="lc-hard-bar"></div>
+                      </div>
+                      <span class="lc-bar-count" id="lc-hard-count">14 / 977</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. CODEWARS VIEW -->
+                <div class="algo__panel" id="panel-codewars" role="tabpanel" aria-labelledby="tab-btn-cw" hidden>
+                  <div class="codewars__content">
+                    <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" class="codewars__badge-link" aria-label="View Matthew McGrath on Codewars, opens in new tab">
+                      <img src="https://www.codewars.com/users/Epitome87/badges/large" alt="Codewars rank badge for Epitome87" class="codewars__badge-img" loading="lazy" width="400" height="100" />
+                    </a>
+                    <p class="codewars__blurb">
+                      Sharpening problem-solving and algorithmic discipline, one kata at a time.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="github__grid-scroll">
-              <div class="github__grid" id="github-grid" aria-hidden="true"></div>
+
+            <!-- Matching Footer on Algorithm Card -->
+            <div class="coding__col-footer">
+              <span class="coding__footer-desc" id="algo-footer-desc">Data Structures &bull; Graph Theory &bull; Dynamic Programming</span>
+              <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" class="coding__footer-pill coding__footer-pill--accent" id="algo-footer-link" aria-label="View Matthew's LeetCode profile, opens in new tab">
+                <span>LeetCode ↗</span>
+              </a>
             </div>
           </div>
         </div>
@@ -1422,7 +1607,6 @@
 
       <div class="project-modal__stats" id="modal-stats"></div>
 
-      <!-- <div class="project-modal__video" id="modal-video-wrap" style="display: none; width: 100%; aspect-ratio: 16 / 9; margin: 0.5rem 0;"></div> -->
       <div class="project-modal__video" id="modal-video-wrap" hidden></div>
 
       <div class="project-modal__section">
