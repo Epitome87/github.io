@@ -10,6 +10,8 @@ export const allSkills = {
     icon: '⚛️',
     category: 'Frontend • Core Library',
     lines: [
+      '<span class="com">// Context: Core UI library across production client projects & SaaS applications.</span>',
+      '',
       '<span class="kw">import</span> { <span class="type">useState</span>, <span class="type">useCallback</span> } <span class="kw">from</span> <span class="str">\'react\'</span>;',
       '',
       '<span class="kw">export const</span> <span class="fn">ChapterDeck</span> = ({ <span class="prop">chapters</span>, <span class="prop">activeId</span> }) => {',
@@ -18,7 +20,7 @@ export const allSkills = {
       '  <span class="kw">return</span> &lt;<span class="type">StoryCanvas</span> <span class="prop">chapter</span>={chapters[index]} <span class="prop">onNext</span>={handleNext} /&gt;;',
       '};',
     ],
-    desc: 'Primary UI building block used across production client projects and full-stack web applications. Emphasizes clean custom hooks, memoization, and modular design.',
+    desc: 'Core UI library across production client projects & SaaS applications.',
   },
   nextjs: {
     categoryKey: 'frontend',
@@ -26,7 +28,8 @@ export const allSkills = {
     icon: '▲',
     category: 'Frontend • App Router & SSR',
     lines: [
-      '<span class="com">// Server-rendered page with metadata optimization</span>',
+      '<span class="com">// Context: Full-stack SSR, hybrid static caching, Server Actions & SEO metadata.</span>',
+      '',
       '<span class="kw">export const</span> metadata: <span class="type">Metadata</span> = {',
       '  <span class="prop">title</span>: <span class="str">\'Portfolio // Matthew McGrath\'</span>,',
       '  <span class="prop">description</span>: <span class="str">\'Full-stack engineering portfolio.\'</span>',
@@ -37,7 +40,7 @@ export const allSkills = {
       '  <span class="kw">return</span> &lt;<span class="type">Dashboard</span> <span class="prop">data</span>={stats} /&gt;;',
       '}',
     ],
-    desc: 'Utilized for projects requiring hybrid static/server rendering, automated image optimization, fast server actions, and search engine discoverability.',
+    desc: 'Full-stack SSR, hybrid static caching, Server Actions & SEO metadata.',
   },
   typescript: {
     categoryKey: 'frontend',
@@ -45,6 +48,8 @@ export const allSkills = {
     icon: '🔷',
     category: 'Frontend / Backend • Type Safety',
     lines: [
+      '<span class="com">// Context: Strict compile-time contract safety, generics & robust refactoring.</span>',
+      '',
       '<span class="kw">export interface</span> <span class="type">ProjectCardProps</span> {',
       '  <span class="prop">id</span>: <span class="type">string</span>;',
       '  <span class="prop">title</span>: <span class="type">string</span>;',
@@ -53,7 +58,7 @@ export const allSkills = {
       '  <span class="prop">onLaunch</span>: (<span class="prop">id</span>: <span class="type">string</span>) => <span class="type">Promise</span>&lt;<span class="type">void</span>&gt;;',
       '}',
     ],
-    desc: 'Applied across both frontend components and backend services to enforce strict contract safety, catch edge-case bugs at compile time, and make refactoring effortless.',
+    desc: 'Strict compile-time contract safety, generics & robust refactoring.',
   },
   sass: {
     categoryKey: 'frontend',
@@ -61,6 +66,8 @@ export const allSkills = {
     icon: '🎨',
     category: 'Frontend • Preprocessor & Architecture',
     lines: [
+      '<span class="com">// Context: 7-1 SASS architecture, design tokens, mixins & responsive breakpoints.</span>',
+      '',
       '<span class="kw">@use</span> <span class="str">\'tokens\'</span> <span class="kw">as</span> *;',
       '<span class="kw">@use</span> <span class="str">\'mixins\'</span> <span class="kw">as</span> *;',
       '',
@@ -70,7 +77,7 @@ export const allSkills = {
       '  <span class="prop">border-radius</span>: <span class="fn">var</span>(--radius-lg);',
       '}',
     ],
-    desc: 'Architecting maintainable 7-1 SASS folder structures, design tokens, responsive mixin systems, and CSS variables across projects.',
+    desc: '7-1 SASS architecture, design tokens, mixins & responsive breakpoints.',
   },
   tailwind: {
     categoryKey: 'frontend',
@@ -78,13 +85,15 @@ export const allSkills = {
     icon: '🌊',
     category: 'Frontend • Utility-First Styling',
     lines: [
+      '<span class="com">// Context: Utility-first styling, rapid UI composition & responsive theme extensions.</span>',
+      '',
       '&lt;<span class="type">div</span> <span class="prop">className</span>=<span class="str">"flex flex-col md:grid md:grid-cols-12 gap-6 bg-slate-900/60 p-6 rounded-2xl border border-sky-500/20 backdrop-blur-md"</span>&gt;',
       '  &lt;<span class="type">span</span> <span class="prop">className</span>=<span class="str">"font-mono text-xs uppercase text-sky-400 font-semibold tracking-wider"</span>&gt;',
       '    Telemetry Stream',
       '  &lt;/<span class="type">span</span>&gt;',
       '&lt;/<span class="type">div</span>&gt;',
     ],
-    desc: 'Rapid component prototyping and responsive layout composition utilizing Tailwind utility layers, theme extensions, and zero-runtime CSS.',
+    desc: 'Utility-first styling, rapid UI composition & responsive theme extensions.',
   },
   storybook: {
     categoryKey: 'frontend',
@@ -92,6 +101,8 @@ export const allSkills = {
     icon: '📕',
     category: 'Frontend • Isolated UI Workshop',
     lines: [
+      '<span class="com">// Context: Isolated design system workshop, component states & accessibility testing.</span>',
+      '',
       '<span class="kw">import type</span> { <span class="type">Meta</span>, <span class="type">StoryObj</span> } <span class="kw">from</span> <span class="str">\'@storybook/react\'</span>;',
       '<span class="kw">import</span> { <span class="type">ProjectModal</span> } <span class="kw">from</span> <span class="str">\'./ProjectModal\'</span>;',
       '',
@@ -101,7 +112,7 @@ export const allSkills = {
       '};',
       '<span class="kw">export default</span> meta;',
     ],
-    desc: 'Developing isolated design system components, documenting edge case visual states, and ensuring accessible WCAG color contrast independently from backend APIs.',
+    desc: 'Isolated design system workshop, component states & accessibility testing.',
   },
   javascript: {
     categoryKey: 'frontend',
@@ -109,14 +120,15 @@ export const allSkills = {
     icon: '🟨',
     category: 'Frontend / Backend • Core Language',
     lines: [
-      '<span class="com">// ESNext Async Pipeline with memoized cache</span>',
+      '<span class="com">// Context: ESNext fundamentals, async/await pipelines, closures & event loop mastery.</span>',
+      '',
       '<span class="kw">export const</span> <span class="fn">fetchStats</span> = <span class="kw">async</span> (endpoint) => {',
       '  <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(endpoint, { <span class="prop">cache</span>: <span class="str">\'force-cache\'</span> });',
       '  <span class="kw">if</span> (!res.ok) <span class="kw">throw new</span> <span class="type">Error</span>(<span class="str">`HTTP error: ${res.status}`</span>);',
-      '  <span class="kw">return await</span> res.<span class="fn">json</span>();',
+      '  <span class="kw">return</span> <span class="kw">await</span> res.<span class="fn">json</span>();',
       '};',
     ],
-    desc: 'Deep mastery of modern JavaScript fundamentals: closures, asynchronous event loops, promises, DOM manipulation, and ES module architecture.',
+    desc: 'ESNext fundamentals, async/await pipelines, closures & event loop mastery.',
   },
   html5: {
     categoryKey: 'frontend',
@@ -124,6 +136,8 @@ export const allSkills = {
     icon: '🌐',
     category: 'Frontend • Semantic Markup & A11y',
     lines: [
+      '<span class="com">// Context: Semantic landmark architecture, native &lt;dialog&gt; & WCAG AAA accessibility.</span>',
+      '',
       '&lt;<span class="type">main</span> <span class="prop">id</span>=<span class="str">"main-content"</span> <span class="prop">tabindex</span>=<span class="str">"-1"</span>&gt;',
       '  &lt;<span class="type">section</span> <span class="prop">aria-labelledby</span>=<span class="str">"experience-heading"</span>&gt;',
       '    &lt;<span class="type">h2</span> <span class="prop">id</span>=<span class="str">"experience-heading"</span>&gt;Career Studio&lt;/<span class="type">h2</span>&gt;',
@@ -131,7 +145,7 @@ export const allSkills = {
       '  &lt;/<span class="type">section</span>&gt;',
       '&lt;/<span class="type">main</span>&gt;',
     ],
-    desc: 'Semantic HTML5 structures, accessible landmarks, native &lt;dialog&gt; elements, and ARIA attributes ensuring 100% keyboard accessibility and screen reader support.',
+    desc: 'Semantic landmark architecture, native <dialog> & WCAG AAA accessibility.',
   },
   css3: {
     categoryKey: 'frontend',
@@ -139,6 +153,8 @@ export const allSkills = {
     icon: '🎨',
     category: 'Frontend • Modern Layouts & Animation',
     lines: [
+      '<span class="com">// Context: Modern CSS Grid, subgrid, container queries & hardware-accelerated motion.</span>',
+      '',
       '<span class="fn">.modern-grid</span> {',
       '  <span class="prop">display</span>: grid;',
       '  <span class="prop">grid-template-columns</span>: repeat(auto-fit, minmax(300px, 1fr));',
@@ -146,7 +162,7 @@ export const allSkills = {
       '  <span class="prop">contain</span>: layout style paint;',
       '}',
     ],
-    desc: 'Modern CSS features: CSS Grid, Flexbox, subgrid, container queries, custom properties, backdrop-filter glassmorphism, and hardware-accelerated animations.',
+    desc: 'Modern CSS Grid, subgrid, container queries & hardware-accelerated motion.',
   },
   nodejs: {
     categoryKey: 'backend',
@@ -154,6 +170,8 @@ export const allSkills = {
     icon: '🟢',
     category: 'Backend • Runtime & APIs',
     lines: [
+      '<span class="com">// Context: High-throughput asynchronous backend runtimes, microservices & build tooling.</span>',
+      '',
       '<span class="kw">import</span> { <span class="fn">createServer</span> } <span class="kw">from</span> <span class="str">\'node:http\'</span>;',
       '<span class="kw">import</span> { <span class="fn">readFile</span> } <span class="kw">from</span> <span class="str">\'node:fs/promises\'</span>;',
       '',
@@ -163,7 +181,7 @@ export const allSkills = {
       '  res.<span class="fn">end</span>(data);',
       '});',
     ],
-    desc: 'Building performant backend microservices, file system build scripts, automated deployment tooling, and REST API endpoints.',
+    desc: 'High-throughput asynchronous backend runtimes, microservices & build tooling.',
   },
   express: {
     categoryKey: 'backend',
@@ -171,6 +189,8 @@ export const allSkills = {
     icon: '⚡',
     category: 'Backend • Web Framework',
     lines: [
+      '<span class="com">// Context: Modular RESTful routing, authentication middleware, CORS & input validation.</span>',
+      '',
       '<span class="kw">import</span> express <span class="kw">from</span> <span class="str">\'express\'</span>;',
       '<span class="kw">const</span> app = <span class="fn">express</span>();',
       '',
@@ -180,7 +200,7 @@ export const allSkills = {
       '  res.<span class="fn">status</span>(200).<span class="fn">json</span>(items.rows);',
       '});',
     ],
-    desc: 'Designing modular RESTful architectures, rate limiting, authentication middleware, CORS policies, and request validation pipelines.',
+    desc: 'Modular RESTful routing, authentication middleware, CORS & input validation.',
   },
   postgresql: {
     categoryKey: 'backend',
@@ -188,6 +208,8 @@ export const allSkills = {
     icon: '🐘',
     category: 'Backend • Relational Database',
     lines: [
+      '<span class="com">-- Context: Relational schema design, ACID transactions, complex joins & indexing strategies.</span>',
+      '',
       '<span class="kw">CREATE TABLE</span> <span class="fn">projects</span> (',
       '  <span class="prop">id</span> <span class="type">UUID PRIMARY KEY DEFAULT gen_random_uuid()</span>,',
       '  <span class="prop">title</span> <span class="type">VARCHAR(100) NOT NULL</span>,',
@@ -195,7 +217,7 @@ export const allSkills = {
       '  <span class="prop">created_at</span> <span class="type">TIMESTAMPTZ DEFAULT NOW()</span>',
       ');',
     ],
-    desc: 'Relational data modeling, schema normalization, ACID compliance, complex SQL joins, indexing strategies, and database query optimization.',
+    desc: 'Relational schema design, ACID transactions, complex joins & indexing strategies.',
   },
   mongodb: {
     categoryKey: 'backend',
@@ -203,6 +225,8 @@ export const allSkills = {
     icon: '🍃',
     category: 'Backend • Document Database',
     lines: [
+      '<span class="com">// Context: Document data modeling with Mongoose, aggregation pipelines & fast lookups.</span>',
+      '',
       '<span class="kw">import</span> mongoose, { <span class="type">Schema</span> } <span class="kw">from</span> <span class="str">\'mongoose\'</span>;',
       '',
       '<span class="kw">const</span> ProjectSchema = <span class="kw">new</span> <span class="type">Schema</span>({',
@@ -211,7 +235,7 @@ export const allSkills = {
       '});',
       '<span class="kw">export const</span> Project = mongoose.<span class="fn">model</span>(<span class="str">\'Project\'</span>, ProjectSchema);',
     ],
-    desc: 'Schema modeling with Mongoose, aggregation pipelines, flexible document storage for content management, and fast indexing.',
+    desc: 'Document data modeling with Mongoose, aggregation pipelines & fast lookups.',
   },
   python: {
     categoryKey: 'backend',
@@ -219,6 +243,8 @@ export const allSkills = {
     icon: '🐍',
     category: 'Backend / Scripting • Data & Automation',
     lines: [
+      '<span class="com"># Context: Data processing utilities, automated scripting & algorithmic problem solving.</span>',
+      '',
       '<span class="kw">import</span> json',
       '<span class="kw">from</span> pathlib <span class="kw">import</span> Path',
       '',
@@ -226,7 +252,7 @@ export const allSkills = {
       '    entries = json.loads(Path(raw_log).read_text())',
       '    <span class="kw">return</span> {<span class="str">"total_commits"</span>: len(entries), <span class="str">"status"</span>: <span class="str">"verified"</span>}',
     ],
-    desc: 'Writing automation scripts, API scrapers, data processing utilities, and algorithmic problem solving.',
+    desc: 'Data processing utilities, automated scripting & algorithmic problem solving.',
   },
   git: {
     categoryKey: 'tools',
@@ -234,13 +260,14 @@ export const allSkills = {
     icon: '🐙',
     category: 'Tools & VCS • Version Control & CI/CD',
     lines: [
-      '<span class="com"># Feature branch lifecycle & CI validation</span>',
+      '<span class="com"># Context: Feature branch workflows, rebasing, pull requests & CI/CD pipeline automation.</span>',
+      '',
       '$ git checkout -b feat/skills-studio-interactive',
       '$ git commit -m <span class="str">"feat(skills): implement 24-file IDE studio"</span>',
       '$ git push origin feat/skills-studio-interactive',
       '<span class="com"># Auto-triggers GitHub Actions CI/CD test runner</span>',
     ],
-    desc: 'Version control mastery: interactive rebasing, branch management, merge conflict resolution, pull request reviews, and GitHub Actions automation.',
+    desc: 'Feature branch workflows, rebasing, pull requests & CI/CD pipeline automation.',
   },
   npm: {
     categoryKey: 'tools',
@@ -248,6 +275,8 @@ export const allSkills = {
     icon: '📦',
     category: 'Tools & VCS • Package Management',
     lines: [
+      '<span class="com">// Context: Package dependency management, automated build pipelines & security audits.</span>',
+      '',
       '{',
       '  <span class="prop">"scripts"</span>: {',
       '    <span class="prop">"dev"</span>: <span class="str">"run-p watch:css watch:js"</span>,',
@@ -256,7 +285,7 @@ export const allSkills = {
       '  <span class="prop">"devDependencies"</span>: { <span class="prop">"sass"</span>: <span class="str">"^1.93.0"</span>, <span class="prop">"esbuild"</span>: <span class="str">"^0.25.0"</span> }',
       '}',
     ],
-    desc: 'Managing dependency graphs, audit vulnerabilities, creating build scripts, semantic versioning, and workspace optimizations.',
+    desc: 'Package dependency management, automated build pipelines & security audits.',
   },
   postman: {
     categoryKey: 'tools',
@@ -264,14 +293,15 @@ export const allSkills = {
     icon: '🚀',
     category: 'Tools & VCS • API Testing & Verification',
     lines: [
-      '<span class="com">// Automated API contract assertion test</span>',
+      '<span class="com">// Context: Automated API contract assertions, mock servers & endpoint verification.</span>',
+      '',
       'pm.test(<span class="str">"Status is 200 & Response is Valid"</span>, <span class="kw">function</span> () {',
       '    pm.response.to.have.status(200);',
       '    <span class="kw">const</span> json = pm.response.json();',
       '    pm.expect(json).to.be.an(<span class="str">"array"</span>);',
       '});',
     ],
-    desc: 'Testing REST APIs, mocking server responses, validating JSON schemas, and writing automated test scripts.',
+    desc: 'Automated API contract assertions, mock servers & endpoint verification.',
   },
   vscode: {
     categoryKey: 'tools',
@@ -279,13 +309,15 @@ export const allSkills = {
     icon: '💻',
     category: 'Tools & VCS • Development Environment',
     lines: [
+      '<span class="com">// Context: Optimized engineering environment, ESLint/Prettier automation & debugging.</span>',
+      '',
       '{',
       '  <span class="prop">"editor.formatOnSave"</span>: <span class="kw">true</span>,',
       '  <span class="prop">"editor.defaultFormatter"</span>: <span class="str">"esbenp.prettier-vscode"</span>,',
       '  <span class="prop">"editor.codeActionsOnSave"</span>: { <span class="prop">"source.fixAll.eslint"</span>: <span class="str">"explicit"</span> }',
       '}',
     ],
-    desc: 'Customized development workflow with ESLint, Prettier, TypeScript server, debugging profiles, and keyboard shortcuts.',
+    desc: 'Optimized engineering environment, ESLint/Prettier automation & debugging.',
   },
   trello: {
     categoryKey: 'tools',
@@ -293,12 +325,13 @@ export const allSkills = {
     icon: '📋',
     category: 'Tools & VCS • Agile & Project Planning',
     lines: [
-      '<span class="com">## Sprint Board: Portfolio 2026 Redesign</span>',
+      '<span class="com"># Context: Agile project management, user stories, Kanban boards & sprint planning.</span>',
+      '',
       '[x] Phase 1: Architecture & Design System Tokens',
       '[x] Phase 2: Interactive Skills & Experience Studio',
       '[ ] Phase 3: Project Dialog Accessibility & WCAG AAA Audit',
     ],
-    desc: 'Agile development methodologies, user story estimation, Kanban workflow tracking, and task backlog management.',
+    desc: 'Agile project management, user stories, Kanban boards & sprint planning.',
   },
   angular: {
     categoryKey: 'leveling',
@@ -306,6 +339,8 @@ export const allSkills = {
     icon: '🅰️',
     category: 'Currently Leveling Up • Enterprise Framework',
     lines: [
+      '<span class="com">// Context: Angular 17+ Signals reactivity, standalone components & enterprise patterns.</span>',
+      '',
       '<span class="kw">import</span> { <span class="type">Component</span>, <span class="type">signal</span> } <span class="kw">from</span> <span class="str">\'@angular/core\'</span>;',
       '',
       '<span class="kw">@Component</span>({ <span class="prop">selector</span>: <span class="str">\'app-signal-demo\'</span>, <span class="prop">template</span>: <span class="str">`&lt;p&gt;{{ count() }}&lt;/p&gt;`</span> })',
@@ -313,7 +348,7 @@ export const allSkills = {
       '  count = <span class="fn">signal</span>(0);',
       '}',
     ],
-    desc: 'Expanding knowledge of Angular 17+ Signals, standalone components, dependency injection, and enterprise application patterns.',
+    desc: 'Angular 17+ Signals reactivity, standalone components & enterprise patterns.',
   },
   reactnative: {
     categoryKey: 'leveling',
@@ -321,6 +356,8 @@ export const allSkills = {
     icon: '📱',
     category: 'Currently Leveling Up • Cross-Platform Mobile',
     lines: [
+      '<span class="com">// Context: Cross-platform iOS/Android development, native bridges & mobile gesture UX.</span>',
+      '',
       '<span class="kw">import</span> { <span class="type">View</span>, <span class="type">Text</span>, <span class="type">StyleSheet</span> } <span class="kw">from</span> <span class="str">\'react-native\'</span>;',
       '',
       '<span class="kw">export const</span> <span class="fn">MobileCard</span> = ({ <span class="prop">title</span> }) => (',
@@ -329,7 +366,7 @@ export const allSkills = {
       '  &lt;/<span class="type">View</span>&gt;',
       ');',
     ],
-    desc: 'Building cross-platform mobile apps for iOS and Android, bridging native APIs, gesture handlers, and responsive layouts.',
+    desc: 'Cross-platform iOS/Android development, native bridges & mobile gesture UX.',
   },
   java: {
     categoryKey: 'leveling',
@@ -337,6 +374,8 @@ export const allSkills = {
     icon: '☕',
     category: 'Currently Leveling Up • Computer Science Core',
     lines: [
+      '<span class="com">// Context: Core computer science fundamentals, data structures, Big-O & OOP at WGU.</span>',
+      '',
       '<span class="kw">public class</span> <span class="type">BinarySearchTree</span>&lt;<span class="type">T</span> <span class="kw">extends</span> <span class="type">Comparable</span>&lt;<span class="type">T</span>&gt;&gt; {',
       '    <span class="kw">private</span> <span class="type">Node</span>&lt;<span class="type">T</span>&gt; root;',
       '    <span class="kw">public boolean</span> <span class="fn">contains</span>(<span class="type">T</span> value) {',
@@ -344,7 +383,7 @@ export const allSkills = {
       '    }',
       '}',
     ],
-    desc: 'Deepening OOP fundamentals, data structures, algorithm analysis (Big O), and backend microservices at Western Governors University.',
+    desc: 'Core computer science fundamentals, data structures, Big-O & OOP at WGU.',
   },
   chakraui: {
     categoryKey: 'leveling',
@@ -352,13 +391,13 @@ export const allSkills = {
     icon: '⚡',
     category: 'Currently Leveling Up • Accessible Components',
     lines: [
-      '<span class="kw">import</span> { <span class="type">Box</span>, <span class="type">Heading</span>, <span class="type">Text</span> } <span class="kw">from</span> <span class="str">\'@chakra-ui/react\'</span>;',
+      '<span class="com">// Context: Accessible component primitives, design system tokens & ARIA compliancy.</span>',
       '',
       '&lt;<span class="type">Box</span> <span class="prop">p</span>={6} <span class="prop">bg</span>=<span class="str">"brand.900"</span> <span class="prop">borderRadius</span>=<span class="str">"xl"</span> <span class="prop">border</span>=<span class="str">"1px"</span> <span class="prop">borderColor</span>=<span class="str">"brand.700"</span>&gt;',
       '  &lt;<span class="type">Heading</span> <span class="prop">size</span>=<span class="str">"md"</span> <span class="prop">color</span>=<span class="str">"white"</span>&gt;Accessible Component&lt;/<span class="type">Heading</span>&gt;',
       '&lt;/<span class="type">Box</span>&gt;',
     ],
-    desc: 'Experimenting with composable accessible component primitives, theme tokens, and WAI-ARIA compliant design systems.',
+    desc: 'Accessible component primitives, design system tokens & ARIA compliancy.',
   },
   threejs: {
     categoryKey: 'leveling',
@@ -366,71 +405,68 @@ export const allSkills = {
     icon: '🧊',
     category: 'Currently Leveling Up • 3D WebGL',
     lines: [
+      '<span class="com">// Context: Interactive 3D WebGL graphics, custom shaders & hardware-accelerated canvases.</span>',
+      '',
       '<span class="kw">import</span> * <span class="kw">as</span> THREE <span class="kw">from</span> <span class="str">\'three\'</span>;',
       '',
       '<span class="kw">const</span> scene = <span class="kw">new</span> THREE.<span class="fn">Scene</span>();',
       '<span class="kw">const</span> camera = <span class="kw">new</span> THREE.<span class="fn">PerspectiveCamera</span>(75, width / height, 0.1, 1000);',
       '<span class="kw">const</span> renderer = <span class="kw">new</span> THREE.<span class="fn">WebGLRenderer</span>({ <span class="prop">antialias</span>: <span class="kw">true</span>, <span class="prop">alpha</span>: <span class="kw">true</span> });',
     ],
-    desc: 'Rendering interactive 3D particle systems, math-driven geometric shaders, and WebGL canvases.',
+    desc: 'Interactive 3D WebGL graphics, custom shaders & hardware-accelerated canvases.',
   },
 };
 
 export function loadSkill(key) {
   const data = allSkills[key];
   if (!data) return;
-
-  // 1. Update Quick-Scan Radar Chips
-  document.querySelectorAll('.radar-chip').forEach((c) => c.classList.remove('active'));
-  const activeChip = document.getElementById(`chip-${key}`);
-  if (activeChip) activeChip.classList.add('active');
-
-  // 2. Update Desktop Sidebar Items
-  document.querySelectorAll('.file-item').forEach((f) => f.classList.remove('active'));
-  const activeSide = document.getElementById(`side-${key}`);
-  if (activeSide) {
-    activeSide.classList.add('active');
-    const parentFolder = activeSide.closest('.folder-content');
-    if (parentFolder && parentFolder.classList.contains('hidden')) {
-      parentFolder.classList.remove('hidden');
-      const prevHeader = parentFolder.previousElementSibling;
-      if (prevHeader) prevHeader.classList.remove('collapsed');
+  // 1. Update Quick-Scan Radar Chips (Sync aria-pressed)
+  document.querySelectorAll('.radar-chip').forEach((c) => {
+    const isActive = c.id === `chip-${key}`;
+    c.classList.toggle('active', isActive);
+    c.setAttribute('aria-pressed', String(isActive));
+  });
+  // 2. Update Desktop & Mobile Sidebar Items (Sync aria-selected)
+  document.querySelectorAll('.file-item').forEach((f) => {
+    const isTarget = f.getAttribute('data-skill') === key;
+    f.classList.toggle('active', isTarget);
+    f.setAttribute('aria-selected', String(isTarget));
+  });
+  // Auto-expand parent folders if collapsed
+  ['side-', 'mob-side-'].forEach((prefix) => {
+    const el = document.getElementById(`${prefix}${key}`);
+    if (el) {
+      const parentFolder = el.closest('.folder-content');
+      if (parentFolder && parentFolder.classList.contains('hidden')) {
+        parentFolder.classList.remove('hidden');
+        const prevHeader = parentFolder.previousElementSibling;
+        if (prevHeader) {
+          prevHeader.classList.remove('collapsed');
+          prevHeader.setAttribute('aria-expanded', 'true');
+        }
+      }
     }
-  }
-
-  // 3. Update Mobile Sidebar Items
-  const activeMobSide = document.getElementById(`mob-side-${key}`);
-  if (activeMobSide) {
-    activeMobSide.classList.add('active');
-    const parentFolder = activeMobSide.closest('.folder-content');
-    if (parentFolder && parentFolder.classList.contains('hidden')) {
-      parentFolder.classList.remove('hidden');
-      const prevHeader = parentFolder.previousElementSibling;
-      if (prevHeader) prevHeader.classList.remove('collapsed');
-    }
-  }
-
-  // 4. Update Mobile Header Current File Label
+  });
+  // 3. Update Mobile Header Current File Label
   const mobLabel = document.getElementById('mob-current-file-label');
   if (mobLabel) mobLabel.textContent = `${data.icon} ${data.name}`;
-
-  // 5. Auto-collapse mobile drawer on file selection
+  // 4. Auto-collapse mobile file drawer on file selection
   const mobDrawer = document.getElementById('mobile-file-drawer');
   if (mobDrawer && mobDrawer.classList.contains('open')) {
     mobDrawer.classList.remove('open');
+    const mobToggleBtn = document.getElementById('mobile-explorer-toggle-bar');
+    if (mobToggleBtn) mobToggleBtn.setAttribute('aria-expanded', 'false');
     const mobChevron = document.getElementById('mob-exp-chevron');
-    if (mobChevron) mobChevron.textContent = 'Browse Files (24) ▼';
+    if (mobChevron) mobChevron.textContent = '▾';
   }
-
-  // 6. Update Window Title & Editor Tab
+  // 5. Update Window Title & Editor Tab
   const winTitle = document.getElementById('window-title-text');
   if (winTitle) winTitle.textContent = `matthew-mcgrath // ${data.name}`;
   const activeTabTitle = document.getElementById('active-tab-title');
   if (activeTabTitle) activeTabTitle.innerHTML = `<span>${data.icon} ${data.name}</span>`;
   const activeTabCat = document.getElementById('active-tab-category');
   if (activeTabCat) activeTabCat.textContent = data.category;
-
-  // 7. Render Syntax Highlighted Code Lines
+  // 6. Render Syntax Highlighted Code Lines
   const codeCanvas = document.getElementById('code-canvas-body');
   if (codeCanvas) {
     let codeHtml = '';
@@ -439,38 +475,57 @@ export function loadSkill(key) {
     });
     codeCanvas.innerHTML = codeHtml;
   }
-
-  // 8. Update Skill Description
-  const skillDesc = document.getElementById('skill-desc-text');
-  if (skillDesc) skillDesc.textContent = data.desc;
 }
-
 export function toggleFolder(folderId, headerEl) {
   const content = typeof folderId === 'string' ? document.getElementById(folderId) : folderId;
   if (!content) return;
-  content.classList.toggle('hidden');
+  const isHidden = content.classList.toggle('hidden');
   if (headerEl) {
-    headerEl.classList.toggle('collapsed');
+    headerEl.classList.toggle('collapsed', isHidden);
+    headerEl.setAttribute('aria-expanded', String(!isHidden));
   }
 }
 
 export function toggleMobileExplorer() {
   const drawer = document.getElementById('mobile-file-drawer');
+  const toggleBtn = document.getElementById('mobile-explorer-toggle-bar');
   const chevron = document.getElementById('mob-exp-chevron');
   if (!drawer) return;
-  drawer.classList.toggle('open');
+  const isOpen = drawer.classList.toggle('open');
+  if (toggleBtn) {
+    toggleBtn.setAttribute('aria-expanded', String(isOpen));
+  }
   if (chevron) {
-    chevron.textContent = drawer.classList.contains('open') ? 'Close Explorer ▲' : 'Browse Files (24) ▼';
+    chevron.textContent = isOpen ? '▴' : '▾';
+  }
+}
+
+export function toggleRadarAccordion() {
+  const container = document.getElementById('radar-bar-container');
+  const toggleBtn = document.getElementById('radar-accordion-toggle');
+  const chev = document.getElementById('radar-accordion-chevron');
+  if (!container) return;
+  const isOpen = container.classList.toggle('open');
+  if (toggleBtn) {
+    toggleBtn.setAttribute('aria-expanded', String(isOpen));
+    toggleBtn.classList.toggle('open', isOpen);
+  }
+  if (chev) {
+    chev.textContent = isOpen ? '▲' : '▼';
   }
 }
 
 export function toggleConsoleDrawer() {
   const drawer = document.getElementById('console-drawer-panel');
+  const toggleBtn = document.getElementById('console-drawer-status-bar');
   const indicator = document.getElementById('drawer-indicator-text');
   if (!drawer) return;
-  drawer.classList.toggle('open');
+  const isOpen = drawer.classList.toggle('open');
+  if (toggleBtn) {
+    toggleBtn.setAttribute('aria-expanded', String(isOpen));
+  }
   if (indicator) {
-    indicator.textContent = drawer.classList.contains('open') ? 'Click to Collapse ▼' : 'Click to Expand ▲';
+    indicator.textContent = isOpen ? '7 Commits ▴' : '7 Commits ▾';
   }
 }
 
@@ -479,12 +534,20 @@ if (typeof window !== 'undefined') {
   window.loadSkill = loadSkill;
   window.toggleFolder = toggleFolder;
   window.toggleMobileExplorer = toggleMobileExplorer;
+  window.toggleRadarAccordion = toggleRadarAccordion;
   window.toggleConsoleDrawer = toggleConsoleDrawer;
 }
 
 // Delegated Click Handling on document
 document.addEventListener('click', (e) => {
-  // 1. Radar Chip Click
+  // 1. Radar Accordion Toggle Click
+  const radarToggle = e.target.closest('#radar-accordion-toggle');
+  if (radarToggle) {
+    toggleRadarAccordion();
+    return;
+  }
+
+  // 2. Radar Chip Click
   const chip = e.target.closest('.radar-chip');
   if (chip) {
     const skill = chip.getAttribute('data-skill') || chip.id.replace('chip-', '');
@@ -494,7 +557,7 @@ document.addEventListener('click', (e) => {
     }
   }
 
-  // 2. Sidebar File Item Click
+  // 3. Sidebar File Item Click
   const fileItem = e.target.closest('.file-item');
   if (fileItem) {
     const skill = fileItem.getAttribute('data-skill') || fileItem.id.replace('side-', '').replace('mob-side-', '');
@@ -504,28 +567,29 @@ document.addEventListener('click', (e) => {
     }
   }
 
-  // 3. Collapsible Folder Header Click
+  // 4. Collapsible Folder Header Click
   const folderHeader = e.target.closest('.folder-header');
   if (folderHeader) {
     const targetId = folderHeader.getAttribute('data-folder-target');
     if (targetId) {
       const content = document.getElementById(targetId);
       if (content) {
-        content.classList.toggle('hidden');
-        folderHeader.classList.toggle('collapsed');
+        const isHidden = content.classList.toggle('hidden');
+        folderHeader.classList.toggle('collapsed', isHidden);
+        folderHeader.setAttribute('aria-expanded', String(!isHidden));
       }
     }
     return;
   }
 
-  // 4. Mobile Explorer Toggle Bar Click
+  // 5. Mobile Explorer Toggle Bar Click
   const mobToggle = e.target.closest('#mobile-explorer-toggle-bar');
   if (mobToggle) {
     toggleMobileExplorer();
     return;
   }
 
-  // 5. Console Status Bar Click
+  // 6. Console Status Bar Click
   const consoleToggle = e.target.closest('#console-drawer-status-bar');
   if (consoleToggle) {
     toggleConsoleDrawer();

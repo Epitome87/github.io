@@ -5,22 +5,21 @@
 
 import { GITHUB_LAST_SNAPSHOT, GITHUB_SNAPSHOT } from './stats-data.js';
 
-const USERNAME = 'Epitome87';
 const grid = document.getElementById('github-grid');
 const monthsEl = document.getElementById('github-months');
 const subtitle = document.getElementById('graph-subtitle');
 const yearSelEl = document.getElementById('github-year-selector');
 const graphWrap = document.querySelector('.github__graph-wrap');
 const gridScrollEl = grid?.closest('.github__grid-scroll');
-const hasGitHubDom = Boolean(grid && monthsEl && subtitle && yearSelEl && graphWrap);
+const hasGitHubDom = Boolean(grid && monthsEl && yearSelEl && graphWrap);
+
 const statEls = {
   total: document.getElementById('stat-total'),
+  totalLabel: document.getElementById('stat-total-label'),
   streak: document.getElementById('stat-streak'),
-  best: document.getElementById('stat-best'),
-  activeDays: document.getElementById('stat-active-days'),
-  bestDate: document.getElementById('stat-best-date'),
+  repos: document.getElementById('stat-repos'),
 };
-const streakSubEl = statEls.streak?.closest('.github__stat')?.querySelector('.github__stat-sub');
+
 const yearCache = new Map();
 let activeYear = 'last';
 
@@ -93,6 +92,7 @@ const buildYearSelector = (yearsList, active) => {
 
   const makeBtn = (label, year) => {
     const btn = document.createElement('button');
+    btn.type = 'button';
     btn.className = `github__year-btn${active === year ? ' active' : ''}`;
     btn.textContent = label;
     btn.setAttribute('aria-pressed', String(active === year));
@@ -105,7 +105,15 @@ const buildYearSelector = (yearsList, active) => {
         b.setAttribute('aria-pressed', String(isCurrent));
       });
       const data = yearCache.get(year);
-      if (data) renderGraph(data, year);
+      if (data) {
+        renderGraph(data, year);
+        let yearTotal = 0;
+        for (const item of data) yearTotal += item.count;
+        if (statEls.total) statEls.total.textContent = formatCount(yearTotal);
+        if (statEls.totalLabel) {
+          statEls.totalLabel.textContent = year === 'last' ? 'Contribs (12M)' : `In ${year}`;
+        }
+      }
     });
     return btn;
   };
@@ -120,14 +128,16 @@ const buildYearSelector = (yearsList, active) => {
 
 // Render graph
 const renderGraph = (contributions, year = activeYear) => {
-  if (!grid || !monthsEl || !subtitle || !contributions?.length) return;
+  if (!grid || !monthsEl || !contributions?.length) return;
   grid.replaceChildren();
   monthsEl.replaceChildren();
 
   const first = contributions[0].date;
   const last = contributions[contributions.length - 1].date;
 
-  subtitle.textContent = `${formatDate(first, { month: 'short', year: 'numeric' })} → ${formatDate(last, { month: 'short', year: 'numeric' })}`;
+  if (subtitle) {
+    subtitle.textContent = `${formatDate(first, { month: 'short', year: 'numeric' })} → ${formatDate(last, { month: 'short', year: 'numeric' })}`;
+  }
 
   const firstDay = new Date(`${contributions[0].date}T12:00:00`).getDay();
   const padded = [...Array(firstDay).fill(null), ...contributions];
@@ -144,7 +154,7 @@ const renderGraph = (contributions, year = activeYear) => {
         seen.add(key);
         const spacer = document.createElement('div');
         spacer.className = 'github__month-label';
-        spacer.style.minWidth = `${(wi - prevIdx) * 16}px`;
+        spacer.style.minWidth = `${(wi - prevIdx) * 14}px`;
         spacer.textContent = dd.toLocaleDateString('en-US', { month: 'short' });
         monthsEl.appendChild(spacer);
         prevIdx = wi;
@@ -198,9 +208,6 @@ const renderGraph = (contributions, year = activeYear) => {
 // Compute and update all-time stats from full snapshot
 const updateAllTimeStats = () => {
   let allMaxStreak = 0;
-  let allActive = 0;
-  let allBestCount = 0;
-  let allBestDate = null;
   let currentStreak = 0;
 
   const allContributions = Array.isArray(GITHUB_SNAPSHOT?.contributions) ? GITHUB_SNAPSHOT.contributions : [];
@@ -208,15 +215,9 @@ const updateAllTimeStats = () => {
   for (const contribution of allContributions) {
     if (contribution.count > 0) {
       currentStreak++;
-      allActive++;
       if (currentStreak > allMaxStreak) allMaxStreak = currentStreak;
     } else {
       currentStreak = 0;
-    }
-
-    if (contribution.count > allBestCount) {
-      allBestCount = contribution.count;
-      allBestDate = contribution.date;
     }
   }
 
@@ -225,20 +226,9 @@ const updateAllTimeStats = () => {
   for (const item of lastYearData) lastYearTotal += item.count;
 
   if (statEls.total) statEls.total.textContent = formatCount(lastYearTotal || 809);
+  if (statEls.totalLabel) statEls.totalLabel.textContent = 'Contribs (12M)';
   if (statEls.streak) statEls.streak.textContent = formatCount(allMaxStreak || 1900);
-  if (statEls.best) statEls.best.textContent = allBestCount || 36;
-  if (statEls.activeDays) statEls.activeDays.textContent = formatCount(allActive || 1900);
-
-  if (statEls.bestDate && allBestDate) {
-    const bestDate = new Date(`${allBestDate}T12:00:00`);
-    statEls.bestDate.textContent = bestDate.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    });
-  }
-
-  if (streakSubEl) streakSubEl.textContent = 'All time';
+  if (statEls.repos) statEls.repos.textContent = '24+';
 };
 
 function initGitHub() {
