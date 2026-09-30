@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
+  <title>Resume | Matthew McGrath — Full-Stack Web Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f4f7ff" media="(prefers-color-scheme: light)" />
@@ -16,6 +17,10 @@
   <meta property="og:image" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
   <meta property="og:url" content="https://matthewmcgrath.dev/resume" />
   <meta property="og:site_name" content="Matthew McGrath Portfolio" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Matthew McGrath — Full-Stack Web Developer Portfolio" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -45,7 +50,96 @@
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/resume.css" />
 
-  <title>Resume | Matthew McGrath — Full-Stack Web Developer</title>
+  <!-- Structured data (@graph format) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [{
+          "@type": "WebSite",
+          "@id": "https://matthewmcgrath.dev/#website",
+          "url": "https://matthewmcgrath.dev/",
+          "name": "Matthew McGrath | Full-Stack Web Developer",
+          "description": "Portfolio of Matthew McGrath — Full-Stack Developer specializing in TypeScript, React, Next.js, and Node.js.",
+          "publisher": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://matthewmcgrath.dev/resume#profilepage",
+          "url": "https://matthewmcgrath.dev/resume",
+          "name": "Resume — Matthew McGrath | Full-Stack Web Developer",
+          "isPartOf": {
+            "@id": "https://matthewmcgrath.dev/#website"
+          },
+          "about": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          },
+          "mainEntity": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://matthewmcgrath.dev/resume#breadcrumbs",
+          "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://matthewmcgrath.dev/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Resume",
+              "item": "https://matthewmcgrath.dev/resume"
+            }
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://matthewmcgrath.dev/#person",
+          "name": "Matthew McGrath",
+          "url": "https://matthewmcgrath.dev/",
+          "jobTitle": "Full-Stack Software Engineer & Web Developer",
+          "image": "https://matthewmcgrath.dev/assets/images/social/og-preview.png",
+          "email": "mailto:matthew.mcgrath.b@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Riverside",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          },
+          "alumniOf": [{
+            "@type": "CollegeOrUniversity",
+            "name": "Western Governors University"
+          }],
+          "sameAs": [
+            "https://github.com/Epitome87",
+            "https://www.linkedin.com/in/matthew-b-mcgrath/",
+            "https://x.com/Epitome87",
+            "https://leetcode.com/u/Epitome87/",
+            "https://www.codewars.com/users/Epitome87"
+          ],
+          "knowsAbout": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "Node.js",
+            "PostgreSQL",
+            "MongoDB",
+            "Express",
+            "Sass",
+            "Tailwind CSS",
+            "C#",
+            "Algorithms & Data Structures",
+            "Web Accessibility (WCAG)"
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>

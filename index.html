@@ -17,7 +17,7 @@
   <!-- SEO -->
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Matthew McGrath" />
-  <meta name="description" content="Full-Stack Web Developer based in Riverside, CA. Specializing in React, Next.js, and Node.js — building responsive, accessible web experiences. 15+ years of coding experience. Open to full-time and freelance opportunities." />
+  <meta name="description" content="Full-Stack Web Developer and Software Engineerbased in Riverside, CA (Remote-friendly). Specializing in TypeScript, React, Next.js, and Node.js — building responsive, accessible web experiences. 15+ years of coding experience. Open to full-time and freelance opportunities." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -26,6 +26,10 @@
   <meta property="og:image" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
   <meta property="og:url" content="https://matthewmcgrath.dev" />
   <meta property="og:site_name" content="Matthew McGrath Portfolio" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Matthew McGrath — Full-Stack Web Developer Portfolio" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -54,55 +58,77 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/main.css" />
 
-  <!-- Structured data -->
+  <!-- Structured data (@graph format) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Matthew McGrath",
-      "url": "https://matthewmcgrath.dev",
-      "jobTitle": "Full-Stack Web Developer",
-      "description": "Full-stack web developer based in Riverside, CA specializing in React, Next.js, Node.js, and modern web technologies. Available for freelance and full-time roles.",
-      "image": "https://matthewmcgrath.dev/assets/images/social/og-preview.png",
-      "email": "matthew.mcgrath.b@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Riverside",
-        "addressRegion": "CA",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://github.com/Epitome87",
-        "https://www.linkedin.com/in/matthew-b-mcgrath/",
-        "https://x.com/Epitome87",
-        "https://leetcode.com/u/Epitome87/",
-        "https://www.codewars.com/users/Epitome87"
-      ],
-      "knowsAbout": [
-        "React",
-        "Next.js",
-        "Node.js",
-        "JavaScript",
-        "TypeScript",
-        "HTML",
-        "CSS",
-        "Sass",
-        "MongoDB",
-        "PostgreSQL",
-        "Express",
-        "Git",
-        "Tailwind CSS",
-        "Three.js"
-      ],
-      "hasOccupation": {
-        "@type": "Occupation",
-        "name": "Full-Stack Web Developer",
-        "occupationLocation": {
-          "@type": "City",
-          "name": "Riverside, CA"
+      "@graph": [{
+          "@type": "WebSite",
+          "@id": "https://matthewmcgrath.dev/#website",
+          "url": "https://matthewmcgrath.dev/",
+          "name": "Matthew McGrath | Full-Stack Web Developer",
+          "description": "Portfolio of Matthew McGrath — Full-Stack Developer specializing in TypeScript, React, Next.js, and Node.js.",
+          "publisher": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          }
         },
-        "skills": "React, Next.js, Node.js, JavaScript, TypeScript, HTML, CSS, MongoDB, PostgreSQL"
-      }
+        {
+          "@type": "ProfilePage",
+          "@id": "https://matthewmcgrath.dev/#profilepage",
+          "url": "https://matthewmcgrath.dev/",
+          "name": "Matthew McGrath Portfolio",
+          "isPartOf": {
+            "@id": "https://matthewmcgrath.dev/#website"
+          },
+          "about": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          },
+          "mainEntity": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://matthewmcgrath.dev/#person",
+          "name": "Matthew McGrath",
+          "url": "https://matthewmcgrath.dev/",
+          "jobTitle": "Full-Stack Software Engineer & Web Developer",
+          "image": "https://matthewmcgrath.dev/assets/images/social/og-preview.png",
+          "email": "mailto:matthew.mcgrath.b@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Riverside",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          },
+          "alumniOf": [{
+            "@type": "CollegeOrUniversity",
+            "name": "Western Governors University"
+          }],
+          "sameAs": [
+            "https://github.com/Epitome87",
+            "https://www.linkedin.com/in/matthew-b-mcgrath/",
+            "https://x.com/Epitome87",
+            "https://leetcode.com/u/Epitome87/",
+            "https://www.codewars.com/users/Epitome87"
+          ],
+          "knowsAbout": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "Node.js",
+            "PostgreSQL",
+            "MongoDB",
+            "Express",
+            "Sass",
+            "Tailwind CSS",
+            "C#",
+            "Algorithms & Data Structures",
+            "Web Accessibility (WCAG)"
+          ]
+        }
+      ]
     }
   </script>
 </head>
@@ -125,7 +151,7 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="resume/">Resume</a></li>
       </ul>
-      <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Dark mode" aria-pressed="true">
+      <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="true">
         <!-- Sun: shown in dark mode -->
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5" />
@@ -785,168 +811,186 @@
             </div>
           </div>
         </section>
+      </div>
+    </section>
 
-        <!-- WHY HIRE ME -->
-        <section class="why-hire" id="why-hire" aria-labelledby="why-heading">
-          <div class="container">
-            <div class="why-hire__head reveal">
-              <p class="section-label">Why Choose Me</p>
-              <h2 class="section-title" id="why-heading">Why Work With Matthew?</h2>
-              <p class="why-hire__subtitle">
-                What you get beyond clean code — a developer who thinks in outcomes, moves independently, and follows
-                through.
-              </p>
+    <!-- WHY HIRE ME -->
+    <section class="why-hire" id="why-hire" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="why-hire__head reveal">
+          <p class="section-label">Why Choose Me</p>
+          <h2 class="section-title" id="why-heading">Why Work With Matthew?</h2>
+          <p class="why-hire__subtitle">
+            What you get beyond clean code — a developer who thinks in outcomes, moves independently, and follows
+            through.
+          </p>
+        </div>
+
+        <ul class="why-hire__grid">
+          <!-- Top Left: Rare Full-Stack Range -->
+          <li class="why-card reveal">
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="why-card__title">Rare Full-Stack Range</h3>
             </div>
+            <p class="why-card__body">
+              From C# game engines to React frontends to Node backends, I've built complete systems end to end. That
+              range means I can move between interface, logic, and architecture without losing the bigger picture.
+            </p>
+          </li>
 
-            <ul class="why-hire__grid">
-              <!-- Top Left: Rare Full-Stack Range -->
-              <li class="why-card reveal">
-                <div class="why-card__head">
-                  <div class="why-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                  </div>
-                  <h3 class="why-card__title">Rare Full-Stack Range</h3>
-                </div>
-                <p class="why-card__body">
-                  From C# game engines to React frontends to Node backends, I've built complete systems end to end. That
-                  range means I can move between interface, logic, and architecture without losing the bigger picture.
-                </p>
-              </li>
+          <!-- Top Right: No Hand-Holding Needed -->
+          <li class="why-card reveal">
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+              </div>
+              <h3 class="why-card__title">No Hand-Holding Needed</h3>
+            </div>
+            <p class="why-card__body">
+              A decade of solo development taught me how to take ownership of a problem, work through ambiguity, and
+              keep moving. I research, debug, and iterate until something works, then make sure I understand why it
+              works.
+            </p>
+          </li>
 
-              <!-- Top Right: No Hand-Holding Needed -->
-              <li class="why-card reveal">
+          <!-- Middle Hero Centerpiece: Detail & Real Outcomes Non-Negotiable -->
+          <li class="why-card why-card--centerpiece reveal">
+            <div class="why-card__centerpiece-inner">
+              <div class="why-card__centerpiece-text">
                 <div class="why-card__head">
                   <div class="why-card__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                       <circle cx="12" cy="12" r="10"></circle>
-                      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                      <circle cx="12" cy="12" r="6"></circle>
+                      <circle cx="12" cy="12" r="2"></circle>
                     </svg>
                   </div>
-                  <h3 class="why-card__title">No Hand-Holding Needed</h3>
+                  <h3 class="why-card__title why-card__title--centerpiece">Detail &amp; Real Outcomes Non-Negotiable</h3>
                 </div>
                 <p class="why-card__body">
-                  A decade of solo development taught me how to take ownership of a problem, work through ambiguity, and
-                  keep moving. I research, debug, and iterate until something works, then make sure I understand why it
-                  works.
+                  I'm not interested in clever code for its own sake. I care about building things that solve real problems, support real goals, and feel good to use. I pair that outcome-focus with uncompromising finish: accessible WCAG compliance, fluid responsive layouts across every device viewport, and code that stays clean under pressure.
                 </p>
-              </li>
-
-              <!-- Middle Hero Centerpiece: Detail & Real Outcomes Non-Negotiable -->
-              <li class="why-card why-card--centerpiece reveal">
-                <div class="why-card__centerpiece-inner">
-                  <div class="why-card__centerpiece-text">
-                    <div class="why-card__head">
-                      <div class="why-card__icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <circle cx="12" cy="12" r="6"></circle>
-                          <circle cx="12" cy="12" r="2"></circle>
-                        </svg>
-                      </div>
-                      <h3 class="why-card__title why-card__title--centerpiece">Detail &amp; Real Outcomes Non-Negotiable</h3>
-                    </div>
-                    <p class="why-card__body">
-                      I'm not interested in clever code for its own sake. I care about building things that solve real problems, support real goals, and feel good to use. I pair that outcome-focus with uncompromising finish: accessible WCAG compliance, fluid responsive layouts across every device viewport, and code that stays clean under pressure.
-                    </p>
-                  </div>
-                  <div class="why-card__centerpiece-stats" aria-label="Quality and performance benchmarks">
-                    <div class="why-card__stat-item">
-                      <span class="why-card__stat-label">Lighthouse Audits</span>
-                      <span class="why-card__stat-val">98+ Score</span>
-                    </div>
-                    <div class="why-card__stat-item">
-                      <span class="why-card__stat-label">Accessibility</span>
-                      <span class="why-card__stat-val why-card__stat-val--green">WCAG AA</span>
-                    </div>
-                    <div class="why-card__stat-item">
-                      <span class="why-card__stat-label">Problem Solving</span>
-                      <span class="why-card__stat-val why-card__stat-val--amber">Top 1% Rank</span>
-                    </div>
-                  </div>
+              </div>
+              <div class="why-card__centerpiece-stats" aria-label="Quality and performance benchmarks">
+                <div class="why-card__stat-item">
+                  <span class="why-card__stat-label">Lighthouse Audits</span>
+                  <span class="why-card__stat-val">98+ Score</span>
                 </div>
-              </li>
-
-              <!-- Bottom Left: Reliable by Habit -->
-              <li class="why-card reveal">
-                <div class="why-card__head">
-                  <div class="why-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                  </div>
-                  <h3 class="why-card__title">Reliable by Habit</h3>
+                <div class="why-card__stat-item">
+                  <span class="why-card__stat-label">Accessibility</span>
+                  <span class="why-card__stat-val why-card__stat-val--green">WCAG AA</span>
                 </div>
-                <p class="why-card__body">
-                  I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built
-                  the kind of consistency clients can actually feel: dependable communication, dependable progress,
-                  dependable follow-through.
-                  <span class="why-card__dots" aria-hidden="true">
-                    <span class="why-card__dot why-card__dot--l1"></span>
-                    <span class="why-card__dot why-card__dot--l3"></span>
-                    <span class="why-card__dot why-card__dot--l4"></span>
-                    <span class="why-card__dot why-card__dot--l2"></span>
-                    <span class="why-card__dot why-card__dot--l4"></span>
-                    <span class="why-card__dot why-card__dot--l3"></span>
-                    <span class="why-card__dot why-card__dot--l4"></span>
-                  </span>
-                </p>
-              </li>
-
-              <!-- Bottom Right: Built for Teams -->
-              <li class="why-card reveal">
-                <div class="why-card__head">
-                  <div class="why-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                  </div>
-                  <h3 class="why-card__title">Built for Teams</h3>
-                </div>
-                <p class="why-card__body">
-                  I'm self-directed, but not siloed. I've worked with clients, collaborated on distributed projects, and
-                  written code meant to be read and maintained by others. Clear communication and low-ego collaboration
-                  are part of the job.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section class="about" id="about" aria-labelledby="about-heading">
-          <div class="container">
-            <div class="about__header reveal">
-              <p class="section-label">The Human Behind the Code</p>
-              <h2 class="section-title" id="about-heading">About Me</h2>
-            </div>
-
-            <div class="about__deck-grid">
-              <!-- Left Stage: Pure Floating Interactive Portrait -->
-              <div class="about__portrait-pane reveal scale-in">
-                <div class="about__portrait-wrap">
-                  <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
-                    <div class="about__portrait-ring" aria-hidden="true"></div>
-                    <div class="about__portrait">
-                      <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
-                    </div>
-                  </button>
-                  <span class="about__portrait-hint" aria-hidden="true">Click portrait to launch</span>
+                <div class="why-card__stat-item">
+                  <span class="why-card__stat-label">Problem Solving</span>
+                  <span class="why-card__stat-val why-card__stat-val--amber">Top 1% Rank</span>
                 </div>
               </div>
+            </div>
+          </li>
 
-              <!-- Right Stage: Open Headline + Chapter Deck -->
-              <div class="about__story-pane reveal">
-                <h3 class="about__headline">
-                  Hi — I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
-                </h3>
+          <!-- Bottom Left: Reliable by Habit -->
+          <li class="why-card reveal">
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3 class="why-card__title">Reliable by Habit</h3>
+            </div>
+            <p class="why-card__body">
+              I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built
+              the kind of consistency clients can actually feel: dependable communication, dependable progress,
+              dependable follow-through.
+              <span class="why-card__dots" aria-hidden="true">
+                <span class="why-card__dot why-card__dot--l1"></span>
+                <span class="why-card__dot why-card__dot--l3"></span>
+                <span class="why-card__dot why-card__dot--l4"></span>
+                <span class="why-card__dot why-card__dot--l2"></span>
+                <span class="why-card__dot why-card__dot--l4"></span>
+                <span class="why-card__dot why-card__dot--l3"></span>
+                <span class="why-card__dot why-card__dot--l4"></span>
+              </span>
+            </p>
+          </li>
+
+          <!-- Bottom Right: Built for Teams -->
+          <li class="why-card reveal">
+            <div class="why-card__head">
+              <div class="why-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3 class="why-card__title">Built for Teams</h3>
+            </div>
+            <p class="why-card__body">
+              I'm self-directed, but not siloed. I've worked with clients, collaborated on distributed projects, and
+              written code meant to be read and maintained by others. Clear communication and low-ego collaboration
+              are part of the job.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__header reveal">
+          <p class="section-label">The Human Behind the Code</p>
+          <h2 class="section-title" id="about-heading">About Me</h2>
+          <h3 class="about__headline">
+            Hi — I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
+          </h3>
+        </div>
+
+        <div class="about__deck-grid">
+          <!-- Left Stage: Pure Floating Interactive Portrait -->
+          <div class="about__portrait-pane reveal scale-in">
+            <div class="about__portrait-wrap">
+              <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
+                <div class="about__portrait-ring" aria-hidden="true"></div>
+                <div class="about__portrait">
+                  <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Stage: Subtle Program Window -->
+          <div class="about__story-pane reveal">
+            <!-- Subtle Program Window -->
+            <div class="about__window">
+
+              <!-- Window Top Bar -->
+              <div class="about__window-bar">
+                <div class="about__window-dots" aria-hidden="true">
+                  <span class="about__window-dot about__window-dot--r"></span>
+                  <span class="about__window-dot about__window-dot--y"></span>
+                  <span class="about__window-dot about__window-dot--g"></span>
+                  <span class="about__window-filename">about_matthew.md</span>
+                </div>
+                <span class="about__window-badge">Markdown</span>
+              </div>
+
+
+              <!-- Window Inner Body -->
+              <div class="about__window-body">
 
                 <!-- 4-Segment Progress Track -->
                 <div class="about__track" role="tablist" aria-label="About chapter navigation">
@@ -968,652 +1012,665 @@
                   </button>
                 </div>
 
-                <!-- Slide Viewport -->
+
+                <!-- Slide Viewport (Grid Stacked) -->
                 <div class="about__slides-viewport">
+
                   <!-- Slide 01 -->
                   <div class="about__slide active" id="about-slide-0" role="tabpanel" aria-labelledby="about-tab-0">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Indie Game Roots &amp; CS Foundation</h4>
+                    <h4 class="about__slide-title"><span class="about__syntax">## 01</span> <span>Indie Game Roots &amp; CS Foundation</span></h4>
                     <p class="about__slide-prose">
                       Since writing my first line of code at 15, I've had an unbound curiosity for programming and the problem-solving it encapsulates. That curiosity led me to pursue a Bachelor's in Computer Science while simultaneously developing indie games. After years of dedication and over 100,000 lines of code, I released two fully independent games for the Xbox 360 Indie Games platform.
                     </p>
                   </div>
 
+
                   <!-- Slide 02 -->
                   <div class="about__slide" id="about-slide-1" role="tabpanel" aria-labelledby="about-tab-1">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Modern Web Focus &amp; Frontend Craft</h4>
+                    <h4 class="about__slide-title"><span class="about__syntax">## 02</span> <span>Modern Web Focus &amp; Frontend Craft</span></h4>
                     <p class="about__slide-prose">
                       That passion turned my focus to the web. Through formal coursework and disciplined self-study across React, Next.js, Node.js, and the full modern stack, I craft responsive, accessible, and performant web experiences — the kind people love to use.
                     </p>
                   </div>
 
+
                   <!-- Slide 03 -->
                   <div class="about__slide" id="about-slide-2" role="tabpanel" aria-labelledby="about-tab-2">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Go-To Stack &amp; Architectural Flexibility</h4>
+                    <h4 class="about__slide-title"><span class="about__syntax">## 03</span> <span>Go-To Stack &amp; Architectural Flexibility</span></h4>
                     <p class="about__slide-prose">
                       My go-to stack is React and Node.js, but I'm equally comfortable reaching for Next.js, PostgreSQL, or whatever the project calls for. I adapt quickly to existing codebases and select the right tool for the specific job.
                     </p>
                   </div>
 
+
                   <!-- Slide 04 -->
                   <div class="about__slide" id="about-slide-3" role="tabpanel" aria-labelledby="about-tab-3">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Low-Ego Collaboration &amp; Reliability</h4>
+                    <h4 class="about__slide-title"><span class="about__syntax">## 04</span> <span>Low-Ego Collaboration &amp; Reliability</span></h4>
                     <p class="about__slide-prose">
                       Whether working solo or alongside a distributed team, I believe clear communication, disciplined follow-through, and low-ego collaboration are just as important as clean code. I build solutions meant to be read, maintained, and scaled with confidence.
                     </p>
                   </div>
+
                 </div>
 
-                <!-- Streamlined Bottom Controls -->
-                <div class="about__controls">
-                  <button type="button" class="about__next-cta" data-about-action="next" aria-label="Proceed to next chapter">
-                    <span>Up next:</span>
-                    <span class="about__next-label" id="about-next-title">Modern Web Shift &rarr;</span>
+              </div>
+
+
+              <!-- Streamlined Bottom Controls Integrated into Window Footer -->
+              <div class="about__controls">
+                <button type="button" class="about__next-cta" data-about-action="next" aria-label="Proceed to next chapter">
+                  <span>Up next:</span>
+                  <span class="about__next-label" id="about-next-title">Modern Web Shift &rarr;</span>
+                </button>
+                <div class="about__arrow-group">
+                  <button type="button" class="about__arrow-btn" data-about-action="prev" aria-label="Previous chapter">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                   </button>
-                  <div class="about__arrow-group">
-                    <button type="button" class="about__arrow-btn" data-about-action="prev" aria-label="Previous chapter">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                      </svg>
-                    </button>
-                    <button type="button" class="about__arrow-btn" data-about-action="next" aria-label="Next chapter">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                      </svg>
-                    </button>
-                  </div>
+                  <button type="button" class="about__arrow-btn" data-about-action="next" aria-label="Next chapter">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <!-- Scrolling trait ticker -->
-          <div class="ticker-strip" aria-hidden="true">
-            <div class="ticker-track">
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i15"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i16"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i17"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i12"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i18"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i19"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i20"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i15"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i16"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i17"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i12"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i18"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i19"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i20"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-              </div>
+      <!-- Scrolling trait ticker -->
+      <div class="ticker-strip" aria-hidden="true">
+        <div class="ticker-track">
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i15"></use>
+              </svg>
             </div>
+            <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
           </div>
-        </section>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i16"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i17"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i12"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i18"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i19"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i20"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i15"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i16"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i17"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i12"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i18"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i19"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
+          </div>
+          <div class="ticker-item">
+            <div class="ticker-item__icon">
+              <svg aria-hidden="true">
+                <use href="assets/images/sprites/icons.svg#i20"></use>
+              </svg>
+            </div>
+            <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- SERVICES -->
-        <section class="services" id="services" aria-labelledby="services-heading">
-          <div class="container">
-            <p class="section-label">What I Offer</p>
-            <h2 class="section-title" id="services-heading">Services</h2>
-            <p class="services__intro">
-              Whether you need a polished landing page or a fully-featured web application, I bring the same care and
-              craft to every engagement. Here's how I can help.
+    <!-- SERVICES -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <p class="section-label">What I Offer</p>
+        <h2 class="section-title" id="services-heading">Services</h2>
+        <p class="services__intro">
+          Whether you need a polished landing page or a fully-featured web application, I bring the same care and
+          craft to every engagement. Here's how I can help.
+        </p>
+
+        <!-- DEDICATED FULL-TIME SWE CARD -->
+        <div class="services__fulltime-card reveal">
+          <div class="services__fulltime-glow" aria-hidden="true"></div>
+          <div class="services__fulltime-content">
+            <div class="services__fulltime-badge-row">
+              <span class="services__fulltime-badge">
+                <span class="services__fulltime-dot" aria-hidden="true"></span>
+                Actively Interviewing
+              </span>
+              <span class="services__fulltime-type">Full-Time &amp; Contract-to-Hire</span>
+            </div>
+            <h3 class="services__fulltime-title">Dedicated Software Engineering Roles</h3>
+            <p class="services__fulltime-desc">
+              Looking for a high-velocity developer to join your engineering team? Beyond freelance contracts, I am actively seeking full-time <strong>Frontend</strong> and <strong>Full-Stack Software Engineering</strong> roles. I bring 100K+ lines of production architecture experience, deep problem-solving rigor (Top 1% LeetCode), and a craft-first focus on performant, accessible web applications.
             </p>
-
-            <!-- DEDICATED FULL-TIME SWE CARD -->
-            <div class="services__fulltime-card reveal">
-              <div class="services__fulltime-glow" aria-hidden="true"></div>
-              <div class="services__fulltime-content">
-                <div class="services__fulltime-badge-row">
-                  <span class="services__fulltime-badge">
-                    <span class="services__fulltime-dot" aria-hidden="true"></span>
-                    Actively Interviewing
-                  </span>
-                  <span class="services__fulltime-type">Full-Time &amp; Contract-to-Hire</span>
-                </div>
-                <h3 class="services__fulltime-title">Dedicated Software Engineering Roles</h3>
-                <p class="services__fulltime-desc">
-                  Looking for a high-velocity developer to join your engineering team? Beyond freelance contracts, I am actively seeking full-time <strong>Frontend</strong> and <strong>Full-Stack Software Engineering</strong> roles. I bring 100K+ lines of production architecture experience, deep problem-solving rigor (Top 1% LeetCode), and a craft-first focus on performant, accessible web applications.
-                </p>
-                <div class="services__fulltime-highlights">
-                  <div class="services__fulltime-item">
-                    <span class="services__fulltime-item-icon" aria-hidden="true">✦</span>
-                    <span><strong>Core Stack:</strong> TypeScript, React, Next.js, Node.js &amp; PostgreSQL</span>
-                  </div>
-                  <div class="services__fulltime-item">
-                    <span class="services__fulltime-item-icon" aria-hidden="true">✦</span>
-                    <span><strong>Background:</strong> B.S. Computer Science (Exp. Jan 2027) &amp; Solo Game Architect</span>
-                  </div>
-                </div>
+            <div class="services__fulltime-highlights">
+              <div class="services__fulltime-item">
+                <span class="services__fulltime-item-icon" aria-hidden="true">✦</span>
+                <span><strong>Core Stack:</strong> TypeScript, React, Next.js, Node.js &amp; PostgreSQL</span>
               </div>
-              <div class="services__fulltime-actions">
-                <a href="#contact" class="services__fulltime-btn">
-                  <span>Hire Me Full-Time</span>
-                  <svg width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-                <a href="resume/" class="services__fulltime-btn-secondary">
-                  <span>View Resume</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
+              <div class="services__fulltime-item">
+                <span class="services__fulltime-item-icon" aria-hidden="true">✦</span>
+                <span><strong>Background:</strong> B.S. Computer Science (Exp. Jan 2027) &amp; Solo Game Architect</span>
               </div>
             </div>
+          </div>
+          <div class="services__fulltime-actions">
+            <a href="#contact" class="services__fulltime-btn">
+              <span>Hire Me Full-Time</span>
+              <svg width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="resume/" class="services__fulltime-btn-secondary">
+              <span>View Resume</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
 
-            <div class="services__freelance-head">
-              <h3 class="services__freelance-title">Freelance &amp; Contract Services</h3>
+        <div class="services__freelance-head">
+          <h3 class="services__freelance-title">Freelance &amp; Contract Services</h3>
+        </div>
+
+        <!-- 3 CORE PROJECT CARDS -->
+        <ul class="services__grid">
+          <!-- Card 1: React & Next.js Web Apps (Featured) -->
+          <li class="service-card service-card--featured reveal">
+            <div class="service-card__badge">Most Popular</div>
+            <div class="service-card__top">
+              <div class="service-card__icon" aria-hidden="true">
+                <svg>
+                  <use href="assets/images/sprites/icons.svg#i22"></use>
+                </svg>
+              </div>
+              <span class="service-card__timeline">Est. 2 – 4 Weeks</span>
             </div>
-
-            <!-- 3 CORE PROJECT CARDS -->
-            <ul class="services__grid">
-              <!-- Card 1: React & Next.js Web Apps (Featured) -->
-              <li class="service-card service-card--featured reveal">
-                <div class="service-card__badge">Most Popular</div>
-                <div class="service-card__top">
-                  <div class="service-card__icon" aria-hidden="true">
-                    <svg>
-                      <use href="assets/images/sprites/icons.svg#i22"></use>
-                    </svg>
-                  </div>
-                  <span class="service-card__timeline">Est. 2 – 4 Weeks</span>
-                </div>
-                <h3 class="service-card__title">React &amp; Next.js Web Apps</h3>
-                <p class="service-card__desc">
-                  Interactive, full-stack applications built with modern React, Next.js, and a Node/Express backend. From
-                  recipe apps to dashboards — if it needs dynamic data, real-time updates, or user authentication, this is
-                  the package.
-                </p>
-                <ul class="service-card__list">
-                  <li>React / Next.js frontend</li>
-                  <li>Node.js &amp; Express backend</li>
-                  <li>MongoDB or PostgreSQL database</li>
-                  <li>REST API design &amp; integration</li>
-                </ul>
-                <div class="service-card__cta">
-                  <span class="service-card__price">Starting from <strong>$1,500</strong></span>
-                  <a href="#contact" class="service-card__btn" data-service-subject="Inquiry: React &amp; Next.js Web App" data-service-msg="Hi Matthew, I'd like to talk about a React &amp; Next.js web application project..." aria-label="Get a quote for React and Next.js Web Apps">
-                    <span>Get a Quote</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </li>
-
-              <!-- Card 2: Landing Pages & Marketing Sites -->
-              <li class="service-card reveal">
-                <div class="service-card__top">
-                  <div class="service-card__icon" aria-hidden="true">
-                    <svg>
-                      <use href="assets/images/sprites/icons.svg#i21"></use>
-                    </svg>
-                  </div>
-                  <span class="service-card__timeline">Est. 1 – 2 Weeks</span>
-                </div>
-                <h3 class="service-card__title">Landing Pages &amp; Marketing Sites</h3>
-                <p class="service-card__desc">
-                  A fast, beautiful, fully-responsive website that converts visitors into customers. Built with semantic
-                  HTML, hand-crafted CSS, and smooth interactions — no bloated page builders, just clean code that scores
-                  well on Lighthouse.
-                </p>
-                <ul class="service-card__list">
-                  <li>Custom design or from your mockup</li>
-                  <li>Mobile-first, fully responsive</li>
-                  <li>Contact forms &amp; CTA integration</li>
-                  <li>Performance &amp; SEO optimised</li>
-                </ul>
-                <div class="service-card__cta">
-                  <span class="service-card__price">Starting from <strong>$650</strong></span>
-                  <a href="#contact" class="service-card__btn" data-service-subject="Inquiry: Landing Page &amp; Marketing Site" data-service-msg="Hi Matthew, I'd like to discuss building a custom landing page or marketing site..." aria-label="Get a quote for Landing Pages and Marketing Sites">
-                    <span>Get a Quote</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </li>
-
-              <!-- Card 3: Site Fixes & Improvements -->
-              <li class="service-card reveal">
-                <div class="service-card__top">
-                  <div class="service-card__icon" aria-hidden="true">
-                    <svg>
-                      <use href="assets/images/sprites/icons.svg#i23"></use>
-                    </svg>
-                  </div>
-                  <span class="service-card__timeline">Est. 2 – 5 Days</span>
-                </div>
-                <h3 class="service-card__title">Site Fixes &amp; Improvements</h3>
-                <p class="service-card__desc">
-                  Got an existing site that's slow, broken, or just needs a refresh? I can audit your codebase, squash
-                  bugs, improve performance, and add new features without the overhead of a full rebuild.
-                </p>
-                <ul class="service-card__list">
-                  <li>Bug fixes &amp; debugging</li>
-                  <li>Performance &amp; Lighthouse improvements</li>
-                  <li>Responsive / mobile fixes</li>
-                  <li>Feature additions to existing sites</li>
-                </ul>
-                <div class="service-card__cta">
-                  <span class="service-card__price">From <strong>$60 / hr</strong></span>
-                  <a href="#contact" class="service-card__btn" data-service-subject="Inquiry: Site Fixes &amp; Performance" data-service-msg="Hi Matthew, I have an existing website that needs bug fixes and performance improvements..." aria-label="Get a quote for Site Fixes and Improvements">
-                    <span>Get a Quote</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </li>
+            <h3 class="service-card__title">React &amp; Next.js Web Apps</h3>
+            <p class="service-card__desc">
+              Interactive, full-stack applications built with modern React, Next.js, and a Node/Express backend. From
+              recipe apps to dashboards — if it needs dynamic data, real-time updates, or user authentication, this is
+              the package.
+            </p>
+            <ul class="service-card__list">
+              <li>React / Next.js frontend</li>
+              <li>Node.js &amp; Express backend</li>
+              <li>MongoDB or PostgreSQL database</li>
+              <li>REST API design &amp; integration</li>
             </ul>
+            <div class="service-card__cta">
+              <span class="service-card__price">Starting from <strong>$1,500</strong></span>
+              <a href="#contact" class="service-card__btn" data-service-subject="Inquiry: React &amp; Next.js Web App" data-service-msg="Hi Matthew, I'd like to talk about a React &amp; Next.js web application project..." aria-label="Get a quote for React and Next.js Web Apps">
+                <span>Get a Quote</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </li>
 
-            <!-- DEDICATED FULL-WIDTH RETAINER BANNER -->
-            <article class="service-retainer-banner reveal">
-              <div class="service-retainer-banner__left">
-                <div class="service-retainer-banner__icon" aria-hidden="true">
-                  <svg>
-                    <use href="assets/images/sprites/icons.svg#i24"></use>
+          <!-- Card 2: Landing Pages & Marketing Sites -->
+          <li class="service-card reveal">
+            <div class="service-card__top">
+              <div class="service-card__icon" aria-hidden="true">
+                <svg>
+                  <use href="assets/images/sprites/icons.svg#i21"></use>
+                </svg>
+              </div>
+              <span class="service-card__timeline">Est. 1 – 2 Weeks</span>
+            </div>
+            <h3 class="service-card__title">Landing Pages &amp; Marketing Sites</h3>
+            <p class="service-card__desc">
+              A fast, beautiful, fully-responsive website that converts visitors into customers. Built with semantic
+              HTML, hand-crafted CSS, and smooth interactions — no bloated page builders, just clean code that scores
+              well on Lighthouse.
+            </p>
+            <ul class="service-card__list">
+              <li>Custom design or from your mockup</li>
+              <li>Mobile-first, fully responsive</li>
+              <li>Contact forms &amp; CTA integration</li>
+              <li>Performance &amp; SEO optimised</li>
+            </ul>
+            <div class="service-card__cta">
+              <span class="service-card__price">Starting from <strong>$650</strong></span>
+              <a href="#contact" class="service-card__btn" data-service-subject="Inquiry: Landing Page &amp; Marketing Site" data-service-msg="Hi Matthew, I'd like to discuss building a custom landing page or marketing site..." aria-label="Get a quote for Landing Pages and Marketing Sites">
+                <span>Get a Quote</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- Card 3: Site Fixes & Improvements -->
+          <li class="service-card reveal">
+            <div class="service-card__top">
+              <div class="service-card__icon" aria-hidden="true">
+                <svg>
+                  <use href="assets/images/sprites/icons.svg#i23"></use>
+                </svg>
+              </div>
+              <span class="service-card__timeline">Est. 2 – 5 Days</span>
+            </div>
+            <h3 class="service-card__title">Site Fixes &amp; Improvements</h3>
+            <p class="service-card__desc">
+              Got an existing site that's slow, broken, or just needs a refresh? I can audit your codebase, squash
+              bugs, improve performance, and add new features without the overhead of a full rebuild.
+            </p>
+            <ul class="service-card__list">
+              <li>Bug fixes &amp; debugging</li>
+              <li>Performance &amp; Lighthouse improvements</li>
+              <li>Responsive / mobile fixes</li>
+              <li>Feature additions to existing sites</li>
+            </ul>
+            <div class="service-card__cta">
+              <span class="service-card__price">From <strong>$60 / hr</strong></span>
+              <a href="#contact" class="service-card__btn" data-service-subject="Inquiry: Site Fixes &amp; Performance" data-service-msg="Hi Matthew, I have an existing website that needs bug fixes and performance improvements..." aria-label="Get a quote for Site Fixes and Improvements">
+                <span>Get a Quote</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- DEDICATED FULL-WIDTH RETAINER BANNER -->
+        <article class="service-retainer-banner reveal">
+          <div class="service-retainer-banner__main">
+            <div class="service-retainer-banner__top">
+              <div class="service-retainer-banner__icon" aria-hidden="true">
+                <svg>
+                  <use href="assets/images/sprites/icons.svg#i24"></use>
+                </svg>
+              </div>
+              <span class="service-card__timeline service-retainer-banner__timeline-mobile">Monthly Retainer</span>
+            </div>
+            <div class="service-retainer-banner__body">
+              <div class="service-retainer-banner__title-row">
+                <h3 class="service-retainer-banner__title">Ongoing Maintenance &amp; Support</h3>
+                <span class="service-card__timeline service-retainer-banner__timeline-desktop">Monthly Retainer</span>
+              </div>
+              <p class="service-retainer-banner__desc">
+                Keep your site healthy, secure, and up to date without thinking about it. Ideal for small businesses who
+                need a reliable developer on call without committing to a full-time hire.
+              </p>
+              <ul class="service-retainer-banner__list">
+                <li>Monthly updates &amp; dependency patches</li>
+                <li>Content &amp; copy updates</li>
+                <li>Uptime monitoring &amp; quick fixes</li>
+                <li>Priority response within 24 hours</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="service-retainer-banner__right">
+            <div class="service-retainer-banner__pricing">
+              <span class="service-card__price">From <strong>$250 / mo</strong></span>
+            </div>
+            <a href="#contact" class="service-card__btn service-card__btn--retainer" data-service-subject="Inquiry: Monthly Developer Retainer" data-service-msg="Hi Matthew, I'm interested in an ongoing maintenance and support retainer..." aria-label="Get a quote for Ongoing Maintenance & Support Retainer">
+              <span>Get a Quote</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <p class="services__note">
+          Not sure which fits your project? <a href="#contact">Send me a message</a> and we'll figure it out together — no commitment required.
+        </p>
+      </div>
+    </section>
+
+    <!-- CODING ACTIVITY -->
+    <section class="coding" id="coding" aria-labelledby="coding-heading">
+      <div class="container">
+        <div class="coding__head reveal">
+          <p class="section-label">Daily Consistency &amp; Problem Solving</p>
+          <h2 class="section-title" id="coding-heading">Coding Activity</h2>
+        </div>
+
+        <div class="coding__grid">
+          <!-- LEFT CARD: GITHUB CONSISTENCY -->
+          <div class="coding__col coding__col--github reveal">
+            <div>
+              <div class="coding__col-header">
+                <div class="coding__col-heading">
+                  <svg width="20" height="20" aria-hidden="true">
+                    <use href="assets/images/sprites/icons.svg#i02"></use>
                   </svg>
-                </div>
-                <div class="service-retainer-banner__content">
-                  <div class="service-retainer-banner__header-row">
-                    <h3 class="service-retainer-banner__title">Ongoing Maintenance &amp; Support</h3>
-                    <span class="service-card__timeline">Monthly Retainer</span>
-                  </div>
-                  <p class="service-retainer-banner__desc">
-                    Keep your site healthy, secure, and up to date without thinking about it. Ideal for small businesses who
-                    need a reliable developer on call without committing to a full-time hire.
-                  </p>
-                  <ul class="service-retainer-banner__list">
-                    <li>Monthly updates &amp; dependency patches</li>
-                    <li>Content &amp; copy updates</li>
-                    <li>Uptime monitoring &amp; quick fixes</li>
-                    <li>Priority response within 24 hours</li>
-                  </ul>
+                  <span>GitHub Consistency</span>
                 </div>
               </div>
 
-              <div class="service-retainer-banner__right">
-                <div class="service-retainer-banner__pricing">
-                  <span class="service-card__price">From <strong>$250 / mo</strong></span>
+              <!-- 3 High-Impact GitHub Stats -->
+              <div class="coding__stats-row" id="github-stats" aria-live="polite" aria-atomic="true">
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="stat-total">809</span>
+                  <span class="coding__stat-label" id="stat-total-label">Contribs (12M)</span>
                 </div>
-                <a href="#contact" class="service-card__btn service-card__btn--retainer" data-service-subject="Inquiry: Monthly Developer Retainer" data-service-msg="Hi Matthew, I'm interested in an ongoing maintenance and support retainer..." aria-label="Get a quote for Ongoing Maintenance & Support Retainer">
-                  <span>Get a Quote</span>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="stat-streak">1.9K</span>
+                  <span class="coding__stat-label">Day Streak</span>
+                </div>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="stat-repos">24+</span>
+                  <span class="coding__stat-label">Public Repos</span>
+                </div>
+              </div>
+
+              <!-- Heatmap + Multi-Year Selector Box -->
+              <div class="github__graph-wrap">
+                <div class="github__year-selector" id="github-year-selector" aria-label="Select year" role="group"></div>
+                <div class="github__months" id="github-months" aria-hidden="true"></div>
+                <div class="github__grid-body">
+                  <div class="github__day-labels" aria-hidden="true">
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Mon</div>
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Wed</div>
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Fri</div>
+                    <div class="github__day-label"></div>
+                  </div>
+                  <div class="github__grid-scroll">
+                    <div class="github__grid" id="github-grid" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Matching Footer on GitHub Card -->
+            <div class="coding__col-footer">
+              <span class="coding__footer-desc">Open-Source &amp; Private Commit Cadence</span>
+              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__footer-pill" aria-label="View Matthew's GitHub profile, opens in new tab">
+                <span>GitHub ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT CARD: ALGORITHM PROBLEM SOLVING -->
+          <div class="coding__col coding__col--algo reveal" id="leetcode-card">
+            <div>
+              <div class="coding__col-header">
+                <div class="coding__col-heading">
+                  <svg width="20" height="20" aria-hidden="true">
+                    <use href="assets/images/sprites/icons.svg#i25"></use>
+                  </svg>
+                  <span>Algorithm Problem Solving</span>
+                </div>
+              </div>
+
+              <!-- Dynamic 3-Stat Metric Row Matching Left Card -->
+              <div class="coding__stats-row" id="algo-stats-row" aria-live="polite" aria-atomic="true">
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="lc-stat-1">1,267</span>
+                  <span class="coding__stat-label" id="lc-stat-lbl-1">Total Solved</span>
+                </div>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num coding__stat-num--accent" id="lc-stat-2">Top 1%</span>
+                  <span class="coding__stat-label" id="lc-stat-lbl-2">Global Rank (#15.1K)</span>
+                </div>
+                <div class="coding__stat-box">
+                  <span class="coding__stat-num" id="lc-stat-3">83.4%</span>
+                  <span class="coding__stat-label" id="lc-stat-lbl-3">Acceptance</span>
+                </div>
+              </div>
+
+              <!-- Integrated Platform Container Box -->
+              <div class="algo__container">
+                <!-- Tab Switcher Strip -->
+                <div class="algo__tabs" role="tablist" aria-label="Algorithmic platform selection">
+                  <button type="button" role="tab" aria-selected="true" aria-controls="panel-leetcode" id="tab-btn-lc" class="algo__tab-btn active">
+                    <span class="algo__tab-icon" style="color: #ffb700;" aria-hidden="true">⚡</span>
+                    <span>LeetCode</span>
+                  </button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="panel-codewars" id="tab-btn-cw" class="algo__tab-btn">
+                    <span class="algo__tab-icon" style="color: var(--complementary);" aria-hidden="true">🥋</span>
+                    <span>Codewars</span>
+                  </button>
+                </div>
+
+                <!-- 1. LEETCODE VIEW (DEFAULT) -->
+                <div class="algo__panel active" id="panel-leetcode" role="tabpanel" aria-labelledby="tab-btn-lc">
+                  <div class="leetcode__breakdown" id="leetcode-breakdown">
+                    <div class="lc-bar-row">
+                      <span class="lc-bar-label lc-easy">Easy</span>
+                      <div class="lc-bar-track">
+                        <div class="lc-bar-fill lc-easy-fill" id="lc-easy-bar"></div>
+                      </div>
+                      <span class="lc-bar-count" id="lc-easy-count">825 / 966</span>
+                    </div>
+                    <div class="lc-bar-row">
+                      <span class="lc-bar-label lc-medium">Medium</span>
+                      <div class="lc-bar-track">
+                        <div class="lc-bar-fill lc-medium-fill" id="lc-medium-bar"></div>
+                      </div>
+                      <span class="lc-bar-count" id="lc-medium-count">428 / 2,117</span>
+                    </div>
+                    <div class="lc-bar-row">
+                      <span class="lc-bar-label lc-hard">Hard</span>
+                      <div class="lc-bar-track">
+                        <div class="lc-bar-fill lc-hard-fill" id="lc-hard-bar"></div>
+                      </div>
+                      <span class="lc-bar-count" id="lc-hard-count">14 / 977</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. CODEWARS VIEW -->
+                <div class="algo__panel" id="panel-codewars" role="tabpanel" aria-labelledby="tab-btn-cw" hidden>
+                  <div class="codewars__content">
+                    <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" class="codewars__badge-link" aria-label="View Matthew McGrath on Codewars, opens in new tab">
+                      <img src="https://www.codewars.com/users/Epitome87/badges/large" alt="Codewars rank badge for Epitome87" class="codewars__badge-img" loading="lazy" width="400" height="100" />
+                    </a>
+                    <p class="codewars__blurb">
+                      Sharpening problem-solving and algorithmic discipline, one kata at a time.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Matching Footer on Algorithm Card -->
+            <div class="coding__col-footer">
+              <span class="coding__footer-desc" id="algo-footer-desc">Data Structures &bull; Graph Theory &bull; Dynamic Programming</span>
+              <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" class="coding__footer-pill coding__footer-pill--accent" id="algo-footer-link" aria-label="View Matthew's LeetCode profile, opens in new tab">
+                <span>LeetCode ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title" id="contact-heading">Let's Talk</h2>
+
+        <!-- Trust signals -->
+        <ul class="trust-band reveal">
+          <li class="trust-item">
+            <svg class="trust-item__icon" aria-hidden="true">
+              <use href="assets/images/sprites/icons.svg#i27"></use>
+            </svg>
+            <div>
+              <p class="trust-item__label">Response Time</p>
+              <p class="trust-item__value">Within 24 hours</p>
+            </div>
+          </li>
+          <li class="trust-item">
+            <svg class="trust-item__icon" aria-hidden="true">
+              <use href="assets/images/sprites/icons.svg#i28"></use>
+            </svg>
+            <div>
+              <p class="trust-item__label">Availability</p>
+              <p class="trust-item__value">Accepting projects now</p>
+            </div>
+          </li>
+          <li class="trust-item">
+            <svg class="trust-item__icon" aria-hidden="true">
+              <use href="assets/images/sprites/icons.svg#i11"></use>
+            </svg>
+            <div>
+              <p class="trust-item__label">Working Hours</p>
+              <p class="trust-item__value">Mon – Fri, 8 AM – 8 PM PT</p>
+            </div>
+          </li>
+          <li class="trust-item">
+            <svg class="trust-item__icon" aria-hidden="true">
+              <use href="assets/images/sprites/icons.svg#i29"></use>
+            </svg>
+            <div>
+              <p class="trust-item__label">Location</p>
+              <p class="trust-item__value">Riverside, CA (Remote-friendly)</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Contact CTA + form -->
+        <div class="contact__layout">
+          <!-- Contact CTA -->
+          <div class="contact__cta reveal from-left">
+            <p class="contact__tagline">Have a project? A role? <em>Let's make something great.</em></p>
+            <div class="contact__test">
+              <p class="contact__blurb">
+                I am currently open to freelance projects and full-time Front-End or Full-Stack roles. Whether it's a
+                quick hello or a detailed proposal - every message gets my full attention, a clear response, and a
+                result worth showing off.
+              </p>
+            </div>
+          </div>
+          <!-- Contact form -->
+          <div class="reveal from-right form">
+            <div class="form__form">
+              <form id="contact-form" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                <!-- 2-Column Name & Email -->
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required aria-required="true" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" required aria-required="true" />
+                  </div>
+                </div>
+
+                <!-- Compact Topic / Subject Dropdown (Directly powers FormSubmit subject) -->
+                <div class="form-group">
+                  <label for="topic-select">I'd like to discuss <span aria-hidden="true">*</span></label>
+                  <div class="select-wrapper">
+                    <select id="topic-select" name="_subject" class="form-select" aria-label="Select message topic">
+                      <option value="Inquiry: Full-Time Software Engineering Role">💼 Full-Time Software Engineering Role</option>
+                      <option value="Inquiry: React &amp; Next.js Web App">⚡ React &amp; Next.js Web App / SaaS</option>
+                      <option value="Inquiry: Landing Page &amp; Marketing Site">🌐 Landing Page &amp; Marketing Site</option>
+                      <option value="Inquiry: Site Fixes &amp; Code Audit">🔍 Site Fixes, Speed &amp; Code Audit</option>
+                      <option value="Inquiry: Monthly Developer Retainer">🛠️ Ongoing Maintenance &amp; Retainer</option>
+                      <option value="Inquiry: General Hello">☕ General Inquiry / Hello</option>
+                    </select>
+                    <span class="select-chevron" aria-hidden="true">▾</span>
+                  </div>
+                </div>
+
+                <!-- Message Textarea -->
+                <div class="form-group">
+                  <label for="message">Message <span aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required aria-required="true"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit btn-primary" id="form-submit-btn">
+                  <span>Send Message</span>
                   <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-
-            <p class="services__note">
-              Not sure which fits your project? <a href="#contact">Send me a message</a> and we'll figure it out together — no commitment required.
-            </p>
-          </div>
-        </section>
-
-        <!-- CODING ACTIVITY -->
-        <section class="coding" id="coding" aria-labelledby="coding-heading">
-          <div class="container">
-            <div class="coding__head reveal">
-              <p class="section-label">Daily Consistency &amp; Problem Solving</p>
-              <h2 class="section-title" id="coding-heading">Coding Activity</h2>
-            </div>
-
-            <div class="coding__grid">
-              <!-- LEFT CARD: GITHUB CONSISTENCY -->
-              <div class="coding__col coding__col--github reveal">
-                <div>
-                  <div class="coding__col-header">
-                    <div class="coding__col-heading">
-                      <svg width="20" height="20" aria-hidden="true">
-                        <use href="assets/images/sprites/icons.svg#i02"></use>
-                      </svg>
-                      <span>GitHub Consistency</span>
-                    </div>
-                  </div>
-
-                  <!-- 3 High-Impact GitHub Stats -->
-                  <div class="coding__stats-row" id="github-stats" aria-live="polite" aria-atomic="true">
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="stat-total">809</span>
-                      <span class="coding__stat-label" id="stat-total-label">Contribs (12M)</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="stat-streak">1.9K</span>
-                      <span class="coding__stat-label">Day Streak</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="stat-repos">24+</span>
-                      <span class="coding__stat-label">Public Repos</span>
-                    </div>
-                  </div>
-
-                  <!-- Heatmap + Multi-Year Selector Box -->
-                  <div class="github__graph-wrap">
-                    <div class="github__year-selector" id="github-year-selector" aria-label="Select year" role="group"></div>
-                    <div class="github__months" id="github-months" aria-hidden="true"></div>
-                    <div class="github__grid-body">
-                      <div class="github__day-labels" aria-hidden="true">
-                        <div class="github__day-label"></div>
-                        <div class="github__day-label">Mon</div>
-                        <div class="github__day-label"></div>
-                        <div class="github__day-label">Wed</div>
-                        <div class="github__day-label"></div>
-                        <div class="github__day-label">Fri</div>
-                        <div class="github__day-label"></div>
-                      </div>
-                      <div class="github__grid-scroll">
-                        <div class="github__grid" id="github-grid" aria-hidden="true"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Matching Footer on GitHub Card -->
-                <div class="coding__col-footer">
-                  <span class="coding__footer-desc">Open-Source &amp; Private Commit Cadence</span>
-                  <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__footer-pill" aria-label="View Matthew's GitHub profile, opens in new tab">
-                    <span>GitHub ↗</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- RIGHT CARD: ALGORITHM PROBLEM SOLVING -->
-              <div class="coding__col coding__col--algo reveal" id="leetcode-card">
-                <div>
-                  <div class="coding__col-header">
-                    <div class="coding__col-heading">
-                      <svg width="20" height="20" aria-hidden="true">
-                        <use href="assets/images/sprites/icons.svg#i25"></use>
-                      </svg>
-                      <span>Algorithm Problem Solving</span>
-                    </div>
-                  </div>
-
-                  <!-- Dynamic 3-Stat Metric Row Matching Left Card -->
-                  <div class="coding__stats-row" id="algo-stats-row" aria-live="polite" aria-atomic="true">
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="lc-stat-1">1,267</span>
-                      <span class="coding__stat-label" id="lc-stat-lbl-1">Total Solved</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num coding__stat-num--accent" id="lc-stat-2">Top 1%</span>
-                      <span class="coding__stat-label" id="lc-stat-lbl-2">Global Rank (#15.1K)</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="lc-stat-3">83.4%</span>
-                      <span class="coding__stat-label" id="lc-stat-lbl-3">Acceptance</span>
-                    </div>
-                  </div>
-
-                  <!-- Integrated Platform Container Box -->
-                  <div class="algo__container">
-                    <!-- Tab Switcher Strip -->
-                    <div class="algo__tabs" role="tablist" aria-label="Algorithmic platform selection">
-                      <button type="button" role="tab" aria-selected="true" aria-controls="panel-leetcode" id="tab-btn-lc" class="algo__tab-btn active">
-                        <span class="algo__tab-icon" style="color: #ffb700;" aria-hidden="true">⚡</span>
-                        <span>LeetCode</span>
-                      </button>
-                      <button type="button" role="tab" aria-selected="false" aria-controls="panel-codewars" id="tab-btn-cw" class="algo__tab-btn">
-                        <span class="algo__tab-icon" style="color: var(--complementary);" aria-hidden="true">🥋</span>
-                        <span>Codewars</span>
-                      </button>
-                    </div>
-
-                    <!-- 1. LEETCODE VIEW (DEFAULT) -->
-                    <div class="algo__panel active" id="panel-leetcode" role="tabpanel" aria-labelledby="tab-btn-lc">
-                      <div class="leetcode__breakdown" id="leetcode-breakdown">
-                        <div class="lc-bar-row">
-                          <span class="lc-bar-label lc-easy">Easy</span>
-                          <div class="lc-bar-track">
-                            <div class="lc-bar-fill lc-easy-fill" id="lc-easy-bar"></div>
-                          </div>
-                          <span class="lc-bar-count" id="lc-easy-count">825 / 966</span>
-                        </div>
-                        <div class="lc-bar-row">
-                          <span class="lc-bar-label lc-medium">Medium</span>
-                          <div class="lc-bar-track">
-                            <div class="lc-bar-fill lc-medium-fill" id="lc-medium-bar"></div>
-                          </div>
-                          <span class="lc-bar-count" id="lc-medium-count">428 / 2,117</span>
-                        </div>
-                        <div class="lc-bar-row">
-                          <span class="lc-bar-label lc-hard">Hard</span>
-                          <div class="lc-bar-track">
-                            <div class="lc-bar-fill lc-hard-fill" id="lc-hard-bar"></div>
-                          </div>
-                          <span class="lc-bar-count" id="lc-hard-count">14 / 977</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- 2. CODEWARS VIEW -->
-                    <div class="algo__panel" id="panel-codewars" role="tabpanel" aria-labelledby="tab-btn-cw" hidden>
-                      <div class="codewars__content">
-                        <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" class="codewars__badge-link" aria-label="View Matthew McGrath on Codewars, opens in new tab">
-                          <img src="https://www.codewars.com/users/Epitome87/badges/large" alt="Codewars rank badge for Epitome87" class="codewars__badge-img" loading="lazy" width="400" height="100" />
-                        </a>
-                        <p class="codewars__blurb">
-                          Sharpening problem-solving and algorithmic discipline, one kata at a time.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Matching Footer on Algorithm Card -->
-                <div class="coding__col-footer">
-                  <span class="coding__footer-desc" id="algo-footer-desc">Data Structures &bull; Graph Theory &bull; Dynamic Programming</span>
-                  <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" class="coding__footer-pill coding__footer-pill--accent" id="algo-footer-link" aria-label="View Matthew's LeetCode profile, opens in new tab">
-                    <span>LeetCode ↗</span>
-                  </a>
-                </div>
-              </div>
+                </button>
+                <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+              </form>
             </div>
           </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="contact" id="contact" aria-labelledby="contact-heading">
-          <div class="container">
-            <p class="section-label">Get In Touch</p>
-            <h2 class="section-title" id="contact-heading">Let's Talk</h2>
-
-            <!-- Trust signals -->
-            <ul class="trust-band reveal">
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i27"></use>
-                </svg>
-                <div>
-                  <p class="trust-item__label">Response Time</p>
-                  <p class="trust-item__value">Within 24 hours</p>
-                </div>
-              </li>
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i28"></use>
-                </svg>
-                <div>
-                  <p class="trust-item__label">Availability</p>
-                  <p class="trust-item__value">Accepting projects now</p>
-                </div>
-              </li>
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i11"></use>
-                </svg>
-                <div>
-                  <p class="trust-item__label">Working Hours</p>
-                  <p class="trust-item__value">Mon – Fri, 8 AM – 8 PM PT</p>
-                </div>
-              </li>
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i29"></use>
-                </svg>
-                <div>
-                  <p class="trust-item__label">Location</p>
-                  <p class="trust-item__value">Riverside, CA (Remote-friendly)</p>
-                </div>
-              </li>
-            </ul>
-
-            <!-- Contact CTA + form -->
-            <div class="contact__layout">
-              <!-- Contact CTA -->
-              <div class="contact__cta reveal from-left">
-                <p class="contact__tagline">Have a project? A role? <em>Let's make something great.</em></p>
-                <div class="contact__test">
-                  <p class="contact__blurb">
-                    I am currently open to freelance projects and full-time Front-End or Full-Stack roles. Whether it's a
-                    quick hello or a detailed proposal - every message gets my full attention, a clear response, and a
-                    result worth showing off.
-                  </p>
-                </div>
-              </div>
-              <!-- Contact form -->
-              <div class="reveal from-right form">
-                <div class="form__form">
-                  <form id="contact-form" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
-                    <input type="hidden" name="_template" value="table" />
-                    <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-                    <!-- 2-Column Name & Email -->
-                    <div class="form-grid">
-                      <div class="form-group">
-                        <label for="name">Full Name <span aria-hidden="true">*</span></label>
-                        <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required aria-required="true" />
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email Address <span aria-hidden="true">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" required aria-required="true" />
-                      </div>
-                    </div>
-
-                    <!-- Compact Topic / Subject Dropdown (Directly powers FormSubmit subject) -->
-                    <div class="form-group">
-                      <label for="topic-select">I'd like to discuss <span aria-hidden="true">*</span></label>
-                      <div class="select-wrapper">
-                        <select id="topic-select" name="_subject" class="form-select" aria-label="Select message topic">
-                          <option value="Inquiry: Full-Time Software Engineering Role">💼 Full-Time Software Engineering Role</option>
-                          <option value="Inquiry: React &amp; Next.js Web App">⚡ React &amp; Next.js Web App / SaaS</option>
-                          <option value="Inquiry: Landing Page &amp; Marketing Site">🌐 Landing Page &amp; Marketing Site</option>
-                          <option value="Inquiry: Site Fixes &amp; Code Audit">🔍 Site Fixes, Speed &amp; Code Audit</option>
-                          <option value="Inquiry: Monthly Developer Retainer">🛠️ Ongoing Maintenance &amp; Retainer</option>
-                          <option value="Inquiry: General Hello">☕ General Inquiry / Hello</option>
-                        </select>
-                        <span class="select-chevron" aria-hidden="true">▾</span>
-                      </div>
-                    </div>
-
-                    <!-- Message Textarea -->
-                    <div class="form-group">
-                      <label for="message">Message <span aria-hidden="true">*</span></label>
-                      <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required aria-required="true"></textarea>
-                    </div>
-
-                    <button type="submit" class="form-submit btn-primary" id="form-submit-btn">
-                      <span>Send Message</span>
-                      <span aria-hidden="true">→</span>
-                    </button>
-                    <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
