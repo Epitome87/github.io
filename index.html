@@ -1414,7 +1414,7 @@
 
         <!-- UNIX TERMINAL CHASSIS -->
         <article class="terminal-window reveal" id="terminal-window">
-          
+
           <!-- TITLEBAR -->
           <div class="term-titlebar">
             <div class="term-dots" aria-hidden="true">
@@ -1426,40 +1426,40 @@
               <span>terminal</span>
               <span>—</span>
               <strong>zsh</strong>
-              <span>—</span>
-              <span>118x36</span>
+              <span class="term-title-dim"><span aria-hidden="true">—</span><span>118x36</span></span>
             </div>
             <div class="term-live-tag">
               <span class="live-pulse" aria-hidden="true"></span>
-              <span>PID: 41829 (ACTIVE)</span>
+              <span class="term-live-pid">PID: 41829 </span>
+              <span class="term-live-status">ACTIVE</span>
             </div>
           </div>
 
           <!-- TERMINAL BUFFER -->
           <div class="term-content">
-            
+
             <!-- ===============================================================
-                 COMMAND 1: NEOFETCH
+                 COMMAND 1: DEVFETCH
                  =============================================================== -->
             <section class="term-block" aria-label="System Developer Overview">
               <div class="cmd-line">
                 <div class="cmd-lead">
                   <span class="p-host">matthew@dev</span>
                   <span class="p-arrow">❯</span>
-                  <span class="p-cmd">neofetch</span>
+                  <span class="p-cmd">devfetch</span>
                   <span class="p-flag">--profile</span>
                 </div>
               </div>
 
               <div class="neofetch-wrap">
-                <!-- Monogram MM in White -->
+                <!-- Monogram MM in Terminal Rainbow Spectrum -->
                 <div class="ascii-art-box" aria-hidden="true">
-                  <pre class="ascii-logo-view art-white">
- __  __ __  __ 
-|  \/  |  \/  |
-| |\/| | |\/| |
-|_|  |_|_|  |_|
- [ENG // SWE]</pre>
+                  <pre class="ascii-logo-view ascii-rainbow">
+<span class="art-c1"> __  __ __  __ </span>
+<span class="art-c2">|  \/  |  \/  |</span>
+<span class="art-c3">| |\/| | |\/| |</span>
+<span class="art-c4">|_|  |_|_|  |_|</span>
+<span class="art-c5"> [DEV // SWE]</span></pre>
                 </div>
 
                 <!-- Neofetch Specs -->
@@ -1469,9 +1469,9 @@
                     <span class="spec-status">[ACTIVE]</span>
                   </div>
                   <div class="spec-sep" aria-hidden="true">-----------------------------------------------------</div>
-                  <div class="spec-row"><span class="spec-k">USER</span><span class="spec-v"><strong>Matthew McGrath</strong> (Frontend &amp; Full-Stack SWE)</span></div>
-                  <div class="spec-row"><span class="spec-k">UPTIME</span><span class="spec-v"><span class="accent">1,900+ days</span> unbroken commit streak (0 downtime)</span></div>
-                  <div class="spec-row"><span class="spec-k">REPOS</span><span class="spec-v"><strong>24+ active</strong> public &amp; private engineering repositories</span></div>
+                  <div class="spec-row"><span class="spec-k">USER</span><span class="spec-v"><strong>Matthew McGrath</strong></span></div>
+                  <div class="spec-row"><span class="spec-k">UPTIME</span><span class="spec-v"><strong id="stat-streak">1,883 days</strong> commit streak</span></div>
+                  <div class="spec-row"><span class="spec-k">REPOS</span><span class="spec-v"><strong>24+</strong> active engineering repositories</span></div>
                   <div class="spec-row"><span class="spec-k">PROFILE</span><span class="spec-v">github.com/Epitome87</span></div>
 
                   <!-- ANSI 8-Color Palette -->
@@ -1531,7 +1531,7 @@
               <!-- Stream Legend & Dynamic Summary -->
               <div class="stream-legend">
                 <div>
-                  <span id="git-year-summary"><strong class="accent" id="stat-total">809</strong> <span id="stat-total-label">contributions in the last 12 months</span> across public &amp; private repositories</span>
+                  <span id="git-year-summary"><strong class="accent" id="stat-total">809</strong> <span id="stat-total-label">contributions in the last 12 months</span></span>
                 </div>
                 <div class="stream-scale">
                   <span>Less</span>
@@ -1553,7 +1553,7 @@
                 <div class="cmd-lead">
                   <span class="p-host">matthew@dev</span>
                   <span class="p-arrow">❯</span>
-                  <span class="p-cmd">./inspect_algorithms</span>
+                  <span class="p-cmd">algo stats</span>
                   <span class="p-flag" id="algo-flag-text">--platform=leetcode</span>
                   <span class="term-cursor" aria-hidden="true"></span>
                 </div>
@@ -1570,7 +1570,7 @@
                 <!-- LEETCODE PANEL -->
                 <div class="plat-section active" id="panel-leetcode" role="tabpanel" aria-labelledby="tab-btn-lc">
                   <div class="algo-program-header">
-                    <span class="algo-badge-ascii">[TARGET: LEETCODE_API] ─── {λ} ALGORITHMIC PROBLEM SOLVING</span>
+                    <span class="algo-badge-ascii">[TARGET: LEETCODE]</span>
                   </div>
 
                   <div class="ascii-table-wrap">
@@ -1579,32 +1579,32 @@
                         <tr>
                           <th scope="col">METRIC</th>
                           <th class="col-pipe" aria-hidden="true">│</th>
-                          <th scope="col">RESULT / STANDING</th>
+                          <th scope="col">RESULT</th>
                           <th class="col-pipe" aria-hidden="true">│</th>
                           <th scope="col">STATUS</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td><strong>Global Percentile</strong></td>
+                          <td>Rank</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td class="accent" id="lc-stat-2">Top 1.0% (Worldwide Rank #15,100)</td>
+                          <td><strong id="lc-stat-2">15,090</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><span class="stdout-tag tag-top">TOP TIER</span></td>
+                          <td><span class="stdout-tag tag-top">[TOP 15%]</span></td>
                         </tr>
                         <tr>
-                          <td><strong>Solved Volume</strong></td>
+                          <td>Solved</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><strong id="lc-stat-1">1,267</strong> Problems Solved</td>
+                          <td><strong id="lc-stat-1">1,270</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><span class="stdout-tag tag-pass">VERIFIED</span></td>
+                          <td><span class="stdout-tag tag-pass">[TOP 1.0%]</span></td>
                         </tr>
                         <tr>
-                          <td><strong>Acceptance Ratio</strong></td>
+                          <td>Acceptance</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><strong id="lc-stat-3">83.4%</strong> (Production Accuracy Rigor)</td>
+                          <td><strong id="lc-stat-3">83.4%</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><span class="stdout-tag tag-pass">OPTIMAL</span></td>
+                          <td><span class="stdout-tag tag-dim">OPTIMAL</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -1614,18 +1614,18 @@
                   <div class="gauge-stream" id="leetcode-breakdown">
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-easy">EASY</span>
-                      <span class="g-bar-ascii lc-easy" id="lc-easy-bar" aria-label="Easy problems solved: 85.4%">[<span class="g-fill">███████████████████████████████</span><span class="g-empty">█████</span>]</span>
-                      <span class="g-count-ascii" id="lc-easy-count">825 / 966 <strong class="g-pct">(85.4%)</strong></span>
+                      <span class="g-bar-ascii lc-easy" id="lc-easy-bar" aria-label="Easy problems solved: 85.5%">[<span class="g-fill">███████████████████████████████</span><span class="g-empty">█████</span>]</span>
+                      <span class="g-count-ascii" id="lc-easy-count"><span class="g-solved-total">828 / 968 </span><strong class="g-pct">(85.5%)</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-medium">MEDIUM</span>
                       <span class="g-bar-ascii lc-medium" id="lc-medium-bar" aria-label="Medium problems solved: 20.2%">[<span class="g-fill">███████</span><span class="g-empty">█████████████████████████████</span>]</span>
-                      <span class="g-count-ascii" id="lc-medium-count">428 / 2,117 <strong class="g-pct">(20.2%)</strong></span>
+                      <span class="g-count-ascii" id="lc-medium-count"><span class="g-solved-total">428 / 2,122 </span><strong class="g-pct">(20.2%)</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-hard">HARD</span>
                       <span class="g-bar-ascii lc-hard" id="lc-hard-bar" aria-label="Hard problems solved: 1.4%">[<span class="g-fill">█</span><span class="g-empty">███████████████████████████████████</span>]</span>
-                      <span class="g-count-ascii" id="lc-hard-count">14 / 977 <strong class="g-pct">(1.4%)</strong></span>
+                      <span class="g-count-ascii" id="lc-hard-count"><span class="g-solved-total">14 / 979 </span><strong class="g-pct">(1.4%)</strong></span>
                     </div>
                   </div>
                 </div>
@@ -1633,7 +1633,7 @@
                 <!-- CODEWARS PANEL -->
                 <div class="plat-section" id="panel-codewars" role="tabpanel" aria-labelledby="tab-btn-cw" hidden>
                   <div class="algo-program-header">
-                    <span class="algo-badge-ascii algo-cw-badge">[TARGET: CODEWARS_API] ─── ⚔️ KATA MASTERY &amp; RIGOR</span>
+                    <span class="algo-badge-ascii algo-cw-badge">[TARGET: CODEWARS]</span>
                   </div>
 
                   <div class="ascii-table-wrap">
@@ -1642,52 +1642,58 @@
                         <tr>
                           <th scope="col">METRIC</th>
                           <th class="col-pipe" aria-hidden="true">│</th>
-                          <th scope="col">RESULT / STANDING</th>
+                          <th scope="col">RESULT</th>
                           <th class="col-pipe" aria-hidden="true">│</th>
                           <th scope="col">STATUS</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td><strong>Kata Rank</strong></td>
+                          <td>Leaderboard</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td style="color: #ef4444; font-weight: 700;">4 Kyu (Honor Score: 1,420+)</td>
+                          <td class="accent"><strong>Top 0.1%</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><span class="stdout-tag tag-top">TOP 3%</span></td>
+                          <td><span class="stdout-tag tag-top">[ELITE]</span></td>
                         </tr>
                         <tr>
-                          <td><strong>Completed Katas</strong></td>
+                          <td>Katas</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><strong>180+</strong> Katas (JavaScript, TypeScript, Python)</td>
+                          <td><strong>2,314</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><span class="stdout-tag tag-pass">COMPLETED</span></td>
+                          <td><span class="stdout-tag tag-dim">COMPLETED</span></td>
                         </tr>
                         <tr>
-                          <td><strong>Leaderboard Standing</strong></td>
+                          <td>Honor</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td class="accent">Top 5.0% Worldwide (Rank Verified)</td>
+                          <td><strong>9,949</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><span class="stdout-tag tag-pass">VERIFIED</span></td>
+                          <td><span class="stdout-tag tag-top">[TOP 800]</span></td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
 
-                  <div class="gauge-stream">
+                  <!-- Language Discipline Progress Gauges (ASCII Character Blocks) -->
+                  <div class="gauge-stream gauge-grid-2col">
                     <div class="gauge-row-ascii">
-                      <span class="g-label-ascii" style="color: #ef4444;">4-5 KYU</span>
-                      <span class="g-bar-ascii" style="color: #ef4444;">[<span class="g-fill">████████████████████████</span><span class="g-empty">████████████</span>]</span>
-                      <span class="g-count-ascii">Advanced Katas (42)</span>
+                      <span class="g-label-ascii cw-js">JAVASCRIPT</span>
+                      <span class="g-bar-ascii cw-js" id="cw-js-bar" aria-label="JavaScript ranking: 2.61 Kyu">[<span class="g-fill">████████████████████████████</span><span class="g-empty">████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">2.61 Kyu</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
-                      <span class="g-label-ascii lc-medium">6-7 KYU</span>
-                      <span class="g-bar-ascii lc-medium">[<span class="g-fill">████████████████████████████████</span><span class="g-empty">████</span>]</span>
-                      <span class="g-count-ascii">Core Algorithms (98)</span>
+                      <span class="g-label-ascii cw-py">PYTHON</span>
+                      <span class="g-bar-ascii cw-py" id="cw-py-bar" aria-label="Python ranking: 3.14 Kyu">[<span class="g-fill">█████████████████████████</span><span class="g-empty">███████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">3.14 Kyu</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
-                      <span class="g-label-ascii lc-easy">8 KYU</span>
-                      <span class="g-bar-ascii lc-easy">[<span class="g-fill">████████████████████████████████████</span>]</span>
-                      <span class="g-count-ascii">Fundamentals (40+)</span>
+                      <span class="g-label-ascii cw-ts">TYPESCRIPT</span>
+                      <span class="g-bar-ascii cw-ts" id="cw-ts-bar" aria-label="TypeScript ranking: 6.35 Kyu">[<span class="g-fill">████████</span><span class="g-empty">████████████████████████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">6.35 Kyu</strong></span>
+                    </div>
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii cw-sql">SQL</span>
+                      <span class="g-bar-ascii cw-sql" id="cw-sql-bar" aria-label="SQL ranking: 7.18 Kyu">[<span class="g-fill">████</span><span class="g-empty">████████████████████████████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">7.18 Kyu</strong></span>
                     </div>
                   </div>
                 </div>
