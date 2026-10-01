@@ -2,24 +2,17 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
 <article class="overview-article">
   <!-- Document Header -->
   <header class="overview-doc-header">
-    <h1 class="overview-h1">
-      <span>Matthew McGrath</span>
-      <span class="arch-tag__exp" style="font-size: 0.85rem; font-weight: 600;">// Full-Stack Engineer</span>
-    </h1>
+    <h1 class="overview-h1">Matthew McGrath</h1>
     <p class="overview-lead">
-      Full-stack developer specializing in performant React &amp; Next.js architecture, robust design systems, accessible UI engineering, and scalable TypeScript backends.
+      <strong class="overview-highlight">Full-Stack Engineer</strong> specializing in performant React &amp; Next.js architecture, robust design systems, accessible UI engineering, and scalable TypeScript backends.
     </p>
-    <div class="overview-quick-stats">
-      <span class="quick-stat-badge">\u{1F393} <strong>B.S. Computer Science</strong></span>
-      <span class="quick-stat-badge">\u{1F4CD} <strong>Open to Full-Time &amp; Contracts</strong></span>
-    </div>
   </header>
 
   <!-- Technical Competencies Matrix -->
   <section class="overview-section">
     <div class="overview-h2-wrap">
-      <h2 class="overview-h2">\u26A1 Technical Stack</h2>
-      <span class="overview-h2-sub">Click any skill to inspect code \u2197</span>
+      <h2 class="overview-h2">\u26A1 Tech Stack</h2>
+      <span class="overview-h2-sub">Click to inspect \u2197</span>
     </div>
 
     <table class="skills-table-spec">
@@ -28,12 +21,12 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <td class="col-domain"><strong>Frontend Core</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button class="arch-tag" data-skill="react"><span>\u269B\uFE0F React</span><span class="arch-tag__exp">10y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="nextjs"><span>\u25B2 Next.js</span><span class="arch-tag__exp">6y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="typescript"><span>\u{1F537} TypeScript</span><span class="arch-tag__exp">8y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="javascript"><span>\u{1F7E8} JavaScript</span><span class="arch-tag__exp">15y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="html5"><span>\u{1F310} HTML5</span><span class="arch-tag__exp">15y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="css3"><span>\u{1F3A8} CSS3</span><span class="arch-tag__exp">15y</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="react"><span>\u269B\uFE0F React</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="nextjs"><span>\u25B2 Next.js</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="typescript"><span>\u{1F537} TypeScript</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="javascript"><span>\u{1F7E8} JavaScript</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="html5"><span>\u{1F310} HTML5</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="css3"><span>\u{1F3A8} CSS3</span><span class="arch-tag__link">\u2197</span></button>
             </div>
           </td>
         </tr>
@@ -41,10 +34,10 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <td class="col-domain"><strong>Styling &amp; Design Systems</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button class="arch-tag" data-skill="sass"><span>\u{1F3A8} Sass / SCSS</span><span class="arch-tag__exp">10y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="tailwind"><span>\u{1F30A} Tailwind CSS</span><span class="arch-tag__exp">5y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="storybook"><span>\u{1F4D5} Storybook</span><span class="arch-tag__exp">6y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="radix"><span>\u{1F9F1} Radix Primitives</span><span class="arch-tag__exp">4y</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="sass"><span>\u{1F3A8} Sass / SCSS</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="tailwind"><span>\u{1F30A} Tailwind CSS</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="storybook"><span>\u{1F4D5} Storybook</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="radix"><span>\u{1F9F1} Radix Primitives</span><span class="arch-tag__link">\u2197</span></button>
             </div>
           </td>
         </tr>
@@ -52,12 +45,12 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <td class="col-domain"><strong>Backend &amp; Databases</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button class="arch-tag" data-skill="nodejs"><span>\u{1F7E2} Node.js</span><span class="arch-tag__exp">9y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="express"><span>\u{1F682} Express</span><span class="arch-tag__exp">8y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="postgresql"><span>\u{1F418} PostgreSQL</span><span class="arch-tag__exp">7y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="prisma"><span>\u25EC Prisma ORM</span><span class="arch-tag__exp">4y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="rest"><span>\u{1F50C} REST APIs</span><span class="arch-tag__exp">12y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="graphql"><span>\u25C8 GraphQL</span><span class="arch-tag__exp">5y</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="nodejs"><span>\u{1F7E2} Node.js</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="express"><span>\u{1F682} Express</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="postgresql"><span>\u{1F418} PostgreSQL</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="prisma"><span>\u25EC Prisma ORM</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="rest"><span>\u{1F50C} REST APIs</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="graphql"><span>\u25C8 GraphQL</span><span class="arch-tag__link">\u2197</span></button>
             </div>
           </td>
         </tr>
@@ -65,9 +58,9 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <td class="col-domain"><strong>Testing &amp; Quality</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button class="arch-tag" data-skill="jest"><span>\u{1F0CF} Jest</span><span class="arch-tag__exp">7y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="playwright"><span>\u{1F3AD} Playwright</span><span class="arch-tag__exp">3y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="rtl"><span>\u{1F419} Testing Library</span><span class="arch-tag__exp">6y</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="jest"><span>\u{1F0CF} Jest</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="playwright"><span>\u{1F3AD} Playwright</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="rtl"><span>\u{1F419} Testing Library</span><span class="arch-tag__link">\u2197</span></button>
             </div>
           </td>
         </tr>
@@ -75,10 +68,10 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <td class="col-domain"><strong>DevOps &amp; Tooling</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button class="arch-tag" data-skill="git"><span>\u{1F33F} Git / GitHub</span><span class="arch-tag__exp">12y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="docker"><span>\u{1F433} Docker</span><span class="arch-tag__exp">5y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="vite"><span>\u26A1 Vite &amp; Webpack</span><span class="arch-tag__exp">8y</span><span class="arch-tag__link">\u2197</span></button>
-              <button class="arch-tag" data-skill="cicd"><span>\u{1F504} CI / CD Actions</span><span class="arch-tag__exp">6y</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="git"><span>\u{1F33F} Git / GitHub</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="docker"><span>\u{1F433} Docker</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="vite"><span>\u26A1 Vite &amp; Webpack</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="cicd"><span>\u{1F504} CI / CD Actions</span><span class="arch-tag__link">\u2197</span></button>
             </div>
           </td>
         </tr>
@@ -86,7 +79,7 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <td class="col-domain"><strong>Currently Exploring</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button class="arch-tag" data-skill="threejs"><span>\u{1F9CA} Three.js &amp; WebGL</span><span class="arch-tag__exp">Active</span><span class="arch-tag__link">\u2197</span></button>
+              <button class="arch-tag" data-skill="threejs"><span>\u{1F9CA} Three.js &amp; WebGL</span><span class="arch-tag__link">\u2197</span></button>
             </div>
           </td>
         </tr>
@@ -97,64 +90,72 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
   <!-- Integrated Experience & Education Timeline -->
   <section class="overview-section">
     <div class="overview-h2-wrap">
-      <h2 class="overview-h2">\u{1F4BC} Experience &amp; Education Journey</h2>
-      <span class="overview-h2-sub">Full Chronological Timeline</span>
+      <h2 class="overview-h2">\u{1F393} Education &amp; Experience</h2>
+      <span class="overview-h2-sub">Milestones</span>
     </div>
 
-    <div class="overview-timeline-stream">
-      <div class="overview-timeline-item overview-timeline-item--current">
-        <div class="overview-timeline-header">
-          <span class="overview-timeline-role">Lead / Senior Frontend Engineer <span class="overview-timeline-org">@ High-Growth SaaS</span></span>
-          <span class="overview-timeline-date overview-timeline-date--current">2022 \u2014 Present</span>
+    <div class="overview-compact-stream">
+      <!-- Milestone 1: WGU -->
+      <div class="overview-compact-card overview-compact-card--edu">
+        <div class="overview-compact-main">
+          <span class="overview-compact-title">\u{1F393} B.S. Computer Science</span>
+          <span class="overview-compact-org">Western Governors University</span>
         </div>
-        <p class="overview-timeline-desc">Architecting Next.js enterprise web applications, high-performance design systems, and resilient cloud service integrations.</p>
-        <div class="overview-timeline-tags">
-          <span class="overview-timeline-tag">React 19</span>
-          <span class="overview-timeline-tag">Next.js App Router</span>
-          <span class="overview-timeline-tag">TypeScript</span>
-          <span class="overview-timeline-tag">SCSS Design Tokens</span>
-        </div>
+        <span class="overview-timeline-date">Expected Jan 2027</span>
       </div>
 
-      <div class="overview-timeline-item">
-        <div class="overview-timeline-header">
-          <span class="overview-timeline-role">Senior Full-Stack Developer <span class="overview-timeline-org">@ Digital Product Agency</span></span>
-          <span class="overview-timeline-date">2018 \u2014 2022</span>
+      <!-- Milestone 2: Freelance -->
+      <div class="overview-compact-card">
+        <div class="overview-compact-main">
+          <span class="overview-compact-title">\u{1F4BB} Freelance Web Developer</span>
+          <span class="overview-compact-org">Client Next.js &amp; React Architectures</span>
         </div>
-        <p class="overview-timeline-desc">Engineered client web applications, headless e-commerce architectures, RESTful API microservices, and database models.</p>
-        <div class="overview-timeline-tags">
-          <span class="overview-timeline-tag">TypeScript</span>
-          <span class="overview-timeline-tag">Node.js</span>
-          <span class="overview-timeline-tag">PostgreSQL</span>
-          <span class="overview-timeline-tag">GraphQL</span>
-        </div>
+        <span class="overview-timeline-date">2021 \u2014 Present</span>
       </div>
 
-      <div class="overview-timeline-item">
-        <div class="overview-timeline-header">
-          <span class="overview-timeline-role">Frontend UI/UX Engineer <span class="overview-timeline-org">@ Tech Studio</span></span>
-          <span class="overview-timeline-date">2014 \u2014 2018</span>
+      <!-- Milestone 3: React Bootcamp -->
+      <div class="overview-compact-card">
+        <div class="overview-compact-main">
+          <span class="overview-compact-title">\u269B\uFE0F React Bootcamp Graduate</span>
+          <span class="overview-compact-org">Advanced React, TypeScript &amp; Next.js</span>
         </div>
-        <p class="overview-timeline-desc">Built modular component libraries, responsive web portals, automated testing suites, and cross-browser optimized interfaces.</p>
-        <div class="overview-timeline-tags">
-          <span class="overview-timeline-tag">JavaScript ES6</span>
-          <span class="overview-timeline-tag">React</span>
-          <span class="overview-timeline-tag">Sass 7-1</span>
-          <span class="overview-timeline-tag">Jest</span>
-        </div>
+        <span class="overview-timeline-date">2021 \u2014 2022</span>
       </div>
 
-      <div class="overview-timeline-item overview-timeline-item--edu">
-        <div class="overview-timeline-header">
-          <span class="overview-timeline-role">B.S. in Computer Science <span class="overview-timeline-org">@ University</span></span>
-          <span class="overview-timeline-date">2010 \u2014 2014</span>
+      <!-- Milestone 4: Web Dev Bootcamp -->
+      <div class="overview-compact-card">
+        <div class="overview-compact-main">
+          <span class="overview-compact-title">\u{1F310} Web Development Bootcamp</span>
+          <span class="overview-compact-org">Full-Stack HTML5/CSS3/Node.js/Databases</span>
         </div>
-        <p class="overview-timeline-desc">Graduated with honors. Rigorous focus on algorithms, data structures, software engineering principles, and distributed computing.</p>
-        <div class="overview-timeline-tags">
-          <span class="overview-timeline-tag">Algorithms</span>
-          <span class="overview-timeline-tag">Data Structures</span>
-          <span class="overview-timeline-tag">Software Architecture</span>
+        <span class="overview-timeline-date">2021 \u2014 2022</span>
+      </div>
+
+      <!-- Milestone 5: Indie Games -->
+      <div class="overview-compact-card">
+        <div class="overview-compact-main">
+          <span class="overview-compact-title">\u{1F3AE} Indie Game Developer &amp; Producer</span>
+          <span class="overview-compact-org">2 Commercial Xbox Live Releases</span>
         </div>
+        <span class="overview-timeline-date">2010 \u2014 2020</span>
+      </div>
+
+      <!-- Milestone 6: Westwood College -->
+      <div class="overview-compact-card overview-compact-card--edu">
+        <div class="overview-compact-main">
+          <span class="overview-compact-title">\u{1F393} B.S. Game Software Development</span>
+          <span class="overview-compact-org">Westwood College \u2022 4.0 GPA, Dean's List</span>
+        </div>
+        <span class="overview-timeline-date">2012 \u2014 2015</span>
+      </div>
+
+      <!-- Milestone 7: High School -->
+      <div class="overview-compact-card overview-compact-card--edu">
+        <div class="overview-compact-main">
+          <span class="overview-compact-title">\u{1F3DB}\uFE0F Early Foundations</span>
+          <span class="overview-compact-org">Yucaipa High School \u2022 3.9 GPA, GATE</span>
+        </div>
+        <span class="overview-timeline-date">Foundations</span>
       </div>
     </div>
   </section>
