@@ -7,7 +7,7 @@
 
   <!-- Page identity -->
   <title>Matthew McGrath | Full-Stack Web Developer</title>
-  <link rel="canonical" href="https://matthewmcgrath.dev" />
+  <link rel="canonical" href="https://matthewmcgrath.dev/" />
 
   <!-- Viewport & theme -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -17,19 +17,22 @@
   <!-- SEO -->
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Matthew McGrath" />
-  <meta name="description" content="Full-Stack Web Developer and Software Engineerbased in Riverside, CA (Remote-friendly). Specializing in TypeScript, React, Next.js, and Node.js — building responsive, accessible web experiences. 15+ years of coding experience. Open to full-time and freelance opportunities." />
+  <meta name="description" content="California-based Full-Stack Web Developer specializing in React, Next.js, TypeScript, and Node.js. Building responsive, accessible, high-performance web apps." />
+  <meta name="keywords" content="Full-Stack Web Developer, Software Engineer, React Developer, Next.js Developer, TypeScript, Node.js, Web Development Portfolio, Riverside CA, California" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Matthew McGrath | Full-Stack Web Developer" />
   <meta property="og:description" content="California-based Full-Stack Web Developer. React, Next.js, Node.js, and a decade of shipping real software. Available for freelance &amp; full-time roles." />
   <meta property="og:image" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
+  <meta property="og:image:secure_url" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:url" content="https://matthewmcgrath.dev" />
   <meta property="og:site_name" content="Matthew McGrath Portfolio" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Matthew McGrath — Full-Stack Web Developer Portfolio" />
+  <meta property="og:image:alt" content="Matthew McGrath | Full-Stack Web Developer Portfolio" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -67,7 +70,7 @@
           "@id": "https://matthewmcgrath.dev/#website",
           "url": "https://matthewmcgrath.dev/",
           "name": "Matthew McGrath | Full-Stack Web Developer",
-          "description": "Portfolio of Matthew McGrath — Full-Stack Developer specializing in TypeScript, React, Next.js, and Node.js.",
+          "description": "Portfolio of Matthew McGrath: Full-Stack Developer specializing in TypeScript, React, Next.js, and Node.js.",
           "publisher": {
             "@id": "https://matthewmcgrath.dev/#person"
           }
@@ -101,10 +104,25 @@
             "addressRegion": "CA",
             "addressCountry": "US"
           },
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Full-Stack Web Developer",
+            "occupationLocation": {
+              "@type": "AdministrativeArea",
+              "name": "California, US"
+            },
+            "skills": "React, Next.js, TypeScript, JavaScript, Node.js, PostgreSQL, MongoDB, Express, Sass, Tailwind CSS, C#, Web Performance, Full-Stack Architecture"
+          },
           "alumniOf": [{
-            "@type": "CollegeOrUniversity",
-            "name": "Western Governors University"
-          }],
+              "@type": "CollegeOrUniversity",
+              "name": "Western Governors University",
+              "sameAs": "https://www.wgu.edu/"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Westwood College"
+            }
+          ],
           "sameAs": [
             "https://github.com/Epitome87",
             "https://www.linkedin.com/in/matthew-b-mcgrath/",
@@ -126,6 +144,48 @@
             "C#",
             "Algorithms & Data Structures",
             "Web Accessibility (WCAG)"
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://matthewmcgrath.dev/#projects",
+          "name": "Featured Software Engineering Projects",
+          "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Avatars in Grave Danger",
+                "applicationCategory": "GameApplication",
+                "operatingSystem": "Xbox 360",
+                "description": "A 3D wave-defense game built solo in C# and published on Xbox Live Indie Games.",
+                "codeRepository": "https://github.com/Epitome87/Avatars-In-Grave-Danger"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Flat UI Clone",
+                "applicationCategory": "WebApplication",
+                "description": "Full-stack React clone of Flat UI with custom color palettes and material design components.",
+                "url": "https://epitome87.github.io/React-Flat-UI/",
+                "codeRepository": "https://github.com/Epitome87/React-Flat-UI"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Recipe App",
+                "applicationCategory": "WebApplication",
+                "description": "Fullstack app for searching and browsing recipes with smooth animations and polished UI.",
+                "url": "https://react-recipes-d136loejp-epitome87.vercel.app/",
+                "codeRepository": "https://github.com/Epitome87/React-Recipes"
+              }
+            }
           ]
         }
       ]
@@ -235,7 +295,7 @@
                     <span class="hero__deck-tab-icon" aria-hidden="true">{}</span> stack.json
                   </button>
                   <button class="hero__deck-tab" type="button" role="tab" aria-selected="false" aria-controls="hero-tab-track" id="hero-tabbtn-track">
-                    <span class="hero__deck-tab-icon" aria-hidden="true">{}</span> track-record.json
+                    <span class="hero__deck-tab-icon" aria-hidden="true">{}</span> record.json
                   </button>
                 </div>
               </div>
@@ -294,7 +354,7 @@
             <p class="project-featured__num">Featured ✦ 01 <span class="project-featured__case-study-hint">· Click for Case Study ↗</span></p>
             <h3 class="project-featured__title">Avatars in Grave Danger</h3>
             <p class="project-featured__desc">
-              A 3D wave-defense game where you protect your avatar from hordes of the undead — built solo and
+              A 3D wave-defense game where you protect your avatar from hordes of the undead, built solo and
               published on Xbox Live Indie Games. Over 100,000 lines of C# from concept to launch.
             </p>
             <div class="project-tags">
@@ -354,7 +414,7 @@
             <div class="project-card__body">
               <h3 class="project-card__title">Frontend Collection</h3>
               <p class="project-card__desc">
-                An assortment of frontend projects — from pricing cards to fully-realized, beautiful landing pages.
+                An assortment of frontend projects, ranging from component suites to complete landing pages.
               </p>
               <footer class="project-card__footer">
                 <span class="project-card__tech">HTML · CSS3 · SASS · JS</span>
@@ -377,7 +437,7 @@
             <div class="project-card__body">
               <h3 class="project-card__title">Recipe App</h3>
               <p class="project-card__desc">
-                Fullstack app for searching and browsing recipes — smooth animations and a polished UI throughout.
+                Fullstack app for searching and browsing recipes, featuring smooth animations and a polished UI throughout.
               </p>
               <footer class="project-card__footer">
                 <span class="project-card__tech">React · Chakra · Framer · Node</span>
@@ -450,8 +510,8 @@
       </div>
       <div class="container">
         <div class="experience__header">
-          <p class="section-label">Background</p>
-          <h2 class="section-title" id="experience-heading">Skills &amp; Experience Studio</h2>
+          <p class="section-label">Interactive Studio</p>
+          <h2 class="section-title" id="experience-heading">Skills &amp; Experience</h2>
           <p class="experience__desc">
             A complete developer overview inside a single IDE window. Scroll to explore my core competencies and career journey, or click any file in the sidebar to inspect live architecture.
           </p>
@@ -487,7 +547,7 @@
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 OVERVIEW</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">1 file</span>
+              <span class="folder-count">1 file</span>
             </button>
             <div class="folder-content" id="mob-folder-overview" role="tablist" aria-label="Overview File">
               <button type="button" class="file-item active" id="mob-side-overview" data-skill="overview" role="tab" aria-selected="true"><span>📄 overview.md</span></button>
@@ -518,7 +578,7 @@
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 BACKEND</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              <span class="folder-count">5 files</span>
             </button>
             <div class="folder-content" id="mob-folder-backend" role="tablist" aria-label="Backend Files">
               <button type="button" class="file-item" id="mob-side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span>🟢 Node.mjs</span></button>
@@ -533,7 +593,7 @@
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 TOOLS &amp; VCS</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              <span class="folder-count">5 files</span>
             </button>
             <div class="folder-content" id="mob-folder-tools" role="tablist" aria-label="Tools Files">
               <button type="button" class="file-item" id="mob-side-git" data-skill="git" role="tab" aria-selected="false"><span>🐙 Git.config</span></button>
@@ -548,7 +608,7 @@
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 LEVELING UP</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              <span class="folder-count">5 files</span>
             </button>
             <div class="folder-content" id="mob-folder-leveling" role="tablist" aria-label="Leveling Up Files">
               <button type="button" class="file-item" id="mob-side-angular" data-skill="angular" role="tab" aria-selected="false"><span>🅰️ Angular.ts</span></button>
@@ -568,7 +628,7 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 OVERVIEW</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">1 file</span>
+                <span class="folder-count">1 file</span>
               </button>
               <div class="folder-content" id="folder-overview" role="tablist" aria-label="Overview File">
                 <button type="button" class="file-item active" id="side-overview" data-skill="overview" role="tab" aria-selected="true"><span>📄 overview.md</span></button>
@@ -580,7 +640,7 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 FRONTEND</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">9 files</span>
+                <span class="folder-count">9 files</span>
               </button>
               <div class="folder-content" id="folder-frontend" role="tablist" aria-label="Frontend Files">
                 <button type="button" class="file-item" id="side-react" data-skill="react" role="tab" aria-selected="false"><span>⚛️ React.tsx</span></button>
@@ -600,7 +660,7 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 BACKEND</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+                <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-backend" role="tablist" aria-label="Backend Files">
                 <button type="button" class="file-item" id="side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span>🟢 Node.mjs</span></button>
@@ -616,7 +676,7 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 TOOLS &amp; VCS</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+                <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-tools" role="tablist" aria-label="Tools Files">
                 <button type="button" class="file-item" id="side-git" data-skill="git" role="tab" aria-selected="false"><span>🐙 Git.config</span></button>
@@ -632,7 +692,7 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 LEVELING UP</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+                <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-leveling" role="tablist" aria-label="Leveling Up Files">
                 <button type="button" class="file-item" id="side-angular" data-skill="angular" role="tab" aria-selected="false"><span>🅰️ Angular.ts</span></button>
@@ -694,7 +754,7 @@
                       <span class="commit-sha">7f2a91c</span>
                       <time class="commit-date" datetime="2027-01">Expected Jan 2027</time>
                     </div>
-                    <h3 class="milestone-title">B.S. Computer Science — Western Governors University</h3>
+                    <h3 class="milestone-title">B.S. Computer Science: Western Governors University</h3>
                     <p class="milestone-desc">Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.</p>
                   </article>
                 </li>
@@ -759,7 +819,7 @@
                       <span class="commit-sha">18d9b23</span>
                       <time class="commit-date" datetime="2012">2012 – 2015</time>
                     </div>
-                    <h3 class="milestone-title">B.S. Game Software Development — Westwood College</h3>
+                    <h3 class="milestone-title">B.S. Game Software Development: Westwood College</h3>
                     <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.</p>
                   </article>
                 </li>
@@ -790,14 +850,14 @@
           <p class="section-label">Value Proposition</p>
           <h2 class="section-title" id="why-heading">Why Work With Me</h2>
           <p class="why-hire__subtitle">
-            What you get beyond clean code — a developer who thinks in outcomes, moves independently, and follows through with obsessive finish.
+            What you get beyond clean code: a developer who thinks in outcomes, moves independently, and follows through with obsessive finish.
           </p>
         </div>
 
         <div class="why-hire__grid">
           <!-- Pillar 1 -->
           <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 01 — Full-Stack Architecture</span>
+            <span class="why-pillar__kicker">// 01: Full-Stack Architecture</span>
             <h3 class="why-pillar__title">Rare Range from Interface to Engine</h3>
             <p class="why-pillar__body">
               From C# game engines to React frontends to Node backends, I've built complete systems end to end. That range means I can move between user experience, business logic, and systems architecture without losing the bigger picture.
@@ -806,7 +866,7 @@
 
           <!-- Pillar 2 -->
           <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 02 — Problem Ownership</span>
+            <span class="why-pillar__kicker">// 02: Problem Ownership</span>
             <h3 class="why-pillar__title">No Hand-Holding Needed</h3>
             <p class="why-pillar__body">
               A decade of solo development taught me how to take ownership of a problem, work through ambiguity, and keep moving. I research, debug, and iterate until something works, then make sure I understand why it works.
@@ -815,7 +875,7 @@
 
           <!-- Pillar 3 -->
           <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 03 — Delivery Velocity</span>
+            <span class="why-pillar__kicker">// 03: Delivery Velocity</span>
             <h3 class="why-pillar__title">Reliable by Habit</h3>
             <p class="why-pillar__body">
               I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built the kind of consistency clients can actually feel: dependable communication, dependable progress, dependable follow-through.
@@ -824,7 +884,7 @@
 
           <!-- Pillar 4 -->
           <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 04 — Team Alignment</span>
+            <span class="why-pillar__kicker">// 04: Team Alignment</span>
             <h3 class="why-pillar__title">Built for Teams &amp; Clients</h3>
             <p class="why-pillar__body">
               I'm self-directed, but not siloed. I've worked with clients, collaborated on distributed projects, and written code meant to be read and maintained by others. Clear communication and low-ego collaboration are second nature.
@@ -1073,7 +1133,7 @@
         <p class="services__note">
           Not sure which fits your project?
           <a href="#contact" data-service-subject="Inquiry: General Hello" data-service-msg="Hi Matthew, I have a project in mind and would like to explore options..." aria-label="Send Matthew a general message">Send me a message</a>
-          and we'll figure it out together — no commitment required.
+          and we'll figure it out together. No commitment required.
         </p>
       </div>
     </section>
@@ -1089,9 +1149,9 @@
         <div class="about__header reveal">
           <p class="section-label">The Human Behind the Code</p>
           <h2 class="section-title" id="about-heading">About Me</h2>
-          <h3 class="about__headline">
-            Hi — I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
-          </h3>
+          <p class="about__headline">
+            Hi, I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
+          </p>
         </div>
 
         <!-- Single Unified Split-Pane Window -->
@@ -1176,7 +1236,7 @@
                   <div class="about__slide active" id="about-slide-0" role="tabpanel" aria-labelledby="about-tab-0">
                     <h4 class="about__slide-title">
                       <span class="about__syntax">##</span>
-                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Indie Game Roots &amp; CS Foundation">Indie Game Roots &amp; CS Foundation</span><span class="about__cursor" aria-hidden="true"></span></span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Origins &amp; Foundations">Origins &amp; Foundations</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h4>
                     <p class="about__slide-prose">
                       Since writing my first line of code at 15, I've had an unbound curiosity for programming and the problem-solving it encapsulates. That curiosity led me to pursue a Bachelor's in Computer Science while simultaneously developing indie games. After years of dedication and over <span class="about__code-pill about__code-pill--cyan">100,000 lines of code</span>, I released two fully independent games for the <span class="about__code-pill about__code-pill--amber">Xbox 360 Indie Games</span> platform.
@@ -1188,10 +1248,10 @@
                   <div class="about__slide" id="about-slide-1" role="tabpanel" aria-labelledby="about-tab-1">
                     <h4 class="about__slide-title">
                       <span class="about__syntax">##</span>
-                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Modern Web Focus &amp; Frontend Craft">Modern Web Focus &amp; Frontend Craft</span><span class="about__cursor" aria-hidden="true"></span></span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Modern Web Focus">Modern Web Focus</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h4>
                     <p class="about__slide-prose">
-                      That passion turned my focus to the web. Through formal coursework and disciplined self-study across <span class="about__code-pill about__code-pill--cyan">React</span>, <span class="about__code-pill about__code-pill--amber">Next.js</span>, <span class="about__code-pill about__code-pill--green">Node.js</span>, and the full modern stack, I craft responsive, accessible, and performant web experiences — the kind people love to use.
+                      That passion turned my focus to the web. Through formal coursework and disciplined self-study across <span class="about__code-pill about__code-pill--cyan">React</span>, <span class="about__code-pill about__code-pill--amber">Next.js</span>, <span class="about__code-pill about__code-pill--green">Node.js</span>, and the full modern stack, I craft responsive, accessible, and performant web experiences that people love to use.
                     </p>
                   </div>
 
@@ -1200,7 +1260,7 @@
                   <div class="about__slide" id="about-slide-2" role="tabpanel" aria-labelledby="about-tab-2">
                     <h4 class="about__slide-title">
                       <span class="about__syntax">##</span>
-                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Go-To Stack &amp; Architectural Flexibility">Go-To Stack &amp; Architectural Flexibility</span><span class="about__cursor" aria-hidden="true"></span></span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Go-To Tech Stack">Go-To Tech Stack</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h4>
                     <p class="about__slide-prose">
                       My go-to stack is <span class="about__code-pill about__code-pill--cyan">React</span> and <span class="about__code-pill about__code-pill--green">Node.js</span>, but I adapt quickly to existing codebases and select the right tool for the job.
@@ -1235,7 +1295,7 @@
                   <div class="about__slide" id="about-slide-3" role="tabpanel" aria-labelledby="about-tab-3">
                     <h4 class="about__slide-title">
                       <span class="about__syntax">##</span>
-                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Low-Ego Collaboration &amp; Reliability">Low-Ego Collaboration &amp; Reliability</span><span class="about__cursor" aria-hidden="true"></span></span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Reliability &amp; Mindset">Reliability &amp; Mindset</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h4>
                     <p class="about__slide-prose">
                       Whether working solo or alongside a distributed team, I believe clear communication, disciplined follow-through, and low-ego collaboration are just as important as clean code.
@@ -1254,7 +1314,7 @@
               <div class="about__controls">
                 <button type="button" class="about__next-cta" data-about-action="next" aria-label="Proceed to next chapter">
                   <span>Up next:</span>
-                  <span class="about__next-label" id="about-next-title">Modern Web Shift &rarr;</span>
+                  <span class="about__next-label" id="about-next-title">Modern Web Focus &rarr;</span>
                 </button>
                 <div class="about__arrow-group">
                   <button type="button" class="about__arrow-btn" data-about-action="prev" aria-label="Previous chapter">
@@ -1317,125 +1377,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Scrolling trait ticker (Commented out)
-      <div class="ticker-strip" aria-hidden="true">
-        <div class="ticker-track">
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i15"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i16"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i17"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i12"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i18"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i19"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i20"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i15"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i16"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i17"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i12"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i18"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i19"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-          </div>
-          <div class="ticker-item">
-            <div class="ticker-item__icon">
-              <svg aria-hidden="true">
-                <use href="assets/images/sprites/icons.svg#i20"></use>
-              </svg>
-            </div>
-            <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-          </div>
-        </div>
-      </div>
-      -->
     </section>
 
     <!-- CODING ACTIVITY (AUTHENTIC UNIX TERMINAL) -->
@@ -1446,7 +1387,7 @@
       </div>
       <div class="container">
         <div class="coding__head reveal">
-          <p class="section-label">Engineering Cadence &amp; Verification</p>
+          <p class="section-label">Track Record</p>
           <h2 class="section-title" id="coding-heading">Coding Activity</h2>
           <p class="coding__intro">
             A live inspection of continuous commit discipline, repository cadence, and algorithm benchmarks across <strong>GitHub</strong>, <strong>LeetCode</strong>, and <strong>Codewars</strong>.
@@ -1477,7 +1418,7 @@
           </div>
 
           <!-- TERMINAL BUFFER -->
-          <div class="term-content">
+          <div class="term-content" tabindex="0" role="region" aria-label="Terminal output stream">
 
             <!-- ===============================================================
                  COMMAND 1: DEVFETCH
@@ -1766,63 +1707,30 @@
     <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="container">
         <p class="section-label">Get In Touch</p>
-        <h2 class="section-title" id="contact-heading">Let's Talk</h2>
+        <div class="contact__hero-lockup">
+          <h2 class="section-title contact__title" id="contact-heading">Let's Talk</h2>
+          <div class="contact__avatar-chassis" id="contact-avatar-chassis">
+            <!-- Dynamic Speech Bubble (Positioned at mouth Y-level) -->
+            <div class="contact__speech-bubble" id="contact-speech-bubble" aria-live="polite">
+              <div class="contact__bubble-tag" id="contact-bubble-tag">👋 Let's Connect!</div>
+              <div class="contact__bubble-title" id="contact-bubble-title">Hey there! Ready to build?</div>
+              <div class="contact__bubble-sub" id="contact-bubble-sub">Drop a note below and let’s make something great.</div>
+            </div>
 
-        <!-- Trust signals -->
-        <ul class="trust-band reveal">
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i27"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Response Time</p>
-              <p class="trust-item__value">Within 24 hours</p>
-            </div>
-          </li>
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i28"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Availability</p>
-              <p class="trust-item__value">Accepting projects now</p>
-            </div>
-          </li>
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i11"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Working Hours</p>
-              <p class="trust-item__value">Mon – Fri, 8 AM – 8 PM PT</p>
-            </div>
-          </li>
-          <li class="trust-item">
-            <svg class="trust-item__icon" aria-hidden="true">
-              <use href="assets/images/sprites/icons.svg#i29"></use>
-            </svg>
-            <div>
-              <p class="trust-item__label">Location</p>
-              <p class="trust-item__value">Riverside, CA (Remote-friendly)</p>
-            </div>
-          </li>
-        </ul>
-
-        <!-- Contact CTA + form -->
-        <div class="contact__layout">
-          <!-- Contact CTA -->
-          <div class="contact__cta reveal from-left">
-            <p class="contact__tagline">Have a project? A role? <em>Let's make something great.</em></p>
-            <div class="contact__test">
-              <p class="contact__blurb">
-                I am currently open to freelance projects and full-time Front-End or Full-Stack roles. Whether it's a
-                quick hello or a detailed proposal - every message gets my full attention, a clear response, and a
-                result worth showing off.
-              </p>
+            <div class="contact__avatar-wrap" id="contact-avatar-wrap">
+              <img src="assets/images/branding/web-app-manifest-512x512.png"
+                   alt="Matthew McGrath avatar"
+                   class="contact__avatar-img"
+                   id="contact-avatar-img"
+                   loading="lazy" decoding="async" width="512" height="512" />
             </div>
           </div>
-          <!-- Contact form -->
-          <div class="reveal from-right form">
+          <p class="contact__tagline">Have a project? A role? <em>Let's make something great.</em></p>
+        </div>
+
+        <!-- Contact form -->
+        <div class="contact__layout">
+          <div class="form">
             <div class="form__form">
               <form id="contact-form" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
                 <input type="hidden" name="_captcha" value="false" />

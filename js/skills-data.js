@@ -110,7 +110,7 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <span class="overview-compact-title">\u{1F4BB} Freelance Web Developer</span>
           <span class="overview-compact-org">Client Next.js &amp; React Architectures</span>
         </div>
-        <span class="overview-timeline-date">2021 \u2014 Present</span>
+        <span class="overview-timeline-date">2021 \u2013 Present</span>
       </div>
 
       <!-- Milestone 3: React Bootcamp -->
@@ -119,7 +119,7 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <span class="overview-compact-title">\u269B\uFE0F React Bootcamp Graduate</span>
           <span class="overview-compact-org">Advanced React, TypeScript &amp; Next.js</span>
         </div>
-        <span class="overview-timeline-date">2021 \u2014 2022</span>
+        <span class="overview-timeline-date">2021 \u2013 2022</span>
       </div>
 
       <!-- Milestone 4: Web Dev Bootcamp -->
@@ -128,7 +128,7 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <span class="overview-compact-title">\u{1F310} Web Development Bootcamp</span>
           <span class="overview-compact-org">Full-Stack HTML5/CSS3/Node.js/Databases</span>
         </div>
-        <span class="overview-timeline-date">2021 \u2014 2022</span>
+        <span class="overview-timeline-date">2021 \u2013 2022</span>
       </div>
 
       <!-- Milestone 5: Indie Games -->
@@ -137,7 +137,7 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <span class="overview-compact-title">\u{1F3AE} Indie Game Developer &amp; Producer</span>
           <span class="overview-compact-org">2 Commercial Xbox Live Releases</span>
         </div>
-        <span class="overview-timeline-date">2010 \u2014 2020</span>
+        <span class="overview-timeline-date">2010 \u2013 2020</span>
       </div>
 
       <!-- Milestone 6: Westwood College -->
@@ -146,7 +146,7 @@ const s={react:{categoryKey:"frontend",name:"React.tsx",icon:"\u269B\uFE0F",cate
           <span class="overview-compact-title">\u{1F393} B.S. Game Software Development</span>
           <span class="overview-compact-org">Westwood College \u2022 4.0 GPA, Dean's List</span>
         </div>
-        <span class="overview-timeline-date">2012 \u2014 2015</span>
+        <span class="overview-timeline-date">2012 \u2013 2015</span>
       </div>
 
       <!-- Milestone 7: High School -->
