@@ -126,7 +126,11 @@ address {
 .nav__links a,
 .nav__cta,
 .nav__theme-toggle,
-.github__year-btn {
+.github__year-btn,
+.btn--code,
+.btn--live,
+.btn-primary,
+.btn-ghost {
   &:focus-visible {
     border-radius: var(--radius-pill);
   }
@@ -150,8 +154,6 @@ address {
   .service-card,
   .about__portrait-outer,
   .back-to-top,
-  .ticker-item,
-  .why-card,
   .coding__col,
   .form-group {
     /* Remove all transitions */

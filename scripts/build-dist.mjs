@@ -1,4 +1,4 @@
-﻿import { transform } from 'esbuild';
+import { transform } from 'esbuild';
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,7 +13,7 @@ const distJsDir = path.join(distDir, 'js');
 
 const args = new Set(process.argv.slice(2));
 
-const copyTargets = ['index.html', 'resume', 'assets', 'manifest.json', 'robots.txt', 'sitemap.xml', 'CNAME'];
+const copyTargets = ['index.html', 'resume', 'assets', 'manifest.json', 'robots.txt', 'sitemap.xml', 'CNAME', '.well-known'];
 
 const cleanDist = async () => {
   await rm(distDir, { recursive: true, force: true });

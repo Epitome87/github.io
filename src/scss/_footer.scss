@@ -1,7 +1,7 @@
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-   
+
 @use 'tokens' as *;
 @use 'mixins' as *;
 
@@ -19,10 +19,66 @@
     flex-wrap: wrap;
     text-align: center;
 
-    @include bp(lg) {
-      // TODO: Undo text-align: center
+    .footer__brand {
+      order: 1;
+    }
+
+    .footer__socials {
+      order: 2;
+    }
+
+    .footer__copy {
+      order: 3;
+    }
+
+    // Medium / Tablet: 2-Row Split (640px - 1023px)
+    @include bp(sm) {
       flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-6);
+      max-width: 860px;
+      margin-inline: auto;
+      width: 100%;
+
+      .footer__brand {
+        order: 1;
+        flex: 0 0 auto;
+      }
+
+      .footer__socials {
+        order: 2;
+        flex: 0 0 auto;
+      }
+
+      .footer__copy {
+        order: 3;
+        flex: 0 0 100%;
+        width: 100%;
+        text-align: center;
+        margin-top: var(--space-2);
+      }
+    }
+
+    // Desktop: 1-Row Spread (1024px+)
+    @include bp(lg) {
+      max-width: 100%;
+      flex-wrap: nowrap;
       gap: var(--space-8);
+
+      .footer__brand,
+      .footer__socials,
+      .footer__copy {
+        order: initial;
+        flex: initial;
+        width: auto;
+        margin-top: 0;
+      }
+
+      .footer__copy {
+        text-align: left;
+      }
     }
 
     // Staggered entrance — each child slides up and fades in
@@ -70,16 +126,11 @@
       animation: brand-gradient 4s linear infinite;
     }
 
-    &-dot {
-      /* inherits gradient from parent — no extra rules needed */
-    }
-
     &-avatar {
       width: 32px;
       height: 32px;
       border-radius: var(--radius-circle);
       object-fit: cover;
-      // border: 2px solid var(--primary);
       box-shadow: 0 0 10px var(--primary-glow);
     }
   }
@@ -115,11 +166,13 @@
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
+  cursor: pointer;
   transition:
     border-color var(--t-base),
     color var(--t-base),
     background var(--t-base),
-    box-shadow var(--t-base);
+    box-shadow var(--t-base),
+    transform var(--t-fast);
 
   svg {
     width: 18px;
@@ -127,11 +180,17 @@
     fill: currentColor;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     border-color: var(--primary);
     color: var(--primary-light);
     background: var(--primary-pale);
     box-shadow: 0 6px 22px var(--primary-glow-lg);
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.94);
   }
 
   // ── Per-platform hover animations ───────────────────────────

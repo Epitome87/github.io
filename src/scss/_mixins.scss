@@ -19,20 +19,58 @@
   }
 }
 
+// ── touch-target ───────────────────────────────────────────────
+// Expands the invisible tap hit area of compact interactive elements
+// to meet the WCAG / Apple HIG 44px minimum touch boundary on mobile
+// without disrupting compact visual styling.
+@mixin touch-target($min-size: 44px) {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: #{$min-size};
+    min-height: #{$min-size};
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+  }
+}
+
 // ── %btn-small ─────────────────────────────────────────────────
 // Silent placeholder for small mono buttons (.btn--code, .btn--live,
 // .service-card__btn). @extend this then add border-color + color overrides.
 %btn-small {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   gap: var(--space-2);
-  padding: 0.65rem 1.4rem;
+  padding: 0.48rem 0.8rem;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-normal);
   text-transform: uppercase;
+  cursor: pointer;
+  @include touch-target(44px);
+  transition:
+    background var(--t-base),
+    border-color var(--t-base),
+    color var(--t-base),
+    transform var(--t-fast) var(--ease-out),
+    box-shadow var(--t-base);
+
+  @include bp(xs) {
+    padding: var(--space-2) var(--space-5);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
 }
 
 // ── card-base ──────────────────────────────────────────────────
@@ -43,6 +81,16 @@
   border: 1px solid var(--border);
   border-radius: $radius;
   padding: $padding;
+}
+
+// ── card-spotlight ─────────────────────────────────────────────
+// Featured card shell with subtle primary glow gradient.
+@mixin card-spotlight($radius: var(--radius-xl), $padding: var(--space-8)) {
+  background: var(--card-spotlight);
+  border: 1px solid var(--border-bright);
+  border-radius: $radius;
+  padding: $padding;
+  box-shadow: var(--shadow-card);
 }
 
 // ── card-hover ─────────────────────────────────────────────────
@@ -77,8 +125,7 @@
 
 // ── icon-box ───────────────────────────────────────────────────
 // Square icon container with pale blue background and border.
-// Used in why-card__icon, service-card__icon, trust-item__icon,
-// ticker-item__icon, and timeline-item__icon.
+// Used in service-card__icon, trust-item__icon, and timeline-item__icon.
 // $size    — width and height. Default 42px.
 // $padding — inner padding. Default var(--space-1-5) (5px optical).
 // $radius  — border-radius. Default var(--radius-md).
@@ -175,5 +222,197 @@
     text-overflow: ellipsis;
     font-size: var(--text-xs);
     line-height: var(--leading-snug);
+  }
+}
+
+// ── tech-glass-chassis ──────────────────────────────────────────
+// Hardware monitor glass elevation with 1px top bevel highlight,
+// ambient breathing depth glow, periodic sheen sweep, and responsive hover sheen.
+// Pass $is-floating: true for floating centerpiece elements (e.g. Hero Deck).
+@mixin tech-glass-chassis($radius: var(--radius-lg), $is-floating: false) {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 16px 40px -8px rgba(0, 0, 0, 0.45);
+  transition:
+    border-color var(--t-base),
+    box-shadow var(--t-base);
+
+  @if $is-floating {
+    animation:
+      heroDeckFloat 6.5s ease-in-out infinite alternate,
+      breathingGlow 5s ease-in-out infinite alternate;
+  } @else {
+    animation: breathingGlow 6s ease-in-out infinite alternate;
+  }
+
+  // 1. Top-edge milled glass bezel highlight (1px subtle)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 5%,
+      rgba(255, 255, 255, 0.25) 35%,
+      var(--primary) 50%,
+      rgba(255, 255, 255, 0.25) 65%,
+      transparent 95%
+    );
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  // 2. Diagonal glass sheen: periodic ambient sweep (every 8s)
+  &::after {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -100%;
+    width: 300%;
+    height: 400%;
+    background: linear-gradient(
+      115deg,
+      transparent 43%,
+      rgba(255, 255, 255, 0.03) 47%,
+      rgba(255, 255, 255, 0.16) 50%,
+      var(--primary-glow) 52%,
+      transparent 56%
+    );
+    transform: rotate(25deg);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 15;
+    animation: periodicSheen 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+
+  // 3. Hover: instant crisp specular sweep  elevated border glow
+  &:hover {
+    border-color: var(--primary-dim);
+    box-shadow:
+      0 0 0 1px rgba(97, 166, 250, 0.15) inset,
+      0 20px 50px -10px rgba(0, 0, 0, 0.55),
+      0 0 25px -5px var(--primary-glow);
+
+    &::after {
+      opacity: 1;
+      animation: hoverSheenSweep 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// ── tech-window-dot ─────────────────────────────────────────────
+// Jewel LED dot for hardware chassis window controls (Close/Min/Max).
+// Features internal specular highlights and static colored LED glow halo.
+@mixin tech-window-dot($type) {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-circle);
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    transform var(--t-fast) var(--ease-out),
+    box-shadow var(--t-fast) ease;
+  &:hover {
+    transform: scale(1.22);
+  }
+  @if $type == 'r' or $type == 'close' {
+    background: radial-gradient(circle at 35% 35%, #ff8585, var(--dot-r) 60%, #b91c1c 100%);
+    box-shadow:
+      0 0 7px var(--dot-r),
+      0 0 2px rgba(255, 255, 255, 0.6) inset;
+  } @else if $type == 'y' or $type == 'min' {
+    background: radial-gradient(circle at 35% 35%, #fde68a, var(--dot-y) 60%, #b45309 100%);
+    box-shadow:
+      0 0 7px var(--dot-y),
+      0 0 2px rgba(255, 255, 255, 0.6) inset;
+  } @else if $type == 'g' or $type == 'max' {
+    background: radial-gradient(circle at 35% 35%, #6ee7b7, var(--dot-g) 60%, #047857 100%);
+    box-shadow:
+      0 0 7px var(--dot-g),
+      0 0 2px rgba(255, 255, 255, 0.6) inset;
+  }
+}
+// ── tech-viewport-backlight ─────────────────────────────────────
+// Full-screen atmospheric optical depth glow across entire monitor displays.
+// Radiates cold ice-blue and electric cyan depth across both sidebar & viewport.
+@mixin tech-viewport-backlight {
+  background:
+    radial-gradient(ellipse 700px 450px at 90% 10%, rgba(97, 166, 250, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 550px 350px at 10% 90%, rgba(34, 211, 238, 0.055) 0%, transparent 65%), var(--bg-card);
+  background: var(--bg-card); // <-- Uncomment this line for Flat
+}
+
+@keyframes periodicSheen {
+  0%,
+  75% {
+    transform: translate(-35%, -35%) rotate(25deg);
+    opacity: 0;
+  }
+  78% {
+    opacity: 1;
+  }
+  92% {
+    transform: translate(30%, 30%) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(30%, 30%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hoverSheenSweep {
+  0% {
+    transform: translate(-35%, -35%) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(30%, 30%) rotate(25deg);
+    opacity: 1;
+  }
+}
+
+@keyframes heroDeckFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+  100% {
+    transform: translateY(-3px) rotate(-0.3deg);
+  }
+}
+
+@keyframes breathingGlow {
+  0% {
+    border-color: var(--border-bright);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 16px 40px -8px rgba(0, 0, 0, 0.45),
+      0 0 15px -5px rgba(97, 166, 250, 0.08);
+  }
+  100% {
+    border-color: rgba(97, 166, 250, 0.35);
+    box-shadow:
+      0 0 0 1px rgba(97, 166, 250, 0.2) inset,
+      0 20px 50px -10px rgba(0, 0, 0, 0.55),
+      0 0 30px -5px var(--primary-glow);
   }
 }

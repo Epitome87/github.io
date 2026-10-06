@@ -19,7 +19,6 @@
   // Hide non-essential elements
   .nav,
   .hero__scroll-hint,
-  .ticker-strip,
   .projects__cta-band,
   .services,
   .github,
@@ -97,14 +96,12 @@
 
   // Projects — single column
   .projects__grid,
-  .experience__grid,
-  .why-hire__grid {
+  .experience__grid {
     grid-template-columns: 1fr !important;
   }
 
   // Ensure page breaks don't split cards
   .project-card,
-  .why-card,
   .timeline-item {
     page-break-inside: avoid;
   }

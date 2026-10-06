@@ -158,28 +158,34 @@ if (modal) {
     modalCloseBtn.addEventListener('click', closeProjectModal);
   }
 
-  // Wire up project cards
+  // Intercept native Escape cancellation to clean up video embeds and restore focus
+  modal.addEventListener('cancel', (e) => {
+    e.preventDefault();
+    closeProjectModal();
+  });
+
+  // Wire up case study trigger buttons
+  const caseStudyButtons = document.querySelectorAll(
+    '.project-card__case-study-pill, .project-featured__case-study-btn'
+  );
+  caseStudyButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('[data-project-id]');
+      if (card && card.dataset.projectId) {
+        openProjectModal(card.dataset.projectId);
+      }
+    });
+  });
+
+  // Wire up whole-card background click delegation for mouse users (ignoring inner links/buttons)
   const projectCards = document.querySelectorAll('[data-project-id]');
   projectCards.forEach((card) => {
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-haspopup', 'dialog');
-
     card.addEventListener('click', (e) => {
       if (e.target.closest('a, button, .project-card__links, .project-featured__links')) {
         return;
       }
       openProjectModal(card.dataset.projectId);
-    });
-
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        if (e.target.closest('a, button, .project-card__links, .project-featured__links')) {
-          return;
-        }
-        e.preventDefault();
-        openProjectModal(card.dataset.projectId);
-      }
     });
   });
 }

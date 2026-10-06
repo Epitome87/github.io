@@ -1,545 +1,1064 @@
 /* ==========================================================================
-   CODING ACTIVITY (UNBOXED STATIONS — OPTION A)
+   CODING ACTIVITY (AUTHENTIC UNIX DEVELOPER TERMINAL)
    ========================================================================== */
 
 @use 'tokens' as *;
 @use 'mixins' as *;
 
-// Difficulty colors with high contrast
-$lc-easy: #1cbaba;
-$lc-medium: #ffb700;
-$lc-hard: #e27575;
-
-// Contribution graph dimensions
-$cell-gap: 3px;
-$cell-radius: 3px;
-$scrollbar-radius: 2px;
-
 // ── Coding Section Container ───────────────────────────────────────────────
 .coding {
   padding: var(--space-24) 0;
   background-color: var(--bg-base);
+  position: relative;
 
   @include bp(lg) {
     padding: var(--space-32) 0;
   }
 
+  // Atmospheric Aurora Glow Layer (Warm Amber + Cool Sapphire Balance)
+  &__aurora {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--z-base);
+    overflow: hidden;
+  }
+
+  &__glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.12;
+    pointer-events: none;
+    animation: codingGlowFloat 28s ease-in-out infinite alternate;
+
+    [data-theme='light'] & {
+      opacity: 0.08;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+
+    // Orb 1: Warm Amber / Ember Glow (Top-Right)
+    &--1 {
+      width: 620px;
+      height: 620px;
+      background: var(--orb-gradient-amber);
+      top: 10%;
+      right: 5%;
+    }
+
+    // Orb 2: Deep Blue / Emerald Slate (Bottom-Left)
+    &--2 {
+      width: 550px;
+      height: 550px;
+      background: var(--orb-gradient-primary);
+      bottom: 5%;
+      left: 8%;
+      animation-duration: 32s;
+      animation-direction: alternate-reverse;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: var(--z-raised);
+  }
+
   &__head {
-    margin-bottom: var(--space-12);
-  }
-
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    margin-top: var(--space-8);
-    align-items: stretch;
-
-    @include bp(lg) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-8);
-    }
-  }
-
-  &__col {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-5);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: 0;
-    transition:
-      border-color var(--t-base),
-      box-shadow var(--t-base);
-
-    &:hover {
-      border-color: var(--border-bright);
-    }
+    margin-bottom: var(--space-10);
 
     @include bp(md) {
-      padding: var(--space-6);
-    }
-
-    @include bp(lg) {
-      padding: var(--space-8);
-    }
-
-    &-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: var(--space-4);
-      margin-bottom: var(--space-5);
-      border-bottom: 1px solid var(--border);
-    }
-
-    &-heading {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      font-family: var(--font-display);
-      font-size: var(--text-md);
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.01em;
-
-      svg {
-        color: var(--primary);
-        flex-shrink: 0;
-      }
-    }
-
-    &-footer {
-      margin-top: var(--space-6);
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-3);
-      flex-wrap: wrap;
+      margin-bottom: var(--space-16);
     }
   }
 
-  // ── Free-Floating Shared 3-Stat Metric Row ────────────────────────────────
-  &__stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
-    padding-bottom: var(--space-4);
-    border-bottom: 1px dashed var(--border);
-  }
-
-  &__stat-box {
-    background: transparent;
-    border: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-width: 0;
-  }
-
-  &__stat-num {
-    font-family: var(--font-display);
-    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: var(--leading-none);
-    margin-bottom: var(--space-1);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    letter-spacing: -0.01em;
-
-    &--accent {
-      color: var(--complementary-light);
-    }
-  }
-
-  &__stat-label {
-    @include mono-label(var(--text-2xs), var(--tracking-tight));
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &__footer-desc {
-    @include mono-label(var(--text-2xs), var(--tracking-normal));
-    color: var(--text-muted);
-  }
-
-  &__footer-pill {
-    @include mono-label(var(--text-2xs), var(--tracking-tight));
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-1-5);
-    padding: var(--space-1) var(--space-3);
-    background: var(--bg-raise);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
+  &__intro {
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
     color: var(--text-secondary);
-    text-decoration: none;
-    transition:
-      background var(--t-base),
-      border-color var(--t-base),
-      color var(--t-base);
+    line-height: var(--leading-normal);
+    max-width: 680px;
+    margin-top: var(--space-4);
 
-    &:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: var(--text-inverse);
-    }
-
-    &--accent {
-      border-color: rgba(250, 181, 97, 0.3);
-      color: var(--complementary-light);
-
-      &:hover {
-        background: var(--complementary);
-        border-color: var(--complementary);
-        color: var(--text-inverse);
-      }
+    strong {
+      color: var(--primary-light);
+      font-weight: 600;
     }
   }
 }
 
-// ── Unboxed GitHub Heatmap Section ─────────────────────────────────────────
-.github {
-  &__graph-wrap {
-    background: transparent;
-    border: none;
-    padding: 0;
-    min-width: 0;
+// ── UNIX Terminal Window Chassis ───────────────────────────────────────────
+.terminal-window {
+  @include tech-glass-chassis(var(--radius-md));
+  font-family: var(--font-mono);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+// ── Terminal Titlebar ──────────────────────────────────────────────────────
+.term-titlebar {
+  background: var(--bg-raise);
+  border-bottom: 1px solid var(--border-bright);
+  padding: var(--space-2) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+
+  @include bp(md) {
+    padding: var(--space-2-5, 10px) var(--space-5);
+  }
+}
+
+.term-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.t-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-circle);
+
+  &--r {
+    @include tech-window-dot('r');
   }
 
-  &__year-selector {
-    display: flex;
+  &--y {
+    @include tech-window-dot('y');
+  }
+
+  &--g {
+    @include tech-window-dot('g');
+  }
+}
+
+.term-title-text {
+  font-size: var(--text-2xs);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  letter-spacing: var(--tracking-tight);
+
+  @include bp(md) {
+    gap: var(--space-2);
+  }
+
+  strong {
+    color: var(--text-primary);
+  }
+}
+
+.term-title-dim {
+  display: none;
+
+  @include bp(md) {
+    display: inline-flex;
     align-items: center;
+    gap: var(--space-2);
+  }
+}
+
+.term-live-tag {
+  font-size: 0.68rem;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  letter-spacing: var(--tracking-tight);
+}
+
+.term-live-pid {
+  display: none;
+
+  @include bp(md) {
+    display: inline;
+  }
+}
+
+.term-live-status {
+  font-weight: 600;
+}
+
+.live-pulse {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--green);
+  display: inline-block;
+  animation: pulseLive 2s infinite ease-in-out;
+}
+
+@keyframes pulseLive {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+// ── Terminal Content Stream ────────────────────────────────────────────────
+.term-content {
+  @include tech-viewport-backlight;
+  padding: var(--space-5) var(--space-3-5, 14px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10, 40px);
+  position: relative;
+  z-index: 2;
+  height: auto;
+  overflow-y: visible;
+
+  @include bp(md) {
+    padding: var(--space-8) var(--space-8);
+    gap: var(--space-10);
+  }
+}
+
+.term-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+// ── Command Prompt Line ────────────────────────────────────────────────────
+.cmd-line {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1-5);
+  font-size: clamp(0.72rem, 3.2vw, 0.82rem);
+  line-height: var(--leading-tight);
+  width: 100%;
+
+  @include bp(md) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    font-size: 0.82rem;
+  }
+}
+
+.cmd-lead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include bp(md) {
+    gap: var(--space-2);
+    overflow-x: visible;
+  }
+}
+
+.p-host {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.p-branch {
+  color: var(--purple, #c084fc);
+  font-size: 0.72rem;
+}
+
+.p-arrow {
+  color: var(--complementary);
+  font-weight: 700;
+}
+
+.p-cmd {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.p-flag {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.term-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--primary);
+  animation: blinkCursor 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blinkCursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+// ── CLI Switcher Flags ─────────────────────────────────────────────────────
+.cli-flags {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+  padding-bottom: 2px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include bp(md) {
     gap: var(--space-1-5);
-    overflow-x: auto;
-    padding-bottom: var(--space-3);
-    margin-bottom: var(--space-3);
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+}
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+.flag-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    box-shadow var(--t-fast),
+    color var(--t-fast);
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: var(--primary-light);
   }
 
-  &__year-btn {
-    @include mono-label(var(--text-2xs), var(--tracking-tight));
-    padding: var(--space-1) var(--space-2);
+  &:focus-visible {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow:
+      0 0 0 2px var(--bg-card),
+      0 0 0 4px var(--primary);
+  }
+
+  &.active,
+  &[aria-pressed='true'],
+  &[aria-selected='true'] {
+    background: var(--primary-pale);
+    color: var(--primary-light);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+    font-weight: 600;
+  }
+}
+
+// ── 1. Neofetch Profile Overview ───────────────────────────────────────────
+.neofetch-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  font-size: 0.8rem;
+  line-height: var(--leading-normal);
+  min-width: 0;
+
+  @include bp(md) {
+    grid-template-columns: auto 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.ascii-art-box {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.2;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+
+  @include bp(md) {
+    align-items: flex-start;
+  }
+
+  pre {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+.art-white {
+  color: #ffffff;
+  [data-theme='light'] & {
+    color: var(--text-primary);
+  }
+}
+
+.ascii-rainbow {
+  font-weight: 700;
+
+  .art-c1 {
+    color: var(--primary-light);
+  }
+  .art-c2 {
+    color: var(--cyan);
+  }
+  .art-c3 {
+    color: var(--green);
+  }
+  .art-c4 {
+    color: var(--complementary);
+  }
+  .art-c5 {
+    color: var(--purple, #c084fc);
+  }
+}
+
+.neofetch-specs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.spec-header-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 700;
+  color: var(--primary-light);
+  margin-bottom: 2px;
+  flex-wrap: wrap;
+}
+
+.spec-status {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.spec-sep {
+  color: var(--border-bright);
+  font-size: 0.72rem;
+  margin-bottom: var(--space-1);
+  user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.spec-row {
+  display: flex;
+  gap: var(--space-1-5) var(--space-3);
+  font-size: 0.8rem;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.spec-k {
+  color: var(--primary);
+  width: 68px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.spec-v {
+  color: var(--text-secondary);
+  min-width: 0;
+  flex: 1 1 180px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  strong {
+    color: var(--text-primary);
+  }
+
+  .accent {
+    color: var(--complementary);
+    font-weight: 600;
+  }
+}
+
+.ansi-palette-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.ansi-palette {
+  display: flex;
+  gap: 4px;
+}
+
+.ansi-block {
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+// ── 2. Git Cadence Panoramic Heatmap ───────────────────────────────────────
+.heatmap-stream {
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-bright) transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
     background: transparent;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    white-space: nowrap;
-    transition:
-      background var(--t-base),
-      border-color var(--t-base),
-      color var(--t-base);
-
-    &:hover {
-      border-color: var(--primary-light);
-      color: var(--text-primary);
-    }
-
-    &.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: var(--text-inverse);
-    }
   }
 
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-bright);
+    border-radius: var(--radius-pill);
+  }
+}
+
+.github {
   &__months {
     display: flex;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1-5);
     padding-left: 28px;
-    overflow: hidden;
+    font-size: 0.64rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    user-select: none;
+    min-width: 740px;
   }
 
   &__month-label {
-    @include mono-label(var(--text-2xs), var(--tracking-tight));
     flex-shrink: 0;
+    text-transform: uppercase;
   }
 
   &__grid-body {
     display: flex;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 24px;
-      pointer-events: none;
-      background: linear-gradient(to right, transparent, var(--bg-card));
-    }
+    gap: var(--space-2);
+    align-items: flex-start;
+    min-width: 740px;
   }
 
   &__day-labels {
-    display: flex;
-    flex-direction: column;
-    gap: $cell-gap;
-    margin-right: var(--space-2);
-    flex-shrink: 0;
-    padding-top: 1px;
+    display: grid;
+    grid-template-rows: repeat(7, 13px);
+    gap: 3.5px;
+    font-size: 0.64rem;
+    color: var(--text-muted);
+    user-select: none;
+    line-height: 13px;
   }
 
   &__day-label {
-    @include mono-label(var(--text-2xs), var(--tracking-tight));
+    height: 13px;
     display: flex;
     align-items: center;
-    height: 11px;
-    width: 22px;
   }
 
   &__grid-scroll {
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex: 1;
-    scrollbar-width: thin;
-    scrollbar-color: var(--bg-float) transparent;
-    padding-bottom: 2px;
-    -webkit-overflow-scrolling: touch;
-
-    &::-webkit-scrollbar {
-      height: 4px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: var(--bg-float);
-      border-radius: $scrollbar-radius;
-    }
+    flex-grow: 1;
+    overflow-x: visible;
   }
 
   &__grid {
     display: flex;
-    gap: $cell-gap;
-    align-items: flex-start;
+    gap: 3.5px;
   }
 
   &__week {
-    display: flex;
-    flex-direction: column;
-    gap: $cell-gap;
-    flex-shrink: 0;
+    display: grid;
+    grid-template-rows: repeat(7, 13px);
+    gap: 3.5px;
   }
 
   &__day {
-    width: 11px;
-    height: 11px;
-    border-radius: $cell-radius;
-    background: var(--gh-color, var(--gh-0));
-    cursor: default;
-    position: relative;
-    transition:
-      transform var(--t-fast),
-      outline var(--t-fast);
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    background: var(--gh-0);
+    transition: transform var(--t-fast);
 
     &:hover {
-      transform: scale(1.4);
-      outline: 1.5px solid rgba(255, 255, 255, 0.4);
-      z-index: var(--z-overlay);
+      transform: scale(1.3);
+      z-index: 10;
+      position: relative;
     }
 
-    &[data-level='0'] {
-      --gh-color: var(--gh-0);
-    }
     &[data-level='1'] {
-      --gh-color: var(--gh-1);
+      background: var(--gh-1);
     }
     &[data-level='2'] {
-      --gh-color: var(--gh-2);
+      background: var(--gh-2);
     }
     &[data-level='3'] {
-      --gh-color: var(--gh-3);
+      background: var(--gh-3);
     }
     &[data-level='4'] {
-      --gh-color: var(--gh-4);
+      background: var(--gh-4);
     }
   }
 
   &__tooltip {
     position: fixed;
-    background: var(--bg-card);
-    border: 1px solid var(--border-bright);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
-    font-size: var(--text-2xs);
-    padding: 5px 10px;
-    border-radius: var(--radius-sm);
-    white-space: nowrap;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.1s;
     z-index: var(--z-tooltip);
-    box-shadow: var(--shadow-lg);
-  }
-}
-
-// ── Unboxed Algorithm Station ──────────────────────────────────────────────
-.algo {
-  &__container {
-    background: transparent;
-    border: none;
-    padding: 0;
-    min-width: 0;
-  }
-
-  &__tabs {
-    display: flex;
-    gap: var(--space-2);
-    padding-bottom: var(--space-3);
-    margin-bottom: var(--space-3);
-    border-radius: 0;
-    background: transparent;
-    border: none;
-  }
-
-  &__tab-btn {
-    padding: var(--space-1) var(--space-3);
-    border-radius: var(--radius-pill);
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
+    background: var(--bg-raise);
+    color: var(--text-primary);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-xs);
+    padding: var(--space-1) var(--space-2-5, 10px);
     font-family: var(--font-mono);
-    font-size: var(--text-2xs);
-    font-weight: 600;
-    cursor: pointer;
-    transition:
-      background var(--t-base),
-      border-color var(--t-base),
-      color var(--t-base),
-      box-shadow var(--t-base);
-    display: flex;
-    align-items: center;
-    gap: var(--space-1-5);
-
-    &:hover {
-      border-color: var(--primary-light);
-      color: var(--text-primary);
-    }
-
-    &.active {
-      background: var(--bg-raise);
-      border-color: var(--border-bright);
-      color: var(--text-primary);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    }
-  }
-
-  &__panel {
-    display: none;
-    min-width: 0;
-
-    &.active {
-      display: block;
-      animation: algoFadeIn 0.2s ease-out forwards;
-    }
-  }
-}
-
-@keyframes algoFadeIn {
-  from {
+    font-size: 0.72rem;
+    white-space: nowrap;
     opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    transition: opacity var(--t-fast);
+    box-shadow: var(--shadow-md);
   }
 }
 
-// ── LeetCode Difficulty Bars ───────────────────────────────────────────────
-.leetcode {
-  &__breakdown {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    padding-top: var(--space-1);
-  }
-}
-
-.lc-bar-row {
-  display: grid;
-  grid-template-columns: 52px 1fr max-content;
+.stream-legend {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-2);
+  margin-top: var(--space-1, 4px);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+
+  strong {
+    color: var(--text-primary);
+  }
+
+  strong.accent {
+    color: var(--complementary);
+  }
+}
+
+.stream-scale {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+}
+
+.legend-box {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+// ── 3. Algorithm Verification (LeetCode & Codewars) ────────────────────────
+.algo-program-header {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--border-bright);
+  padding-bottom: var(--space-1-5);
+  margin-bottom: var(--space-2);
+  user-select: none;
+}
+
+.algo-badge-ascii {
+  color: var(--complementary-light, #fac27d);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.algo-cw-badge {
+  color: #f87171;
+}
+
+.plat-section {
+  display: none;
+
+  &.active,
+  &:not([hidden]) {
+    display: block;
+  }
+}
+
+// ── Authentic Unicode Box-Drawing Table ───────────────────────────────────
+.ascii-table-wrap {
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-3);
+}
+
+.ascii-box-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+
+  th,
+  td {
+    padding: var(--space-1-5) var(--space-2);
+    vertical-align: middle;
+
+    @include bp(md) {
+      padding: var(--space-1-5) var(--space-3);
+    }
+  }
+
+  /* Column 1: METRIC */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 32%;
+    min-width: 95px;
+    text-align: left;
+    white-space: nowrap;
+
+    @include bp(md) {
+      min-width: 165px;
+    }
+  }
+
+  /* Column 2 & 4: Pipe separators */
+  th:nth-child(2),
+  td:nth-child(2),
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 14px;
+    padding: 0;
+    text-align: center;
+
+    @include bp(md) {
+      width: 20px;
+    }
+  }
+
+  /* Column 3: RESULT */
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: auto;
+    text-align: left;
+    white-space: nowrap;
+    padding-right: var(--space-1);
+
+    @include bp(md) {
+      padding-right: var(--space-2);
+    }
+  }
+
+  /* Column 5: STATUS */
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 85px;
+    text-align: right;
+    white-space: nowrap;
+    padding-right: var(--space-1);
+
+    @include bp(md) {
+      width: 115px;
+      padding-right: var(--space-3);
+    }
+  }
+
+  thead tr th {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border-bright);
+    background: rgba(97, 166, 250, 0.04);
+  }
+
+  tbody tr td {
+    border-bottom: 1px dashed var(--border);
+
+    strong {
+      color: var(--text-primary);
+    }
+
+    &.accent {
+      color: var(--complementary);
+      font-weight: 600;
+    }
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .col-pipe {
+    color: var(--border-bright);
+    user-select: none;
+  }
+}
+
+.stdout-tag {
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #ffffff;
+
+  [data-theme='light'] & {
+    color: var(--text-primary);
+  }
+
+  &.tag-dim,
+  &.tag-muted {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+}
+
+// ── Difficulty & Language Progress Gauges ──────────────────────────────────
+.gauge-stream {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2-5, 10px);
+  margin-top: var(--space-3);
+}
+
+.gauge-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2-5, 10px) var(--space-6);
+
+  @include bp(lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.gauge-row-ascii {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  font-size: 0.8rem;
+  justify-content: space-between;
+  min-width: 0;
+  width: 100%;
 
   @include bp(md) {
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
 }
 
-.lc-bar-label {
-  @include mono-label(var(--text-2xs), var(--tracking-tight));
-  font-weight: 600;
+.g-label-ascii {
+  width: 74px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+
+  @include bp(md) {
+    width: 86px;
+    font-size: 0.74rem;
+    letter-spacing: 0;
+  }
+
+  &.lc-easy {
+    color: var(--lc-easy);
+  }
+  &.lc-medium {
+    color: var(--lc-medium);
+  }
+  &.lc-hard {
+    color: var(--lc-hard);
+  }
+
+  &.cw-js {
+    color: var(--purple, #c084fc);
+  }
+  &.cw-sql {
+    color: #ffffff;
+    [data-theme='light'] & {
+      color: var(--text-primary);
+    }
+  }
+  &.cw-ts {
+    color: var(--primary-light);
+  }
+  &.cw-py {
+    color: var(--cyan);
+  }
+}
+
+.g-bar-ascii {
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 1.2vw, 0.94rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
   white-space: nowrap;
-}
-
-.lc-easy {
-  color: $lc-easy;
-}
-.lc-medium {
-  color: $lc-medium;
-}
-.lc-hard {
-  color: $lc-hard;
-}
-
-.lc-bar-track {
-  height: 7px;
-  background: var(--bg-raise);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  overflow: hidden;
+  flex-grow: 1;
   min-width: 0;
+  margin: 0 var(--space-1);
+  overflow: hidden;
+  text-overflow: clip;
+
+  @include bp(md) {
+    margin: 0 var(--space-2);
+    font-size: clamp(0.74rem, 1.1vw, 0.96rem);
+  }
+
+  &.lc-easy {
+    color: var(--lc-easy);
+  }
+  &.lc-medium {
+    color: var(--lc-medium);
+  }
+  &.lc-hard {
+    color: var(--lc-hard);
+  }
+
+  &.cw-js {
+    color: var(--purple, #c084fc);
+  }
+  &.cw-sql {
+    color: #ffffff;
+    [data-theme='light'] & {
+      color: var(--text-primary);
+    }
+  }
+  &.cw-ts {
+    color: var(--primary-light);
+  }
+  &.cw-py {
+    color: var(--cyan);
+  }
+
+  .g-empty {
+    opacity: 0.18;
+    color: inherit;
+  }
+
+  .g-fill {
+    color: inherit;
+  }
 }
 
-.lc-bar-fill {
-  height: 100%;
-  border-radius: var(--radius-pill);
-  width: 0%;
-  transition: width 1s var(--ease-out);
-}
-.lc-easy-fill {
-  background: $lc-easy;
-}
-.lc-medium-fill {
-  background: $lc-medium;
-}
-.lc-hard-fill {
-  background: $lc-hard;
+.g-solved-total {
+  display: none;
+
+  @include bp(md) {
+    display: inline;
+  }
 }
 
-.lc-bar-count {
-  @include mono-label(var(--text-2xs), var(--tracking-tight));
+.g-pct {
+  font-weight: 600;
+  color: inherit;
+}
+
+.g-count-ascii {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: auto;
   white-space: nowrap;
-  text-align: right;
+  font-weight: 500;
+  flex-shrink: 0;
+
+  @include bp(md) {
+    font-size: 0.74rem;
+  }
 }
 
-// ── Codewars View ──────────────────────────────────────────────────────────
-.codewars {
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-1) 0;
+// ── Terminal Footer Status Bar ─────────────────────────────────────────────
+.term-footer {
+  background: var(--bg-raise);
+  border-top: 1px solid var(--border-bright);
+  padding: var(--space-2) var(--space-3-5, 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+
+  @include bp(md) {
+    padding: var(--space-2-5, 10px) var(--space-5);
+    justify-content: space-between;
   }
 
-  &__badge-link {
-    display: block;
-    max-width: 100%;
-  }
+  &-left {
+    display: none;
 
-  &__badge-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--radius-sm);
-    display: block;
-    transition:
-      opacity var(--t-base),
-      transform var(--t-base);
-
-    &:hover {
-      opacity: 0.9;
-      transform: scale(1.01);
+    @include bp(md) {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
     }
   }
 
-  &__blurb {
-    font-size: var(--text-xs);
-    color: var(--text-secondary);
-    line-height: var(--leading-normal);
-    text-align: center;
-    max-width: 36ch;
+  .footer-sep {
+    color: var(--border-bright);
+  }
+
+  &-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3, 12px);
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include bp(md) {
+      width: auto;
+      gap: var(--space-3-5, 14px);
+      justify-content: flex-end;
+    }
+
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+      transition: color var(--t-fast);
+
+      &:hover {
+        color: var(--text-primary);
+        text-decoration: underline;
+      }
+    }
   }
 }

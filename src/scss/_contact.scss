@@ -13,29 +13,204 @@
     padding: var(--space-32) 0;
   }
 
-  &__layout {
+  .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: var(--space-4);
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      flex-shrink: 0;
+      background: var(--primary);
+      border-radius: 1px;
+    }
+  }
+
+  &__hero-lockup {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
-    margin-top: var(--space-16);
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: clamp(3rem, 7vh, 5.5rem);
+  }
+
+  &__title {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    font-size: clamp(3.6rem, 9.5vw, 7.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: clamp(-1.8rem, -4vw, -3.6rem); // Overlaps top of avatar
+    text-shadow: 0 4px 28px rgba(7, 10, 18, 0.9), 0 2px 6px rgba(0, 0, 0, 0.9);
+  }
+
+  &__avatar-chassis {
+    position: relative;
+    z-index: 2;
+    width: clamp(176px, 22.4vw, 304px);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
     justify-content: center;
     margin-inline: auto;
+    cursor: pointer;
+  }
 
-    @include bp(lg) {
-      flex-direction: row;
-      align-items: center;
+  &__avatar-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid color-mix(in srgb, var(--primary) 45%, transparent);
+    box-shadow: 0 0 35px var(--primary-glow-lg), 0 24px 50px rgba(0, 0, 0, 0.7);
+    background: var(--primary); // Seamless match with avatar graphic background
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 45px var(--primary-glow), 0 28px 60px rgba(0, 0, 0, 0.85);
+    }
+
+    // Specular light sweep on rim
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at var(--contact-light-x, 30%) var(--contact-light-y, 30%), rgba(255, 255, 255, 0.28) 0%, transparent 60%);
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      z-index: 5;
+    }
+  }
+
+  &__avatar-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(1.14); // Travel space so 20px parallax shifts don't expose borders
+    transition: transform 0.12s ease-out;
+    will-change: transform;
+  }
+
+  // Dynamic Speech Bubble (Snug overlap at mouth Y-level)
+  &__speech-bubble {
+    position: absolute;
+    top: 48%; // Level with the mouth / halfway point on Y-axis
+    left: calc(100% - 22px); // Snugly overlaps right rim of avatar over the shoulder
+    transform: translateY(-50%) scale(0.65);
+    transform-origin: left center;
+    background: color-mix(in srgb, var(--bg-card) 95%, transparent);
+    border: 1.5px solid var(--primary);
+    border-radius: var(--radius-lg);
+    padding: 12px 18px;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: clamp(240px, 24vw, 320px);
+    text-align: left;
+    opacity: 0;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85), 0 0 24px var(--primary-glow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.35s var(--ease-bounce),
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    // Tail pointing left across the rim directly toward Matthew's mouth
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      margin-top: -9px;
+      width: 17px;
+      height: 17px;
+      background: color-mix(in srgb, var(--bg-card) 95%, transparent);
+      border-left: 1.5px solid var(--primary);
+      border-bottom: 1.5px solid var(--primary);
+      transform: rotate(45deg);
+      transition: border-color 0.25s ease;
+    }
+
+    &.is-active {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    @media (max-width: 860px) {
+      display: none; // Keep clean and clutter-free on small touchscreens
+    }
+  }
+
+  &__bubble-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__bubble-title {
+    font-family: var(--font-display);
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+
+  &__bubble-sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.35;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__avatar-img {
+      transition: none;
     }
   }
 
   &__tagline {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    margin-inline: auto;
+    margin-top: clamp(-2rem, -4.8vw, -4.4rem); // Overlaps bottom of avatar
+    margin-bottom: 0;
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3.8vw, 3rem);
+    font-size: clamp(2.4rem, 5.8vw, 4.6rem);
     font-weight: 700;
     letter-spacing: -0.022em;
     color: var(--text-primary);
     line-height: var(--leading-tight);
-    margin-bottom: var(--space-5);
+    max-width: 1050px;
+    text-shadow: 0 4px 28px rgba(7, 10, 18, 0.9), 0 2px 6px rgba(0, 0, 0, 0.9);
 
     em {
       font-style: normal;
@@ -43,186 +218,103 @@
     }
   }
 
-  &__blurb {
-    font-size: var(--text-md);
-    color: var(--text-secondary);
-    line-height: var(--leading-normal);
-    margin-bottom: var(--space-5);
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
   }
 
   .form {
     width: 100%;
-    align-self: flex-start;
-
-    @include bp(lg) {
-      align-self: flex-end;
-      width: 49%;
-    }
-
-    &__tagline {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3.8vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.022em;
-      color: var(--text-primary);
-      line-height: var(--leading-tight);
-      margin-bottom: var(--space-5);
-
-      em {
-        font-style: normal;
-        color: var(--primary-light);
-        color: var(--complementary);
-      }
-    }
-
-    &__blurb {
-      font-size: var(--text-base);
-      color: var(--text-secondary);
-      line-height: var(--leading-normal);
-      margin-bottom: var(--space-5);
-    }
+    max-width: 780px;
+    align-self: center;
+    margin-inline: auto;
 
     &__form {
-      @include bp(lg) {
-        padding: var(--space-6);
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+
+      label {
+        @include mono-label(var(--text-xs), var(--tracking-wide), var(--text-secondary));
+
+        span {
+          color: var(--primary);
+        }
+      }
+
+      input[type='text'],
+      input[type='email'],
+      textarea,
+      .form-select {
+        width: 100%;
+        padding: var(--space-3) var(--space-4);
+        background: var(--bg-float);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-body);
+        font-size: var(--text-sm);
+        color: var(--text-primary);
+        outline: none;
+        transition:
+          border-color var(--t-base),
+          box-shadow var(--t-base);
+        resize: none;
+
+        &::placeholder {
+          color: var(--input-placeholder, var(--text-muted));
+          opacity: 1;
+        }
+
+        &:focus {
+          border-color: var(--primary);
+          box-shadow: 0 0 0 3px var(--primary-pale);
+        }
+      }
+
+      .select-wrapper {
+        position: relative;
+      }
+
+      .form-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+        padding-right: 2.4rem;
+
+        option {
+          background: var(--bg-card);
+          color: var(--text-primary);
+        }
+      }
+
+      .select-chevron {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: var(--primary);
+        font-size: 0.8rem;
+      }
+
+      textarea {
+        min-height: 135px;
+        max-height: 380px;
+        resize: vertical;
       }
     }
   }
 }
 
-.contact__cta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-
-  @include bp(lg) {
-    align-self: center;
-    width: 49%;
-  }
-}
-
-.contact__test {
-  display: flex;
-  flex-direction: column;
-}
-
-// Trust signals band
-.trust-band {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  margin-top: var(--space-10);
-  margin-bottom: var(--space-12);
-  // background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-
-  @include bp(xs) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include bp(md) {
-    grid-template-columns: repeat(4, 1fr);
-    border-radius: var(--radius-md);
-  }
-}
-
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-6);
-  text-decoration: none;
-  color: inherit;
-
-  // All items start with a top border
-  border-top: 1px solid var(--border);
-
-  // Responsive border adjustments
-  &:first-child {
-    border-top: 0;
-  }
-
-  &:nth-child(2) {
-    @include bp(xs) {
-      border-left: 1px solid var(--border);
-    }
-
-    @include bp(md) {
-      border-top: 0;
-    }
-  }
-
-  &:nth-child(3) {
-    @include bp(xs) {
-      border-left: 1px solid var(--border);
-    }
-
-    @include bp(md) {
-      border-left: 1px solid var(--border);
-      border-top: 0;
-    }
-  }
-
-  &:nth-child(4) {
-    @include bp(xs) {
-      border-left: 1px solid var(--border);
-    }
-
-    @include bp(md) {
-      border-top: 0;
-    }
-  }
-
-  // Availability dot
-  &:nth-child(2) .trust-item__value::before {
-    content: '';
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    background: var(--green);
-    border-radius: var(--radius-circle);
-    margin-right: var(--space-2);
-    animation: blink 2s ease-in-out infinite;
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
-  }
-
-  &__icon {
-    @include icon-box(40px, 9px);
-    transition:
-      background var(--t-base),
-      border-color var(--t-base),
-      box-shadow var(--t-base),
-      color var(--t-base);
-  }
-
-  &:hover &__icon {
-    background: var(--primary-pale);
-    border-color: rgba(97, 166, 250, 0.24);
-    box-shadow: 0 0 0 1px rgba(97, 166, 250, 0.12);
-    color: var(--primary-light);
-  }
-
-  &__label {
-    @include mono-label;
-    margin-bottom: 3px;
-  }
-
-  &__value {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: var(--leading-snug);
-  }
-}
-
-// Form elements
+/* ─────────────────────────────────────────────────────────────
+   FORM GRID & BUTTONS
+   ───────────────────────────────────────────────────────────── */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -230,60 +322,26 @@
 }
 
 .form-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-4);
-}
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-label {
-  @include mono-label(var(--text-xs), var(--tracking-wide), var(--text-secondary));
-}
-
-input[type='text'],
-input[type='email'],
-textarea {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  // background: hsl(220, 39%, 6%);
-  background: var(--bg-float);
-  // background: var(--bg-raise);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  color: var(--text-primary);
-  outline: none;
-  transition:
-    border-color var(--t-base),
-    box-shadow var(--t-base);
-  resize: none;
-
-  &::placeholder {
-    color: var(--text-muted);
+  @include bp(sm) {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  &:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px var(--primary-pale);
-  }
-}
-
-textarea {
-  min-height: 135px;
-  resize: vertical;
 }
 
 .form-submit {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  width: 100%;
   margin-top: var(--space-2);
-  width: auto;
-  align-self: flex-start;
+
+  @include bp(sm) {
+    width: auto;
+    align-self: flex-start;
+  }
 
   svg {
     transition: transform var(--t-base) var(--ease-spring);
@@ -296,4 +354,59 @@ textarea {
   &:active {
     transform: translateY(0);
   }
+}
+
+// ── Accessible Form Status & Validation Feedback ────────────
+.form-status {
+  display: none;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-4);
+  font-family: var(--font-body);
+
+  &.is-visible {
+    display: block;
+    animation: fade-up 0.25s var(--ease-out);
+  }
+
+  &--success {
+    background: var(--green-pale);
+    border: 1px solid var(--green);
+    color: #34d399;
+    box-shadow: 0 2px 12px var(--green-pale);
+
+    [data-theme='light'] & {
+      background: rgba(5, 150, 105, 0.1);
+      border-color: #059669;
+      color: #047857;
+    }
+  }
+
+  &--error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.45);
+    color: #f87171;
+    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.15);
+
+    [data-theme='light'] & {
+      background: rgba(220, 38, 38, 0.08);
+      border-color: #dc2626;
+      color: #b91c1c;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  }
+}
+
+// Accessible field-level invalid focus cues
+.form-group input[aria-invalid='true'],
+.form-group textarea[aria-invalid='true'] {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25) !important;
 }

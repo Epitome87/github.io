@@ -50,52 +50,9 @@
     grid-template-columns: 1fr;
     gap: var(--space-5);
 
-    @include bp(xs) {
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    @include bp(sm) {
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-6);
-    }
-  }
-
-  &__cta-band {
-    margin-top: var(--space-16);
-    padding: var(--space-10);
-    // background: linear-gradient(135deg, var(--primary-dim) 0%, rgba(30, 58, 95, 0.38) 50%, var(--bg-card) 100%);
-    background: linear-gradient(135deg, var(--bg-float) 0%, rgba(30, 58, 95, 0.08) 50%, var(--bg-card) 100%);
-    border: 1px solid var(--border-bright);
-    // border: 1px solid var(--complementary);
-    border-radius: var(--radius-xl);
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    gap: var(--space-8);
-    flex-wrap: wrap;
-    position: relative;
-    overflow: hidden;
-
-    @include bp(lg) {
-      text-align: initial;
-      justify-content: space-between;
-    }
-
-    &::before {
-      display: none;
-      content: 'HIRE ME';
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--font-display);
-      font-size: 8rem; // intentional: oversized decorative watermark, not a UI text size
-      font-weight: 700;
-      color: var(--primary-pale);
-      letter-spacing: -0.04em;
-      pointer-events: none;
-      white-space: nowrap;
-
-      @include bp(lg) {
-        display: initial;
-      }
     }
   }
 
@@ -116,18 +73,14 @@
 }
 
 .project-featured {
-  // @include card-base(var(--radius-xl), 0); // no top-level padding — __body has var(--space-10)
-  // @include card-hover(0px, var(--shadow-lg)); // no lift — featured is full-width, shadow only
-  // remove?
-  border: 1px solid var(--bg-float);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   @include card-hover(0);
   background: var(--bg-card);
-
-  // end remove?
   display: grid;
   overflow: hidden;
   margin-bottom: var(--space-6);
+  cursor: pointer;
 
   @include bp(lg) {
     grid-template-columns: 1.1fr 0.9fr;
@@ -141,7 +94,7 @@
   }
 
   &__img {
-    aspect-ratio: 16/9; // I might prefer not setting aspect-ratio! With limited height
+    aspect-ratio: 16/9;
     overflow: hidden;
     background: var(--bg-float);
 
@@ -162,11 +115,15 @@
 
   &__body {
     position: relative;
-    padding: var(--space-6);
+    padding: var(--space-4);
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
+
+    @include bp(xs) {
+      padding: var(--space-6);
+    }
 
     // For sheen effect
     &::after {
@@ -203,6 +160,36 @@
     margin-bottom: var(--space-4);
   }
 
+  &__case-study-btn {
+    position: relative;
+    background: none;
+    border: none;
+    padding: var(--space-1) var(--space-2);
+    margin-left: var(--space-1);
+    font: inherit;
+    color: var(--primary-light);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: color var(--t-fast);
+
+    // Minimum 44x44px touch hit area for mobile/touch ergonomics
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 44px;
+      min-height: 44px;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+
   &__title {
     font-family: var(--font-display);
     font-size: clamp(1.7rem, 3.2vw, 2.6rem);
@@ -221,9 +208,15 @@
   }
 
   &__links {
+    position: relative;
+    z-index: 5;
     display: flex;
-    gap: var(--space-3);
+    gap: var(--space-2);
     flex-wrap: wrap;
+
+    @include bp(xs) {
+      gap: var(--space-3);
+    }
   }
 }
 
@@ -251,19 +244,15 @@
 }
 
 .project-card {
-  // @include card-base(var(--radius-lg), 0); // no top-level padding — image is edge-to-edge, __body has its own padding
-  // remove this border and radius
   border: 1px solid var(--bg-float);
   border-radius: var(--radius-lg);
   @include card-hover(-7px);
   background: var(--bg-card);
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 16px 32px -4px rgba(0, 0, 0, 0.5);
-  // end remove
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  cursor: pointer;
 
   &:hover {
     .project-card__img img {
@@ -298,6 +287,68 @@
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-sm);
     backdrop-filter: blur(8px);
+  }
+
+  &__case-study-pill {
+    @include mono-label(var(--text-xs), var(--tracking-normal), var(--primary-light));
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    background: rgba(11, 15, 20, 0.78);
+    border: 1px solid var(--border-bright);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    font-family: inherit;
+    transition:
+      background var(--t-fast),
+      border-color var(--t-fast),
+      color var(--t-fast),
+      box-shadow var(--t-fast);
+
+    // Minimum 44x44px touch hit area for mobile/touch ergonomics
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 44px;
+      min-height: 44px;
+      width: 100%;
+      height: 100%;
+    }
+
+    [data-theme='light'] & {
+      background: rgba(255, 255, 255, 0.88);
+      border-color: rgba(203, 213, 225, 0.85);
+      color: var(--primary);
+    }
+
+    &:hover {
+      border-color: var(--primary);
+      color: #fff;
+      background: rgba(56, 189, 248, 0.2);
+
+      [data-theme='light'] & {
+        background: rgba(235, 245, 255, 0.95);
+        border-color: var(--primary);
+        color: var(--primary-hover);
+      }
+    }
+  }
+
+  &:hover &__case-study-pill {
+    border-color: var(--primary);
+    color: #fff;
+    background: rgba(56, 189, 248, 0.2);
+
+    [data-theme='light'] & {
+      background: rgba(235, 245, 255, 0.95);
+      border-color: var(--primary);
+      color: var(--primary-hover);
+    }
   }
 
   &__body {
@@ -359,22 +410,33 @@
   }
 
   &__links {
+    position: relative;
+    z-index: 5;
     display: flex;
     gap: var(--space-2);
 
     &-item {
+      position: relative;
+      z-index: 2;
       @include mono-label(var(--text-2xs), var(--tracking-normal), var(--text-muted));
-      padding: 0.38rem 0.85rem;
+      @include touch-target(44px);
+      padding: var(--space-1-5) var(--space-3);
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
       transition:
         background var(--t-fast),
         border-color var(--t-fast),
-        color var(--t-fast);
+        color var(--t-fast),
+        transform var(--t-fast);
+
+      &:active {
+        transform: scale(0.96);
+      }
 
       &:not(.project-card__links-item--live):hover {
         border-color: var(--primary);
         color: var(--primary-light);
+        background: var(--primary-pale);
       }
 
       &--live {

@@ -7,7 +7,7 @@ export const PROJECTS_DATA = {
     tagline: 'Solo-developed commercial 3D wave-defense game published on Xbox Live',
     stats: [
       { label: 'Platform', value: 'Xbox 360 / Live' },
-      { label: 'Codebase', value: '100K+ lines C#' },
+      { label: 'Architecture', value: 'Zero-Allocation C#' },
       { label: 'Role', value: 'Solo Developer' },
       { label: 'Framerate', value: 'Locked 60 FPS' },
     ],

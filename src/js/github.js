@@ -90,40 +90,72 @@ const buildYearSelector = (yearsList, active) => {
   if (!yearSelEl) return;
   yearSelEl.replaceChildren();
 
+  const gitFlagEl = document.getElementById('git-flag-text');
+
   const makeBtn = (label, year) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `github__year-btn${active === year ? ' active' : ''}`;
-    btn.textContent = label;
+    btn.className = `flag-btn github__year-btn${active === year ? ' active' : ''}`;
+    btn.textContent = `--year=${label}`;
     btn.setAttribute('aria-pressed', String(active === year));
     btn.addEventListener('click', () => {
       if (activeYear === year) return;
       activeYear = year;
-      yearSelEl.querySelectorAll('.github__year-btn').forEach((b) => {
+      yearSelEl.querySelectorAll('.flag-btn').forEach((b) => {
         const isCurrent = b === btn;
         b.classList.toggle('active', isCurrent);
         b.setAttribute('aria-pressed', String(isCurrent));
       });
+      if (gitFlagEl) {
+        gitFlagEl.textContent = `--year=${label}`;
+      }
       const data = yearCache.get(year);
       if (data) {
         renderGraph(data, year);
         let yearTotal = 0;
         for (const item of data) yearTotal += item.count;
-        if (statEls.total) statEls.total.textContent = formatCount(yearTotal);
+        if (statEls.total) statEls.total.textContent = yearTotal.toLocaleString();
         if (statEls.totalLabel) {
-          statEls.totalLabel.textContent = year === 'last' ? 'Contribs (12M)' : `In ${year}`;
+          statEls.totalLabel.textContent =
+            year === 'last' ? 'contributions in the last 12 months' : `contributions in ${year}`;
         }
       }
     });
     return btn;
   };
 
-  // Default tab is the trailing 365 days ("Last 12 Months")
-  yearSelEl.appendChild(makeBtn('Last 12 Months', 'last'));
+  // Default tab is the trailing 365 days ("last")
+  yearSelEl.appendChild(makeBtn('last', 'last'));
   const visibleYears = yearsList.slice(0, 5);
   for (const year of visibleYears) {
     yearSelEl.appendChild(makeBtn(year, year));
   }
+
+  // WAI-ARIA keyboard navigation for year selector
+  yearSelEl.addEventListener('keydown', (e) => {
+    const buttons = Array.from(yearSelEl.querySelectorAll('.flag-btn'));
+    const currentIdx = buttons.findIndex((b) => b.classList.contains('active'));
+    let targetIdx = -1;
+
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      targetIdx = (currentIdx + 1) % buttons.length;
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      targetIdx = (currentIdx - 1 + buttons.length) % buttons.length;
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      targetIdx = 0;
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      targetIdx = buttons.length - 1;
+    }
+
+    if (targetIdx !== -1 && buttons[targetIdx]) {
+      buttons[targetIdx].click();
+      buttons[targetIdx].focus();
+    }
+  });
 };
 
 // Render graph
@@ -207,17 +239,19 @@ const renderGraph = (contributions, year = activeYear) => {
 
 // Compute and update all-time stats from full snapshot
 const updateAllTimeStats = () => {
-  let allMaxStreak = 0;
-  let currentStreak = 0;
+  let allMaxStreak = GITHUB_SNAPSHOT?.maxStreak || 0;
 
-  const allContributions = Array.isArray(GITHUB_SNAPSHOT?.contributions) ? GITHUB_SNAPSHOT.contributions : [];
+  if (!allMaxStreak) {
+    let currentStreak = 0;
+    const allContributions = Array.isArray(GITHUB_SNAPSHOT?.contributions) ? GITHUB_SNAPSHOT.contributions : [];
 
-  for (const contribution of allContributions) {
-    if (contribution.count > 0) {
-      currentStreak++;
-      if (currentStreak > allMaxStreak) allMaxStreak = currentStreak;
-    } else {
-      currentStreak = 0;
+    for (const contribution of allContributions) {
+      if (contribution.count > 0) {
+        currentStreak++;
+        if (currentStreak > allMaxStreak) allMaxStreak = currentStreak;
+      } else {
+        currentStreak = 0;
+      }
     }
   }
 
@@ -225,9 +259,9 @@ const updateAllTimeStats = () => {
   let lastYearTotal = 0;
   for (const item of lastYearData) lastYearTotal += item.count;
 
-  if (statEls.total) statEls.total.textContent = formatCount(lastYearTotal || 809);
-  if (statEls.totalLabel) statEls.totalLabel.textContent = 'Contribs (12M)';
-  if (statEls.streak) statEls.streak.textContent = formatCount(allMaxStreak || 1900);
+  if (statEls.total) statEls.total.textContent = (lastYearTotal || 809).toLocaleString();
+  if (statEls.totalLabel) statEls.totalLabel.textContent = 'contributions in the last 12 months';
+  if (statEls.streak) statEls.streak.textContent = `${(allMaxStreak || 1883).toLocaleString()} days`;
   if (statEls.repos) statEls.repos.textContent = '24+';
 };
 

@@ -39,7 +39,36 @@ body {
 
 section {
   position: relative;
+  background-color: transparent !important;
   z-index: var(--z-raised);
+
+  // Full-Width Horizon Whisper Glow between all sections (except hero)
+  // &:not(.hero)::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: 120px;
+  //   transform: translateY(-50%);
+  //   background: linear-gradient(90deg, transparent 0%, rgba(97, 166, 250, 0.12) 50%, transparent 100%);
+  //   filter: blur(36px);
+  //   pointer-events: none;
+  //   z-index: 2;
+  // }
+}
+
+// Allow atmospheric aurora orbs to spill across section boundaries naturally
+// Allow atmospheric aurora orbs to spill across section boundaries naturally
+.hero,
+.experience,
+.about,
+.coding {
+  overflow: visible !important;
+
+  &__aurora {
+    overflow: visible !important;
+  }
 }
 
 .section-label {

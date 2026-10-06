@@ -7,7 +7,7 @@
 
   <!-- Page identity -->
   <title>Matthew McGrath | Full-Stack Web Developer</title>
-  <link rel="canonical" href="https://matthewmcgrath.dev" />
+  <link rel="canonical" href="https://matthewmcgrath.dev/" />
 
   <!-- Viewport & theme -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -17,15 +17,22 @@
   <!-- SEO -->
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Matthew McGrath" />
-  <meta name="description" content="Full-Stack Web Developer based in Riverside, CA. Specializing in React, Next.js, and Node.js — building responsive, accessible web experiences. 15+ years of coding experience. Open to full-time and freelance opportunities." />
+  <meta name="description" content="California-based Full-Stack Web Developer specializing in React, Next.js, TypeScript, and Node.js. Building responsive, accessible, high-performance web apps." />
+  <meta name="keywords" content="Full-Stack Web Developer, Software Engineer, React Developer, Next.js Developer, TypeScript, Node.js, Web Development Portfolio, Riverside CA, California" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Matthew McGrath | Full-Stack Web Developer" />
   <meta property="og:description" content="California-based Full-Stack Web Developer. React, Next.js, Node.js, and a decade of shipping real software. Available for freelance &amp; full-time roles." />
   <meta property="og:image" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
+  <meta property="og:image:secure_url" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:url" content="https://matthewmcgrath.dev" />
   <meta property="og:site_name" content="Matthew McGrath Portfolio" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Matthew McGrath | Full-Stack Web Developer Portfolio" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -51,58 +58,147 @@
   <link rel="preload" href="assets/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
 
+  <!-- Pre-paint theme initialization (eliminates FOUC and detects OS preference) -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/main.css" />
 
-  <!-- Structured data -->
+  <!-- Structured data (@graph format) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Matthew McGrath",
-      "url": "https://matthewmcgrath.dev",
-      "jobTitle": "Full-Stack Web Developer",
-      "description": "Full-stack web developer based in Riverside, CA specializing in React, Next.js, Node.js, and modern web technologies. Available for freelance and full-time roles.",
-      "image": "https://matthewmcgrath.dev/assets/images/social/og-preview.png",
-      "email": "matthew.mcgrath.b@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Riverside",
-        "addressRegion": "CA",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://github.com/Epitome87",
-        "https://www.linkedin.com/in/matthew-b-mcgrath/",
-        "https://x.com/Epitome87",
-        "https://leetcode.com/u/Epitome87/",
-        "https://www.codewars.com/users/Epitome87"
-      ],
-      "knowsAbout": [
-        "React",
-        "Next.js",
-        "Node.js",
-        "JavaScript",
-        "TypeScript",
-        "HTML",
-        "CSS",
-        "Sass",
-        "MongoDB",
-        "PostgreSQL",
-        "Express",
-        "Git",
-        "Tailwind CSS",
-        "Three.js"
-      ],
-      "hasOccupation": {
-        "@type": "Occupation",
-        "name": "Full-Stack Web Developer",
-        "occupationLocation": {
-          "@type": "City",
-          "name": "Riverside, CA"
+      "@graph": [{
+          "@type": "WebSite",
+          "@id": "https://matthewmcgrath.dev/#website",
+          "url": "https://matthewmcgrath.dev/",
+          "name": "Matthew McGrath | Full-Stack Web Developer",
+          "description": "Portfolio of Matthew McGrath: Full-Stack Developer specializing in TypeScript, React, Next.js, and Node.js.",
+          "publisher": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          }
         },
-        "skills": "React, Next.js, Node.js, JavaScript, TypeScript, HTML, CSS, MongoDB, PostgreSQL"
-      }
+        {
+          "@type": "ProfilePage",
+          "@id": "https://matthewmcgrath.dev/#profilepage",
+          "url": "https://matthewmcgrath.dev/",
+          "name": "Matthew McGrath Portfolio",
+          "isPartOf": {
+            "@id": "https://matthewmcgrath.dev/#website"
+          },
+          "about": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          },
+          "mainEntity": {
+            "@id": "https://matthewmcgrath.dev/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://matthewmcgrath.dev/#person",
+          "name": "Matthew McGrath",
+          "url": "https://matthewmcgrath.dev/",
+          "jobTitle": "Full-Stack Software Engineer & Web Developer",
+          "image": "https://matthewmcgrath.dev/assets/images/social/og-preview.png",
+          "email": "mailto:matthew.mcgrath.b@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Riverside",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          },
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Full-Stack Web Developer",
+            "occupationLocation": {
+              "@type": "AdministrativeArea",
+              "name": "California, US"
+            },
+            "skills": "React, Next.js, TypeScript, JavaScript, Node.js, PostgreSQL, MongoDB, Express, Sass, Tailwind CSS, C#, Web Performance, Full-Stack Architecture"
+          },
+          "alumniOf": [{
+              "@type": "CollegeOrUniversity",
+              "name": "Western Governors University",
+              "sameAs": "https://www.wgu.edu/"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Westwood College"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/Epitome87",
+            "https://www.linkedin.com/in/matthew-b-mcgrath/",
+            "https://x.com/Epitome87",
+            "https://leetcode.com/u/Epitome87/",
+            "https://www.codewars.com/users/Epitome87"
+          ],
+          "knowsAbout": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "Node.js",
+            "PostgreSQL",
+            "MongoDB",
+            "Express",
+            "Sass",
+            "Tailwind CSS",
+            "C#",
+            "Algorithms & Data Structures",
+            "Web Accessibility (WCAG)"
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://matthewmcgrath.dev/#projects",
+          "name": "Featured Software Engineering Projects",
+          "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Avatars in Grave Danger",
+                "applicationCategory": "GameApplication",
+                "operatingSystem": "Xbox 360",
+                "description": "A 3D wave-defense game built solo in C# and published on Xbox Live Indie Games.",
+                "codeRepository": "https://github.com/Epitome87/Avatars-In-Grave-Danger"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Flat UI Clone",
+                "applicationCategory": "WebApplication",
+                "description": "Full-stack React clone of Flat UI with custom color palettes and material design components.",
+                "url": "https://epitome87.github.io/React-Flat-UI/",
+                "codeRepository": "https://github.com/Epitome87/React-Flat-UI"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Recipe App",
+                "applicationCategory": "WebApplication",
+                "description": "Fullstack app for searching and browsing recipes with smooth animations and polished UI.",
+                "url": "https://react-recipes-d136loejp-epitome87.vercel.app/",
+                "codeRepository": "https://github.com/Epitome87/React-Recipes"
+              }
+            }
+          ]
+        }
+      ]
     }
   </script>
 </head>
@@ -119,13 +215,14 @@
       </a>
       <ul class="nav__links">
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Skills</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
         <li><a href="#coding">Activity</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="resume/">Resume</a></li>
       </ul>
-      <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Dark mode" aria-pressed="true">
+      <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="true">
         <!-- Sun: shown in dark mode -->
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5" />
@@ -150,9 +247,10 @@
     </div>
     <ul class="nav__mobile" id="mobile-menu" aria-hidden="true">
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Skills</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
       <li><a href="#coding">Activity</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="resume/">Resume</a></li>
     </ul>
@@ -161,22 +259,11 @@
   <main id="main-content">
     <!-- HERO -->
     <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="hero__aurora" aria-hidden="true">
+        <div class="hero__glow-orb hero__glow-orb--1"></div>
+        <div class="hero__glow-orb hero__glow-orb--2"></div>
+      </div>
       <div class="container hero__content">
-        <!-- Status + location -->
-        <div class="hero__meta-row">
-          <div class="hero__available">
-            <div class="hero__available-dot" aria-hidden="true"></div>
-            Available for hire
-          </div>
-          <span class="hero__location">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="hero__location-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            Riverside, CA
-          </span>
-        </div>
-
         <!-- Comically-massive name with pop-in characters -->
         <h1 class="hero__name" id="hero-heading" aria-label="Matthew McGrath">
           <span class="hero__name-line hero__name-line--first"><span>Matthew</span></span>
@@ -190,10 +277,10 @@
           <!-- Tagline + CTAs -->
           <div class="hero__tagline-block">
             <p class="hero__tagline-lead">
-              Need a website that feels <span>modern</span> and <span>trustworthy</span>?
+              Fast web applications that look sharp, feel fluid, and <span>convert.</span>
             </p>
             <p class="hero__tagline">
-              I design and build polished web experiences that are fast, accessible, and ready for real users.
+              I help businesses and engineering teams build accessible, polished software with React, Next.js, and TypeScript.
             </p>
             <div class="hero__actions">
               <a href="#projects" class="btn-primary">
@@ -202,21 +289,51 @@
               <a href="#contact" class="btn-ghost">Say Hello</a>
             </div>
           </div>
-          <!-- Professional Stats -->
-          <ul class="hero__stats">
-            <li>
-              <p class="hero__stat-num">15<span>+</span></p>
-              <p class="hero__stat-label">Years Coding</p>
-            </li>
-            <li>
-              <p class="hero__stat-num">2</p>
-              <p class="hero__stat-label">Games Shipped</p>
-            </li>
-            <li>
-              <p class="hero__stat-num">100K<span>+</span></p>
-              <p class="hero__stat-label">Lines Written</p>
-            </li>
-          </ul>
+
+          <!-- Interactive JSON Code Deck -->
+          <div class="hero__deck" aria-label="Interactive Developer Manifest">
+            <div class="hero__deck-topbar">
+              <div class="hero__deck-left">
+                <div class="hero__deck-dots" aria-hidden="true">
+                  <span class="hero__deck-dot hero__deck-dot--close"></span>
+                  <span class="hero__deck-dot hero__deck-dot--min"></span>
+                  <span class="hero__deck-dot hero__deck-dot--max"></span>
+                </div>
+                <div class="hero__deck-tabs" role="tablist" aria-label="Developer JSON Tabs">
+                  <button class="hero__deck-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="hero-tab-profile" id="hero-tabbtn-profile">
+                    <span class="hero__deck-tab-icon" aria-hidden="true">{}</span> profile.json
+                  </button>
+                  <button class="hero__deck-tab" type="button" role="tab" aria-selected="false" aria-controls="hero-tab-stack" id="hero-tabbtn-stack">
+                    <span class="hero__deck-tab-icon" aria-hidden="true">{}</span> stack.json
+                  </button>
+                  <button class="hero__deck-tab" type="button" role="tab" aria-selected="false" aria-controls="hero-tab-track" id="hero-tabbtn-track">
+                    <span class="hero__deck-tab-icon" aria-hidden="true">{}</span> record.json
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- CSS Grid Stacked Container: Perfectly locks height across all screen sizes with zero shift -->
+            <div class="hero__deck-content">
+              <!-- Tab 1: Profile -->
+              <div class="hero__deck-body is-active" id="hero-tab-profile" role="tabpanel" aria-labelledby="hero-tabbtn-profile">
+                <div class="hero__deck-lines" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+                <pre class="hero__deck-code"><code><span class="hero__deck-row"><span class="token-p">{</span></span><span class="hero__deck-row">  <span class="token-k">"developer"</span><span class="token-p">:</span> <span class="token-s">"Matthew McGrath"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"focus"</span><span class="token-p">:</span> <span class="token-s">"Full-Stack Engineering"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"philosophy"</span><span class="token-p">:</span> <span class="token-s">"Design polish meets clean engineering"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"deliverables"</span><span class="token-p">:</span> <span class="token-p">[</span></span><span class="hero__deck-row">    <span class="token-s">"Full-Stack Web Applications"</span><span class="token-p">,</span></span><span class="hero__deck-row">    <span class="token-s">"Interactive Design Systems"</span><span class="token-p">,</span></span><span class="hero__deck-row">    <span class="token-s">"Performance Optimization"</span></span><span class="hero__deck-row">  <span class="token-p">]</span></span><span class="hero__deck-row"><span class="token-p">}</span></span></code></pre>
+              </div>
+
+              <!-- Tab 2: Stack -->
+              <div class="hero__deck-body" id="hero-tab-stack" role="tabpanel" aria-labelledby="hero-tabbtn-stack">
+                <div class="hero__deck-lines" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+                <pre class="hero__deck-code"><code><span class="hero__deck-row"><span class="token-p">{</span></span><span class="hero__deck-row">  <span class="token-k">"languages"</span><span class="token-p">:</span> <span class="token-p">[</span><span class="token-s">"TypeScript"</span><span class="token-p">,</span> <span class="token-s">"JavaScript"</span><span class="token-p">,</span> <span class="token-s">"HTML5"</span><span class="token-p">,</span> <span class="token-s">"SCSS"</span><span class="token-p">],</span></span><span class="hero__deck-row">  <span class="token-k">"frameworks"</span><span class="token-p">:</span> <span class="token-p">[</span><span class="token-s">"React"</span><span class="token-p">,</span> <span class="token-s">"Next.js"</span><span class="token-p">,</span> <span class="token-s">"Node.js"</span><span class="token-p">,</span> <span class="token-s">"Vite"</span><span class="token-p">],</span></span><span class="hero__deck-row">  <span class="token-k">"tooling"</span><span class="token-p">:</span> <span class="token-p">[</span><span class="token-s">"PostgreSQL"</span><span class="token-p">,</span> <span class="token-s">"Git"</span><span class="token-p">,</span> <span class="token-s">"Docker"</span><span class="token-p">,</span> <span class="token-s">"CI/CD"</span><span class="token-p">]</span></span><span class="hero__deck-row"><span class="token-p">}</span></span></code></pre>
+              </div>
+
+              <!-- Tab 3: Track Record -->
+              <div class="hero__deck-body" id="hero-tab-track" role="tabpanel" aria-labelledby="hero-tabbtn-track">
+                <div class="hero__deck-lines" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6</div>
+                <pre class="hero__deck-code"><code><span class="hero__deck-row"><span class="token-p">{</span></span><span class="hero__deck-row">  <span class="token-k">"yearsCoding"</span><span class="token-p">:</span> <span class="token-n">15</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"commercialGames"</span><span class="token-p">:</span> <span class="token-n">2</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"commitStreak"</span><span class="token-p">:</span> <span class="token-s">"5+ Years Daily"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"degree"</span><span class="token-p">:</span> <span class="token-s">"B.S. Computer Science"</span></span><span class="hero__deck-row"><span class="token-p">}</span></span></code></pre>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -243,13 +360,13 @@
                   assets/images/projects/preview-grave-danger-480.webp   480w,
                   assets/images/projects/preview-grave-danger-800.webp   800w,
                   assets/images/projects/preview-grave-danger-1200.webp 1200w
-                " sizes="(max-width: 1023px) calc(100vw - 2.5rem), 684px" alt="Avatars in Grave Danger" loading="lazy" decoding="async" width="400" height="220" />
+                " sizes="(max-width: 1023px) calc(100vw - 2.5rem), 684px" alt="3D arena combat scene with stylized avatar facing oncoming zombie hordes" loading="lazy" decoding="async" width="400" height="220" />
           </div>
           <div class="project-featured__body">
-            <p class="project-featured__num">Featured ✦ 01 <span class="project-featured__case-study-hint">· Click for Case Study ↗</span></p>
+            <p class="project-featured__num">Featured Project <button type="button" class="project-featured__case-study-btn" aria-haspopup="dialog" aria-label="Open case study for Avatars in Grave Danger">· Case Study <span aria-hidden="true">↗</span></button></p>
             <h3 class="project-featured__title">Avatars in Grave Danger</h3>
             <p class="project-featured__desc">
-              A 3D wave-defense game where you protect your avatar from hordes of the undead — built solo and
+              A 3D wave-defense game where you protect your avatar from hordes of the undead, built solo and
               published on Xbox Live Indie Games. Over 100,000 lines of C# from concept to launch.
             </p>
             <div class="project-tags">
@@ -277,9 +394,8 @@
                     assets/images/projects/preview-flat-ui-clone-320.webp 320w,
                     assets/images/projects/preview-flat-ui-clone-640.webp 640w,
                     assets/images/projects/preview-flat-ui-clone-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Flat UI Clone" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">02</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Color palette generator interface featuring interactive swatches and component controls" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Flat UI Clone">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Flat UI Clone</h3>
@@ -296,20 +412,20 @@
               </footer>
             </div>
           </article>
+
           <article class="project-card reveal" data-project-id="frontend-collection">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-frontend-collection-800.webp" srcset="
                     assets/images/projects/preview-frontend-collection-320.webp 320w,
                     assets/images/projects/preview-frontend-collection-640.webp 640w,
                     assets/images/projects/preview-frontend-collection-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Frontend Collection" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">03</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Showcase grid of responsive components and modern marketing landing page cards" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Frontend Collection">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Frontend Collection</h3>
               <p class="project-card__desc">
-                An assortment of frontend projects — from pricing cards to fully-realized, beautiful landing pages.
+                An assortment of frontend projects, from pricing cards to fully-realized, beautiful landing pages.
               </p>
               <footer class="project-card__footer">
                 <span class="project-card__tech">HTML · CSS3 · SASS · JS</span>
@@ -319,20 +435,21 @@
               </footer>
             </div>
           </article>
+
+          <!-- TEMPORARILY COMMENTED OUT: Recipe App (in progress)
           <article class="project-card reveal" data-project-id="react-recipes">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-react-recipes-800.webp" srcset="
                     assets/images/projects/preview-react-recipes-320.webp 320w,
                     assets/images/projects/preview-react-recipes-640.webp 640w,
                     assets/images/projects/preview-react-recipes-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Recipe App" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">04</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Recipe App" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Recipe App">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Recipe App</h3>
               <p class="project-card__desc">
-                Fullstack app for searching and browsing recipes — smooth animations and a polished UI throughout.
+                Fullstack app for searching and browsing recipes, featuring smooth animations and a polished UI throughout.
               </p>
               <footer class="project-card__footer">
                 <span class="project-card__tech">React · Chakra · Framer · Node</span>
@@ -343,15 +460,16 @@
               </footer>
             </div>
           </article>
+          -->
+
           <article class="project-card reveal" data-project-id="omnifood">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-omnifood-800.webp" srcset="
                     assets/images/projects/preview-omnifood-320.webp 320w,
                     assets/images/projects/preview-omnifood-640.webp 640w,
                     assets/images/projects/preview-omnifood-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Omnifood" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">05</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Food delivery service landing page featuring appetizing dishes and subscription options" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Omnifood">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Omnifood</h3>
@@ -368,15 +486,15 @@
               </footer>
             </div>
           </article>
+
           <article class="project-card reveal" data-project-id="personal-portfolio">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-personal-800.webp" srcset="
                     assets/images/projects/preview-personal-320.webp 320w,
                     assets/images/projects/preview-personal-640.webp 640w,
                     assets/images/projects/preview-personal-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Personal Portfolio" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">06</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Dark mode developer portfolio hero section with typography and project showcases" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Personal Portfolio">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Personal Portfolio</h3>
@@ -394,101 +512,25 @@
             </div>
           </article>
         </div>
-
-        <div class="projects__cta-band reveal">
-          <div>
-            <p class="projects__cta-heading">Let's Work Together!</p>
-            <p class="projects__cta-desc">
-              Available for freelance projects and Frontend / Full-Stack Web Developer roles.
-            </p>
-          </div>
-          <a href="#contact" class="btn-primary">Hire Me
-            <svg viewBox="0 0 14 14" width="14" height="14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-              <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
       </div>
     </section>
 
     <!-- EXPERIENCE & SKILLS STUDIO -->
     <section class="experience" id="experience" aria-labelledby="experience-heading">
+      <div class="experience__aurora" aria-hidden="true">
+        <div class="experience__glow-orb experience__glow-orb--1"></div>
+        <div class="experience__glow-orb experience__glow-orb--2"></div>
+      </div>
       <div class="container">
         <div class="experience__header">
-          <p class="section-label">Background</p>
-          <h2 class="section-title" id="experience-heading">Skills &amp; Experience Studio</h2>
+          <p class="section-label">Interactive Studio</p>
+          <h2 class="section-title" id="experience-heading">Skills &amp; Experience</h2>
           <p class="experience__desc">
-            Explore 24 core competencies across modern web architecture. Click any skill chip or sidebar file to inspect live implementation patterns in the editor, or expand the Git console below for career milestones.
+            An interactive look at my tech stack, background, and daily habits. Browse the overview below, or select any specific file to see how I write code.
           </p>
         </div>
 
-        <!-- 1. ALL 24 SKILLS IN RECRUITER QUICK-SCAN RADAR -->
-        <div class="experience-radar-wrapper">
-          <!-- Mobile Accordion Trigger -->
-          <button type="button" class="radar-accordion-toggle" id="radar-accordion-toggle" aria-expanded="false" aria-controls="radar-bar-container">
-            <div class="radar-accordion-toggle__left">
-              <span class="radar-accordion-icon" aria-hidden="true">⚡</span>
-              <span>Quick Scan Skills (24)</span>
-            </div>
-            <span class="radar-accordion-chevron" id="radar-accordion-chevron" aria-hidden="true">▼</span>
-          </button>
-
-          <section class="radar-bar" id="radar-bar-container" aria-label="Technical Skills Radar">
-            <!-- Frontend Group -->
-            <div class="radar-row">
-              <span class="radar-label">Frontend</span>
-              <div class="radar-chips" role="group" aria-label="Frontend Skills">
-                <button type="button" class="radar-chip active" id="chip-react" data-skill="react" aria-pressed="true">⚛️ React</button>
-                <button type="button" class="radar-chip" id="chip-nextjs" data-skill="nextjs" aria-pressed="false">▲ Next.js</button>
-                <button type="button" class="radar-chip" id="chip-typescript" data-skill="typescript" aria-pressed="false">🔷 TypeScript</button>
-                <button type="button" class="radar-chip" id="chip-sass" data-skill="sass" aria-pressed="false">🎨 Sass (SCSS)</button>
-                <button type="button" class="radar-chip" id="chip-tailwind" data-skill="tailwind" aria-pressed="false">🌊 Tailwind</button>
-                <button type="button" class="radar-chip" id="chip-storybook" data-skill="storybook" aria-pressed="false">📕 Storybook</button>
-                <button type="button" class="radar-chip" id="chip-javascript" data-skill="javascript" aria-pressed="false">🟨 JavaScript</button>
-                <button type="button" class="radar-chip" id="chip-html5" data-skill="html5" aria-pressed="false">🌐 HTML5</button>
-                <button type="button" class="radar-chip" id="chip-css3" data-skill="css3" aria-pressed="false">🎨 CSS3</button>
-              </div>
-            </div>
-
-            <!-- Backend Group -->
-            <div class="radar-row">
-              <span class="radar-label">Backend</span>
-              <div class="radar-chips" role="group" aria-label="Backend Skills">
-                <button type="button" class="radar-chip" id="chip-nodejs" data-skill="nodejs" aria-pressed="false">🟢 Node.js</button>
-                <button type="button" class="radar-chip" id="chip-express" data-skill="express" aria-pressed="false">⚡ Express</button>
-                <button type="button" class="radar-chip" id="chip-postgresql" data-skill="postgresql" aria-pressed="false">🐘 PostgreSQL</button>
-                <button type="button" class="radar-chip" id="chip-mongodb" data-skill="mongodb" aria-pressed="false">🍃 MongoDB</button>
-                <button type="button" class="radar-chip" id="chip-python" data-skill="python" aria-pressed="false">🐍 Python</button>
-              </div>
-            </div>
-
-            <!-- Tools Group -->
-            <div class="radar-row">
-              <span class="radar-label">Tools &amp; VCS</span>
-              <div class="radar-chips" role="group" aria-label="Tools and Version Control Skills">
-                <button type="button" class="radar-chip" id="chip-git" data-skill="git" aria-pressed="false">🐙 Git &amp; GitHub</button>
-                <button type="button" class="radar-chip" id="chip-npm" data-skill="npm" aria-pressed="false">📦 NPM Tooling</button>
-                <button type="button" class="radar-chip" id="chip-postman" data-skill="postman" aria-pressed="false">🚀 Postman</button>
-                <button type="button" class="radar-chip" id="chip-vscode" data-skill="vscode" aria-pressed="false">💻 VS Code</button>
-                <button type="button" class="radar-chip" id="chip-trello" data-skill="trello" aria-pressed="false">📋 Trello / Agile</button>
-              </div>
-            </div>
-
-            <!-- Leveling Up Group -->
-            <div class="radar-row">
-              <span class="radar-label">Leveling Up</span>
-              <div class="radar-chips" role="group" aria-label="Leveling Up Skills">
-                <button type="button" class="radar-chip" id="chip-angular" data-skill="angular" aria-pressed="false">🅰️ Angular</button>
-                <button type="button" class="radar-chip" id="chip-reactnative" data-skill="reactnative" aria-pressed="false">📱 React Native</button>
-                <button type="button" class="radar-chip" id="chip-java" data-skill="java" aria-pressed="false">☕ Java</button>
-                <button type="button" class="radar-chip" id="chip-chakraui" data-skill="chakraui" aria-pressed="false">⚡ Chakra UI</button>
-                <button type="button" class="radar-chip" id="chip-threejs" data-skill="threejs" aria-pressed="false">🧊 Three.js</button>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- 2. THE COMPLETE 24-SKILLS IDE CHASSIS -->
+        <!-- THE COMPLETE IDE CHASSIS -->
         <section class="ide-chassis" aria-label="Interactive Code Studio">
           <div class="ide-window-header">
             <div class="ide-window-header__left">
@@ -498,38 +540,43 @@
                 <div class="ide-dot dot-g"></div>
               </div>
               <!-- Desktop Window Title -->
-              <span class="ide-window-title ide-window-title--desktop" id="window-title-text">matthew-mcgrath // React.tsx</span>
+              <span class="ide-window-title ide-window-title--desktop" id="window-title-text">matthew-mcgrath // overview.md</span>
               <!-- Mobile Unified Explorer Dropdown Button -->
               <button type="button" class="mobile-explorer-dropdown-btn" id="mobile-explorer-toggle-bar" aria-expanded="false" aria-controls="mobile-file-drawer" aria-label="Toggle file explorer">
-                <span id="mob-current-file-label">⚛️ React.tsx</span>
+                <span id="mob-current-file-label"><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span>
                 <span class="dropdown-chevron" id="mob-exp-chevron" aria-hidden="true">▾</span>
               </button>
             </div>
             <div class="ide-window-header__right">
-              <span class="ide-module-count ide-module-count--desktop">● 24 modules</span>
-              <span class="ide-module-badge ide-module-badge--mobile">24 Files</span>
+              <span class="ide-file-badge" id="ide-file-badge">24 Files</span>
             </div>
           </div>
 
           <!-- MOBILE COLLAPSIBLE FILE TREE DRAWER -->
           <nav class="mobile-file-tree-drawer" id="mobile-file-drawer" aria-label="Mobile File Explorer">
+            <!-- Root File: Overview -->
+            <div class="ide-root-file-wrap" role="tablist" aria-label="Root Documentation">
+              <button type="button" class="file-item file-item--root active" id="mob-side-overview" data-skill="overview" role="tab" aria-selected="true"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span></button>
+            </div>
+
+            <!-- Mobile Folder 1: Frontend -->
             <button type="button" class="folder-header" data-folder-target="mob-folder-frontend" aria-expanded="true" aria-controls="mob-folder-frontend">
               <div class="folder-title-left">
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 FRONTEND</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">9 files</span>
+              <span class="folder-count">9 files</span>
             </button>
             <div class="folder-content" id="mob-folder-frontend" role="tablist" aria-label="Frontend Files">
-              <button type="button" class="file-item active" id="mob-side-react" data-skill="react" role="tab" aria-selected="true"><span>⚛️ React.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span>▲ Next.js.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span>🔷 TypeScript.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-sass" data-skill="sass" role="tab" aria-selected="false"><span>🎨 Sass.scss</span></button>
-              <button type="button" class="file-item" id="mob-side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span>🌊 Tailwind.css</span></button>
-              <button type="button" class="file-item" id="mob-side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span>📕 Storybook.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span>🟨 JavaScript.js</span></button>
-              <button type="button" class="file-item" id="mob-side-html5" data-skill="html5" role="tab" aria-selected="false"><span>🌐 HTML5.html</span></button>
-              <button type="button" class="file-item" id="mob-side-css3" data-skill="css3" role="tab" aria-selected="false"><span>🎨 CSS3.css</span></button>
+              <button type="button" class="file-item" id="mob-side-react" data-skill="react" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-react"></use></svg> React.tsx</span></button>
+              <button type="button" class="file-item" id="mob-side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nextjs"></use></svg> Next.js.tsx</span></button>
+              <button type="button" class="file-item" id="mob-side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-typescript"></use></svg> TypeScript.ts</span></button>
+              <button type="button" class="file-item" id="mob-side-sass" data-skill="sass" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-sass"></use></svg> Sass.scss</span></button>
+              <button type="button" class="file-item" id="mob-side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use></svg> Tailwind.css</span></button>
+              <button type="button" class="file-item" id="mob-side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-storybook"></use></svg> Storybook.ts</span></button>
+              <button type="button" class="file-item" id="mob-side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-javascript"></use></svg> JavaScript.js</span></button>
+              <button type="button" class="file-item" id="mob-side-html5" data-skill="html5" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-html5"></use></svg> HTML5.html</span></button>
+              <button type="button" class="file-item" id="mob-side-css3" data-skill="css3" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-css3"></use></svg> CSS3.css</span></button>
             </div>
 
             <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-backend" aria-expanded="true" aria-controls="mob-folder-backend">
@@ -537,14 +584,14 @@
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 BACKEND</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              <span class="folder-count">5 files</span>
             </button>
             <div class="folder-content" id="mob-folder-backend" role="tablist" aria-label="Backend Files">
-              <button type="button" class="file-item" id="mob-side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span>🟢 Node.mjs</span></button>
-              <button type="button" class="file-item" id="mob-side-express" data-skill="express" role="tab" aria-selected="false"><span>⚡ Express.js</span></button>
-              <button type="button" class="file-item" id="mob-side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span>🐘 PostgreSQL.sql</span></button>
-              <button type="button" class="file-item" id="mob-side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span>🍃 MongoDB.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-python" data-skill="python" role="tab" aria-selected="false"><span>🐍 Python.py</span></button>
+              <button type="button" class="file-item" id="mob-side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nodejs"></use></svg> Node.mjs</span></button>
+              <button type="button" class="file-item" id="mob-side-express" data-skill="express" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-express"></use></svg> Express.js</span></button>
+              <button type="button" class="file-item" id="mob-side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postgresql"></use></svg> PostgreSQL.sql</span></button>
+              <button type="button" class="file-item" id="mob-side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-mongodb"></use></svg> MongoDB.ts</span></button>
+              <button type="button" class="file-item" id="mob-side-python" data-skill="python" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-python"></use></svg> Python.py</span></button>
             </div>
 
             <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-tools" aria-expanded="true" aria-controls="mob-folder-tools">
@@ -552,14 +599,14 @@
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 TOOLS &amp; VCS</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              <span class="folder-count">5 files</span>
             </button>
             <div class="folder-content" id="mob-folder-tools" role="tablist" aria-label="Tools Files">
-              <button type="button" class="file-item" id="mob-side-git" data-skill="git" role="tab" aria-selected="false"><span>🐙 Git.config</span></button>
-              <button type="button" class="file-item" id="mob-side-npm" data-skill="npm" role="tab" aria-selected="false"><span>📦 package.json</span></button>
-              <button type="button" class="file-item" id="mob-side-postman" data-skill="postman" role="tab" aria-selected="false"><span>🚀 Postman.json</span></button>
-              <button type="button" class="file-item" id="mob-side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span>💻 VSCode.json</span></button>
-              <button type="button" class="file-item" id="mob-side-trello" data-skill="trello" role="tab" aria-selected="false"><span>📋 Trello.board</span></button>
+              <button type="button" class="file-item" id="mob-side-git" data-skill="git" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-git"></use></svg> Git.config</span></button>
+              <button type="button" class="file-item" id="mob-side-npm" data-skill="npm" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-npm"></use></svg> package.json</span></button>
+              <button type="button" class="file-item" id="mob-side-postman" data-skill="postman" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postman"></use></svg> Postman.json</span></button>
+              <button type="button" class="file-item" id="mob-side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-vscode"></use></svg> VSCode.json</span></button>
+              <button type="button" class="file-item" id="mob-side-trello" data-skill="trello" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-trello"></use></svg> Trello.board</span></button>
             </div>
 
             <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-leveling" aria-expanded="true" aria-controls="mob-folder-leveling">
@@ -567,38 +614,43 @@
                 <span class="folder-chevron" aria-hidden="true">▼</span>
                 <span>📁 LEVELING UP</span>
               </div>
-              <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+              <span class="folder-count">5 files</span>
             </button>
             <div class="folder-content" id="mob-folder-leveling" role="tablist" aria-label="Leveling Up Files">
-              <button type="button" class="file-item" id="mob-side-angular" data-skill="angular" role="tab" aria-selected="false"><span>🅰️ Angular.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span>📱 ReactNative.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-java" data-skill="java" role="tab" aria-selected="false"><span>☕ Java.java</span></button>
-              <button type="button" class="file-item" id="mob-side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span>⚡ ChakraUI.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span>🧊 ThreeJS.ts</span></button>
+              <button type="button" class="file-item" id="mob-side-angular" data-skill="angular" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-angular"></use></svg> Angular.ts</span></button>
+              <button type="button" class="file-item" id="mob-side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-reactnative"></use></svg> ReactNative.tsx</span></button>
+              <button type="button" class="file-item" id="mob-side-java" data-skill="java" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-java"></use></svg> Java.java</span></button>
+              <button type="button" class="file-item" id="mob-side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-chakraui"></use></svg> ChakraUI.tsx</span></button>
+              <button type="button" class="file-item" id="mob-side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-threejs"></use></svg> ThreeJS.ts</span></button>
             </div>
           </nav>
 
           <div class="ide-body">
-            <!-- Desktop 24-Files Explorer Sidebar with Collapsible Folders -->
+            <!-- Desktop Explorer Sidebar with Collapsible Folders -->
             <nav class="ide-sidebar" id="desktop-sidebar" aria-label="Desktop File Explorer">
+              <!-- Root File: Overview -->
+              <div class="ide-root-file-wrap" role="tablist" aria-label="Root Documentation">
+                <button type="button" class="file-item file-item--root active" id="side-overview" data-skill="overview" role="tab" aria-selected="true"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span></button>
+              </div>
+
               <!-- Folder 1: Frontend -->
               <button type="button" class="folder-header" data-folder-target="folder-frontend" aria-expanded="true" aria-controls="folder-frontend">
                 <div class="folder-title-left">
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 FRONTEND</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">9 files</span>
+                <span class="folder-count">9 files</span>
               </button>
               <div class="folder-content" id="folder-frontend" role="tablist" aria-label="Frontend Files">
-                <button type="button" class="file-item active" id="side-react" data-skill="react" role="tab" aria-selected="true"><span>⚛️ React.tsx</span></button>
-                <button type="button" class="file-item" id="side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span>▲ Next.js.tsx</span></button>
-                <button type="button" class="file-item" id="side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span>🔷 TypeScript.ts</span></button>
-                <button type="button" class="file-item" id="side-sass" data-skill="sass" role="tab" aria-selected="false"><span>🎨 Sass.scss</span></button>
-                <button type="button" class="file-item" id="side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span>🌊 Tailwind.css</span></button>
-                <button type="button" class="file-item" id="side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span>📕 Storybook.ts</span></button>
-                <button type="button" class="file-item" id="side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span>🟨 JavaScript.js</span></button>
-                <button type="button" class="file-item" id="side-html5" data-skill="html5" role="tab" aria-selected="false"><span>🌐 HTML5.html</span></button>
-                <button type="button" class="file-item" id="side-css3" data-skill="css3" role="tab" aria-selected="false"><span>🎨 CSS3.css</span></button>
+                <button type="button" class="file-item" id="side-react" data-skill="react" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-react"></use></svg> React.tsx</span></button>
+                <button type="button" class="file-item" id="side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nextjs"></use></svg> Next.js.tsx</span></button>
+                <button type="button" class="file-item" id="side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-typescript"></use></svg> TypeScript.ts</span></button>
+                <button type="button" class="file-item" id="side-sass" data-skill="sass" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-sass"></use></svg> Sass.scss</span></button>
+                <button type="button" class="file-item" id="side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use></svg> Tailwind.css</span></button>
+                <button type="button" class="file-item" id="side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-storybook"></use></svg> Storybook.ts</span></button>
+                <button type="button" class="file-item" id="side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-javascript"></use></svg> JavaScript.js</span></button>
+                <button type="button" class="file-item" id="side-html5" data-skill="html5" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-html5"></use></svg> HTML5.html</span></button>
+                <button type="button" class="file-item" id="side-css3" data-skill="css3" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-css3"></use></svg> CSS3.css</span></button>
               </div>
 
               <!-- Folder 2: Backend -->
@@ -607,14 +659,14 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 BACKEND</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+                <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-backend" role="tablist" aria-label="Backend Files">
-                <button type="button" class="file-item" id="side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span>🟢 Node.mjs</span></button>
-                <button type="button" class="file-item" id="side-express" data-skill="express" role="tab" aria-selected="false"><span>⚡ Express.js</span></button>
-                <button type="button" class="file-item" id="side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span>🐘 PostgreSQL.sql</span></button>
-                <button type="button" class="file-item" id="side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span>🍃 MongoDB.ts</span></button>
-                <button type="button" class="file-item" id="side-python" data-skill="python" role="tab" aria-selected="false"><span>🐍 Python.py</span></button>
+                <button type="button" class="file-item" id="side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nodejs"></use></svg> Node.mjs</span></button>
+                <button type="button" class="file-item" id="side-express" data-skill="express" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-express"></use></svg> Express.js</span></button>
+                <button type="button" class="file-item" id="side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postgresql"></use></svg> PostgreSQL.sql</span></button>
+                <button type="button" class="file-item" id="side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-mongodb"></use></svg> MongoDB.ts</span></button>
+                <button type="button" class="file-item" id="side-python" data-skill="python" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-python"></use></svg> Python.py</span></button>
               </div>
 
               <!-- Folder 3: Tools -->
@@ -623,14 +675,14 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 TOOLS &amp; VCS</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+                <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-tools" role="tablist" aria-label="Tools Files">
-                <button type="button" class="file-item" id="side-git" data-skill="git" role="tab" aria-selected="false"><span>🐙 Git.config</span></button>
-                <button type="button" class="file-item" id="side-npm" data-skill="npm" role="tab" aria-selected="false"><span>📦 package.json</span></button>
-                <button type="button" class="file-item" id="side-postman" data-skill="postman" role="tab" aria-selected="false"><span>🚀 Postman.json</span></button>
-                <button type="button" class="file-item" id="side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span>💻 VSCode.json</span></button>
-                <button type="button" class="file-item" id="side-trello" data-skill="trello" role="tab" aria-selected="false"><span>📋 Trello.board</span></button>
+                <button type="button" class="file-item" id="side-git" data-skill="git" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-git"></use></svg> Git.config</span></button>
+                <button type="button" class="file-item" id="side-npm" data-skill="npm" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-npm"></use></svg> package.json</span></button>
+                <button type="button" class="file-item" id="side-postman" data-skill="postman" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postman"></use></svg> Postman.json</span></button>
+                <button type="button" class="file-item" id="side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-vscode"></use></svg> VSCode.json</span></button>
+                <button type="button" class="file-item" id="side-trello" data-skill="trello" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-trello"></use></svg> Trello.board</span></button>
               </div>
 
               <!-- Folder 4: Leveling Up -->
@@ -639,14 +691,14 @@
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 LEVELING UP</span>
                 </div>
-                <span style="font-size: 0.65rem; color: var(--text-muted);">5 files</span>
+                <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-leveling" role="tablist" aria-label="Leveling Up Files">
-                <button type="button" class="file-item" id="side-angular" data-skill="angular" role="tab" aria-selected="false"><span>🅰️ Angular.ts</span></button>
-                <button type="button" class="file-item" id="side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span>📱 ReactNative.tsx</span></button>
-                <button type="button" class="file-item" id="side-java" data-skill="java" role="tab" aria-selected="false"><span>☕ Java.java</span></button>
-                <button type="button" class="file-item" id="side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span>⚡ ChakraUI.tsx</span></button>
-                <button type="button" class="file-item" id="side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span>🧊 ThreeJS.ts</span></button>
+                <button type="button" class="file-item" id="side-angular" data-skill="angular" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-angular"></use></svg> Angular.ts</span></button>
+                <button type="button" class="file-item" id="side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-reactnative"></use></svg> ReactNative.tsx</span></button>
+                <button type="button" class="file-item" id="side-java" data-skill="java" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-java"></use></svg> Java.java</span></button>
+                <button type="button" class="file-item" id="side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-chakraui"></use></svg> ChakraUI.tsx</span></button>
+                <button type="button" class="file-item" id="side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-threejs"></use></svg> ThreeJS.ts</span></button>
               </div>
             </nav>
 
@@ -654,20 +706,22 @@
             <div class="ide-main-pane">
               <div class="tab-bar">
                 <div class="editor-tab" id="active-tab-title">
-                  <span>⚛️ React.tsx</span>
+                  <span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span>
                 </div>
-                <span class="tab-cat-badge" id="active-tab-category">Frontend • Core Library</span>
+                <div class="tab-bar-right">
+                  <button type="button" class="btn-tab-back hidden" id="btn-back-to-overview" data-skill="overview" aria-label="Return to overview.md">← overview.md</button>
+                </div>
               </div>
 
               <!-- Code Display Canvas (Keyboard Scrollable) -->
-              <div class="code-canvas" id="code-canvas-body" tabindex="0" role="region" aria-label="Code preview">
+              <div class="code-canvas is-overview" id="code-canvas-body" tabindex="0" role="region" aria-label="Code preview">
                 <!-- Rendered dynamically via JS -->
               </div>
             </div>
           </div>
 
           <!-- 3. COLLAPSIBLE CONSOLE DRAWER -->
-          <button type="button" class="ide-status-bar" id="console-drawer-status-bar" aria-expanded="true" aria-controls="console-drawer-panel" aria-label="Toggle career milestones git console">
+          <button type="button" class="ide-status-bar" id="console-drawer-status-bar" aria-expanded="false" aria-controls="console-drawer-panel" aria-label="Toggle career milestones git console">
             <span class="status-prompt">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
                 <circle cx="18" cy="18" r="3" />
@@ -676,17 +730,17 @@
               </svg>
               <span>Career Milestones</span>
             </span>
-            <span class="status-badge" id="drawer-indicator-text">7 Commits ▾</span>
+            <span class="status-badge" id="drawer-indicator-text">7 commits ▾</span>
           </button>
 
           <!-- The Responsive Simplified Console Drawer -->
-          <div class="git-drawer open" id="console-drawer-panel">
+          <div class="git-drawer" id="console-drawer-panel">
             <div class="drawer-inner">
               <div class="console-header-line">
                 <div>
                   <span>matthew@portfolio:~/career</span> $ <span class="cmd">git log --graph --oneline</span>
                 </div>
-                <span style="font-size: 0.7rem; color: var(--text-muted);">branch: main</span>
+                <span class="console-branch-label">branch: main</span>
               </div>
 
               <!-- Semantic Milestone Stream -->
@@ -696,11 +750,11 @@
                   <div class="milestone-node node-purple" aria-hidden="true">⭘──┐</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">7f2a91c</span>
+                      <span class="commit-sha" aria-hidden="true">7f2a91c</span>
                       <time class="commit-date" datetime="2027-01">Expected Jan 2027</time>
                     </div>
-                    <h3 class="milestone-title">B.S. Computer Science — Western Governors University</h3>
-                    <p class="milestone-desc">Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.</p>
+                    <h3 class="milestone-title">B.S. Computer Science: Western Governors University</h3>
+                    <p class="milestone-desc">Rigorous Computer Science curriculum emphasizing Data Structures &amp; Algorithms, discrete math, and software architecture.</p>
                   </article>
                 </li>
 
@@ -709,11 +763,11 @@
                   <div class="milestone-node node-green" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">4b8e23f</span>
+                      <span class="commit-sha" aria-hidden="true">4b8e23f</span>
                       <time class="commit-date" datetime="2021">2021 – Present</time>
                     </div>
                     <h3 class="milestone-title">Freelance Web Developer</h3>
-                    <p class="milestone-desc">Producing and maintaining websites for clients using technology from vanilla HTML all the way to Next.js.</p>
+                    <p class="milestone-desc">Building custom web applications, responsive client sites, and performance tune-ups with React, Next.js, and TypeScript.</p>
                   </article>
                 </li>
 
@@ -722,11 +776,11 @@
                   <div class="milestone-node node-amber" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">9c118da</span>
+                      <span class="commit-sha" aria-hidden="true">9c118da</span>
                       <time class="commit-date" datetime="2021">2021 – 2022</time>
                     </div>
                     <h3 class="milestone-title">React Bootcamp</h3>
-                    <p class="milestone-desc">Mastered modern React, Redux Toolkit, React Query, TypeScript, and Next.js. Built and deployed full-stack apps.</p>
+                    <p class="milestone-desc">Focused training in modern React architecture, state management, TypeScript, and full-stack Next.js deployment.</p>
                   </article>
                 </li>
 
@@ -735,11 +789,11 @@
                   <div class="milestone-node node-amber" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">3e5d0a1</span>
+                      <span class="commit-sha" aria-hidden="true">3e5d0a1</span>
                       <time class="commit-date" datetime="2021">2021 – 2022</time>
                     </div>
                     <h3 class="milestone-title">Web Development Bootcamp</h3>
-                    <p class="milestone-desc">Deep dives into HTML5, CSS3, JavaScript, Node.js, MongoDB, PostgreSQL, and SASS.</p>
+                    <p class="milestone-desc">Full-stack curriculum covering HTML5, CSS3, modern JavaScript, Node.js, MongoDB, PostgreSQL, and Sass.</p>
                   </article>
                 </li>
 
@@ -748,11 +802,11 @@
                   <div class="milestone-node node-green" aria-hidden="true">├──┘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">a104f67</span>
+                      <span class="commit-sha" aria-hidden="true">a104f67</span>
                       <time class="commit-date" datetime="2010">2010 – 2020</time>
                     </div>
                     <h3 class="milestone-title">Indie Game Developer</h3>
-                    <p class="milestone-desc">Released and sold two Xbox Live games as a solo developer. Collaborated on several others and QA'd hundreds more.</p>
+                    <p class="milestone-desc">Designed, built, and commercially published two original 3D titles on Xbox Live Indie Games using C# and XNA.</p>
                   </article>
                 </li>
 
@@ -761,11 +815,11 @@
                   <div class="milestone-node node-purple" aria-hidden="true">⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">18d9b23</span>
+                      <span class="commit-sha" aria-hidden="true">18d9b23</span>
                       <time class="commit-date" datetime="2012">2012 – 2015</time>
                     </div>
-                    <h3 class="milestone-title">B.S. Game Software Development — Westwood College</h3>
-                    <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.</p>
+                    <h3 class="milestone-title">B.S. Game Software Development: Westwood College</h3>
+                    <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C#, object-oriented design, 3D graphics math, and software engineering principles.</p>
                   </article>
                 </li>
 
@@ -774,7 +828,7 @@
                   <div class="milestone-node node-purple" aria-hidden="true">⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">001init</span>
+                      <span class="commit-sha" aria-hidden="true">001init</span>
                       <time class="commit-date">Early Foundations</time>
                     </div>
                     <h3 class="milestone-title">Yucaipa High School</h3>
@@ -785,779 +839,880 @@
             </div>
           </div>
         </section>
+      </div>
+    </section>
 
-        <!-- WHY HIRE ME -->
-        <section class="why-hire" id="why-hire" aria-labelledby="why-heading">
-          <div class="container">
-            <div class="why-hire__head reveal">
-              <p class="section-label">Why Choose Me</p>
-              <h2 class="section-title" id="why-heading">Why Work With Matthew?</h2>
-              <p class="why-hire__subtitle">
-                What you get beyond clean code — a developer who thinks in outcomes, moves independently, and follows
-                through.
-              </p>
-            </div>
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <!-- Temporarily commented out to test orb density
+      <div class="about__aurora" aria-hidden="true">
+        <div class="about__glow-orb about__glow-orb--1"></div>
+        <div class="about__glow-orb about__glow-orb--2"></div>
+      </div>
+      -->
+      <canvas class="about__stardust" id="aboutStardust" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="about__header reveal">
+          <p class="section-label">The Human Behind the Code</p>
+          <h2 class="section-title" id="about-heading">About Me</h2>
+          <p class="about__headline">
+            Hi, I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
+          </p>
+        </div>
 
-            <ul class="why-hire__grid">
-              <!-- Top Left: Rare Full-Stack Range -->
-              <li class="why-card reveal">
-                <div class="why-card__head">
-                  <div class="why-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                      <polyline points="2 17 12 22 22 17"></polyline>
-                      <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                  </div>
-                  <h3 class="why-card__title">Rare Full-Stack Range</h3>
-                </div>
-                <p class="why-card__body">
-                  From C# game engines to React frontends to Node backends, I've built complete systems end to end. That
-                  range means I can move between interface, logic, and architecture without losing the bigger picture.
-                </p>
-              </li>
+        <!-- Single Unified Split-Pane Window -->
+        <div class="about__window reveal">
 
-              <!-- Top Right: No Hand-Holding Needed -->
-              <li class="why-card reveal">
-                <div class="why-card__head">
-                  <div class="why-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-                    </svg>
-                  </div>
-                  <h3 class="why-card__title">No Hand-Holding Needed</h3>
-                </div>
-                <p class="why-card__body">
-                  A decade of solo development taught me how to take ownership of a problem, work through ambiguity, and
-                  keep moving. I research, debug, and iterate until something works, then make sure I understand why it
-                  works.
-                </p>
-              </li>
-
-              <!-- Middle Hero Centerpiece: Detail & Real Outcomes Non-Negotiable -->
-              <li class="why-card why-card--centerpiece reveal">
-                <div class="why-card__centerpiece-inner">
-                  <div class="why-card__centerpiece-text">
-                    <div class="why-card__head">
-                      <div class="why-card__icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <circle cx="12" cy="12" r="6"></circle>
-                          <circle cx="12" cy="12" r="2"></circle>
-                        </svg>
-                      </div>
-                      <h3 class="why-card__title why-card__title--centerpiece">Detail &amp; Real Outcomes Non-Negotiable</h3>
-                    </div>
-                    <p class="why-card__body">
-                      I'm not interested in clever code for its own sake. I care about building things that solve real problems, support real goals, and feel good to use. I pair that outcome-focus with uncompromising finish: accessible WCAG compliance, fluid responsive layouts across every device viewport, and code that stays clean under pressure.
-                    </p>
-                  </div>
-                  <div class="why-card__centerpiece-stats" aria-label="Quality and performance benchmarks">
-                    <div class="why-card__stat-item">
-                      <span class="why-card__stat-label">Lighthouse Audits</span>
-                      <span class="why-card__stat-val">98+ Score</span>
-                    </div>
-                    <div class="why-card__stat-item">
-                      <span class="why-card__stat-label">Accessibility</span>
-                      <span class="why-card__stat-val why-card__stat-val--green">WCAG AA</span>
-                    </div>
-                    <div class="why-card__stat-item">
-                      <span class="why-card__stat-label">Problem Solving</span>
-                      <span class="why-card__stat-val why-card__stat-val--amber">Top 1% Rank</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <!-- Bottom Left: Reliable by Habit -->
-              <li class="why-card reveal">
-                <div class="why-card__head">
-                  <div class="why-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                  </div>
-                  <h3 class="why-card__title">Reliable by Habit</h3>
-                </div>
-                <p class="why-card__body">
-                  I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built
-                  the kind of consistency clients can actually feel: dependable communication, dependable progress,
-                  dependable follow-through.
-                  <span class="why-card__dots" aria-hidden="true">
-                    <span class="why-card__dot why-card__dot--l1"></span>
-                    <span class="why-card__dot why-card__dot--l3"></span>
-                    <span class="why-card__dot why-card__dot--l4"></span>
-                    <span class="why-card__dot why-card__dot--l2"></span>
-                    <span class="why-card__dot why-card__dot--l4"></span>
-                    <span class="why-card__dot why-card__dot--l3"></span>
-                    <span class="why-card__dot why-card__dot--l4"></span>
-                  </span>
-                </p>
-              </li>
-
-              <!-- Bottom Right: Built for Teams -->
-              <li class="why-card reveal">
-                <div class="why-card__head">
-                  <div class="why-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                  </div>
-                  <h3 class="why-card__title">Built for Teams</h3>
-                </div>
-                <p class="why-card__body">
-                  I'm self-directed, but not siloed. I've worked with clients, collaborated on distributed projects, and
-                  written code meant to be read and maintained by others. Clear communication and low-ego collaboration
-                  are part of the job.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section class="about" id="about" aria-labelledby="about-heading">
-          <div class="container">
-            <div class="about__header reveal">
-              <p class="section-label">The Human Behind the Code</p>
-              <h2 class="section-title" id="about-heading">About Me</h2>
-            </div>
-
-            <div class="about__deck-grid">
-              <!-- Left Stage: Pure Floating Interactive Portrait -->
-              <div class="about__portrait-pane reveal scale-in">
-                <div class="about__portrait-wrap">
-                  <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
-                    <div class="about__portrait-ring" aria-hidden="true"></div>
-                    <div class="about__portrait">
-                      <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
-                    </div>
-                  </button>
-                  <span class="about__portrait-hint" aria-hidden="true">Click portrait to launch</span>
-                </div>
+          <!-- Window Top Bar -->
+          <div class="about__window-bar">
+            <div class="about__window-meta">
+              <div class="about__window-dots" aria-hidden="true">
+                <span class="about__window-dot about__window-dot--r"></span>
+                <span class="about__window-dot about__window-dot--y"></span>
+                <span class="about__window-dot about__window-dot--g"></span>
               </div>
+              <span class="about__window-filename">about_matthew.md</span>
+            </div>
+            <span class="about__window-badge">Markdown</span>
+          </div>
 
-              <!-- Right Stage: Open Headline + Chapter Deck -->
-              <div class="about__story-pane reveal">
-                <h3 class="about__headline">
-                  Hi — I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
-                </h3>
+          <!-- Split-Pane Grid Chassis -->
+          <div class="about__window-grid">
+
+            <!-- Integrated Left Author Pane -->
+            <aside class="about__window-aside">
+              <div class="about__portrait-wrap">
+                <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
+                  <div class="about__portrait-ring" aria-hidden="true"></div>
+                  <div class="about__portrait">
+                    <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
+                  </div>
+                </button>
+              </div>
+              <div class="about__author-lockup">
+                <p class="about__author-name">Matthew McGrath</p>
+                <p class="about__author-title">Full-Stack Developer</p>
+              </div>
+            </aside>
+
+
+            <!-- Integrated Right Story Reader Pane -->
+            <div class="about__window-main">
+
+              <!-- Window Inner Body -->
+              <div class="about__window-body">
 
                 <!-- 4-Segment Progress Track -->
                 <div class="about__track" role="tablist" aria-label="About chapter navigation">
                   <button type="button" class="about__seg active" role="tab" aria-selected="true" data-chapter-index="0" id="about-tab-0" aria-controls="about-slide-0">
                     <div class="about__seg-bar" aria-hidden="true"></div>
-                    <span class="about__seg-lbl">01 &bull; Origins</span>
+                    <span class="about__seg-lbl">
+                      <span class="about__seg-num">1</span>
+                      <span class="about__seg-name">Origins</span>
+                    </span>
                   </button>
                   <button type="button" class="about__seg" role="tab" aria-selected="false" data-chapter-index="1" id="about-tab-1" aria-controls="about-slide-1">
                     <div class="about__seg-bar" aria-hidden="true"></div>
-                    <span class="about__seg-lbl">02 &bull; Web Shift</span>
+                    <span class="about__seg-lbl">
+                      <span class="about__seg-num">2</span>
+                      <span class="about__seg-name">Web Shift</span>
+                    </span>
                   </button>
                   <button type="button" class="about__seg" role="tab" aria-selected="false" data-chapter-index="2" id="about-tab-2" aria-controls="about-slide-2">
                     <div class="about__seg-bar" aria-hidden="true"></div>
-                    <span class="about__seg-lbl">03 &bull; Stack</span>
+                    <span class="about__seg-lbl">
+                      <span class="about__seg-num">3</span>
+                      <span class="about__seg-name">Stack</span>
+                    </span>
                   </button>
                   <button type="button" class="about__seg" role="tab" aria-selected="false" data-chapter-index="3" id="about-tab-3" aria-controls="about-slide-3">
                     <div class="about__seg-bar" aria-hidden="true"></div>
-                    <span class="about__seg-lbl">04 &bull; Mindset</span>
+                    <span class="about__seg-lbl">
+                      <span class="about__seg-num">4</span>
+                      <span class="about__seg-name">Mindset</span>
+                    </span>
                   </button>
                 </div>
 
-                <!-- Slide Viewport -->
+
+                <!-- Slide Viewport (Grid Stacked) -->
                 <div class="about__slides-viewport">
-                  <!-- Slide 01 -->
+
+                  <!-- Slide 1 -->
                   <div class="about__slide active" id="about-slide-0" role="tabpanel" aria-labelledby="about-tab-0">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Indie Game Roots &amp; CS Foundation</h4>
+                    <h3 class="about__slide-title">
+                      <span class="about__syntax">##</span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Origins &amp; Foundations">Origins &amp; Foundations</span><span class="about__cursor" aria-hidden="true"></span></span>
+                    </h3>
                     <p class="about__slide-prose">
-                      Since writing my first line of code at 15, I've had an unbound curiosity for programming and the problem-solving it encapsulates. That curiosity led me to pursue a Bachelor's in Computer Science while simultaneously developing indie games. After years of dedication and over 100,000 lines of code, I released two fully independent games for the Xbox 360 Indie Games platform.
+                      I wrote my first program at 15, sparking a lifelong fascination with building things through code. That foundation led me to pursue Computer Science and spend years creating custom 3D game engines from scratch. As a solo developer, I designed, programmed, and published two commercial titles for the <span class="about__code-pill about__code-pill--amber">Xbox 360 Indie Games</span> platform in C#.
                     </p>
                   </div>
 
-                  <!-- Slide 02 -->
+
+                  <!-- Slide 2 -->
                   <div class="about__slide" id="about-slide-1" role="tabpanel" aria-labelledby="about-tab-1">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Modern Web Focus &amp; Frontend Craft</h4>
+                    <h3 class="about__slide-title">
+                      <span class="about__syntax">##</span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Modern Web Focus">Modern Web Focus</span><span class="about__cursor" aria-hidden="true"></span></span>
+                    </h3>
                     <p class="about__slide-prose">
-                      That passion turned my focus to the web. Through formal coursework and disciplined self-study across React, Next.js, Node.js, and the full modern stack, I craft responsive, accessible, and performant web experiences — the kind people love to use.
+                      Bringing that background to the web felt like a natural evolution. Today, my focus is building full-stack applications with <span class="about__code-pill about__code-pill--cyan">React</span>, <span class="about__code-pill about__code-pill--amber">Next.js</span>, and <span class="about__code-pill about__code-pill--green">Node.js</span>, focusing on fast performance, clean design, and a great experience for real users.
                     </p>
                   </div>
 
-                  <!-- Slide 03 -->
+
+                  <!-- Slide 3 -->
                   <div class="about__slide" id="about-slide-2" role="tabpanel" aria-labelledby="about-tab-2">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Go-To Stack &amp; Architectural Flexibility</h4>
+                    <h3 class="about__slide-title">
+                      <span class="about__syntax">##</span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Go-To Tech Stack">Go-To Tech Stack</span><span class="about__cursor" aria-hidden="true"></span></span>
+                    </h3>
                     <p class="about__slide-prose">
-                      My go-to stack is React and Node.js, but I'm equally comfortable reaching for Next.js, PostgreSQL, or whatever the project calls for. I adapt quickly to existing codebases and select the right tool for the specific job.
+                      My go-to stack is <span class="about__code-pill about__code-pill--cyan">React</span> and <span class="about__code-pill about__code-pill--green">Node.js</span>, but I adapt quickly to existing codebases and select the right tool for the job.
                     </p>
+                    <div class="about__table-wrap">
+                      <table class="about__table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Layer</th>
+                            <th scope="col">Primary Tooling</th>
+                            <th scope="col">Core Focus</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><span class="about__table-layer">Frontend</span></td>
+                            <td><span class="about__table-code">React 19</span> <span class="about__table-code">Next.js</span> <span class="about__table-code">TypeScript</span></td>
+                            <td>Fast, Accessible UI</td>
+                          </tr>
+                          <tr>
+                            <td><span class="about__table-layer">Backend</span></td>
+                            <td><span class="about__table-code">Node.js</span> <span class="about__table-code">Express</span> <span class="about__table-code">PostgreSQL</span></td>
+                            <td>Type-Safe &amp; Scalable APIs</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
 
-                  <!-- Slide 04 -->
+
+                  <!-- Slide 4 -->
                   <div class="about__slide" id="about-slide-3" role="tabpanel" aria-labelledby="about-tab-3">
-                    <h4 class="about__slide-title"><span class="about__title-prefix">//</span> Low-Ego Collaboration &amp; Reliability</h4>
+                    <h3 class="about__slide-title">
+                      <span class="about__syntax">##</span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Reliability &amp; Mindset">Reliability &amp; Mindset</span><span class="about__cursor" aria-hidden="true"></span></span>
+                    </h3>
                     <p class="about__slide-prose">
-                      Whether working solo or alongside a distributed team, I believe clear communication, disciplined follow-through, and low-ego collaboration are just as important as clean code. I build solutions meant to be read, maintained, and scaled with confidence.
+                      Whether working independently or with a team, I believe clear communication, dependable follow-through, and thoughtful collaboration are just as essential as clean code.
+                      <span class="about__blockquote">
+                        <span class="about__blockquote-sym" aria-hidden="true">&gt;</span> &ldquo;I build solutions meant to be read, maintained, and scaled with confidence.&rdquo;
+                      </span>
                     </p>
                   </div>
+
                 </div>
 
-                <!-- Streamlined Bottom Controls -->
-                <div class="about__controls">
-                  <button type="button" class="about__next-cta" data-about-action="next" aria-label="Proceed to next chapter">
-                    <span>Up next:</span>
-                    <span class="about__next-label" id="about-next-title">Modern Web Shift &rarr;</span>
+              </div>
+
+
+              <!-- Streamlined Bottom Controls Integrated into Window Footer -->
+              <div class="about__controls">
+                <button type="button" class="about__next-cta" data-about-action="next" aria-label="Proceed to next chapter">
+                  <span>Up next:</span>
+                  <span class="about__next-label" id="about-next-title">Modern Web Focus &rarr;</span>
+                </button>
+                <div class="about__arrow-group">
+                  <button type="button" class="about__arrow-btn" data-about-action="prev" aria-label="Previous chapter">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                   </button>
-                  <div class="about__arrow-group">
-                    <button type="button" class="about__arrow-btn" data-about-action="prev" aria-label="Previous chapter">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                      </svg>
-                    </button>
-                    <button type="button" class="about__arrow-btn" data-about-action="next" aria-label="Next chapter">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                      </svg>
-                    </button>
-                  </div>
+                  <button type="button" class="about__arrow-btn" data-about-action="next" aria-label="Next chapter">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <!-- /about__window -->
+      </div>
+      <!-- /container -->
 
-          <!-- Scrolling trait ticker -->
-          <div class="ticker-strip" aria-hidden="true">
-            <div class="ticker-track">
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i15"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i16"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i17"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i12"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i18"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i19"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i20"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i15"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">No Ego</span><span class="ticker-item__sub">Open to feedback</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i16"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Self-Disciplined</span><span class="ticker-item__sub">Follows through independently</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i17"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Adaptable</span><span class="ticker-item__sub">Comfortable across the stack</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i12"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Team Player</span><span class="ticker-item__sub">Friendly &amp; empathetic</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i18"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Inquisitive</span><span class="ticker-item__sub">I like understanding why</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i19"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Patient</span><span class="ticker-item__sub">Steady when things get messy</span>
-              </div>
-              <div class="ticker-item">
-                <div class="ticker-item__icon">
-                  <svg aria-hidden="true">
-                    <use href="assets/images/sprites/icons.svg#i20"></use>
-                  </svg>
-                </div>
-                <span class="ticker-item__head">Detail-Oriented</span><span class="ticker-item__sub">Polish matters</span>
-              </div>
+      <!-- Story-Driven Tall Hairline Milestone Columns (Full-Width Free-Form Ribbon) -->
+      <div class="about__metrics about__metrics--full reveal" aria-label="Career milestones and engineering background">
+        <div class="about__metrics-inner">
+          <div class="about__metric">
+            <div class="about__metric-header">
+              <span class="about__metric-val about__metric-val--indigo">15+</span>
+              <p class="about__metric-head">Years Coding</p>
             </div>
-          </div>
-        </section>
-
-        <!-- SERVICES -->
-        <section class="services" id="services" aria-labelledby="services-heading">
-          <div class="container">
-            <p class="section-label">What I Offer</p>
-            <h2 class="section-title" id="services-heading">Services</h2>
-            <p class="services__intro">
-              Whether you need a polished landing page or a fully-featured web application, I bring the same care and
-              craft to every engagement. Here's how I can help.
-            </p>
-
-            <!-- DEDICATED FULL-TIME SWE CARD -->
-            <div class="services__fulltime-card reveal">
-              <div class="services__fulltime-glow" aria-hidden="true"></div>
-              <div class="services__fulltime-content">
-                <div class="services__fulltime-badge-row">
-                  <span class="services__fulltime-badge">
-                    <span class="services__fulltime-dot" aria-hidden="true"></span>
-                    Actively Interviewing
-                  </span>
-                  <span class="services__fulltime-type">Full-Time &amp; Contract-to-Hire</span>
-                </div>
-                <h3 class="services__fulltime-title">Dedicated Software Engineering Roles</h3>
-                <p class="services__fulltime-desc">
-                  Looking for a high-velocity developer to join your engineering team? Beyond freelance contracts, I am actively seeking full-time <strong>Frontend</strong> and <strong>Full-Stack Software Engineering</strong> roles. I bring 100K+ lines of production architecture experience, deep problem-solving rigor (Top 1% LeetCode), and a craft-first focus on performant, accessible web applications.
-                </p>
-                <div class="services__fulltime-highlights">
-                  <div class="services__fulltime-item">
-                    <span class="services__fulltime-item-icon" aria-hidden="true">✦</span>
-                    <span><strong>Core Stack:</strong> TypeScript, React, Next.js, Node.js &amp; PostgreSQL</span>
-                  </div>
-                  <div class="services__fulltime-item">
-                    <span class="services__fulltime-item-icon" aria-hidden="true">✦</span>
-                    <span><strong>Background:</strong> B.S. Computer Science (Exp. Jan 2027) &amp; Solo Game Architect</span>
-                  </div>
-                </div>
-              </div>
-              <div class="services__fulltime-actions">
-                <a href="#contact" class="services__fulltime-btn">
-                  <span>Hire Me Full-Time</span>
-                  <svg width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-                <a href="resume/" class="services__fulltime-btn-secondary">
-                  <span>View Resume</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="services__freelance-head">
-              <h3 class="services__freelance-title">Freelance &amp; Contract Services</h3>
-            </div>
-
-            <ul class="services__grid">
-              <li class="service-card reveal">
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg>
-                    <use href="assets/images/sprites/icons.svg#i21"></use>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">Landing Pages &amp; Marketing Sites</h3>
-                <p class="service-card__desc">
-                  A fast, beautiful, fully-responsive website that converts visitors into customers. Built with semantic
-                  HTML, hand-crafted CSS, and smooth interactions — no bloated page builders, just clean code that scores
-                  well on Lighthouse.
-                </p>
-                <ul class="service-card__list">
-                  <li>Custom design or from your mockup</li>
-                  <li>Mobile-first, fully responsive</li>
-                  <li>Contact forms &amp; CTA integration</li>
-                  <li>Performance &amp; SEO optimised</li>
-                </ul>
-                <div class="service-card__cta">
-                  <span class="service-card__price">Starting from <strong>$300</strong></span>
-                  <a href="#contact" class="service-card__btn">Get a Quote</a>
-                </div>
-              </li>
-
-              <li class="service-card service-card--featured reveal">
-                <div class="service-card__badge">Most Popular</div>
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg>
-                    <use href="assets/images/sprites/icons.svg#i22"></use>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">React &amp; Next.js Web Apps</h3>
-                <p class="service-card__desc">
-                  Interactive, full-stack applications built with modern React, Next.js, and a Node/Express backend. From
-                  recipe apps to dashboards — if it needs dynamic data, real-time updates, or user authentication, this is
-                  the package.
-                </p>
-                <ul class="service-card__list">
-                  <li>React / Next.js frontend</li>
-                  <li>Node.js &amp; Express backend</li>
-                  <li>MongoDB or PostgreSQL database</li>
-                  <li>REST API design &amp; integration</li>
-                </ul>
-                <div class="service-card__cta">
-                  <span class="service-card__price">Starting from <strong>$800</strong></span>
-                  <a href="#contact" class="service-card__btn">Get a Quote</a>
-                </div>
-              </li>
-
-              <li class="service-card reveal">
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg>
-                    <use href="assets/images/sprites/icons.svg#i23"></use>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">Site Fixes &amp; Improvements</h3>
-                <p class="service-card__desc">
-                  Got an existing site that's slow, broken, or just needs a refresh? I can audit your codebase, squash
-                  bugs, improve performance, and add new features without the overhead of a full rebuild.
-                </p>
-                <ul class="service-card__list">
-                  <li>Bug fixes &amp; debugging</li>
-                  <li>Performance &amp; Lighthouse improvements</li>
-                  <li>Responsive / mobile fixes</li>
-                  <li>Feature additions to existing sites</li>
-                </ul>
-                <div class="service-card__cta">
-                  <span class="service-card__price">From <strong>$50 / hr</strong></span>
-                  <a href="#contact" class="service-card__btn">Get a Quote</a>
-                </div>
-              </li>
-
-              <li class="service-card reveal">
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg>
-                    <use href="assets/images/sprites/icons.svg#i24"></use>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">Ongoing Maintenance &amp; Support</h3>
-                <p class="service-card__desc">
-                  Keep your site healthy, secure, and up to date without thinking about it. Ideal for small businesses who
-                  need a reliable developer on call without committing to a full-time hire.
-                </p>
-                <ul class="service-card__list">
-                  <li>Monthly updates &amp; dependency patches</li>
-                  <li>Content &amp; copy updates</li>
-                  <li>Uptime monitoring &amp; quick fixes</li>
-                  <li>Priority response within 24 hours</li>
-                </ul>
-                <div class="service-card__cta">
-                  <span class="service-card__price">From <strong>$100 / mo</strong></span>
-                  <a href="#contact" class="service-card__btn">Get a Quote</a>
-                </div>
-              </li>
-            </ul>
-
-            <p class="services__note">
-              Not sure which fits your project? <a href="#contact">Send me a message</a> and we'll figure it out together
-              — no commitment required.
+            <p class="about__metric-body">
+              Dedicated problem solving across game loops, system architectures, and modern web applications.
             </p>
           </div>
-        </section>
-
-        <!-- CODING ACTIVITY -->
-        <section class="coding" id="coding" aria-labelledby="coding-heading">
-          <div class="container">
-            <div class="coding__head reveal">
-              <p class="section-label">Daily Consistency &amp; Problem Solving</p>
-              <h2 class="section-title" id="coding-heading">Coding Activity</h2>
+          <div class="about__metric">
+            <div class="about__metric-header">
+              <span class="about__metric-val about__metric-val--indigo">2</span>
+              <p class="about__metric-head">Commercial Games</p>
             </div>
+            <p class="about__metric-body">
+              Independently designed, programmed, and shipped two standalone titles on Xbox 360 Indie Games.
+            </p>
+          </div>
+          <div class="about__metric">
+            <div class="about__metric-header">
+              <span class="about__metric-val about__metric-val--indigo">B.S.</span>
+              <p class="about__metric-head">Computer Science</p>
+            </div>
+            <p class="about__metric-body">
+              Rigorous foundation in computer science, data structures, and production software engineering principles.
+            </p>
+          </div>
+          <div class="about__metric">
+            <div class="about__metric-header">
+              <span class="about__metric-val about__metric-val--amber">100%</span>
+              <p class="about__metric-head">Follow-Through</p>
+            </div>
+            <p class="about__metric-body">
+              Self-directed problem ownership from initial concept and design to final deployment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="coding__grid">
-              <!-- LEFT CARD: GITHUB CONSISTENCY -->
-              <div class="coding__col coding__col--github reveal">
-                <div>
-                  <div class="coding__col-header">
-                    <div class="coding__col-heading">
-                      <svg width="20" height="20" aria-hidden="true">
-                        <use href="assets/images/sprites/icons.svg#i02"></use>
-                      </svg>
-                      <span>GitHub Consistency</span>
-                    </div>
-                  </div>
+    <!-- CODING ACTIVITY (AUTHENTIC UNIX TERMINAL) -->
+    <section class="coding" id="coding" aria-labelledby="coding-heading">
+      <div class="coding__aurora" aria-hidden="true">
+        <div class="coding__glow-orb coding__glow-orb--1"></div>
+        <div class="coding__glow-orb coding__glow-orb--2"></div>
+      </div>
+      <div class="container">
+        <div class="coding__head reveal">
+          <p class="section-label">Track Record</p>
+          <h2 class="section-title" id="coding-heading">Coding Activity</h2>
+          <p class="coding__intro">
+            A live look at my daily commit streak, repository activity, and problem-solving benchmarks across <strong>GitHub</strong>, <strong>LeetCode</strong>, and <strong>Codewars</strong>.
+          </p>
+        </div>
 
-                  <!-- 3 High-Impact GitHub Stats -->
-                  <div class="coding__stats-row" id="github-stats" aria-live="polite" aria-atomic="true">
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="stat-total">809</span>
-                      <span class="coding__stat-label" id="stat-total-label">Contribs (12M)</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="stat-streak">1.9K</span>
-                      <span class="coding__stat-label">Day Streak</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="stat-repos">24+</span>
-                      <span class="coding__stat-label">Public Repos</span>
-                    </div>
-                  </div>
+        <!-- UNIX TERMINAL CHASSIS -->
+        <article class="terminal-window reveal" id="terminal-window">
 
-                  <!-- Heatmap + Multi-Year Selector Box -->
-                  <div class="github__graph-wrap">
-                    <div class="github__year-selector" id="github-year-selector" aria-label="Select year" role="group"></div>
-                    <div class="github__months" id="github-months" aria-hidden="true"></div>
-                    <div class="github__grid-body">
-                      <div class="github__day-labels" aria-hidden="true">
-                        <div class="github__day-label"></div>
-                        <div class="github__day-label">Mon</div>
-                        <div class="github__day-label"></div>
-                        <div class="github__day-label">Wed</div>
-                        <div class="github__day-label"></div>
-                        <div class="github__day-label">Fri</div>
-                        <div class="github__day-label"></div>
-                      </div>
-                      <div class="github__grid-scroll">
-                        <div class="github__grid" id="github-grid" aria-hidden="true"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Matching Footer on GitHub Card -->
-                <div class="coding__col-footer">
-                  <span class="coding__footer-desc">Open-Source &amp; Private Commit Cadence</span>
-                  <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" class="coding__footer-pill" aria-label="View Matthew's GitHub profile, opens in new tab">
-                    <span>GitHub ↗</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- RIGHT CARD: ALGORITHM PROBLEM SOLVING -->
-              <div class="coding__col coding__col--algo reveal" id="leetcode-card">
-                <div>
-                  <div class="coding__col-header">
-                    <div class="coding__col-heading">
-                      <svg width="20" height="20" aria-hidden="true">
-                        <use href="assets/images/sprites/icons.svg#i25"></use>
-                      </svg>
-                      <span>Algorithm Problem Solving</span>
-                    </div>
-                  </div>
-
-                  <!-- Dynamic 3-Stat Metric Row Matching Left Card -->
-                  <div class="coding__stats-row" id="algo-stats-row" aria-live="polite" aria-atomic="true">
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="lc-stat-1">1,267</span>
-                      <span class="coding__stat-label" id="lc-stat-lbl-1">Total Solved</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num coding__stat-num--accent" id="lc-stat-2">Top 1%</span>
-                      <span class="coding__stat-label" id="lc-stat-lbl-2">Global Rank (#15.1K)</span>
-                    </div>
-                    <div class="coding__stat-box">
-                      <span class="coding__stat-num" id="lc-stat-3">83.4%</span>
-                      <span class="coding__stat-label" id="lc-stat-lbl-3">Acceptance</span>
-                    </div>
-                  </div>
-
-                  <!-- Integrated Platform Container Box -->
-                  <div class="algo__container">
-                    <!-- Tab Switcher Strip -->
-                    <div class="algo__tabs" role="tablist" aria-label="Algorithmic platform selection">
-                      <button type="button" role="tab" aria-selected="true" aria-controls="panel-leetcode" id="tab-btn-lc" class="algo__tab-btn active">
-                        <span class="algo__tab-icon" style="color: #ffb700;" aria-hidden="true">⚡</span>
-                        <span>LeetCode</span>
-                      </button>
-                      <button type="button" role="tab" aria-selected="false" aria-controls="panel-codewars" id="tab-btn-cw" class="algo__tab-btn">
-                        <span class="algo__tab-icon" style="color: var(--complementary);" aria-hidden="true">🥋</span>
-                        <span>Codewars</span>
-                      </button>
-                    </div>
-
-                    <!-- 1. LEETCODE VIEW (DEFAULT) -->
-                    <div class="algo__panel active" id="panel-leetcode" role="tabpanel" aria-labelledby="tab-btn-lc">
-                      <div class="leetcode__breakdown" id="leetcode-breakdown">
-                        <div class="lc-bar-row">
-                          <span class="lc-bar-label lc-easy">Easy</span>
-                          <div class="lc-bar-track">
-                            <div class="lc-bar-fill lc-easy-fill" id="lc-easy-bar"></div>
-                          </div>
-                          <span class="lc-bar-count" id="lc-easy-count">825 / 966</span>
-                        </div>
-                        <div class="lc-bar-row">
-                          <span class="lc-bar-label lc-medium">Medium</span>
-                          <div class="lc-bar-track">
-                            <div class="lc-bar-fill lc-medium-fill" id="lc-medium-bar"></div>
-                          </div>
-                          <span class="lc-bar-count" id="lc-medium-count">428 / 2,117</span>
-                        </div>
-                        <div class="lc-bar-row">
-                          <span class="lc-bar-label lc-hard">Hard</span>
-                          <div class="lc-bar-track">
-                            <div class="lc-bar-fill lc-hard-fill" id="lc-hard-bar"></div>
-                          </div>
-                          <span class="lc-bar-count" id="lc-hard-count">14 / 977</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- 2. CODEWARS VIEW -->
-                    <div class="algo__panel" id="panel-codewars" role="tabpanel" aria-labelledby="tab-btn-cw" hidden>
-                      <div class="codewars__content">
-                        <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" class="codewars__badge-link" aria-label="View Matthew McGrath on Codewars, opens in new tab">
-                          <img src="https://www.codewars.com/users/Epitome87/badges/large" alt="Codewars rank badge for Epitome87" class="codewars__badge-img" loading="lazy" width="400" height="100" />
-                        </a>
-                        <p class="codewars__blurb">
-                          Sharpening problem-solving and algorithmic discipline, one kata at a time.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Matching Footer on Algorithm Card -->
-                <div class="coding__col-footer">
-                  <span class="coding__footer-desc" id="algo-footer-desc">Data Structures &bull; Graph Theory &bull; Dynamic Programming</span>
-                  <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" class="coding__footer-pill coding__footer-pill--accent" id="algo-footer-link" aria-label="View Matthew's LeetCode profile, opens in new tab">
-                    <span>LeetCode ↗</span>
-                  </a>
-                </div>
-              </div>
+          <!-- TITLEBAR -->
+          <div class="term-titlebar">
+            <div class="term-dots" aria-hidden="true">
+              <span class="t-dot t-dot--r"></span>
+              <span class="t-dot t-dot--y"></span>
+              <span class="t-dot t-dot--g"></span>
+            </div>
+            <div class="term-title-text">
+              <span>terminal</span>
+              <span>—</span>
+              <strong>zsh</strong>
+              <span class="term-title-dim"><span aria-hidden="true">—</span><span>118x36</span></span>
+            </div>
+            <div class="term-live-tag">
+              <span class="live-pulse" aria-hidden="true"></span>
+              <span class="term-live-pid">PID: 41829 </span>
+              <span class="term-live-status">ACTIVE</span>
             </div>
           </div>
-        </section>
 
-        <!-- CONTACT -->
-        <section class="contact" id="contact" aria-labelledby="contact-heading">
-          <div class="container">
-            <p class="section-label">Get In Touch</p>
-            <h2 class="section-title" id="contact-heading">Let's Talk</h2>
+          <!-- TERMINAL BUFFER -->
+          <div class="term-content" tabindex="0" role="region" aria-label="Terminal output stream">
 
-            <!-- Trust signals -->
-            <ul class="trust-band reveal">
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i27"></use>
-                </svg>
-                <div>
-                  <p class="trust-item__label">Response Time</p>
-                  <p class="trust-item__value">Within 24 hours</p>
+            <!-- ===============================================================
+                 COMMAND 1: DEVFETCH
+                 =============================================================== -->
+            <section class="term-block" aria-label="System Developer Overview">
+              <div class="cmd-line">
+                <div class="cmd-lead">
+                  <span class="p-host">matthew@dev</span>
+                  <span class="p-arrow">❯</span>
+                  <span class="p-cmd">devfetch</span>
+                  <span class="p-flag">--profile</span>
                 </div>
+              </div>
+
+              <div class="neofetch-wrap">
+                <!-- Monogram MM in Terminal Rainbow Spectrum -->
+                <div class="ascii-art-box" aria-hidden="true">
+                  <pre class="ascii-logo-view ascii-rainbow">
+<span class="art-c1"> __  __ __  __ </span>
+<span class="art-c2">|  \/  |  \/  |</span>
+<span class="art-c3">| |\/| | |\/| |</span>
+<span class="art-c4">|_|  |_|_|  |_|</span>
+<span class="art-c5"> [DEV // SWE]</span></pre>
+                </div>
+
+                <!-- Neofetch Specs -->
+                <div class="neofetch-specs">
+                  <div class="spec-header-line">
+                    <span>matthew@workstation</span>
+                    <span class="spec-status">[ACTIVE]</span>
+                  </div>
+                  <div class="spec-sep" aria-hidden="true">-----------------------------------------------------</div>
+                  <div class="spec-row"><span class="spec-k">USER</span><span class="spec-v"><strong>Matthew McGrath</strong></span></div>
+                  <div class="spec-row"><span class="spec-k">UPTIME</span><span class="spec-v"><strong id="stat-streak">1,883 days</strong> commit streak</span></div>
+                  <div class="spec-row"><span class="spec-k">REPOS</span><span class="spec-v"><strong>24+</strong> active repositories</span></div>
+                  <div class="spec-row"><span class="spec-k">PROFILE</span><span class="spec-v">github.com/Epitome87</span></div>
+
+                  <!-- ANSI 8-Color Palette -->
+                  <div class="ansi-palette-row" aria-hidden="true">
+                    <span>ANSI-8:</span>
+                    <div class="ansi-palette">
+                      <span class="ansi-block" style="background: #1e3a5f;" title="Dark Blue"></span>
+                      <span class="ansi-block" style="background: var(--primary);" title="Primary Blue"></span>
+                      <span class="ansi-block" style="background: var(--cyan);" title="Cyan"></span>
+                      <span class="ansi-block" style="background: var(--green);" title="Green"></span>
+                      <span class="ansi-block" style="background: var(--complementary);" title="Amber"></span>
+                      <span class="ansi-block" style="background: var(--purple, #c084fc);" title="Purple"></span>
+                      <span class="ansi-block" style="background: var(--dot-r);" title="Red"></span>
+                      <span class="ansi-block" style="background: #f8fafc;" title="White"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ===============================================================
+                 COMMAND 2: GIT COMMIT CADENCE STREAM
+                 =============================================================== -->
+            <section class="term-block github__graph-wrap" aria-label="GitHub Commit History">
+              <div class="cmd-line">
+                <div class="cmd-lead">
+                  <span class="p-host">matthew@dev</span>
+                  <span class="p-branch">(git:main)</span>
+                  <span class="p-arrow">❯</span>
+                  <span class="p-cmd">git cadence</span>
+                  <span class="p-flag" id="git-flag-text">--year=last</span>
+                </div>
+
+                <!-- Year Selector Buttons -->
+                <div class="cli-flags github__year-selector" id="github-year-selector" role="group" aria-label="Select Year"></div>
+              </div>
+
+              <!-- Panoramic 53-Week Heatmap Stream with Month Ruler -->
+              <div class="heatmap-stream">
+                <div class="github__months" id="github-months" aria-hidden="true"></div>
+                <div class="github__grid-body">
+                  <div class="github__day-labels" aria-hidden="true">
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Mon</div>
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Wed</div>
+                    <div class="github__day-label"></div>
+                    <div class="github__day-label">Fri</div>
+                    <div class="github__day-label"></div>
+                  </div>
+                  <div class="github__grid-scroll">
+                    <div class="github__grid" id="github-grid" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stream Legend & Dynamic Summary -->
+              <div class="stream-legend">
+                <div>
+                  <span id="git-year-summary"><strong class="accent" id="stat-total">809</strong> <span id="stat-total-label">contributions in the last 12 months</span></span>
+                </div>
+                <div class="stream-scale">
+                  <span>Less</span>
+                  <span class="legend-box" style="background: var(--gh-0);"></span>
+                  <span class="legend-box" style="background: var(--gh-1);"></span>
+                  <span class="legend-box" style="background: var(--gh-2);"></span>
+                  <span class="legend-box" style="background: var(--gh-3);"></span>
+                  <span class="legend-box" style="background: var(--gh-4);"></span>
+                  <span>More</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- ===============================================================
+                 COMMAND 3: ALGORITHM PROBLEM SOLVING (LEETCODE & CODEWARS)
+                 =============================================================== -->
+            <section class="term-block" id="leetcode-card" aria-label="Algorithmic Problem Solving">
+              <div class="cmd-line">
+                <div class="cmd-lead">
+                  <span class="p-host">matthew@dev</span>
+                  <span class="p-arrow">❯</span>
+                  <span class="p-cmd">algo stats</span>
+                  <span class="p-flag" id="algo-flag-text">--platform=leetcode</span>
+                  <span class="term-cursor" aria-hidden="true"></span>
+                </div>
+
+                <!-- Platform Switcher Flags -->
+                <div class="cli-flags" role="tablist" aria-label="Algorithm Platform Selection">
+                  <button type="button" role="tab" aria-selected="true" aria-controls="panel-leetcode" id="tab-btn-lc" class="flag-btn active">--platform=leetcode</button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="panel-codewars" id="tab-btn-cw" class="flag-btn">--platform=codewars</button>
+                </div>
+              </div>
+
+              <!-- PLATFORM PANELS STACK (ZERO-SHIFT GRID CONTAINER) -->
+              <div class="plat-container">
+                <!-- LEETCODE PANEL -->
+                <div class="plat-section active" id="panel-leetcode" role="tabpanel" aria-labelledby="tab-btn-lc">
+                  <div class="algo-program-header">
+                    <span class="algo-badge-ascii">[TARGET: LEETCODE]</span>
+                  </div>
+
+                  <div class="ascii-table-wrap">
+                    <table class="ascii-box-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">METRIC</th>
+                          <th class="col-pipe" aria-hidden="true">│</th>
+                          <th scope="col">RESULT</th>
+                          <th class="col-pipe" aria-hidden="true">│</th>
+                          <th scope="col">STATUS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Rank</td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><strong id="lc-stat-2">15,090</strong></td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><span class="stdout-tag tag-top">[TOP 15%]</span></td>
+                        </tr>
+                        <tr>
+                          <td>Solved</td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><strong id="lc-stat-1">1,270</strong></td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><span class="stdout-tag tag-pass">[TOP 1.0%]</span></td>
+                        </tr>
+                        <tr>
+                          <td>Acceptance</td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><strong id="lc-stat-3">83.4%</strong></td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><span class="stdout-tag tag-dim">OPTIMAL</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Difficulty Progress Gauges (ASCII Character Blocks) -->
+                  <div class="gauge-stream" id="leetcode-breakdown">
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii lc-easy">EASY</span>
+                      <span class="g-bar-ascii lc-easy" id="lc-easy-bar" aria-hidden="true">[<span class="g-fill">███████████████████████████████</span><span class="g-empty">█████</span>]</span>
+                      <span class="g-count-ascii" id="lc-easy-count"><span class="g-solved-total">828 / 968 </span><strong class="g-pct">(85.5%)</strong></span>
+                    </div>
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii lc-medium">MEDIUM</span>
+                      <span class="g-bar-ascii lc-medium" id="lc-medium-bar" aria-hidden="true">[<span class="g-fill">███████</span><span class="g-empty">█████████████████████████████</span>]</span>
+                      <span class="g-count-ascii" id="lc-medium-count"><span class="g-solved-total">428 / 2,122 </span><strong class="g-pct">(20.2%)</strong></span>
+                    </div>
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii lc-hard">HARD</span>
+                      <span class="g-bar-ascii lc-hard" id="lc-hard-bar" aria-hidden="true">[<span class="g-fill">█</span><span class="g-empty">███████████████████████████████████</span>]</span>
+                      <span class="g-count-ascii" id="lc-hard-count"><span class="g-solved-total">14 / 979 </span><strong class="g-pct">(1.4%)</strong></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CODEWARS PANEL -->
+                <div class="plat-section" id="panel-codewars" role="tabpanel" aria-labelledby="tab-btn-cw" hidden>
+                  <div class="algo-program-header">
+                    <span class="algo-badge-ascii algo-cw-badge">[TARGET: CODEWARS]</span>
+                  </div>
+
+                  <div class="ascii-table-wrap">
+                    <table class="ascii-box-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">METRIC</th>
+                          <th class="col-pipe" aria-hidden="true">│</th>
+                          <th scope="col">RESULT</th>
+                          <th class="col-pipe" aria-hidden="true">│</th>
+                          <th scope="col">STATUS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Leaderboard</td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td class="accent"><strong>Top 0.1%</strong></td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><span class="stdout-tag tag-top">[ELITE]</span></td>
+                        </tr>
+                        <tr>
+                          <td>Katas</td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><strong>2,314</strong></td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><span class="stdout-tag tag-dim">COMPLETED</span></td>
+                        </tr>
+                        <tr>
+                          <td>Honor</td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><strong>9,949</strong></td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><span class="stdout-tag tag-top">[TOP 800]</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Language Discipline Progress Gauges (ASCII Character Blocks) -->
+                  <div class="gauge-stream gauge-grid-2col">
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii cw-js">JAVASCRIPT</span>
+                      <span class="g-bar-ascii cw-js" id="cw-js-bar" aria-hidden="true">[<span class="g-fill">████████████████████████████</span><span class="g-empty">████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">2.61 Kyu</strong></span>
+                    </div>
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii cw-py">PYTHON</span>
+                      <span class="g-bar-ascii cw-py" id="cw-py-bar" aria-hidden="true">[<span class="g-fill">█████████████████████████</span><span class="g-empty">███████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">3.14 Kyu</strong></span>
+                    </div>
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii cw-ts">TYPESCRIPT</span>
+                      <span class="g-bar-ascii cw-ts" id="cw-ts-bar" aria-hidden="true">[<span class="g-fill">████████</span><span class="g-empty">████████████████████████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">6.35 Kyu</strong></span>
+                    </div>
+                    <div class="gauge-row-ascii">
+                      <span class="g-label-ascii cw-sql">SQL</span>
+                      <span class="g-bar-ascii cw-sql" id="cw-sql-bar" aria-hidden="true">[<span class="g-fill">████</span><span class="g-empty">████████████████████████████████</span>]</span>
+                      <span class="g-count-ascii"><strong class="g-pct">7.18 Kyu</strong></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- TERMINAL FOOTER STATUS BAR -->
+          <footer class="term-footer">
+            <div class="term-footer-left">
+              <span>SESSION: UTF-8</span>
+              <span class="footer-sep" aria-hidden="true">|</span>
+              <span>BRANCH: main</span>
+            </div>
+            <div class="term-footer-links">
+              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's GitHub profile, opens in new tab">gh://Epitome87 ↗</a>
+              <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" aria-label="Matthew's LeetCode profile, opens in new tab">lc://Epitome87 ↗</a>
+              <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's Codewars profile, opens in new tab">cw://Epitome87 ↗</a>
+            </div>
+          </footer>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <p class="section-label">What I Offer</p>
+        <h2 class="section-title" id="services-heading">Services</h2>
+        <p class="services__intro">
+          Whether you need a polished landing page or a fully-featured web application, I bring the same care and
+          craft to every engagement. Here's how I can help.
+        </p>
+        <!-- 1 + 3 + 1 ARCHITECTURAL SYSTEM -->
+        <div class="services__grid">
+
+          <!-- TOP (1): FULL-TIME SWE FLAGSHIP HERO CARD -->
+          <article class="services__card services__card--hero reveal">
+            <div class="services__hero-content">
+              <h3 class="services__hero-title">Full-Time Software Engineering Roles</h3>
+              <p class="services__hero-desc">
+                Looking for a dependable engineer to join your product team? In addition to contract work, I am actively interviewing for full-time <strong>Frontend</strong> and <strong>Full-Stack Software Engineering</strong> positions. I bring deep experience with modern React and TypeScript architectures, a strong computer science foundation, and a track record of daily commit discipline.
+              </p>
+              <div class="services__hero-actions">
+                <a href="#contact" class="services__btn services__btn--primary" data-service-subject="Inquiry: Full-Time Software Engineering Role" data-service-msg="Hi Matthew, I'd like to discuss a full-time software engineering role on our team..." aria-label="Inquire about hiring Matthew for full-time software engineering roles">
+                  <span>Inquire for Roles →</span>
+                </a>
+                <a href="resume/" class="services__btn services__btn--ghost" aria-label="View Matthew's resume">
+                  <span>View Resume ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <ul class="services__hero-bullets">
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>B.S. in Computer Science</strong> (WGU, Expected Jan 2027)</span>
               </li>
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i28"></use>
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <div>
-                  <p class="trust-item__label">Availability</p>
-                  <p class="trust-item__value">Accepting projects now</p>
-                </div>
+                <span><strong>Core Tech Stack:</strong> React, Next.js, TypeScript, Node.js &amp; SQL</span>
               </li>
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i11"></use>
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <div>
-                  <p class="trust-item__label">Working Hours</p>
-                  <p class="trust-item__value">Mon – Fri, 8 AM – 8 PM PT</p>
-                </div>
+                <span><strong>Systems &amp; Architecture:</strong> Commercial 3D games &amp; scalable web apps</span>
               </li>
-              <li class="trust-item">
-                <svg class="trust-item__icon" aria-hidden="true">
-                  <use href="assets/images/sprites/icons.svg#i29"></use>
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <div>
-                  <p class="trust-item__label">Location</p>
-                  <p class="trust-item__value">Riverside, CA (Remote-friendly)</p>
-                </div>
+                <span><strong>Direct Hire Availability:</strong> W2 / Remote or Hybrid</span>
               </li>
             </ul>
+          </article>
 
-            <!-- Contact CTA + form -->
-            <div class="contact__layout">
-              <!-- Contact CTA -->
-              <div class="contact__cta reveal from-left">
-                <p class="contact__tagline">Have a project? A role? <em>Let's make something great.</em></p>
-                <div class="contact__test">
-                  <p class="contact__blurb">
-                    I am currently open to freelance projects and full-time Front-End or Full-Stack roles. Whether it's a
-                    quick hello or a detailed proposal - every message gets my full attention, a clear response, and a
-                    result worth showing off.
-                  </p>
-                </div>
+
+          <!-- MIDDLE (3): 3-COLUMN CORE DELIVERABLES -->
+          <div class="services__subgrid">
+
+            <!-- Card 1: React & Next.js Web Apps -->
+            <article class="services__card services__card--tier reveal">
+              <div class="services__tier-head">
+                <h3 class="services__tier-title">React &amp; Next.js Web Apps</h3>
+                <p class="services__tier-desc">Interactive, dynamic web applications with clean architecture, database integration, user authentication, and fluid state management.</p>
               </div>
-              <!-- Contact form -->
-              <div class="reveal from-right form">
-                <div class="form__form">
-                  <form id="contact-form" action="https://formsubmit.co/b66328d2376be951d08697e043e534b2" method="POST">
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
-                    <input type="hidden" name="_subject" value="New message from matthewmcgrath.dev" />
-                    <input type="hidden" name="_template" value="table" />
-                    <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-                    <div class="form-grid">
-                      <div class="form-group">
-                        <label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required />
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" required />
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
-                    </div>
-                    <button type="submit" class="form-submit btn-primary" id="form-submit-btn">
-                      <span>Send Message</span>
-                      <svg width="14" height="14" aria-hidden="true">
-                        <use href="assets/images/sprites/icons.svg#i31"></use>
-                      </svg>
-                    </button>
-                    <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
-                  </form>
+              <ul class="services__tier-bullets">
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>React 19 &amp; Next.js App Router</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Node.js &amp; PostgreSQL / MongoDB</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>REST / GraphQL API design &amp; Auth</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Type-safe TypeScript &amp; robust state management</span>
+                </li>
+              </ul>
+              <div class="services__tier-foot">
+                <div class="services__price">
+                  <small>Starting from</small>
+                  <strong>$1,500</strong>
                 </div>
+                <a href="#contact" class="services__link" data-service-subject="Inquiry: React &amp; Next.js Web App" data-service-msg="Hi Matthew, I'd like to talk about a React &amp; Next.js web application project..." aria-label="Get a quote for React and Next.js Web Apps">
+                  <span>Get a Quote →</span>
+                </a>
               </div>
+            </article>
+
+
+            <!-- Card 2: Landing Pages & Sites -->
+            <article class="services__card services__card--tier reveal">
+              <div class="services__tier-head">
+                <h3 class="services__tier-title">Landing Pages &amp; Sites</h3>
+                <p class="services__tier-desc">High-converting, ultra-fast marketing pages and portfolio websites engineered for 98 Lighthouse scores and WCAG AA accessibility.</p>
+              </div>
+              <ul class="services__tier-bullets">
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Custom design or from your mockup</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Clean SCSS architecture &amp; zero bloat</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Contact forms &amp; CTA conversion flow</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Lighthouse 98 &amp; SEO optimization</span>
+                </li>
+              </ul>
+              <div class="services__tier-foot">
+                <div class="services__price">
+                  <small>Starting from</small>
+                  <strong>$650</strong>
+                </div>
+                <a href="#contact" class="services__link" data-service-subject="Inquiry: Landing Page &amp; Marketing Site" data-service-msg="Hi Matthew, I'd like to discuss building a custom landing page or marketing site..." aria-label="Get a quote for Landing Pages and Marketing Sites">
+                  <span>Get a Quote →</span>
+                </a>
+              </div>
+            </article>
+
+
+            <!-- Card 3: Site Fixes & Code Audits -->
+            <article class="services__card services__card--tier reveal">
+              <div class="services__tier-head">
+                <h3 class="services__tier-title">Site Audits &amp; Bug Fixes</h3>
+                <p class="services__tier-desc">In-depth codebase diagnostics, Core Web Vitals speed profiling, bug fixing, and feature additions for existing web applications.</p>
+              </div>
+              <ul class="services__tier-bullets">
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Bug fixing, console errors &amp; debugging</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Core Web Vitals &amp; speed tune-ups</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Responsive mobile viewport fixes</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Documented clean Git pull requests</span>
+                </li>
+              </ul>
+              <div class="services__tier-foot">
+                <div class="services__price">
+                  <small>Starting from</small>
+                  <strong>$60 / hr</strong>
+                </div>
+                <a href="#contact" class="services__link" data-service-subject="Inquiry: Site Fixes &amp; Code Audit" data-service-msg="Hi Matthew, I have an existing website that needs bug fixes and performance improvements..." aria-label="Book a code audit or site fix">
+                  <span>Book Audit →</span>
+                </a>
+              </div>
+            </article>
+
+          </div>
+
+
+          <!-- BOTTOM (1): ONGOING MAINTENANCE RETAINER STRIP -->
+          <article class="services__card services__card--retainer reveal">
+            <div class="services__retainer-content">
+              <h3 class="services__retainer-title">Ongoing Maintenance &amp; Developer Retainer</h3>
+              <p class="services__retainer-desc">
+                Keep your site healthy, secure, and continuously updated without thinking about it. A dedicated developer on call for monthly updates, security patches, and rapid improvements.
+              </p>
+            </div>
+            <div class="services__retainer-action">
+              <div class="services__price">
+                <small>Starting from</small>
+                <strong>$250 / mo</strong>
+              </div>
+              <a href="#contact" class="services__link" data-service-subject="Inquiry: Monthly Developer Retainer" data-service-msg="Hi Matthew, I'm interested in an ongoing maintenance and support retainer..." aria-label="Get a quote for Ongoing Maintenance & Support Retainer">
+                <span>Get a Quote →</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="services__note">
+          Not sure which fits your project?
+          <a href="#contact" data-service-subject="Inquiry: General Hello" data-service-msg="Hi Matthew, I have a project in mind and would like to explore options..." aria-label="Send Matthew a general message">Send me a message</a>
+          and we'll figure it out together. No commitment required.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="section-label">Get In Touch</p>
+        <div class="contact__hero-lockup">
+          <h2 class="section-title contact__title" id="contact-heading">Let's Talk</h2>
+          <div class="contact__avatar-chassis" id="contact-avatar-chassis">
+            <!-- Dynamic Speech Bubble (Positioned at mouth Y-level) -->
+            <div class="contact__speech-bubble" id="contact-speech-bubble" aria-hidden="true">
+              <div class="contact__bubble-tag" id="contact-bubble-tag">👋 Let's Connect!</div>
+              <div class="contact__bubble-title" id="contact-bubble-title">How can I help?</div>
+              <div class="contact__bubble-sub" id="contact-bubble-sub">Tell me about what you're looking to build or hire for.</div>
+            </div>
+
+            <div class="contact__avatar-wrap" id="contact-avatar-wrap">
+              <img src="assets/images/branding/web-app-manifest-512x512.png"
+                   alt="Matthew McGrath avatar"
+                   class="contact__avatar-img"
+                   id="contact-avatar-img"
+                   loading="lazy" decoding="async" width="512" height="512" />
             </div>
           </div>
-        </section>
+          <p class="contact__tagline">Have a project? A role? <em>Let's make something great.</em></p>
+        </div>
+
+        <!-- Contact form -->
+        <div class="contact__layout">
+          <div class="form">
+            <div class="form__form">
+              <form id="contact-form" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                <!-- 2-Column Name & Email -->
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" spellcheck="false" required aria-required="true" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-required="true" />
+                  </div>
+                </div>
+
+                <!-- Compact Topic / Subject Dropdown (Directly powers FormSubmit subject) -->
+                <div class="form-group">
+                  <label for="topic-select">I'd like to discuss <span aria-hidden="true">*</span></label>
+                  <div class="select-wrapper">
+                    <select id="topic-select" name="_subject" class="form-select" aria-label="Select message topic">
+                      <option value="Inquiry: Full-Time Software Engineering Role" aria-label="Full-Time Software Engineering Role">💼 Full-Time Software Engineering Role</option>
+                      <option value="Inquiry: React &amp; Next.js Web App" aria-label="React and Next.js Web App or SaaS">⚡ React &amp; Next.js Web App / SaaS</option>
+                      <option value="Inquiry: Landing Page &amp; Marketing Site" aria-label="Landing Page and Marketing Site">🌐 Landing Page &amp; Marketing Site</option>
+                      <option value="Inquiry: Site Fixes &amp; Code Audit" aria-label="Site Fixes, Speed and Code Audit">🔍 Site Fixes, Speed &amp; Code Audit</option>
+                      <option value="Inquiry: Monthly Developer Retainer" aria-label="Ongoing Maintenance and Retainer">🛠️ Ongoing Maintenance &amp; Retainer</option>
+                      <option value="Inquiry: General Hello" aria-label="General Inquiry / Hello">☕ General Inquiry / Hello</option>
+                    </select>
+                    <span class="select-chevron" aria-hidden="true">▾</span>
+                  </div>
+                </div>
+
+                <!-- Message Textarea -->
+                <div class="form-group">
+                  <label for="message">Message <span aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" rows="5" placeholder="Tell me about what you're looking to build or hire for..." required aria-required="true"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit btn-primary" id="form-submit-btn">
+                  <span>Send Message</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+                <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
