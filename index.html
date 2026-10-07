@@ -58,6 +58,16 @@
   <link rel="preload" href="assets/fonts/cabinet-grotesk/CabinetGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
 
+  <!-- Pre-paint theme initialization (eliminates FOUC and detects OS preference) -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/main.css" />
 
@@ -159,7 +169,11 @@
                 "applicationCategory": "GameApplication",
                 "operatingSystem": "Xbox 360",
                 "description": "A 3D wave-defense game built solo in C# and published on Xbox Live Indie Games.",
-                "codeRepository": "https://github.com/Epitome87/Avatars-In-Grave-Danger"
+                "codeRepository": "https://github.com/Epitome87/Avatars-In-Grave-Danger",
+                "programmingLanguage": ["C#", "XNA Framework"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
               }
             },
             {
@@ -171,7 +185,11 @@
                 "applicationCategory": "WebApplication",
                 "description": "Full-stack React clone of Flat UI with custom color palettes and material design components.",
                 "url": "https://epitome87.github.io/React-Flat-UI/",
-                "codeRepository": "https://github.com/Epitome87/React-Flat-UI"
+                "codeRepository": "https://github.com/Epitome87/React-Flat-UI",
+                "programmingLanguage": ["JavaScript", "React", "Material-UI"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
               }
             },
             {
@@ -179,11 +197,47 @@
               "position": 3,
               "item": {
                 "@type": "WebApplication",
-                "name": "Recipe App",
+                "name": "Frontend Collection",
                 "applicationCategory": "WebApplication",
-                "description": "Fullstack app for searching and browsing recipes with smooth animations and polished UI.",
-                "url": "https://react-recipes-d136loejp-epitome87.vercel.app/",
-                "codeRepository": "https://github.com/Epitome87/React-Recipes"
+                "description": "Assortment of responsive frontend projects, components, and marketing landing pages.",
+                "url": "https://github.com/Epitome87/front-end-mentor-journey",
+                "codeRepository": "https://github.com/Epitome87/front-end-mentor-journey",
+                "programmingLanguage": ["HTML5", "CSS3", "Sass", "JavaScript"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Omnifood",
+                "applicationCategory": "WebApplication",
+                "description": "Large-scope responsive landing page for a food-delivery business crafted with modern UX.",
+                "url": "https://epitome87.github.io/Omni-Food/",
+                "codeRepository": "https://github.com/Epitome87/Omni-Food",
+                "programmingLanguage": ["HTML5", "CSS3", "JavaScript", "Sass"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Personal Portfolio",
+                "applicationCategory": "WebApplication",
+                "description": "High-performance developer portfolio showcasing frontend engineering and design systems.",
+                "url": "https://matthewmcgrath.dev/",
+                "codeRepository": "https://github.com/Epitome87/personal-portfolio-2023",
+                "programmingLanguage": ["HTML5", "CSS3", "JavaScript", "Sass"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
               }
             }
           ]
@@ -205,9 +259,10 @@
       </a>
       <ul class="nav__links">
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Skills</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
         <li><a href="#coding">Activity</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="resume/">Resume</a></li>
       </ul>
@@ -236,9 +291,10 @@
     </div>
     <ul class="nav__mobile" id="mobile-menu" aria-hidden="true">
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Skills</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
       <li><a href="#coding">Activity</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="resume/">Resume</a></li>
     </ul>
@@ -265,10 +321,10 @@
           <!-- Tagline + CTAs -->
           <div class="hero__tagline-block">
             <p class="hero__tagline-lead">
-              Need a website that feels <span>modern</span> and <span>trustworthy</span>?
+              Fast web applications that look sharp, feel fluid, and <span>convert.</span>
             </p>
             <p class="hero__tagline">
-              I design and build polished web experiences that are fast, accessible, and ready for real users.
+              I help businesses and engineering teams build accessible, polished software with React, Next.js, and TypeScript.
             </p>
             <div class="hero__actions">
               <a href="#projects" class="btn-primary">
@@ -282,10 +338,10 @@
           <div class="hero__deck" aria-label="Interactive Developer Manifest">
             <div class="hero__deck-topbar">
               <div class="hero__deck-left">
-                <div class="hero__deck-dots" aria-hidden="true">
-                  <span class="hero__deck-dot hero__deck-dot--close"></span>
-                  <span class="hero__deck-dot hero__deck-dot--min"></span>
-                  <span class="hero__deck-dot hero__deck-dot--max"></span>
+                <div class="window-dots" aria-hidden="true">
+                  <span class="window-dot window-dot--r"></span>
+                  <span class="window-dot window-dot--y"></span>
+                  <span class="window-dot window-dot--g"></span>
                 </div>
                 <div class="hero__deck-tabs" role="tablist" aria-label="Developer JSON Tabs">
                   <button class="hero__deck-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="hero-tab-profile" id="hero-tabbtn-profile">
@@ -305,8 +361,8 @@
             <div class="hero__deck-content">
               <!-- Tab 1: Profile -->
               <div class="hero__deck-body is-active" id="hero-tab-profile" role="tabpanel" aria-labelledby="hero-tabbtn-profile">
-                <div class="hero__deck-lines" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</div>
-                <pre class="hero__deck-code"><code><span class="hero__deck-row"><span class="token-p">{</span></span><span class="hero__deck-row">  <span class="token-k">"developer"</span><span class="token-p">:</span> <span class="token-s">"Matthew McGrath"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"focus"</span><span class="token-p">:</span> <span class="token-s">"Modern, Trustworthy Websites"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"philosophy"</span><span class="token-p">:</span> <span class="token-s">"Design polish meets clean engineering"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"deliverables"</span><span class="token-p">:</span> <span class="token-p">[</span></span><span class="hero__deck-row">    <span class="token-s">"Full-Stack Web Applications"</span><span class="token-p">,</span></span><span class="hero__deck-row">    <span class="token-s">"Interactive Design Systems"</span><span class="token-p">,</span></span><span class="hero__deck-row">    <span class="token-s">"Performance Optimization"</span></span><span class="hero__deck-row">  <span class="token-p">]</span></span><span class="hero__deck-row"><span class="token-p">}</span></span></code></pre>
+                <div class="hero__deck-lines" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+                <pre class="hero__deck-code"><code><span class="hero__deck-row"><span class="token-p">{</span></span><span class="hero__deck-row">  <span class="token-k">"developer"</span><span class="token-p">:</span> <span class="token-s">"Matthew McGrath"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"focus"</span><span class="token-p">:</span> <span class="token-s">"Full-Stack Engineering"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"philosophy"</span><span class="token-p">:</span> <span class="token-s">"Design polish meets clean engineering"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"deliverables"</span><span class="token-p">:</span> <span class="token-p">[</span></span><span class="hero__deck-row">    <span class="token-s">"Full-Stack Web Applications"</span><span class="token-p">,</span></span><span class="hero__deck-row">    <span class="token-s">"Interactive Design Systems"</span><span class="token-p">,</span></span><span class="hero__deck-row">    <span class="token-s">"Performance Optimization"</span></span><span class="hero__deck-row">  <span class="token-p">]</span></span><span class="hero__deck-row"><span class="token-p">}</span></span></code></pre>
               </div>
 
               <!-- Tab 2: Stack -->
@@ -317,8 +373,8 @@
 
               <!-- Tab 3: Track Record -->
               <div class="hero__deck-body" id="hero-tab-track" role="tabpanel" aria-labelledby="hero-tabbtn-track">
-                <div class="hero__deck-lines" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div>
-                <pre class="hero__deck-code"><code><span class="hero__deck-row"><span class="token-p">{</span></span><span class="hero__deck-row">  <span class="token-k">"yearsCoding"</span><span class="token-p">:</span> <span class="token-n">15</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"gamesShipped"</span><span class="token-p">:</span> <span class="token-n">2</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"linesWritten"</span><span class="token-p">:</span> <span class="token-s">"100K+"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"clientFocus"</span><span class="token-p">:</span> <span class="token-s">"100% Quality &amp; Communication"</span></span><span class="hero__deck-row"><span class="token-p">}</span></span></code></pre>
+                <div class="hero__deck-lines" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6</div>
+                <pre class="hero__deck-code"><code><span class="hero__deck-row"><span class="token-p">{</span></span><span class="hero__deck-row">  <span class="token-k">"yearsCoding"</span><span class="token-p">:</span> <span class="token-n">15</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"commercialGames"</span><span class="token-p">:</span> <span class="token-n">2</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"commitStreak"</span><span class="token-p">:</span> <span class="token-s">"5+ Years Daily"</span><span class="token-p">,</span></span><span class="hero__deck-row">  <span class="token-k">"degree"</span><span class="token-p">:</span> <span class="token-s">"B.S. Computer Science"</span></span><span class="hero__deck-row"><span class="token-p">}</span></span></code></pre>
               </div>
             </div>
           </div>
@@ -348,10 +404,10 @@
                   assets/images/projects/preview-grave-danger-480.webp   480w,
                   assets/images/projects/preview-grave-danger-800.webp   800w,
                   assets/images/projects/preview-grave-danger-1200.webp 1200w
-                " sizes="(max-width: 1023px) calc(100vw - 2.5rem), 684px" alt="Avatars in Grave Danger" loading="lazy" decoding="async" width="400" height="220" />
+                " sizes="(max-width: 1023px) calc(100vw - 2.5rem), 684px" alt="3D arena combat scene with stylized avatar facing oncoming zombie hordes" loading="lazy" decoding="async" width="400" height="220" />
           </div>
           <div class="project-featured__body">
-            <p class="project-featured__num">Featured ✦ 01 <span class="project-featured__case-study-hint">· Click for Case Study ↗</span></p>
+            <p class="project-featured__num">Featured Project <button type="button" class="project-featured__case-study-btn" aria-haspopup="dialog" aria-label="Open case study for Avatars in Grave Danger">· Case Study <span aria-hidden="true">↗</span></button></p>
             <h3 class="project-featured__title">Avatars in Grave Danger</h3>
             <p class="project-featured__desc">
               A 3D wave-defense game where you protect your avatar from hordes of the undead, built solo and
@@ -382,9 +438,8 @@
                     assets/images/projects/preview-flat-ui-clone-320.webp 320w,
                     assets/images/projects/preview-flat-ui-clone-640.webp 640w,
                     assets/images/projects/preview-flat-ui-clone-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Flat UI Clone" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">02</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Color palette generator interface featuring interactive swatches and component controls" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Flat UI Clone">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Flat UI Clone</h3>
@@ -401,20 +456,20 @@
               </footer>
             </div>
           </article>
+
           <article class="project-card reveal" data-project-id="frontend-collection">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-frontend-collection-800.webp" srcset="
                     assets/images/projects/preview-frontend-collection-320.webp 320w,
                     assets/images/projects/preview-frontend-collection-640.webp 640w,
                     assets/images/projects/preview-frontend-collection-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Frontend Collection" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">03</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Showcase grid of responsive components and modern marketing landing page cards" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Frontend Collection">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Frontend Collection</h3>
               <p class="project-card__desc">
-                An assortment of frontend projects, ranging from component suites to complete landing pages.
+                An assortment of frontend projects, from pricing cards to fully-realized, beautiful landing pages.
               </p>
               <footer class="project-card__footer">
                 <span class="project-card__tech">HTML · CSS3 · SASS · JS</span>
@@ -424,15 +479,16 @@
               </footer>
             </div>
           </article>
+
+          <!-- TEMPORARILY COMMENTED OUT: Recipe App (in progress)
           <article class="project-card reveal" data-project-id="react-recipes">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-react-recipes-800.webp" srcset="
                     assets/images/projects/preview-react-recipes-320.webp 320w,
                     assets/images/projects/preview-react-recipes-640.webp 640w,
                     assets/images/projects/preview-react-recipes-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Recipe App" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">04</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Recipe App" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Recipe App">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Recipe App</h3>
@@ -448,15 +504,16 @@
               </footer>
             </div>
           </article>
+          -->
+
           <article class="project-card reveal" data-project-id="omnifood">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-omnifood-800.webp" srcset="
                     assets/images/projects/preview-omnifood-320.webp 320w,
                     assets/images/projects/preview-omnifood-640.webp 640w,
                     assets/images/projects/preview-omnifood-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Omnifood" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">05</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Food delivery service landing page featuring appetizing dishes and subscription options" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Omnifood">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Omnifood</h3>
@@ -473,15 +530,15 @@
               </footer>
             </div>
           </article>
+
           <article class="project-card reveal" data-project-id="personal-portfolio">
             <div class="project-card__img">
               <img src="assets/images/projects/preview-personal-800.webp" srcset="
                     assets/images/projects/preview-personal-320.webp 320w,
                     assets/images/projects/preview-personal-640.webp 640w,
                     assets/images/projects/preview-personal-800.webp 800w
-                  " sizes="(max-width: 768px) calc(100vw - 2.5rem), 400px" alt="Personal Portfolio" loading="lazy" decoding="async" width="400" height="220" />
-              <div class="project-card__num" aria-hidden="true">06</div>
-              <div class="project-card__case-study-pill" aria-hidden="true">Case Study ↗</div>
+                  " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Dark mode developer portfolio hero section with typography and project showcases" loading="lazy" decoding="async" width="400" height="220" />
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Personal Portfolio">Case Study <span aria-hidden="true">↗</span></button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Personal Portfolio</h3>
@@ -513,7 +570,7 @@
           <p class="section-label">Interactive Studio</p>
           <h2 class="section-title" id="experience-heading">Skills &amp; Experience</h2>
           <p class="experience__desc">
-            A complete developer overview inside a single IDE window. Scroll to explore my core competencies and career journey, or click any file in the sidebar to inspect live architecture.
+            An interactive look at my tech stack, background, and daily habits. Browse the overview below, or select any specific file to see how I write code.
           </p>
         </div>
 
@@ -521,121 +578,29 @@
         <section class="ide-chassis" aria-label="Interactive Code Studio">
           <div class="ide-window-header">
             <div class="ide-window-header__left">
-              <div class="ide-dots" aria-hidden="true">
-                <div class="ide-dot dot-r"></div>
-                <div class="ide-dot dot-y"></div>
-                <div class="ide-dot dot-g"></div>
+              <div class="window-dots" aria-hidden="true">
+                <span class="window-dot window-dot--r"></span>
+                <span class="window-dot window-dot--y"></span>
+                <span class="window-dot window-dot--g"></span>
               </div>
-              <!-- Desktop Window Title -->
-              <span class="ide-window-title ide-window-title--desktop" id="window-title-text">matthew-mcgrath // overview.md</span>
-              <!-- Mobile Unified Explorer Dropdown Button -->
-              <button type="button" class="mobile-explorer-dropdown-btn" id="mobile-explorer-toggle-bar" aria-expanded="false" aria-controls="mobile-file-drawer" aria-label="Toggle file explorer">
-                <span id="mob-current-file-label">📄 overview.md</span>
-                <span class="dropdown-chevron" id="mob-exp-chevron" aria-hidden="true">▾</span>
-              </button>
             </div>
+            <!-- Desktop Window Title (macOS-style centered) -->
+            <span class="ide-window-title ide-window-title--desktop" id="window-title-text">matthew-mcgrath // overview.md</span>
             <div class="ide-window-header__right">
               <span class="ide-file-badge" id="ide-file-badge">24 Files</span>
             </div>
           </div>
 
-          <!-- MOBILE COLLAPSIBLE FILE TREE DRAWER -->
-          <nav class="mobile-file-tree-drawer" id="mobile-file-drawer" aria-label="Mobile File Explorer">
-            <!-- Mobile Folder 0: Overview -->
-            <button type="button" class="folder-header" data-folder-target="mob-folder-overview" aria-expanded="true" aria-controls="mob-folder-overview">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 OVERVIEW</span>
-              </div>
-              <span class="folder-count">1 file</span>
-            </button>
-            <div class="folder-content" id="mob-folder-overview" role="tablist" aria-label="Overview File">
-              <button type="button" class="file-item active" id="mob-side-overview" data-skill="overview" role="tab" aria-selected="true"><span>📄 overview.md</span></button>
-            </div>
-
-            <!-- Mobile Folder 1: Frontend -->
-            <button type="button" class="folder-header" data-folder-target="mob-folder-frontend" aria-expanded="true" aria-controls="mob-folder-frontend">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 FRONTEND</span>
-              </div>
-              <span class="folder-count">9 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-frontend" role="tablist" aria-label="Frontend Files">
-              <button type="button" class="file-item" id="mob-side-react" data-skill="react" role="tab" aria-selected="false"><span>⚛️ React.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span>▲ Next.js.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span>🔷 TypeScript.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-sass" data-skill="sass" role="tab" aria-selected="false"><span>🎨 Sass.scss</span></button>
-              <button type="button" class="file-item" id="mob-side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span>🌊 Tailwind.css</span></button>
-              <button type="button" class="file-item" id="mob-side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span>📕 Storybook.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span>🟨 JavaScript.js</span></button>
-              <button type="button" class="file-item" id="mob-side-html5" data-skill="html5" role="tab" aria-selected="false"><span>🌐 HTML5.html</span></button>
-              <button type="button" class="file-item" id="mob-side-css3" data-skill="css3" role="tab" aria-selected="false"><span>🎨 CSS3.css</span></button>
-            </div>
-
-            <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-backend" aria-expanded="true" aria-controls="mob-folder-backend">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 BACKEND</span>
-              </div>
-              <span class="folder-count">5 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-backend" role="tablist" aria-label="Backend Files">
-              <button type="button" class="file-item" id="mob-side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span>🟢 Node.mjs</span></button>
-              <button type="button" class="file-item" id="mob-side-express" data-skill="express" role="tab" aria-selected="false"><span>⚡ Express.js</span></button>
-              <button type="button" class="file-item" id="mob-side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span>🐘 PostgreSQL.sql</span></button>
-              <button type="button" class="file-item" id="mob-side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span>🍃 MongoDB.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-python" data-skill="python" role="tab" aria-selected="false"><span>🐍 Python.py</span></button>
-            </div>
-
-            <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-tools" aria-expanded="true" aria-controls="mob-folder-tools">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 TOOLS &amp; VCS</span>
-              </div>
-              <span class="folder-count">5 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-tools" role="tablist" aria-label="Tools Files">
-              <button type="button" class="file-item" id="mob-side-git" data-skill="git" role="tab" aria-selected="false"><span>🐙 Git.config</span></button>
-              <button type="button" class="file-item" id="mob-side-npm" data-skill="npm" role="tab" aria-selected="false"><span>📦 package.json</span></button>
-              <button type="button" class="file-item" id="mob-side-postman" data-skill="postman" role="tab" aria-selected="false"><span>🚀 Postman.json</span></button>
-              <button type="button" class="file-item" id="mob-side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span>💻 VSCode.json</span></button>
-              <button type="button" class="file-item" id="mob-side-trello" data-skill="trello" role="tab" aria-selected="false"><span>📋 Trello.board</span></button>
-            </div>
-
-            <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-leveling" aria-expanded="true" aria-controls="mob-folder-leveling">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 LEVELING UP</span>
-              </div>
-              <span class="folder-count">5 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-leveling" role="tablist" aria-label="Leveling Up Files">
-              <button type="button" class="file-item" id="mob-side-angular" data-skill="angular" role="tab" aria-selected="false"><span>🅰️ Angular.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span>📱 ReactNative.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-java" data-skill="java" role="tab" aria-selected="false"><span>☕ Java.java</span></button>
-              <button type="button" class="file-item" id="mob-side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span>⚡ ChakraUI.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span>🧊 ThreeJS.ts</span></button>
-            </div>
-          </nav>
-
           <div class="ide-body">
-            <!-- Desktop Explorer Sidebar with Collapsible Folders -->
-            <nav class="ide-sidebar" id="desktop-sidebar" aria-label="Desktop File Explorer">
-              <!-- Folder 0: Overview -->
-              <button type="button" class="folder-header" data-folder-target="folder-overview" aria-expanded="true" aria-controls="folder-overview">
-                <div class="folder-title-left">
-                  <span class="folder-chevron" aria-hidden="true">▼</span>
-                  <span>📁 OVERVIEW</span>
-                </div>
-                <span class="folder-count">1 file</span>
-              </button>
-              <div class="folder-content" id="folder-overview" role="tablist" aria-label="Overview File">
-                <button type="button" class="file-item active" id="side-overview" data-skill="overview" role="tab" aria-selected="true"><span>📄 overview.md</span></button>
+            <!-- Unified File Explorer Sidebar with Collapsible Folders -->
+            <nav class="ide-sidebar" id="ide-sidebar" aria-label="File Explorer">
+              <!-- Root File: Overview -->
+              <div class="ide-root-file-wrap" role="tablist" aria-label="Root Documentation">
+                <button type="button" class="file-item file-item--root active" id="side-overview" data-skill="overview" role="tab" aria-selected="true"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span></button>
               </div>
 
               <!-- Folder 1: Frontend -->
-              <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-frontend" aria-expanded="true" aria-controls="folder-frontend">
+              <button type="button" class="folder-header" data-folder-target="folder-frontend" aria-expanded="true" aria-controls="folder-frontend">
                 <div class="folder-title-left">
                   <span class="folder-chevron" aria-hidden="true">▼</span>
                   <span>📁 FRONTEND</span>
@@ -643,15 +608,15 @@
                 <span class="folder-count">9 files</span>
               </button>
               <div class="folder-content" id="folder-frontend" role="tablist" aria-label="Frontend Files">
-                <button type="button" class="file-item" id="side-react" data-skill="react" role="tab" aria-selected="false"><span>⚛️ React.tsx</span></button>
-                <button type="button" class="file-item" id="side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span>▲ Next.js.tsx</span></button>
-                <button type="button" class="file-item" id="side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span>🔷 TypeScript.ts</span></button>
-                <button type="button" class="file-item" id="side-sass" data-skill="sass" role="tab" aria-selected="false"><span>🎨 Sass.scss</span></button>
-                <button type="button" class="file-item" id="side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span>🌊 Tailwind.css</span></button>
-                <button type="button" class="file-item" id="side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span>📕 Storybook.ts</span></button>
-                <button type="button" class="file-item" id="side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span>🟨 JavaScript.js</span></button>
-                <button type="button" class="file-item" id="side-html5" data-skill="html5" role="tab" aria-selected="false"><span>🌐 HTML5.html</span></button>
-                <button type="button" class="file-item" id="side-css3" data-skill="css3" role="tab" aria-selected="false"><span>🎨 CSS3.css</span></button>
+                <button type="button" class="file-item" id="side-react" data-skill="react" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-react"></use></svg> React.tsx</span></button>
+                <button type="button" class="file-item" id="side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nextjs"></use></svg> Next.js.tsx</span></button>
+                <button type="button" class="file-item" id="side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-typescript"></use></svg> TypeScript.ts</span></button>
+                <button type="button" class="file-item" id="side-sass" data-skill="sass" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-sass"></use></svg> Sass.scss</span></button>
+                <button type="button" class="file-item" id="side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use></svg> Tailwind.css</span></button>
+                <button type="button" class="file-item" id="side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-storybook"></use></svg> Storybook.ts</span></button>
+                <button type="button" class="file-item" id="side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-javascript"></use></svg> JavaScript.js</span></button>
+                <button type="button" class="file-item" id="side-html5" data-skill="html5" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-html5"></use></svg> HTML5.html</span></button>
+                <button type="button" class="file-item" id="side-css3" data-skill="css3" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-css3"></use></svg> CSS3.css</span></button>
               </div>
 
               <!-- Folder 2: Backend -->
@@ -663,11 +628,11 @@
                 <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-backend" role="tablist" aria-label="Backend Files">
-                <button type="button" class="file-item" id="side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span>🟢 Node.mjs</span></button>
-                <button type="button" class="file-item" id="side-express" data-skill="express" role="tab" aria-selected="false"><span>⚡ Express.js</span></button>
-                <button type="button" class="file-item" id="side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span>🐘 PostgreSQL.sql</span></button>
-                <button type="button" class="file-item" id="side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span>🍃 MongoDB.ts</span></button>
-                <button type="button" class="file-item" id="side-python" data-skill="python" role="tab" aria-selected="false"><span>🐍 Python.py</span></button>
+                <button type="button" class="file-item" id="side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nodejs"></use></svg> Node.mjs</span></button>
+                <button type="button" class="file-item" id="side-express" data-skill="express" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-express"></use></svg> Express.js</span></button>
+                <button type="button" class="file-item" id="side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postgresql"></use></svg> PostgreSQL.sql</span></button>
+                <button type="button" class="file-item" id="side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-mongodb"></use></svg> MongoDB.ts</span></button>
+                <button type="button" class="file-item" id="side-python" data-skill="python" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-python"></use></svg> Python.py</span></button>
               </div>
 
               <!-- Folder 3: Tools -->
@@ -679,11 +644,11 @@
                 <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-tools" role="tablist" aria-label="Tools Files">
-                <button type="button" class="file-item" id="side-git" data-skill="git" role="tab" aria-selected="false"><span>🐙 Git.config</span></button>
-                <button type="button" class="file-item" id="side-npm" data-skill="npm" role="tab" aria-selected="false"><span>📦 package.json</span></button>
-                <button type="button" class="file-item" id="side-postman" data-skill="postman" role="tab" aria-selected="false"><span>🚀 Postman.json</span></button>
-                <button type="button" class="file-item" id="side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span>💻 VSCode.json</span></button>
-                <button type="button" class="file-item" id="side-trello" data-skill="trello" role="tab" aria-selected="false"><span>📋 Trello.board</span></button>
+                <button type="button" class="file-item" id="side-git" data-skill="git" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-git"></use></svg> Git.config</span></button>
+                <button type="button" class="file-item" id="side-npm" data-skill="npm" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-npm"></use></svg> package.json</span></button>
+                <button type="button" class="file-item" id="side-postman" data-skill="postman" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postman"></use></svg> Postman.json</span></button>
+                <button type="button" class="file-item" id="side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-vscode"></use></svg> VSCode.json</span></button>
+                <button type="button" class="file-item" id="side-trello" data-skill="trello" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-trello"></use></svg> Trello.board</span></button>
               </div>
 
               <!-- Folder 4: Leveling Up -->
@@ -695,20 +660,21 @@
                 <span class="folder-count">5 files</span>
               </button>
               <div class="folder-content" id="folder-leveling" role="tablist" aria-label="Leveling Up Files">
-                <button type="button" class="file-item" id="side-angular" data-skill="angular" role="tab" aria-selected="false"><span>🅰️ Angular.ts</span></button>
-                <button type="button" class="file-item" id="side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span>📱 ReactNative.tsx</span></button>
-                <button type="button" class="file-item" id="side-java" data-skill="java" role="tab" aria-selected="false"><span>☕ Java.java</span></button>
-                <button type="button" class="file-item" id="side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span>⚡ ChakraUI.tsx</span></button>
-                <button type="button" class="file-item" id="side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span>🧊 ThreeJS.ts</span></button>
+                <button type="button" class="file-item" id="side-angular" data-skill="angular" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-angular"></use></svg> Angular.ts</span></button>
+                <button type="button" class="file-item" id="side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-reactnative"></use></svg> ReactNative.tsx</span></button>
+                <button type="button" class="file-item" id="side-java" data-skill="java" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-java"></use></svg> Java.java</span></button>
+                <button type="button" class="file-item" id="side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-chakraui"></use></svg> ChakraUI.tsx</span></button>
+                <button type="button" class="file-item" id="side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-threejs"></use></svg> ThreeJS.ts</span></button>
               </div>
             </nav>
 
             <!-- Main Pane -->
             <div class="ide-main-pane">
               <div class="tab-bar">
-                <div class="editor-tab" id="active-tab-title">
-                  <span>📄 overview.md</span>
-                </div>
+                <button type="button" class="editor-tab editor-tab--interactive" id="active-tab-title" aria-expanded="false" aria-controls="ide-sidebar" aria-label="Open file switcher">
+                  <span class="editor-tab__label" id="tab-label-text"><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span>
+                  <span class="editor-tab__chevron" id="tab-chevron" aria-hidden="true">▾</span>
+                </button>
                 <div class="tab-bar-right">
                   <button type="button" class="btn-tab-back hidden" id="btn-back-to-overview" data-skill="overview" aria-label="Return to overview.md">← overview.md</button>
                 </div>
@@ -751,11 +717,11 @@
                   <div class="milestone-node node-purple" aria-hidden="true">⭘──┐</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">7f2a91c</span>
+                      <span class="commit-sha" aria-hidden="true">7f2a91c</span>
                       <time class="commit-date" datetime="2027-01">Expected Jan 2027</time>
                     </div>
                     <h3 class="milestone-title">B.S. Computer Science: Western Governors University</h3>
-                    <p class="milestone-desc">Relevant coursework: Data Structures, Algorithms, Web Development, and Software Engineering.</p>
+                    <p class="milestone-desc">Rigorous Computer Science curriculum emphasizing Data Structures &amp; Algorithms, discrete math, and software architecture.</p>
                   </article>
                 </li>
 
@@ -764,11 +730,11 @@
                   <div class="milestone-node node-green" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">4b8e23f</span>
+                      <span class="commit-sha" aria-hidden="true">4b8e23f</span>
                       <time class="commit-date" datetime="2021">2021 – Present</time>
                     </div>
                     <h3 class="milestone-title">Freelance Web Developer</h3>
-                    <p class="milestone-desc">Producing and maintaining websites for clients using technology from vanilla HTML all the way to Next.js.</p>
+                    <p class="milestone-desc">Building custom web applications, responsive client sites, and performance tune-ups with React, Next.js, and TypeScript.</p>
                   </article>
                 </li>
 
@@ -777,11 +743,11 @@
                   <div class="milestone-node node-amber" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">9c118da</span>
+                      <span class="commit-sha" aria-hidden="true">9c118da</span>
                       <time class="commit-date" datetime="2021">2021 – 2022</time>
                     </div>
                     <h3 class="milestone-title">React Bootcamp</h3>
-                    <p class="milestone-desc">Mastered modern React, Redux Toolkit, React Query, TypeScript, and Next.js. Built and deployed full-stack apps.</p>
+                    <p class="milestone-desc">Focused training in modern React architecture, state management, TypeScript, and full-stack Next.js deployment.</p>
                   </article>
                 </li>
 
@@ -790,11 +756,11 @@
                   <div class="milestone-node node-amber" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">3e5d0a1</span>
+                      <span class="commit-sha" aria-hidden="true">3e5d0a1</span>
                       <time class="commit-date" datetime="2021">2021 – 2022</time>
                     </div>
                     <h3 class="milestone-title">Web Development Bootcamp</h3>
-                    <p class="milestone-desc">Deep dives into HTML5, CSS3, JavaScript, Node.js, MongoDB, PostgreSQL, and SASS.</p>
+                    <p class="milestone-desc">Full-stack curriculum covering HTML5, CSS3, modern JavaScript, Node.js, MongoDB, PostgreSQL, and Sass.</p>
                   </article>
                 </li>
 
@@ -803,11 +769,11 @@
                   <div class="milestone-node node-green" aria-hidden="true">├──┘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">a104f67</span>
+                      <span class="commit-sha" aria-hidden="true">a104f67</span>
                       <time class="commit-date" datetime="2010">2010 – 2020</time>
                     </div>
                     <h3 class="milestone-title">Indie Game Developer</h3>
-                    <p class="milestone-desc">Released and sold two Xbox Live games as a solo developer. Collaborated on several others and QA'd hundreds more.</p>
+                    <p class="milestone-desc">Designed, built, and commercially published two original 3D titles on Xbox Live Indie Games using C# and XNA.</p>
                   </article>
                 </li>
 
@@ -816,11 +782,11 @@
                   <div class="milestone-node node-purple" aria-hidden="true">⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">18d9b23</span>
+                      <span class="commit-sha" aria-hidden="true">18d9b23</span>
                       <time class="commit-date" datetime="2012">2012 – 2015</time>
                     </div>
                     <h3 class="milestone-title">B.S. Game Software Development: Westwood College</h3>
-                    <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C# and an extensive Computer Science foundation.</p>
+                    <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C#, object-oriented design, 3D graphics math, and software engineering principles.</p>
                   </article>
                 </li>
 
@@ -829,7 +795,7 @@
                   <div class="milestone-node node-purple" aria-hidden="true">⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
-                      <span class="commit-sha">001init</span>
+                      <span class="commit-sha" aria-hidden="true">001init</span>
                       <time class="commit-date">Early Foundations</time>
                     </div>
                     <h3 class="milestone-title">Yucaipa High School</h3>
@@ -843,307 +809,14 @@
       </div>
     </section>
 
-    <!-- WHY WORK WITH ME -->
-    <section class="why-hire" id="why-hire" aria-labelledby="why-heading" style="display: none;">
-      <div class="container">
-        <div class="why-hire__head reveal">
-          <p class="section-label">Value Proposition</p>
-          <h2 class="section-title" id="why-heading">Why Work With Me</h2>
-          <p class="why-hire__subtitle">
-            What you get beyond clean code: a developer who thinks in outcomes, moves independently, and follows through with obsessive finish.
-          </p>
-        </div>
-
-        <div class="why-hire__grid">
-          <!-- Pillar 1 -->
-          <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 01: Full-Stack Architecture</span>
-            <h3 class="why-pillar__title">Rare Range from Interface to Engine</h3>
-            <p class="why-pillar__body">
-              From C# game engines to React frontends to Node backends, I've built complete systems end to end. That range means I can move between user experience, business logic, and systems architecture without losing the bigger picture.
-            </p>
-          </article>
-
-          <!-- Pillar 2 -->
-          <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 02: Problem Ownership</span>
-            <h3 class="why-pillar__title">No Hand-Holding Needed</h3>
-            <p class="why-pillar__body">
-              A decade of solo development taught me how to take ownership of a problem, work through ambiguity, and keep moving. I research, debug, and iterate until something works, then make sure I understand why it works.
-            </p>
-          </article>
-
-          <!-- Pillar 3 -->
-          <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 03: Delivery Velocity</span>
-            <h3 class="why-pillar__title">Reliable by Habit</h3>
-            <p class="why-pillar__body">
-              I don't work in bursts and disappear. Years of steady coding, shipping, and problem-solving have built the kind of consistency clients can actually feel: dependable communication, dependable progress, dependable follow-through.
-            </p>
-          </article>
-
-          <!-- Pillar 4 -->
-          <article class="why-pillar reveal">
-            <span class="why-pillar__kicker">// 04: Team Alignment</span>
-            <h3 class="why-pillar__title">Built for Teams &amp; Clients</h3>
-            <p class="why-pillar__body">
-              I'm self-directed, but not siloed. I've worked with clients, collaborated on distributed projects, and written code meant to be read and maintained by others. Clear communication and low-ego collaboration are second nature.
-            </p>
-          </article>
-        </div>
-
-        <!-- Pure Typographic Metrics Row -->
-        <div class="why-hire__metrics reveal" aria-label="Engineering quality and performance benchmarks">
-          <div class="why-hire__metric">
-            <span class="why-hire__metric-val why-hire__metric-val--blue">98+</span>
-            <span class="why-hire__metric-label">Lighthouse Audits</span>
-          </div>
-          <div class="why-hire__metric">
-            <span class="why-hire__metric-val why-hire__metric-val--green">WCAG AA</span>
-            <span class="why-hire__metric-label">Accessibility Standard</span>
-          </div>
-          <div class="why-hire__metric">
-            <span class="why-hire__metric-val why-hire__metric-val--amber">Top 1%</span>
-            <span class="why-hire__metric-label">Problem Solving Rank</span>
-          </div>
-          <div class="why-hire__metric">
-            <span class="why-hire__metric-val">100%</span>
-            <span class="why-hire__metric-label">Follow-Through Rate</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="services" id="services" aria-labelledby="services-heading">
-      <div class="container">
-        <p class="section-label">What I Offer</p>
-        <h2 class="section-title" id="services-heading">Services</h2>
-        <p class="services__intro">
-          Whether you need a polished landing page or a fully-featured web application, I bring the same care and
-          craft to every engagement. Here's how I can help.
-        </p>
-        <!-- 1 + 3 + 1 ARCHITECTURAL SYSTEM -->
-        <div class="services__grid">
-
-          <!-- TOP (1): FULL-TIME SWE FLAGSHIP HERO CARD -->
-          <article class="services__card services__card--hero reveal">
-            <div class="services__hero-content">
-              <h3 class="services__hero-title">Dedicated Full-Time Software Engineering Roles</h3>
-              <p class="services__hero-desc">
-                Looking for a dependable developer to join your product team? Beyond freelance contracts, I am actively seeking full-time <strong>Frontend</strong> and <strong>Full-Stack Software Engineering</strong> positions. I bring 100K lines of production code, Top 1% LeetCode algorithmic problem-solving rigor, and a craft-first focus on performant, accessible web experiences.
-              </p>
-              <div class="services__hero-actions">
-                <a href="#contact" class="services__btn services__btn--primary" data-service-subject="Inquiry: Full-Time Software Engineering Role" data-service-msg="Hi Matthew, I'd like to discuss a full-time software engineering role on our team..." aria-label="Inquire about hiring Matthew for full-time software engineering roles">
-                  <span>Inquire for Roles →</span>
-                </a>
-                <a href="resume/" class="services__btn services__btn--ghost" aria-label="View Matthew's resume">
-                  <span>View Resume ↗</span>
-                </a>
-              </div>
-            </div>
-
-            <ul class="services__hero-bullets">
-              <li>
-                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span><strong>B.S. in Computer Science</strong> (Expected Jan 2027)</span>
-              </li>
-              <li>
-                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span><strong>Top 1% Global Rank</strong> (LeetCode algorithmic problem solving)</span>
-              </li>
-              <li>
-                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span><strong>100K Lines of Code</strong> shipped across independent games &amp; web apps</span>
-              </li>
-              <li>
-                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span><strong>Full-Time Direct Hire</strong> (W2 / Remote or Hybrid)</span>
-              </li>
-            </ul>
-          </article>
-
-
-          <!-- MIDDLE (3): 3-COLUMN CORE DELIVERABLES -->
-          <div class="services__subgrid">
-
-            <!-- Card 1: React & Next.js Web Apps -->
-            <article class="services__card services__card--tier reveal">
-              <div class="services__tier-head">
-                <h3 class="services__tier-title">React &amp; Next.js Web Apps</h3>
-                <p class="services__tier-desc">Interactive, dynamic web applications with clean architecture, database integration, user authentication, and fluid state management.</p>
-              </div>
-              <ul class="services__tier-bullets">
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>React 19 &amp; Next.js App Router</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Node.js &amp; PostgreSQL / MongoDB</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>REST / GraphQL API design &amp; Auth</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Type-safe TypeScript &amp; state engines</span>
-                </li>
-              </ul>
-              <div class="services__tier-foot">
-                <div class="services__price">
-                  <small>Starting from</small>
-                  <strong>$1,500</strong>
-                </div>
-                <a href="#contact" class="services__link" data-service-subject="Inquiry: React &amp; Next.js Web App" data-service-msg="Hi Matthew, I'd like to talk about a React &amp; Next.js web application project..." aria-label="Get a quote for React and Next.js Web Apps">
-                  <span>Get a Quote →</span>
-                </a>
-              </div>
-            </article>
-
-
-            <!-- Card 2: Landing Pages & Sites -->
-            <article class="services__card services__card--tier reveal">
-              <div class="services__tier-head">
-                <h3 class="services__tier-title">Landing Pages &amp; Sites</h3>
-                <p class="services__tier-desc">High-converting, ultra-fast marketing pages and portfolio websites engineered for 98 Lighthouse scores and WCAG AA accessibility.</p>
-              </div>
-              <ul class="services__tier-bullets">
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Custom design or from your mockup</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Handcrafted SCSS &amp; zero builder bloat</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Contact forms &amp; CTA conversion flow</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Lighthouse 98 &amp; SEO optimization</span>
-                </li>
-              </ul>
-              <div class="services__tier-foot">
-                <div class="services__price">
-                  <small>Starting from</small>
-                  <strong>$650</strong>
-                </div>
-                <a href="#contact" class="services__link" data-service-subject="Inquiry: Landing Page &amp; Marketing Site" data-service-msg="Hi Matthew, I'd like to discuss building a custom landing page or marketing site..." aria-label="Get a quote for Landing Pages and Marketing Sites">
-                  <span>Get a Quote →</span>
-                </a>
-              </div>
-            </article>
-
-
-            <!-- Card 3: Site Fixes & Code Audits -->
-            <article class="services__card services__card--tier reveal">
-              <div class="services__tier-head">
-                <h3 class="services__tier-title">Site Audits &amp; Bug Fixes</h3>
-                <p class="services__tier-desc">Precision codebase diagnostics, Core Web Vitals speed profiling, reactive bug remediation, and surgical feature enhancements without a rebuild.</p>
-              </div>
-              <ul class="services__tier-bullets">
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Bug fixing, console errors &amp; debugging</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Speed &amp; Core Web Vitals tune-ups</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Responsive mobile viewport fixes</span>
-                </li>
-                <li>
-                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Documented clean Git pull requests</span>
-                </li>
-              </ul>
-              <div class="services__tier-foot">
-                <div class="services__price">
-                  <small>Starting from</small>
-                  <strong>$60 / hr</strong>
-                </div>
-                <a href="#contact" class="services__link" data-service-subject="Inquiry: Site Fixes &amp; Code Audit" data-service-msg="Hi Matthew, I have an existing website that needs bug fixes and performance improvements..." aria-label="Book a code audit or site fix">
-                  <span>Book Audit →</span>
-                </a>
-              </div>
-            </article>
-
-          </div>
-
-
-          <!-- BOTTOM (1): ONGOING MAINTENANCE RETAINER STRIP -->
-          <article class="services__card services__card--retainer reveal">
-            <div class="services__retainer-content">
-              <h3 class="services__retainer-title">Ongoing Maintenance &amp; Developer Retainer</h3>
-              <p class="services__retainer-desc">
-                Keep your site healthy, secure, and continuously updated without thinking about it. A dedicated developer on call for monthly updates, security patches, and rapid improvements.
-              </p>
-            </div>
-            <div class="services__retainer-action">
-              <div class="services__price">
-                <small>Starting from</small>
-                <strong>$250 / mo</strong>
-              </div>
-              <a href="#contact" class="services__link" data-service-subject="Inquiry: Monthly Developer Retainer" data-service-msg="Hi Matthew, I'm interested in an ongoing maintenance and support retainer..." aria-label="Get a quote for Ongoing Maintenance & Support Retainer">
-                <span>Get a Quote →</span>
-              </a>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="services__note">
-          Not sure which fits your project?
-          <a href="#contact" data-service-subject="Inquiry: General Hello" data-service-msg="Hi Matthew, I have a project in mind and would like to explore options..." aria-label="Send Matthew a general message">Send me a message</a>
-          and we'll figure it out together. No commitment required.
-        </p>
-      </div>
-    </section>
-
     <!-- ABOUT -->
     <section class="about" id="about" aria-labelledby="about-heading">
+      <!-- Temporarily commented out to test orb density
       <div class="about__aurora" aria-hidden="true">
         <div class="about__glow-orb about__glow-orb--1"></div>
         <div class="about__glow-orb about__glow-orb--2"></div>
       </div>
+      -->
       <canvas class="about__stardust" id="aboutStardust" aria-hidden="true"></canvas>
       <div class="container">
         <div class="about__header reveal">
@@ -1159,15 +832,12 @@
 
           <!-- Window Top Bar -->
           <div class="about__window-bar">
-            <div class="about__window-meta">
-              <div class="about__window-dots" aria-hidden="true">
-                <span class="about__window-dot about__window-dot--r"></span>
-                <span class="about__window-dot about__window-dot--y"></span>
-                <span class="about__window-dot about__window-dot--g"></span>
-              </div>
-              <span class="about__window-filename">about_matthew.md</span>
+            <div class="window-dots" aria-hidden="true">
+              <span class="window-dot window-dot--r"></span>
+              <span class="window-dot window-dot--y"></span>
+              <span class="window-dot window-dot--g"></span>
             </div>
-            <span class="about__window-badge">Markdown</span>
+            <span class="about__window-filename">about_matthew.md</span>
           </div>
 
           <!-- Split-Pane Grid Chassis -->
@@ -1184,7 +854,7 @@
                 </button>
               </div>
               <div class="about__author-lockup">
-                <h4 class="about__author-name">Matthew McGrath</h4>
+                <p class="about__author-name">Matthew McGrath</p>
                 <p class="about__author-title">Full-Stack Developer</p>
               </div>
             </aside>
@@ -1234,34 +904,34 @@
 
                   <!-- Slide 1 -->
                   <div class="about__slide active" id="about-slide-0" role="tabpanel" aria-labelledby="about-tab-0">
-                    <h4 class="about__slide-title">
+                    <h3 class="about__slide-title">
                       <span class="about__syntax">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Origins &amp; Foundations">Origins &amp; Foundations</span><span class="about__cursor" aria-hidden="true"></span></span>
-                    </h4>
+                    </h3>
                     <p class="about__slide-prose">
-                      Since writing my first line of code at 15, I've had an unbound curiosity for programming and the problem-solving it encapsulates. That curiosity led me to pursue a Bachelor's in Computer Science while simultaneously developing indie games. After years of dedication and over <span class="about__code-pill about__code-pill--cyan">100,000 lines of code</span>, I released two fully independent games for the <span class="about__code-pill about__code-pill--amber">Xbox 360 Indie Games</span> platform.
+                      I wrote my first program at 15, sparking a lifelong fascination with building things through code. That foundation led me to pursue Computer Science and spend years creating custom 3D game engines from scratch. As a solo developer, I designed, programmed, and published two commercial titles for the <span class="about__code-pill about__code-pill--amber">Xbox 360 Indie Games</span> platform in C#.
                     </p>
                   </div>
 
 
                   <!-- Slide 2 -->
                   <div class="about__slide" id="about-slide-1" role="tabpanel" aria-labelledby="about-tab-1">
-                    <h4 class="about__slide-title">
+                    <h3 class="about__slide-title">
                       <span class="about__syntax">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Modern Web Focus">Modern Web Focus</span><span class="about__cursor" aria-hidden="true"></span></span>
-                    </h4>
+                    </h3>
                     <p class="about__slide-prose">
-                      That passion turned my focus to the web. Through formal coursework and disciplined self-study across <span class="about__code-pill about__code-pill--cyan">React</span>, <span class="about__code-pill about__code-pill--amber">Next.js</span>, <span class="about__code-pill about__code-pill--green">Node.js</span>, and the full modern stack, I craft responsive, accessible, and performant web experiences that people love to use.
+                      Bringing that background to the web felt like a natural evolution. Today, my focus is building full-stack applications with <span class="about__code-pill about__code-pill--cyan">React</span>, <span class="about__code-pill about__code-pill--amber">Next.js</span>, and <span class="about__code-pill about__code-pill--green">Node.js</span>, focusing on fast performance, clean design, and a great experience for real users.
                     </p>
                   </div>
 
 
                   <!-- Slide 3 -->
                   <div class="about__slide" id="about-slide-2" role="tabpanel" aria-labelledby="about-tab-2">
-                    <h4 class="about__slide-title">
+                    <h3 class="about__slide-title">
                       <span class="about__syntax">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Go-To Tech Stack">Go-To Tech Stack</span><span class="about__cursor" aria-hidden="true"></span></span>
-                    </h4>
+                    </h3>
                     <p class="about__slide-prose">
                       My go-to stack is <span class="about__code-pill about__code-pill--cyan">React</span> and <span class="about__code-pill about__code-pill--green">Node.js</span>, but I adapt quickly to existing codebases and select the right tool for the job.
                     </p>
@@ -1293,12 +963,12 @@
 
                   <!-- Slide 4 -->
                   <div class="about__slide" id="about-slide-3" role="tabpanel" aria-labelledby="about-tab-3">
-                    <h4 class="about__slide-title">
+                    <h3 class="about__slide-title">
                       <span class="about__syntax">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Reliability &amp; Mindset">Reliability &amp; Mindset</span><span class="about__cursor" aria-hidden="true"></span></span>
-                    </h4>
+                    </h3>
                     <p class="about__slide-prose">
-                      Whether working solo or alongside a distributed team, I believe clear communication, disciplined follow-through, and low-ego collaboration are just as important as clean code.
+                      Whether working independently or with a team, I believe clear communication, dependable follow-through, and thoughtful collaboration are just as essential as clean code.
                       <span class="about__blockquote">
                         <span class="about__blockquote-sym" aria-hidden="true">&gt;</span> &ldquo;I build solutions meant to be read, maintained, and scaled with confidence.&rdquo;
                       </span>
@@ -1342,7 +1012,7 @@
           <div class="about__metric">
             <div class="about__metric-header">
               <span class="about__metric-val about__metric-val--indigo">15+</span>
-              <h4 class="about__metric-head">Years Coding</h4>
+              <p class="about__metric-head">Years Coding</p>
             </div>
             <p class="about__metric-body">
               Dedicated problem solving across game loops, system architectures, and modern web applications.
@@ -1351,7 +1021,7 @@
           <div class="about__metric">
             <div class="about__metric-header">
               <span class="about__metric-val about__metric-val--indigo">2</span>
-              <h4 class="about__metric-head">Commercial Games</h4>
+              <p class="about__metric-head">Commercial Games</p>
             </div>
             <p class="about__metric-body">
               Independently designed, programmed, and shipped two standalone titles on Xbox 360 Indie Games.
@@ -1360,7 +1030,7 @@
           <div class="about__metric">
             <div class="about__metric-header">
               <span class="about__metric-val about__metric-val--indigo">B.S.</span>
-              <h4 class="about__metric-head">Computer Science</h4>
+              <p class="about__metric-head">Computer Science</p>
             </div>
             <p class="about__metric-body">
               Rigorous foundation in computer science, data structures, and production software engineering principles.
@@ -1369,10 +1039,10 @@
           <div class="about__metric">
             <div class="about__metric-header">
               <span class="about__metric-val about__metric-val--amber">100%</span>
-              <h4 class="about__metric-head">Follow-Through</h4>
+              <p class="about__metric-head">Follow-Through</p>
             </div>
             <p class="about__metric-body">
-              Self-directed problem ownership from initial concept to final deployment with low-ego execution.
+              Self-directed problem ownership from initial concept and design to final deployment.
             </p>
           </div>
         </div>
@@ -1390,7 +1060,7 @@
           <p class="section-label">Track Record</p>
           <h2 class="section-title" id="coding-heading">Coding Activity</h2>
           <p class="coding__intro">
-            A live inspection of continuous commit discipline, repository cadence, and algorithm benchmarks across <strong>GitHub</strong>, <strong>LeetCode</strong>, and <strong>Codewars</strong>.
+            A live look at my daily commit streak, repository activity, and problem-solving benchmarks across <strong>GitHub</strong>, <strong>LeetCode</strong>, and <strong>Codewars</strong>.
           </p>
         </div>
 
@@ -1399,21 +1069,16 @@
 
           <!-- TITLEBAR -->
           <div class="term-titlebar">
-            <div class="term-dots" aria-hidden="true">
-              <span class="t-dot t-dot--r"></span>
-              <span class="t-dot t-dot--y"></span>
-              <span class="t-dot t-dot--g"></span>
+            <div class="window-dots" aria-hidden="true">
+              <span class="window-dot window-dot--r"></span>
+              <span class="window-dot window-dot--y"></span>
+              <span class="window-dot window-dot--g"></span>
             </div>
             <div class="term-title-text">
               <span>terminal</span>
               <span>—</span>
               <strong>zsh</strong>
               <span class="term-title-dim"><span aria-hidden="true">—</span><span>118x36</span></span>
-            </div>
-            <div class="term-live-tag">
-              <span class="live-pulse" aria-hidden="true"></span>
-              <span class="term-live-pid">PID: 41829 </span>
-              <span class="term-live-status">ACTIVE</span>
             </div>
           </div>
 
@@ -1453,7 +1118,7 @@
                   <div class="spec-sep" aria-hidden="true">-----------------------------------------------------</div>
                   <div class="spec-row"><span class="spec-k">USER</span><span class="spec-v"><strong>Matthew McGrath</strong></span></div>
                   <div class="spec-row"><span class="spec-k">UPTIME</span><span class="spec-v"><strong id="stat-streak">1,883 days</strong> commit streak</span></div>
-                  <div class="spec-row"><span class="spec-k">REPOS</span><span class="spec-v"><strong>24+</strong> active engineering repositories</span></div>
+                  <div class="spec-row"><span class="spec-k">REPOS</span><span class="spec-v"><strong>24+</strong> active repositories</span></div>
                   <div class="spec-row"><span class="spec-k">PROFILE</span><span class="spec-v">github.com/Epitome87</span></div>
 
                   <!-- ANSI 8-Color Palette -->
@@ -1465,7 +1130,7 @@
                       <span class="ansi-block" style="background: var(--cyan);" title="Cyan"></span>
                       <span class="ansi-block" style="background: var(--green);" title="Green"></span>
                       <span class="ansi-block" style="background: var(--complementary);" title="Amber"></span>
-                      <span class="ansi-block" style="background: var(--purple, #c084fc);" title="Purple"></span>
+                      <span class="ansi-block" style="background: var(--purple);" title="Purple"></span>
                       <span class="ansi-block" style="background: var(--dot-r);" title="Red"></span>
                       <span class="ansi-block" style="background: #f8fafc;" title="White"></span>
                     </div>
@@ -1596,17 +1261,17 @@
                   <div class="gauge-stream" id="leetcode-breakdown">
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-easy">EASY</span>
-                      <span class="g-bar-ascii lc-easy" id="lc-easy-bar" aria-label="Easy problems solved: 85.5%">[<span class="g-fill">███████████████████████████████</span><span class="g-empty">█████</span>]</span>
+                      <span class="g-bar-ascii lc-easy" id="lc-easy-bar" aria-hidden="true">[<span class="g-fill">███████████████████████████████</span><span class="g-empty">█████</span>]</span>
                       <span class="g-count-ascii" id="lc-easy-count"><span class="g-solved-total">828 / 968 </span><strong class="g-pct">(85.5%)</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-medium">MEDIUM</span>
-                      <span class="g-bar-ascii lc-medium" id="lc-medium-bar" aria-label="Medium problems solved: 20.2%">[<span class="g-fill">███████</span><span class="g-empty">█████████████████████████████</span>]</span>
+                      <span class="g-bar-ascii lc-medium" id="lc-medium-bar" aria-hidden="true">[<span class="g-fill">███████</span><span class="g-empty">█████████████████████████████</span>]</span>
                       <span class="g-count-ascii" id="lc-medium-count"><span class="g-solved-total">428 / 2,122 </span><strong class="g-pct">(20.2%)</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-hard">HARD</span>
-                      <span class="g-bar-ascii lc-hard" id="lc-hard-bar" aria-label="Hard problems solved: 1.4%">[<span class="g-fill">█</span><span class="g-empty">███████████████████████████████████</span>]</span>
+                      <span class="g-bar-ascii lc-hard" id="lc-hard-bar" aria-hidden="true">[<span class="g-fill">█</span><span class="g-empty">███████████████████████████████████</span>]</span>
                       <span class="g-count-ascii" id="lc-hard-count"><span class="g-solved-total">14 / 979 </span><strong class="g-pct">(1.4%)</strong></span>
                     </div>
                   </div>
@@ -1659,22 +1324,22 @@
                   <div class="gauge-stream gauge-grid-2col">
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii cw-js">JAVASCRIPT</span>
-                      <span class="g-bar-ascii cw-js" id="cw-js-bar" aria-label="JavaScript ranking: 2.61 Kyu">[<span class="g-fill">████████████████████████████</span><span class="g-empty">████████</span>]</span>
+                      <span class="g-bar-ascii cw-js" id="cw-js-bar" aria-hidden="true">[<span class="g-fill">████████████████████████████</span><span class="g-empty">████████</span>]</span>
                       <span class="g-count-ascii"><strong class="g-pct">2.61 Kyu</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii cw-py">PYTHON</span>
-                      <span class="g-bar-ascii cw-py" id="cw-py-bar" aria-label="Python ranking: 3.14 Kyu">[<span class="g-fill">█████████████████████████</span><span class="g-empty">███████████</span>]</span>
+                      <span class="g-bar-ascii cw-py" id="cw-py-bar" aria-hidden="true">[<span class="g-fill">█████████████████████████</span><span class="g-empty">███████████</span>]</span>
                       <span class="g-count-ascii"><strong class="g-pct">3.14 Kyu</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii cw-ts">TYPESCRIPT</span>
-                      <span class="g-bar-ascii cw-ts" id="cw-ts-bar" aria-label="TypeScript ranking: 6.35 Kyu">[<span class="g-fill">████████</span><span class="g-empty">████████████████████████████</span>]</span>
+                      <span class="g-bar-ascii cw-ts" id="cw-ts-bar" aria-hidden="true">[<span class="g-fill">████████</span><span class="g-empty">████████████████████████████</span>]</span>
                       <span class="g-count-ascii"><strong class="g-pct">6.35 Kyu</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii cw-sql">SQL</span>
-                      <span class="g-bar-ascii cw-sql" id="cw-sql-bar" aria-label="SQL ranking: 7.18 Kyu">[<span class="g-fill">████</span><span class="g-empty">████████████████████████████████</span>]</span>
+                      <span class="g-bar-ascii cw-sql" id="cw-sql-bar" aria-hidden="true">[<span class="g-fill">████</span><span class="g-empty">████████████████████████████████</span>]</span>
                       <span class="g-count-ascii"><strong class="g-pct">7.18 Kyu</strong></span>
                     </div>
                   </div>
@@ -1703,6 +1368,230 @@
       </div>
     </section>
 
+    <!-- SERVICES -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <p class="section-label">What I Offer</p>
+        <h2 class="section-title" id="services-heading">Services</h2>
+        <p class="services__intro">
+          Whether you need a polished landing page or a fully-featured web application, I bring the same care and
+          craft to every engagement. Here's how I can help.
+        </p>
+        <!-- 1 + 3 + 1 ARCHITECTURAL SYSTEM -->
+        <div class="services__grid">
+
+          <!-- TOP (1): FULL-TIME SWE FLAGSHIP HERO CARD -->
+          <article class="services__card services__card--hero reveal">
+            <div class="services__hero-content">
+              <h3 class="services__hero-title">Full-Time Software Engineering Roles</h3>
+              <p class="services__hero-desc">
+                Looking for a dependable engineer to join your product team? In addition to contract work, I am actively interviewing for full-time <strong>Frontend</strong> and <strong>Full-Stack Software Engineering</strong> positions. I bring deep experience with modern React and TypeScript architectures, a strong computer science foundation, and a track record of daily commit discipline.
+              </p>
+              <div class="services__hero-actions">
+                <a href="#contact" class="services__btn services__btn--primary" data-service-subject="Inquiry: Full-Time Software Engineering Role" data-service-msg="Hi Matthew, I'd like to discuss a full-time software engineering role on our team..." aria-label="Inquire about hiring Matthew for full-time software engineering roles">
+                  <span>Inquire for Roles →</span>
+                </a>
+                <a href="resume/" class="services__btn services__btn--ghost" aria-label="View Matthew's resume">
+                  <span>View Resume ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <ul class="services__hero-bullets">
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>B.S. in Computer Science</strong> (WGU, Expected Jan 2027)</span>
+              </li>
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Core Tech Stack:</strong> React, Next.js, TypeScript, Node.js &amp; SQL</span>
+              </li>
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Systems &amp; Architecture:</strong> Commercial 3D games &amp; scalable web apps</span>
+              </li>
+              <li>
+                <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Direct Hire Availability:</strong> W2 / Remote or Hybrid</span>
+              </li>
+            </ul>
+          </article>
+
+
+          <!-- MIDDLE (3): 3-COLUMN CORE DELIVERABLES -->
+          <div class="services__subgrid">
+
+            <!-- Card 1: React & Next.js Web Apps -->
+            <article class="services__card services__card--tier reveal">
+              <div class="services__tier-head">
+                <h3 class="services__tier-title">React &amp; Next.js Web Apps</h3>
+                <p class="services__tier-desc">Interactive, dynamic web applications with clean architecture, database integration, user authentication, and fluid state management.</p>
+              </div>
+              <ul class="services__tier-bullets">
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>React 19 &amp; Next.js App Router</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Node.js &amp; PostgreSQL / MongoDB</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>REST / GraphQL API design &amp; Auth</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Type-safe TypeScript &amp; robust state management</span>
+                </li>
+              </ul>
+              <div class="services__tier-foot">
+                <div class="services__price">
+                  <small>Starting from</small>
+                  <strong>$1,500</strong>
+                </div>
+                <a href="#contact" class="services__link" data-service-subject="Inquiry: React &amp; Next.js Web App" data-service-msg="Hi Matthew, I'd like to talk about a React &amp; Next.js web application project..." aria-label="Get a quote for React and Next.js Web Apps">
+                  <span>Get a Quote →</span>
+                </a>
+              </div>
+            </article>
+
+
+            <!-- Card 2: Landing Pages & Sites -->
+            <article class="services__card services__card--tier reveal">
+              <div class="services__tier-head">
+                <h3 class="services__tier-title">Landing Pages &amp; Sites</h3>
+                <p class="services__tier-desc">High-converting, ultra-fast marketing pages and portfolio websites engineered for 98 Lighthouse scores and WCAG AA accessibility.</p>
+              </div>
+              <ul class="services__tier-bullets">
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Custom design or from your mockup</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Clean SCSS architecture &amp; zero bloat</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Contact forms &amp; CTA conversion flow</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Lighthouse 98 &amp; SEO optimization</span>
+                </li>
+              </ul>
+              <div class="services__tier-foot">
+                <div class="services__price">
+                  <small>Starting from</small>
+                  <strong>$650</strong>
+                </div>
+                <a href="#contact" class="services__link" data-service-subject="Inquiry: Landing Page &amp; Marketing Site" data-service-msg="Hi Matthew, I'd like to discuss building a custom landing page or marketing site..." aria-label="Get a quote for Landing Pages and Marketing Sites">
+                  <span>Get a Quote →</span>
+                </a>
+              </div>
+            </article>
+
+
+            <!-- Card 3: Site Fixes & Code Audits -->
+            <article class="services__card services__card--tier reveal">
+              <div class="services__tier-head">
+                <h3 class="services__tier-title">Site Audits &amp; Bug Fixes</h3>
+                <p class="services__tier-desc">In-depth codebase diagnostics, Core Web Vitals speed profiling, bug fixing, and feature additions for existing web applications.</p>
+              </div>
+              <ul class="services__tier-bullets">
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Bug fixing, console errors &amp; debugging</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Core Web Vitals &amp; speed tune-ups</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Responsive mobile viewport fixes</span>
+                </li>
+                <li>
+                  <svg class="services__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Documented clean Git pull requests</span>
+                </li>
+              </ul>
+              <div class="services__tier-foot">
+                <div class="services__price">
+                  <small>Starting from</small>
+                  <strong>$60 / hr</strong>
+                </div>
+                <a href="#contact" class="services__link" data-service-subject="Inquiry: Site Fixes &amp; Code Audit" data-service-msg="Hi Matthew, I have an existing website that needs bug fixes and performance improvements..." aria-label="Book a code audit or site fix">
+                  <span>Book Audit →</span>
+                </a>
+              </div>
+            </article>
+
+          </div>
+
+
+          <!-- BOTTOM (1): ONGOING MAINTENANCE RETAINER STRIP -->
+          <article class="services__card services__card--retainer reveal">
+            <div class="services__retainer-content">
+              <h3 class="services__retainer-title">Ongoing Maintenance &amp; Developer Retainer</h3>
+              <p class="services__retainer-desc">
+                Keep your site healthy, secure, and continuously updated without thinking about it. A dedicated developer on call for monthly updates, security patches, and rapid improvements.
+              </p>
+            </div>
+            <div class="services__retainer-action">
+              <div class="services__price">
+                <small>Starting from</small>
+                <strong>$250 / mo</strong>
+              </div>
+              <a href="#contact" class="services__link" data-service-subject="Inquiry: Monthly Developer Retainer" data-service-msg="Hi Matthew, I'm interested in an ongoing maintenance and support retainer..." aria-label="Get a quote for Ongoing Maintenance & Support Retainer">
+                <span>Get a Quote →</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="services__note">
+          Not sure which fits your project?
+          <a href="#contact" data-service-subject="Inquiry: General Hello" data-service-msg="Hi Matthew, I have a project in mind and would like to explore options..." aria-label="Send Matthew a general message">Send me a message</a>
+          and we'll figure it out together. No commitment required.
+        </p>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="container">
@@ -1711,10 +1600,10 @@
           <h2 class="section-title contact__title" id="contact-heading">Let's Talk</h2>
           <div class="contact__avatar-chassis" id="contact-avatar-chassis">
             <!-- Dynamic Speech Bubble (Positioned at mouth Y-level) -->
-            <div class="contact__speech-bubble" id="contact-speech-bubble" aria-live="polite">
+            <div class="contact__speech-bubble" id="contact-speech-bubble" aria-hidden="true">
               <div class="contact__bubble-tag" id="contact-bubble-tag">👋 Let's Connect!</div>
-              <div class="contact__bubble-title" id="contact-bubble-title">Hey there! Ready to build?</div>
-              <div class="contact__bubble-sub" id="contact-bubble-sub">Drop a note below and let’s make something great.</div>
+              <div class="contact__bubble-title" id="contact-bubble-title">How can I help?</div>
+              <div class="contact__bubble-sub" id="contact-bubble-sub">Tell me about what you're looking to build or hire for.</div>
             </div>
 
             <div class="contact__avatar-wrap" id="contact-avatar-wrap">
@@ -1735,18 +1624,18 @@
               <form id="contact-form" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
-                <input type="hidden" name="_template" value="table" />
-                <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <label for="form-honey" class="sr-only">Leave this field blank to verify you are human</label>
+                <input type="text" id="form-honey" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
                 <!-- 2-Column Name & Email -->
                 <div class="form-grid">
                   <div class="form-group">
                     <label for="name">Full Name <span aria-hidden="true">*</span></label>
-                    <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required aria-required="true" />
+                    <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" spellcheck="false" required aria-required="true" />
                   </div>
                   <div class="form-group">
                     <label for="email">Email Address <span aria-hidden="true">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" required aria-required="true" />
+                    <input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-required="true" />
                   </div>
                 </div>
 
@@ -1755,12 +1644,12 @@
                   <label for="topic-select">I'd like to discuss <span aria-hidden="true">*</span></label>
                   <div class="select-wrapper">
                     <select id="topic-select" name="_subject" class="form-select" aria-label="Select message topic">
-                      <option value="Inquiry: Full-Time Software Engineering Role">💼 Full-Time Software Engineering Role</option>
-                      <option value="Inquiry: React &amp; Next.js Web App">⚡ React &amp; Next.js Web App / SaaS</option>
-                      <option value="Inquiry: Landing Page &amp; Marketing Site">🌐 Landing Page &amp; Marketing Site</option>
-                      <option value="Inquiry: Site Fixes &amp; Code Audit">🔍 Site Fixes, Speed &amp; Code Audit</option>
-                      <option value="Inquiry: Monthly Developer Retainer">🛠️ Ongoing Maintenance &amp; Retainer</option>
-                      <option value="Inquiry: General Hello">☕ General Inquiry / Hello</option>
+                      <option value="Inquiry: Full-Time Software Engineering Role" aria-label="Full-Time Software Engineering Role">💼 Full-Time Software Engineering Role</option>
+                      <option value="Inquiry: React &amp; Next.js Web App" aria-label="React and Next.js Web App or SaaS">⚡ React &amp; Next.js Web App / SaaS</option>
+                      <option value="Inquiry: Landing Page &amp; Marketing Site" aria-label="Landing Page and Marketing Site">🌐 Landing Page &amp; Marketing Site</option>
+                      <option value="Inquiry: Site Fixes &amp; Code Audit" aria-label="Site Fixes, Speed and Code Audit">🔍 Site Fixes, Speed &amp; Code Audit</option>
+                      <option value="Inquiry: Monthly Developer Retainer" aria-label="Ongoing Maintenance and Retainer">🛠️ Ongoing Maintenance &amp; Retainer</option>
+                      <option value="Inquiry: General Hello" aria-label="General Inquiry / Hello">☕ General Inquiry / Hello</option>
                     </select>
                     <span class="select-chevron" aria-hidden="true">▾</span>
                   </div>
@@ -1769,7 +1658,7 @@
                 <!-- Message Textarea -->
                 <div class="form-group">
                   <label for="message">Message <span aria-hidden="true">*</span></label>
-                  <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required aria-required="true"></textarea>
+                  <textarea id="message" name="message" rows="5" placeholder="Tell me about what you're looking to build or hire for..." required aria-required="true"></textarea>
                 </div>
 
                 <button type="submit" class="form-submit btn-primary" id="form-submit-btn">
@@ -1832,28 +1721,25 @@
         <button type="button" class="project-modal__close" id="modal-close-btn" aria-label="Close dialog">✕</button>
         <p class="project-modal__category" id="modal-category">Category</p>
         <h2 class="project-modal__title" id="modal-title">Project Title</h2>
-        <p class="project-modal__tagline" id="modal-tagline">Project Tagline</p>
+        <p class="project-modal__intro" id="modal-overview"></p>
       </header>
 
       <div class="project-modal__stats" id="modal-stats"></div>
 
       <div class="project-modal__video" id="modal-video-wrap" hidden></div>
 
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">Overview</h3>
-        <p class="project-modal__text" id="modal-overview"></p>
-      </div>
-
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">The Engineering Challenge</h3>
-        <div class="project-modal__callout project-modal__callout--challenge">
+      <div class="project-modal__bento-grid">
+        <div class="project-modal__bento-card project-modal__bento-card--challenge">
+          <div class="project-modal__bento-header">
+            <span class="project-modal__badge project-modal__badge--challenge">⚡ Challenge</span>
+          </div>
           <p class="project-modal__text" id="modal-challenge"></p>
         </div>
-      </div>
 
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">Architecture &amp; Solutions</h3>
-        <div class="project-modal__callout">
+        <div class="project-modal__bento-card project-modal__bento-card--architecture">
+          <div class="project-modal__bento-header">
+            <span class="project-modal__badge project-modal__badge--architecture">🛠️ Architecture</span>
+          </div>
           <p class="project-modal__text" id="modal-architecture"></p>
         </div>
       </div>
@@ -1864,7 +1750,7 @@
       </div>
 
       <footer class="project-modal__footer">
-        <a href="#" class="project-modal__btn project-modal__btn--live" id="modal-live-btn" target="_blank" rel="noopener noreferrer">
+        <a href="#" class="btn-primary" id="modal-live-btn" target="_blank" rel="noopener noreferrer">
           <span>View Live Demo</span>
           <svg width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -1872,7 +1758,7 @@
             <line x1="10" y1="14" x2="21" y2="3"></line>
           </svg>
         </a>
-        <a href="#" class="project-modal__btn project-modal__btn--code" id="modal-code-btn" target="_blank" rel="noopener noreferrer">
+        <a href="#" class="btn-ghost" id="modal-code-btn" target="_blank" rel="noopener noreferrer">
           <svg width="14" height="14" aria-hidden="true">
             <use href="assets/images/sprites/icons.svg#i02"></use>
           </svg>
