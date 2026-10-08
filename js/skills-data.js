@@ -8,8 +8,8 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
   <!-- Technical Competencies Matrix -->
   <section class="overview-section">
     <div class="overview-h2-wrap">
-      <h4 class="overview-h2">\u26A1 Tech Stack</h4>
-      <span class="overview-h2-sub">Click to inspect \u2197</span>
+      <h4 class="overview-h2">Tech Stack</h4>
+      <span class="overview-h2-sub">Click to inspect</span>
     </div>
 
     <table class="skills-table-spec">
@@ -18,12 +18,12 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
           <td class="col-domain"><strong>Frontend Core</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button type="button" class="arch-tag" data-skill="react" aria-label="Open React.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-react"></use></svg> React</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="nextjs" aria-label="Open Next.js.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nextjs"></use></svg> Next.js</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="typescript" aria-label="Open TypeScript.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-typescript"></use></svg> TypeScript</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="javascript" aria-label="Open JavaScript.js in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-javascript"></use></svg> JavaScript</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="html5" aria-label="Open HTML5.html in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-html5"></use></svg> HTML5</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="css3" aria-label="Open CSS3.css in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-css3"></use></svg> CSS3</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
+              <button type="button" class="arch-tag" data-skill="react" aria-label="Open React.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-react"></use></svg> React</span></button>
+              <button type="button" class="arch-tag" data-skill="nextjs" aria-label="Open Next.js.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nextjs"></use></svg> Next.js</span></button>
+              <button type="button" class="arch-tag" data-skill="typescript" aria-label="Open TypeScript.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-typescript"></use></svg> TypeScript</span></button>
+              <button type="button" class="arch-tag" data-skill="javascript" aria-label="Open JavaScript.js in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-javascript"></use></svg> JavaScript</span></button>
+              <button type="button" class="arch-tag" data-skill="html5" aria-label="Open HTML5.html in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-html5"></use></svg> HTML5</span></button>
+              <button type="button" class="arch-tag" data-skill="css3" aria-label="Open CSS3.css in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-css3"></use></svg> CSS3</span></button>
             </div>
           </td>
         </tr>
@@ -31,9 +31,9 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
           <td class="col-domain"><strong>Styling &amp; Design Systems</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button type="button" class="arch-tag" data-skill="sass" aria-label="Open Sass.scss in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-sass"></use></svg> Sass / SCSS</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="tailwind" aria-label="Open Tailwind.css in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use></svg> Tailwind CSS</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="storybook" aria-label="Open Storybook.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-storybook"></use></svg> Storybook</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
+              <button type="button" class="arch-tag" data-skill="sass" aria-label="Open Sass.scss in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-sass"></use></svg> Sass / SCSS</span></button>
+              <button type="button" class="arch-tag" data-skill="tailwind" aria-label="Open Tailwind.css in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use></svg> Tailwind CSS</span></button>
+              <button type="button" class="arch-tag" data-skill="storybook" aria-label="Open Storybook.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-storybook"></use></svg> Storybook</span></button>
             </div>
           </td>
         </tr>
@@ -41,11 +41,11 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
           <td class="col-domain"><strong>Backend &amp; Databases</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button type="button" class="arch-tag" data-skill="nodejs" aria-label="Open Node.mjs in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nodejs"></use></svg> Node.js</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="express" aria-label="Open Express.js in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-express"></use></svg> Express</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="postgresql" aria-label="Open PostgreSQL.sql in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postgresql"></use></svg> PostgreSQL</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="mongodb" aria-label="Open MongoDB.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-mongodb"></use></svg> MongoDB</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="python" aria-label="Open Python.py in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-python"></use></svg> Python</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
+              <button type="button" class="arch-tag" data-skill="nodejs" aria-label="Open Node.mjs in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nodejs"></use></svg> Node.js</span></button>
+              <button type="button" class="arch-tag" data-skill="express" aria-label="Open Express.js in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-express"></use></svg> Express</span></button>
+              <button type="button" class="arch-tag" data-skill="postgresql" aria-label="Open PostgreSQL.sql in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postgresql"></use></svg> PostgreSQL</span></button>
+              <button type="button" class="arch-tag" data-skill="mongodb" aria-label="Open MongoDB.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-mongodb"></use></svg> MongoDB</span></button>
+              <button type="button" class="arch-tag" data-skill="python" aria-label="Open Python.py in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-python"></use></svg> Python</span></button>
               <span class="arch-tag arch-tag--static"><span>\u25EC Prisma ORM</span></span>
               <span class="arch-tag arch-tag--static"><span>\u{1F50C} REST APIs</span></span>
             </div>
@@ -55,11 +55,11 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
           <td class="col-domain"><strong>Tools &amp; VCS</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button type="button" class="arch-tag" data-skill="git" aria-label="Open Git.config in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-git"></use></svg> Git</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="npm" aria-label="Open package.json in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-npm"></use></svg> npm</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="postman" aria-label="Open Postman.json in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postman"></use></svg> Postman</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="vscode" aria-label="Open VSCode.json in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-vscode"></use></svg> VS Code</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="trello" aria-label="Open Trello.board in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-trello"></use></svg> Trello</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
+              <button type="button" class="arch-tag" data-skill="git" aria-label="Open Git.config in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-git"></use></svg> Git</span></button>
+              <button type="button" class="arch-tag" data-skill="npm" aria-label="Open package.json in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-npm"></use></svg> npm</span></button>
+              <button type="button" class="arch-tag" data-skill="postman" aria-label="Open Postman.json in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postman"></use></svg> Postman</span></button>
+              <button type="button" class="arch-tag" data-skill="vscode" aria-label="Open VSCode.json in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-vscode"></use></svg> VS Code</span></button>
+              <button type="button" class="arch-tag" data-skill="trello" aria-label="Open Trello.board in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-trello"></use></svg> Trello</span></button>
               <span class="arch-tag arch-tag--static"><span>\u{1F433} Docker</span></span>
               <span class="arch-tag arch-tag--static"><span>\u26A1 Vite &amp; Webpack</span></span>
             </div>
@@ -78,11 +78,11 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
           <td class="col-domain"><strong>Leveling Up &amp; 3D</strong></td>
           <td>
             <div class="arch-tags-flow">
-              <button type="button" class="arch-tag" data-skill="angular" aria-label="Open Angular.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-angular"></use></svg> Angular</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="reactnative" aria-label="Open ReactNative.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-reactnative"></use></svg> React Native</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="java" aria-label="Open Java.java in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-java"></use></svg> Java</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="chakraui" aria-label="Open ChakraUI.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-chakraui"></use></svg> Chakra UI</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
-              <button type="button" class="arch-tag" data-skill="threejs" aria-label="Open ThreeJS.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-threejs"></use></svg> Three.js &amp; WebGL</span><span class="arch-tag__link" aria-hidden="true">\u2197</span></button>
+              <button type="button" class="arch-tag" data-skill="angular" aria-label="Open Angular.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-angular"></use></svg> Angular</span></button>
+              <button type="button" class="arch-tag" data-skill="reactnative" aria-label="Open ReactNative.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-reactnative"></use></svg> React Native</span></button>
+              <button type="button" class="arch-tag" data-skill="java" aria-label="Open Java.java in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-java"></use></svg> Java</span></button>
+              <button type="button" class="arch-tag" data-skill="chakraui" aria-label="Open ChakraUI.tsx in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-chakraui"></use></svg> Chakra UI</span></button>
+              <button type="button" class="arch-tag" data-skill="threejs" aria-label="Open ThreeJS.ts in editor"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-threejs"></use></svg> Three.js &amp; WebGL</span></button>
             </div>
           </td>
         </tr>
@@ -93,13 +93,13 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
   <!-- Integrated Experience & Education Timeline -->
   <section class="overview-section">
     <div class="overview-h2-wrap">
-      <h4 class="overview-h2">\u{1F393} Education &amp; Experience</h4>
+      <h4 class="overview-h2">Education &amp; Experience</h4>
       <span class="overview-h2-sub">Milestones</span>
     </div>
 
     <div class="overview-compact-stream">
       <!-- Milestone 1: WGU -->
-      <div class="overview-compact-card overview-compact-card--edu">
+      <div class="overview-compact-card">
         <div class="overview-compact-main">
           <span class="overview-compact-title">\u{1F393} B.S. Computer Science</span>
           <span class="overview-compact-org">Western Governors University</span>
@@ -116,25 +116,16 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
         <span class="overview-timeline-date">2021 \u2013 Present</span>
       </div>
 
-      <!-- Milestone 3: React Bootcamp -->
+      <!-- Milestone 3: Full-Stack & React Engineering Bootcamp -->
       <div class="overview-compact-card">
         <div class="overview-compact-main">
-          <span class="overview-compact-title">\u269B\uFE0F React Bootcamp Graduate</span>
-          <span class="overview-compact-org">Advanced React, TypeScript &amp; Next.js</span>
+          <span class="overview-compact-title">\u269B\uFE0F Full-Stack &amp; React Bootcamp</span>
+          <span class="overview-compact-org">Modern React, TypeScript, Next.js &amp; Node.js</span>
         </div>
         <span class="overview-timeline-date">2021 \u2013 2022</span>
       </div>
 
-      <!-- Milestone 4: Web Dev Bootcamp -->
-      <div class="overview-compact-card">
-        <div class="overview-compact-main">
-          <span class="overview-compact-title">\u{1F310} Web Development Bootcamp</span>
-          <span class="overview-compact-org">Full-Stack HTML5/CSS3/Node.js/Databases</span>
-        </div>
-        <span class="overview-timeline-date">2021 \u2013 2022</span>
-      </div>
-
-      <!-- Milestone 5: Indie Games -->
+      <!-- Milestone 4: Indie Games -->
       <div class="overview-compact-card">
         <div class="overview-compact-main">
           <span class="overview-compact-title">\u{1F3AE} Indie Game Developer &amp; Producer</span>
@@ -143,22 +134,13 @@ const s=a=>`<svg class="file-svg-icon" aria-hidden="true"><use href="assets/imag
         <span class="overview-timeline-date">2010 \u2013 2020</span>
       </div>
 
-      <!-- Milestone 6: Westwood College -->
-      <div class="overview-compact-card overview-compact-card--edu">
+      <!-- Milestone 5: Westwood College -->
+      <div class="overview-compact-card">
         <div class="overview-compact-main">
           <span class="overview-compact-title">\u{1F393} B.S. Game Software Development</span>
           <span class="overview-compact-org">Westwood College \u2022 4.0 GPA, Dean's List</span>
         </div>
         <span class="overview-timeline-date">2012 \u2013 2015</span>
-      </div>
-
-      <!-- Milestone 7: High School -->
-      <div class="overview-compact-card overview-compact-card--edu">
-        <div class="overview-compact-main">
-          <span class="overview-compact-title">\u{1F3DB}\uFE0F Early Foundations</span>
-          <span class="overview-compact-org">Yucaipa High School \u2022 3.9 GPA, GATE</span>
-        </div>
-        <span class="overview-timeline-date">Foundations</span>
       </div>
     </div>
   </section>
