@@ -2,8 +2,6 @@
 //  about.js — Pure Open Canvas Chapter Deck Controller
 // ============================================================
 
-const chapterNextTitles = ['Modern Web Focus →', 'Go-To Tech Stack →', 'Reliability & Mindset →', 'Back to Origins ↺'];
-
 const totalChapters = 4;
 let currentChapter = 0;
 
@@ -71,12 +69,6 @@ export function goToChapter(index) {
     seg.classList.toggle('active', isActive);
     seg.setAttribute('aria-selected', String(isActive));
   });
-
-  // Update next CTA button label
-  const nextTitleEl = document.getElementById('about-next-title');
-  if (nextTitleEl) {
-    nextTitleEl.textContent = chapterNextTitles[index];
-  }
 }
 
 export function nextChapter() {
@@ -99,27 +91,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutSection = document.getElementById('about');
   if (!aboutSection) return;
 
-  // Click handler for segment bars & action buttons
+  // Click handler for segment bars
   aboutSection.addEventListener('click', (e) => {
     const segBtn = e.target.closest('.about__seg');
     if (segBtn) {
       const idx = parseInt(segBtn.getAttribute('data-chapter-index'), 10);
       if (!isNaN(idx)) goToChapter(idx);
-      return;
-    }
-
-    const nextBtn = e.target.closest('[data-about-action="next"]');
-    if (nextBtn) {
-      nextChapter();
-      return;
-    }
-
-    const prevBtn = e.target.closest('[data-about-action="prev"]');
-    if (prevBtn) {
-      prevChapter();
-      return;
     }
   });
+
+  // Keyboard arrow navigation on tab track
+  const track = aboutSection.querySelector('.about__track');
+  if (track) {
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        nextChapter();
+        const activeSeg = track.querySelector(`.about__seg[data-chapter-index="${currentChapter}"]`);
+        if (activeSeg) activeSeg.focus();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        prevChapter();
+        const activeSeg = track.querySelector(`.about__seg[data-chapter-index="${currentChapter}"]`);
+        if (activeSeg) activeSeg.focus();
+      }
+    });
+  }
 
   // Touch swipe support for mobile chapter navigation
   const slidesViewport =
@@ -149,6 +146,17 @@ document.addEventListener('DOMContentLoaded', () => {
           touchEndY = e.changedTouches[0].screenY;
           handleSwipe();
         }
+      },
+      { passive: true },
+    );
+
+    slidesViewport.addEventListener(
+      'touchcancel',
+      () => {
+        touchStartX = 0;
+        touchStartY = 0;
+        touchEndX = 0;
+        touchEndY = 0;
       },
       { passive: true },
     );

@@ -221,18 +221,20 @@
 }
 
 @keyframes social-bounce {
-  0%,
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    transform: translateY(-7px) scale(1.06);
+  }
+  65% {
+    transform: translateY(1px) scale(0.97);
+  }
+  85% {
+    transform: translateY(-2px) scale(1.02);
+  }
   100% {
-    transform: translateY(0);
-  }
-  30% {
-    transform: translateY(-8px);
-  }
-  60% {
-    transform: translateY(-4px);
-  }
-  80% {
-    transform: translateY(-6px);
+    transform: translateY(0) scale(1);
   }
 }
 

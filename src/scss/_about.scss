@@ -14,7 +14,6 @@
 
 .about {
   padding: var(--space-24) 0;
-  background-color: var(--bg-base);
   position: relative;
 
   @include bp(lg) {
@@ -89,8 +88,7 @@
     }
   }
 
-  &__headline,
-  &__intro {
+  &__headline {
     font-size: clamp(1.05rem, 1.6vw, 1.2rem);
     font-weight: 400;
     color: var(--text-secondary);
@@ -109,11 +107,6 @@
   // ── Single Unified Window (Split-Pane Chassis) ──
   &__window {
     @include tech-glass-chassis(var(--radius-lg));
-    background: var(--bg-card);
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -139,23 +132,16 @@
 
   // Left Author Pane inside the Window Chassis
   &__window-aside {
-    background: rgba(11, 14, 20, 0.55);
-    border-bottom: 1px solid var(--border);
+    background: transparent;
     padding: var(--space-4);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: var(--space-2-5, 10px);
-
-    [data-theme='light'] & {
-      background: rgba(233, 239, 250, 0.65);
-    }
+    gap: var(--space-2-5);
 
     @include bp(md) {
-      border-bottom: none;
-      border-right: 1px solid var(--border);
       padding: var(--space-8) var(--space-6);
       gap: var(--space-5);
     }
@@ -172,16 +158,11 @@
     position: relative;
     display: inline-block;
     transform-origin: bottom center;
-    animation: portrait-float 3s ease-in-out infinite;
     cursor: pointer;
     background: none;
     border: none;
     padding: 0;
     outline: none;
-
-    &:hover {
-      animation-play-state: paused;
-    }
 
     &:focus-visible {
       outline: none;
@@ -208,6 +189,11 @@
     border-radius: var(--radius-xl);
     overflow: hidden;
     position: relative;
+    transition: transform var(--t-base) cubic-bezier(0.16, 1, 0.3, 1);
+
+    .about__portrait-outer:hover & {
+      transform: translateY(-4px);
+    }
 
     @include bp(md) {
       width: 170px;
@@ -250,10 +236,6 @@
       transform-origin: bottom center;
     }
 
-    .about__portrait-outer:hover & {
-      animation: portrait-hover-wobble 0.5s ease-in-out infinite;
-    }
-
     &-ring {
       position: absolute;
       inset: -3px;
@@ -289,41 +271,6 @@
     animation-duration: 1.5s;
   }
 
-  // Author Name & Title in Left Pane
-  &__author-lockup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-1);
-  }
-
-  &__author-name {
-    font-family: var(--font-display);
-    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.015em;
-    line-height: 1.2;
-  }
-
-  &__author-title {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--complementary-light);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-
-    &::before,
-    &::after {
-      content: '//';
-      color: var(--text-dim);
-      font-weight: 400;
-    }
-  }
 
   // Right Story Main Pane
   &__window-main {
@@ -337,18 +284,17 @@
 
   // Window Top Bar
   &__window-bar {
+    position: relative;
     background: var(--bg-raise);
     border-bottom: 1px solid var(--border);
     padding: 0.65rem var(--space-4);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-2);
+    justify-content: flex-start;
     min-width: 0;
 
     @include bp(md) {
       padding: 0.75rem var(--space-6);
-      gap: var(--space-3);
     }
 
     @include bp(lg) {
@@ -356,39 +302,10 @@
     }
   }
 
-  &__window-meta {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    min-width: 0;
-
-    @include bp(md) {
-      gap: var(--space-4);
-    }
-  }
-
-  &__window-dots {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1-5);
-    flex-shrink: 0;
-  }
-
-  &__window-dot {
-    &--r {
-      @include tech-window-dot('r');
-    }
-
-    &--y {
-      @include tech-window-dot('y');
-    }
-
-    &--g {
-      @include tech-window-dot('g');
-    }
-  }
-
   &__window-filename {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     letter-spacing: var(--tracking-normal);
@@ -396,17 +313,7 @@
     text-transform: lowercase;
     font-weight: 600;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &__window-badge {
-    font-family: var(--font-mono);
-    font-size: var(--text-2xs);
-    color: var(--text-muted);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    flex-shrink: 0;
+    pointer-events: none;
   }
 
   // Window Body
@@ -453,8 +360,15 @@
     min-width: 0;
     overflow: hidden;
 
-    &:hover .about__seg-bar {
-      background: var(--border-bright);
+    &:hover {
+      .about__seg-bar {
+        background: var(--primary-light);
+        opacity: 0.85;
+      }
+
+      .about__seg-lbl {
+        color: var(--text-primary);
+      }
     }
 
     &:focus-visible {
@@ -609,25 +523,21 @@
 
   &__code-pill {
     font-family: var(--font-mono);
-    font-size: 0.86em;
+    font-size: 0.84em;
     background: var(--bg-raise);
-    border: 1px solid var(--border-bright);
+    border: 1px solid var(--border);
     color: var(--primary-light);
-    padding: 1px 6px;
+    padding: 0.12em 0.45em;
     border-radius: var(--radius-xs);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
+    display: inline;
     white-space: nowrap;
     transition:
       border-color var(--t-fast),
-      background var(--t-fast),
-      transform var(--t-fast);
+      background-color var(--t-fast);
 
     &:hover {
-      border-color: var(--primary);
-      background: var(--primary-pale);
-      transform: translateY(-1px);
+      border-color: var(--border-bright);
+      background: var(--bg-overlay);
     }
 
     &--cyan {
@@ -641,6 +551,37 @@
     &--green {
       color: var(--green);
     }
+  }
+
+  &__task-list {
+    list-style: none;
+    margin: var(--space-3) 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  &__task-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-size: clamp(0.85rem, 1.15vw, 0.95rem);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  &__task-box {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    font-weight: 700;
+    color: var(--primary);
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  &__task-text {
+    flex: 1;
   }
 
   &__blockquote {
@@ -747,134 +688,6 @@
     }
   }
 
-  // Integrated Window Footer Controls (Unified with IDE Console Bar)
-  &__controls {
-    background: var(--bg-raise);
-    border-top: 1px solid var(--border);
-    padding: var(--space-3) var(--space-4);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-2);
-    min-width: 0;
-
-    @include bp(md) {
-      padding: var(--space-3) var(--space-6);
-      gap: var(--space-4);
-    }
-
-    @include bp(lg) {
-      padding: var(--space-3) var(--space-8);
-    }
-  }
-
-  &__next-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-1-5);
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    cursor: pointer;
-    transition:
-      color var(--t-fast),
-      transform var(--t-fast);
-    padding: var(--space-1) 0;
-    min-width: 0;
-    flex: 1;
-    overflow: hidden;
-    text-align: left;
-
-    &:hover {
-      color: var(--primary-light);
-      transform: translateX(3px);
-    }
-
-    &:active {
-      transform: translateX(1px);
-    }
-
-    &:focus-visible {
-      outline: none;
-      color: var(--primary-light);
-      box-shadow:
-        0 0 0 2px var(--bg-card),
-        0 0 0 4px var(--primary);
-      border-radius: var(--radius-xs);
-    }
-
-    span:first-child {
-      flex-shrink: 0;
-    }
-
-    span.about__next-label {
-      color: var(--text-primary);
-      font-weight: 600;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      min-width: 0;
-    }
-  }
-
-  &__arrow-group {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1-5);
-    flex-shrink: 0;
-
-    @include bp(md) {
-      gap: var(--space-2);
-    }
-  }
-
-  &__arrow-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-circle);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: all var(--t-fast) var(--ease-out);
-
-    @include bp(md) {
-      width: 34px;
-      height: 34px;
-    }
-
-    &:hover {
-      border-color: var(--primary-light);
-      color: var(--primary-light);
-      background: var(--primary-pale);
-      transform: scale(1.08);
-    }
-
-    &:focus-visible {
-      outline: none;
-      border-color: var(--primary-light);
-      color: var(--primary-light);
-      background: var(--primary-pale);
-      box-shadow:
-        0 0 0 2px var(--bg-card),
-        0 0 0 4px var(--primary);
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
-
-    svg {
-      width: 14px;
-      height: 14px;
-    }
-  }
 
   // ── Story-Driven Milestone Columns (Full-Width Free-Form Ribbon) ──
   &__metrics {
@@ -972,19 +785,9 @@
       text-shadow: 0 0 28px rgba(99, 102, 241, 0.32);
     }
 
-    &--cyan {
-      color: var(--cyan);
-      text-shadow: 0 0 28px rgba(6, 182, 212, 0.32);
-    }
-
     &--amber {
       color: var(--complementary);
       text-shadow: 0 0 28px rgba(245, 158, 11, 0.32);
-    }
-
-    &--emerald {
-      color: var(--green);
-      text-shadow: 0 0 28px rgba(16, 185, 129, 0.32);
     }
   }
 
@@ -1004,7 +807,7 @@
   &__metric-body {
     font-size: var(--text-sm);
     color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
+    line-height: var(--leading-normal);
   }
 }
 
@@ -1018,15 +821,6 @@
   }
 }
 
-@keyframes portrait-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
 
 @keyframes portrait-rocket {
   0% {
@@ -1075,15 +869,3 @@
   }
 }
 
-@keyframes portrait-hover-wobble {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-0.4deg);
-  }
-  75% {
-    transform: rotate(0.4deg);
-  }
-}

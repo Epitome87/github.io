@@ -6,7 +6,6 @@ const modalCloseBtn = document.getElementById('modal-close-btn');
 
 const modalCategory = document.getElementById('modal-category');
 const modalTitle = document.getElementById('modal-title');
-const modalTagline = document.getElementById('modal-tagline');
 const modalStats = document.getElementById('modal-stats');
 const modalVideoWrap = document.getElementById('modal-video-wrap');
 const modalOverview = document.getElementById('modal-overview');
@@ -27,7 +26,7 @@ export function openProjectModal(projectId) {
 
   if (modalCategory) modalCategory.textContent = project.category;
   if (modalTitle) modalTitle.textContent = project.title;
-  if (modalTagline) modalTagline.textContent = project.tagline;
+  if (modalOverview) modalOverview.textContent = project.overview;
 
   // Stats
   if (modalStats) {
@@ -82,19 +81,26 @@ export function openProjectModal(projectId) {
     }
   }
 
-  if (modalOverview) modalOverview.textContent = project.overview;
   if (modalChallenge) modalChallenge.textContent = project.challenge;
   if (modalArchitecture) modalArchitecture.textContent = project.architecture;
 
-  // Tech stack tags
+  // Tech stack tags (inline dot-separated list matching project cards)
   if (modalTags) {
     modalTags.replaceChildren();
-    for (const tag of project.techStack) {
+    project.techStack.forEach((tag, idx) => {
       const span = document.createElement('span');
-      span.className = 'project-tag';
+      span.className = 'project-modal__tech-item';
       span.textContent = tag;
       modalTags.appendChild(span);
-    }
+
+      if (idx < project.techStack.length - 1) {
+        const dot = document.createElement('span');
+        dot.className = 'project-modal__tech-dot';
+        dot.setAttribute('aria-hidden', 'true');
+        dot.textContent = '·';
+        modalTags.appendChild(dot);
+      }
+    });
   }
 
   // Action links

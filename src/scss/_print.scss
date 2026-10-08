@@ -18,8 +18,6 @@
 
   // Hide non-essential elements
   .nav,
-  .hero__scroll-hint,
-  .projects__cta-band,
   .services,
   .github,
   .contact,
@@ -76,10 +74,6 @@
   .hero__tagline {
     font-size: 11pt;
   }
-  .hero__stats {
-    border-top: 1px solid #ccc;
-    padding-top: 0.5rem;
-  }
 
   // Show full URLs for links
   a[href]::after {
@@ -95,14 +89,13 @@
   }
 
   // Projects — single column
-  .projects__grid,
-  .experience__grid {
+  .projects__grid {
     grid-template-columns: 1fr !important;
   }
 
   // Ensure page breaks don't split cards
   .project-card,
-  .timeline-item {
+  .milestone-entry {
     page-break-inside: avoid;
   }
 

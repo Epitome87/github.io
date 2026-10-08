@@ -7,7 +7,6 @@
 
 .contact {
   padding: var(--space-24) 0;
-  background-color: var(--bg-raise);
 
   @include bp(lg) {
     padding: var(--space-32) 0;
@@ -51,7 +50,6 @@
     line-height: 0.95;
     letter-spacing: -0.03em;
     margin-bottom: clamp(-1.8rem, -4vw, -3.6rem); // Overlaps top of avatar
-    text-shadow: 0 4px 28px rgba(7, 10, 18, 0.9), 0 2px 6px rgba(0, 0, 0, 0.9);
   }
 
   &__avatar-chassis {
@@ -77,13 +75,13 @@
     justify-content: center;
     align-items: center;
     border: 3px solid color-mix(in srgb, var(--primary) 45%, transparent);
-    box-shadow: 0 0 35px var(--primary-glow-lg), 0 24px 50px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 35px color-mix(in srgb, var(--primary) 28%, transparent);
     background: var(--primary); // Seamless match with avatar graphic background
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 
     &:hover {
       border-color: var(--primary);
-      box-shadow: 0 0 45px var(--primary-glow), 0 28px 60px rgba(0, 0, 0, 0.85);
+      box-shadow: 0 0 45px color-mix(in srgb, var(--primary) 42%, transparent);
     }
 
     // Specular light sweep on rim
@@ -110,7 +108,6 @@
     pointer-events: none;
     transform: scale(1.14); // Travel space so 20px parallax shifts don't expose borders
     transition: transform 0.12s ease-out;
-    will-change: transform;
   }
 
   // Dynamic Speech Bubble (Snug overlap at mouth Y-level)
@@ -132,7 +129,7 @@
     width: clamp(240px, 24vw, 320px);
     text-align: left;
     opacity: 0;
-    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85), 0 0 24px var(--primary-glow);
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.15);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition:
@@ -210,7 +207,6 @@
     color: var(--text-primary);
     line-height: var(--leading-tight);
     max-width: 1050px;
-    text-shadow: 0 4px 28px rgba(7, 10, 18, 0.9), 0 2px 6px rgba(0, 0, 0, 0.9);
 
     em {
       font-style: normal;
@@ -374,27 +370,15 @@
   &--success {
     background: var(--green-pale);
     border: 1px solid var(--green);
-    color: #34d399;
+    color: var(--green);
     box-shadow: 0 2px 12px var(--green-pale);
-
-    [data-theme='light'] & {
-      background: rgba(5, 150, 105, 0.1);
-      border-color: #059669;
-      color: #047857;
-    }
   }
 
   &--error {
-    background: rgba(239, 68, 68, 0.12);
-    border: 1px solid rgba(239, 68, 68, 0.45);
-    color: #f87171;
-    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.15);
-
-    [data-theme='light'] & {
-      background: rgba(220, 38, 38, 0.08);
-      border-color: #dc2626;
-      color: #b91c1c;
-    }
+    background: var(--danger-pale);
+    border: 1px solid var(--danger-border);
+    color: var(--danger-light);
+    box-shadow: 0 2px 12px var(--danger-pale);
 
     a {
       color: inherit;
@@ -407,6 +391,6 @@
 // Accessible field-level invalid focus cues
 .form-group input[aria-invalid='true'],
 .form-group textarea[aria-invalid='true'] {
-  border-color: #ef4444 !important;
-  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25) !important;
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 2px var(--danger-glow) !important;
 }

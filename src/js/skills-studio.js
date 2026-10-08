@@ -16,49 +16,34 @@ export function loadSkill(key) {
     f.setAttribute('aria-selected', String(isTarget));
   });
 
-  // Auto-expand parent folders if collapsed
-  ['side-', 'mob-side-'].forEach((prefix) => {
-    const el = document.getElementById(`${prefix}${key}`);
-    if (el) {
-      const parentFolder = el.closest('.folder-content');
-      if (parentFolder && parentFolder.classList.contains('hidden')) {
-        parentFolder.classList.remove('hidden');
-        const prevHeader = parentFolder.previousElementSibling;
-        if (prevHeader) {
-          prevHeader.classList.remove('collapsed');
-          prevHeader.setAttribute('aria-expanded', 'true');
-        }
+  // Auto-expand parent folder if collapsed
+  const el = document.getElementById(`side-${key}`);
+  if (el) {
+    const parentFolder = el.closest('.folder-content');
+    if (parentFolder && parentFolder.classList.contains('hidden')) {
+      parentFolder.classList.remove('hidden');
+      const prevHeader = parentFolder.previousElementSibling;
+      if (prevHeader) {
+        prevHeader.classList.remove('collapsed');
+        prevHeader.setAttribute('aria-expanded', 'true');
       }
     }
-  });
+  }
 
-  const deskSidebar = document.getElementById('desktop-sidebar');
-  if (deskSidebar) updateRovingTabindex(deskSidebar);
-  const mobSidebar = document.getElementById('mobile-sidebar-nav');
-  if (mobSidebar) updateRovingTabindex(mobSidebar);
+  const sidebar = document.getElementById('ide-sidebar');
+  if (sidebar) updateRovingTabindex(sidebar);
 
-  // 2. Update Mobile Header Current File Label
-  const mobLabel = document.getElementById('mob-current-file-label');
-  if (mobLabel) {
-    mobLabel.innerHTML = `${data.icon} ${data.name}`;
+  // 2. Update Interactive Editor Tab
+  const tabLabel = document.getElementById('tab-label-text');
+  if (tabLabel) {
+    tabLabel.innerHTML = `${data.icon} ${data.name}`;
   }
 
   // 3. Auto-collapse mobile file drawer on file selection
-  const mobDrawer = document.getElementById('mobile-file-drawer');
-  if (mobDrawer && mobDrawer.classList.contains('open')) {
-    mobDrawer.classList.remove('open');
-    const mobToggleBtn = document.getElementById('mobile-explorer-toggle-bar');
-    if (mobToggleBtn) mobToggleBtn.setAttribute('aria-expanded', 'false');
-    const mobChevron = document.getElementById('mob-exp-chevron');
-    if (mobChevron) mobChevron.textContent = '▾';
-  }
-
-  // 4. Update Window Title & Editor Tab
-  const winTitle = document.getElementById('window-title-text');
-  if (winTitle) winTitle.textContent = `matthew-mcgrath // ${data.name}`;
-  const activeTabTitle = document.getElementById('active-tab-title');
-  if (activeTabTitle) {
-    activeTabTitle.innerHTML = `<span>${data.icon} ${data.name}</span>`;
+  if (sidebar && sidebar.classList.contains('open')) {
+    sidebar.classList.remove('open');
+    const tabBtn = document.getElementById('active-tab-title');
+    if (tabBtn) tabBtn.setAttribute('aria-expanded', 'false');
   }
 
   // Toggle Back to Overview button in the tab bar
@@ -98,16 +83,12 @@ export function toggleFolder(folderId, headerEl) {
 }
 
 export function toggleMobileExplorer() {
-  const drawer = document.getElementById('mobile-file-drawer');
-  const toggleBtn = document.getElementById('mobile-explorer-toggle-bar');
-  const chevron = document.getElementById('mob-exp-chevron');
+  const drawer = document.getElementById('ide-sidebar');
+  const toggleBtn = document.getElementById('active-tab-title');
   if (!drawer) return;
   const isOpen = drawer.classList.toggle('open');
   if (toggleBtn) {
     toggleBtn.setAttribute('aria-expanded', String(isOpen));
-  }
-  if (chevron) {
-    chevron.textContent = isOpen ? '▴' : '▾';
   }
 }
 
@@ -121,7 +102,7 @@ export function toggleConsoleDrawer() {
     toggleBtn.setAttribute('aria-expanded', String(isOpen));
   }
   if (indicator) {
-    indicator.textContent = isOpen ? '7 commits ▴' : '7 commits ▾';
+    indicator.textContent = isOpen ? '5 commits ▴' : '5 commits ▾';
   }
 }
 
@@ -274,7 +255,7 @@ document.addEventListener('click', (e) => {
   // 2. Sidebar File Item fallback
   const fileItem = e.target.closest('.file-item');
   if (fileItem) {
-    const skill = fileItem.getAttribute('data-skill') || fileItem.id.replace('side-', '').replace('mob-side-', '');
+    const skill = fileItem.getAttribute('data-skill') || fileItem.id.replace('side-', '');
     if (skill) {
       loadSkill(skill);
       return;
@@ -291,17 +272,20 @@ document.addEventListener('click', (e) => {
         const isHidden = content.classList.toggle('hidden');
         folderHeader.classList.toggle('collapsed', isHidden);
         folderHeader.setAttribute('aria-expanded', String(!isHidden));
-        const sidebar = folderHeader.closest('#desktop-sidebar, #mobile-sidebar-nav');
+        const sidebar = folderHeader.closest('#ide-sidebar');
         if (sidebar) updateRovingTabindex(sidebar);
       }
     }
     return;
   }
 
-  // 4. Mobile Explorer Toggle Bar Click
-  const mobToggle = e.target.closest('#mobile-explorer-toggle-bar');
-  if (mobToggle) {
-    toggleMobileExplorer();
+  // 4. Interactive Active Tab (Mobile File Switcher) Click
+  const tabToggle = e.target.closest('#active-tab-title');
+  if (tabToggle) {
+    // Only toggle on mobile screens (< 768px) where drawer operates
+    if (window.innerWidth < 768) {
+      toggleMobileExplorer();
+    }
     return;
   }
 
@@ -313,27 +297,23 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Attach keydown listener for desktop and mobile sidebar explorers
-['desktop-sidebar', 'mobile-sidebar-nav'].forEach((id) => {
-  const sidebar = document.getElementById(id);
-  if (sidebar) {
-    sidebar.addEventListener('keydown', (e) => handleTreeKeydown(e, sidebar));
-  }
-});
+// Attach keydown listener for sidebar explorer
+const ideSidebar = document.getElementById('ide-sidebar');
+if (ideSidebar) {
+  ideSidebar.addEventListener('keydown', (e) => handleTreeKeydown(e, ideSidebar));
+}
 
 // Auto-run when DOM is ready
 const initSkillsStudio = () => {
   const totalSkillsCount = Object.keys(allSkills).length;
-  const fileBadgeEl = document.getElementById('ide-file-badge');
-  if (fileBadgeEl) {
-    fileBadgeEl.textContent = `${totalSkillsCount} Files`;
+  const mobileFileCountEl = document.getElementById('ide-mobile-file-count');
+  if (mobileFileCountEl) {
+    mobileFileCountEl.textContent = `${totalSkillsCount} files`;
   }
   loadSkill('overview');
 
-  const desktopSidebar = document.getElementById('desktop-sidebar');
-  if (desktopSidebar) updateRovingTabindex(desktopSidebar);
-  const mobileSidebar = document.getElementById('mobile-sidebar-nav');
-  if (mobileSidebar) updateRovingTabindex(mobileSidebar);
+  const sidebar = document.getElementById('ide-sidebar');
+  if (sidebar) updateRovingTabindex(sidebar);
 };
 
 if (document.readyState === 'loading') {

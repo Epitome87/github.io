@@ -10,8 +10,7 @@
     "build:js:dist": "node scripts/build-dist.mjs --js",
     "build:copy": "node scripts/build-dist.mjs --copy",
     "clean:dist": "node scripts/build-dist.mjs --clean",
-    "watch:js": "chokidar \"src/js/*.js\" -i \"src/js/min/**\" -c \"node scripts/build-js.mjs\"",
-    "dev": "run-p watch:css watch:js",
+    "dev": "npm run watch:css",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {

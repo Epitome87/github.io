@@ -7,8 +7,6 @@
 
 .hero {
   position: relative;
-  overflow: hidden;
-  background: var(--bg-base);
   padding-top: calc(var(--nav-h) + var(--space-5, 20px));
   padding-bottom: var(--space-12);
 
@@ -27,7 +25,6 @@
     inset: 0;
     pointer-events: none;
     z-index: var(--z-base);
-    overflow: hidden;
   }
 
   &__glow-orb {
@@ -82,7 +79,7 @@
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.028em;
-    line-height: 0.88;
+    line-height: 0.96;
     position: relative;
     margin-bottom: var(--space-4);
     color: var(--text-primary);
@@ -95,6 +92,8 @@
     &-line {
       display: block;
       overflow: hidden;
+      padding-bottom: 0.08em;
+      margin-bottom: -0.08em;
 
       &--first span {
         display: block;
@@ -215,7 +214,7 @@
       display: flex;
       align-items: center;
       padding: 0 var(--space-2) 0 var(--space-3);
-      height: 40px;
+      height: 42px;
       overflow: hidden;
     }
 
@@ -234,55 +233,32 @@
       }
     }
 
-    &-dots {
-      display: flex;
-      gap: 5.5px;
-      align-items: center;
+    .window-dots {
       padding-left: var(--space-1);
-      padding-right: var(--space-2, 8px);
-      flex-shrink: 0;
-    }
-
-    &-dot {
-      &--close {
-        @include tech-window-dot('close');
-      }
-      &--min {
-        @include tech-window-dot('min');
-      }
-      &--max {
-        @include tech-window-dot('max');
-      }
-    }
-
-    // ── CSS Grid Stacking: Locks container height to tallest panel across all viewports with zero shift
-    &-content {
-      display: grid;
-      grid-template-columns: 100%;
-      position: relative;
-      @include tech-viewport-backlight;
+      padding-right: var(--space-2);
     }
 
     &-tabs {
       display: flex;
       height: 100%;
-      align-items: center;
+      align-items: flex-end;
       gap: var(--space-1);
       flex-shrink: 0;
+      padding-top: 4px;
     }
 
     &-tab {
       display: inline-flex;
       align-items: center;
       gap: var(--space-1-5);
-      height: 100%;
+      height: 32px;
       padding: 0 var(--space-3);
       font-size: 0.74rem;
       font-weight: 500;
       color: var(--text-muted);
       border-bottom: 2px solid transparent;
-      border-radius: 0;
-      border-top: none;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-top: 1px solid transparent;
       border-left: 1px solid transparent;
       border-right: 1px solid transparent;
       cursor: pointer;
@@ -309,12 +285,11 @@
         color: var(--text-primary);
         font-weight: 600;
         background: var(--bg-card);
-        border-bottom-color: var(--primary-light);
+        border-top-color: var(--border-bright);
         border-left-color: var(--border);
         border-right-color: var(--border);
-        box-shadow:
-          inset 0 -2px 0 var(--primary-light),
-          0 2px 8px var(--primary-glow);
+        border-bottom: 2px solid var(--primary-light);
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
       }
 
       &-icon {
@@ -425,12 +400,6 @@
   }
 }
 
-[data-theme='light'] {
-  .hero__name-line--last .hero__name-char {
-    color: var(--text-primary);
-  }
-}
-
 @keyframes slide-up {
   from {
     transform: translateY(110%);
@@ -449,16 +418,6 @@
     transform: none;
   }
 }
-@keyframes scroll-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-
 
 @keyframes heroGlowFloat {
   0% {

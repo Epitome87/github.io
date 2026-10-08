@@ -169,7 +169,11 @@
                 "applicationCategory": "GameApplication",
                 "operatingSystem": "Xbox 360",
                 "description": "A 3D wave-defense game built solo in C# and published on Xbox Live Indie Games.",
-                "codeRepository": "https://github.com/Epitome87/Avatars-In-Grave-Danger"
+                "codeRepository": "https://github.com/Epitome87/Avatars-In-Grave-Danger",
+                "programmingLanguage": ["C#", "XNA Framework"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
               }
             },
             {
@@ -181,7 +185,11 @@
                 "applicationCategory": "WebApplication",
                 "description": "Full-stack React clone of Flat UI with custom color palettes and material design components.",
                 "url": "https://epitome87.github.io/React-Flat-UI/",
-                "codeRepository": "https://github.com/Epitome87/React-Flat-UI"
+                "codeRepository": "https://github.com/Epitome87/React-Flat-UI",
+                "programmingLanguage": ["JavaScript", "React", "Material-UI"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
               }
             },
             {
@@ -189,11 +197,47 @@
               "position": 3,
               "item": {
                 "@type": "WebApplication",
-                "name": "Recipe App",
+                "name": "Frontend Collection",
                 "applicationCategory": "WebApplication",
-                "description": "Fullstack app for searching and browsing recipes with smooth animations and polished UI.",
-                "url": "https://react-recipes-d136loejp-epitome87.vercel.app/",
-                "codeRepository": "https://github.com/Epitome87/React-Recipes"
+                "description": "Assortment of responsive frontend projects, components, and marketing landing pages.",
+                "url": "https://github.com/Epitome87/front-end-mentor-journey",
+                "codeRepository": "https://github.com/Epitome87/front-end-mentor-journey",
+                "programmingLanguage": ["HTML5", "CSS3", "Sass", "JavaScript"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Omnifood",
+                "applicationCategory": "WebApplication",
+                "description": "Large-scope responsive landing page for a food-delivery business crafted with modern UX.",
+                "url": "https://epitome87.github.io/Omni-Food/",
+                "codeRepository": "https://github.com/Epitome87/Omni-Food",
+                "programmingLanguage": ["HTML5", "CSS3", "JavaScript", "Sass"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "WebApplication",
+                "name": "Personal Portfolio",
+                "applicationCategory": "WebApplication",
+                "description": "High-performance developer portfolio showcasing frontend engineering and design systems.",
+                "url": "https://matthewmcgrath.dev/",
+                "codeRepository": "https://github.com/Epitome87/personal-portfolio-2023",
+                "programmingLanguage": ["HTML5", "CSS3", "JavaScript", "Sass"],
+                "author": {
+                  "@id": "https://matthewmcgrath.dev/#person"
+                }
               }
             }
           ]
@@ -240,7 +284,6 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       </button>
-      <a href="#contact" class="nav__cta">Hire Me</a>
       <button type="button" class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
@@ -294,10 +337,10 @@
           <div class="hero__deck" aria-label="Interactive Developer Manifest">
             <div class="hero__deck-topbar">
               <div class="hero__deck-left">
-                <div class="hero__deck-dots" aria-hidden="true">
-                  <span class="hero__deck-dot hero__deck-dot--close"></span>
-                  <span class="hero__deck-dot hero__deck-dot--min"></span>
-                  <span class="hero__deck-dot hero__deck-dot--max"></span>
+                <div class="window-dots" aria-hidden="true">
+                  <span class="window-dot window-dot--r"></span>
+                  <span class="window-dot window-dot--y"></span>
+                  <span class="window-dot window-dot--g"></span>
                 </div>
                 <div class="hero__deck-tabs" role="tablist" aria-label="Developer JSON Tabs">
                   <button class="hero__deck-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="hero-tab-profile" id="hero-tabbtn-profile">
@@ -355,6 +398,7 @@
         </div>
 
         <article class="project-featured reveal" data-project-id="grave-danger">
+          <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Avatars in Grave Danger">Case Study</button>
           <div class="project-featured__img">
             <img src="assets/images/projects/preview-grave-danger-1200.webp" srcset="
                   assets/images/projects/preview-grave-danger-480.webp   480w,
@@ -363,18 +407,12 @@
                 " sizes="(max-width: 1023px) calc(100vw - 2.5rem), 684px" alt="3D arena combat scene with stylized avatar facing oncoming zombie hordes" loading="lazy" decoding="async" width="400" height="220" />
           </div>
           <div class="project-featured__body">
-            <p class="project-featured__num">Featured Project <button type="button" class="project-featured__case-study-btn" aria-haspopup="dialog" aria-label="Open case study for Avatars in Grave Danger">· Case Study <span aria-hidden="true">↗</span></button></p>
             <h3 class="project-featured__title">Avatars in Grave Danger</h3>
             <p class="project-featured__desc">
               A 3D wave-defense game where you protect your avatar from hordes of the undead, built solo and
               published on Xbox Live Indie Games. Over 100,000 lines of C# from concept to launch.
             </p>
-            <div class="project-tags">
-              <span class="project-tag">C#</span>
-              <span class="project-tag">XNA Framework</span>
-              <span class="project-tag">Blender</span>
-              <span class="project-tag">Xbox Live</span>
-            </div>
+            <p class="project-featured__tech">C# · XNA Framework · Blender · Xbox Live</p>
             <div class="project-featured__links">
               <a href="https://github.com/Epitome87/Avatars-In-Grave-Danger" class="btn--code" target="_blank" rel="noopener noreferrer" aria-label="View code for Avatars in Grave Danger on GitHub">
                 <svg width="14" height="14" aria-hidden="true">
@@ -395,13 +433,12 @@
                     assets/images/projects/preview-flat-ui-clone-640.webp 640w,
                     assets/images/projects/preview-flat-ui-clone-800.webp 800w
                   " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Color palette generator interface featuring interactive swatches and component controls" loading="lazy" decoding="async" width="400" height="220" />
-              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Flat UI Clone">Case Study <span aria-hidden="true">↗</span></button>
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Flat UI Clone">Case Study</button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Flat UI Clone</h3>
               <p class="project-card__desc">
-                Fullstack, highly-polished clone of the Flat UI website. Incorporates every main feature and adds some
-                of its own.
+                Interactive color palette generator and UI toolkit built with React and Material UI, featuring custom palette creation, luminance filters, and one-click format copying.
               </p>
               <footer class="project-card__footer">
                 <span class="project-card__tech">React · Material UI</span>
@@ -420,7 +457,7 @@
                     assets/images/projects/preview-frontend-collection-640.webp 640w,
                     assets/images/projects/preview-frontend-collection-800.webp 800w
                   " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Showcase grid of responsive components and modern marketing landing page cards" loading="lazy" decoding="async" width="400" height="220" />
-              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Frontend Collection">Case Study <span aria-hidden="true">↗</span></button>
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Frontend Collection">Case Study</button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Frontend Collection</h3>
@@ -428,7 +465,7 @@
                 An assortment of frontend projects, from pricing cards to fully-realized, beautiful landing pages.
               </p>
               <footer class="project-card__footer">
-                <span class="project-card__tech">HTML · CSS3 · SASS · JS</span>
+                <span class="project-card__tech">HTML5 · CSS3 · Sass · JavaScript</span>
                 <div class="project-card__links">
                   <a class="project-card__links-item" href="https://github.com/Epitome87/front-end-mentor-journey" target="_blank" rel="noopener noreferrer" aria-label="View code for Frontend Collection on GitHub">Code</a>
                 </div>
@@ -444,7 +481,7 @@
                     assets/images/projects/preview-react-recipes-640.webp 640w,
                     assets/images/projects/preview-react-recipes-800.webp 800w
                   " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Recipe App" loading="lazy" decoding="async" width="400" height="220" />
-              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Recipe App">Case Study <span aria-hidden="true">↗</span></button>
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Recipe App">Case Study</button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Recipe App</h3>
@@ -469,7 +506,7 @@
                     assets/images/projects/preview-omnifood-640.webp 640w,
                     assets/images/projects/preview-omnifood-800.webp 800w
                   " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Food delivery service landing page featuring appetizing dishes and subscription options" loading="lazy" decoding="async" width="400" height="220" />
-              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Omnifood">Case Study <span aria-hidden="true">↗</span></button>
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Omnifood">Case Study</button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Omnifood</h3>
@@ -478,7 +515,7 @@
                 beautifully-crafted UX.
               </p>
               <footer class="project-card__footer">
-                <span class="project-card__tech">HTML · CSS3 · JS · SASS</span>
+                <span class="project-card__tech">HTML5 · CSS3 · Sass · JavaScript</span>
                 <div class="project-card__links">
                   <a class="project-card__links-item" href="https://github.com/Epitome87/Omni-Food" target="_blank" rel="noopener noreferrer" aria-label="View code for Omnifood on GitHub">Code</a>
                   <a href="https://epitome87.github.io/Omni-Food/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Omnifood">Live</a>
@@ -494,16 +531,15 @@
                     assets/images/projects/preview-personal-640.webp 640w,
                     assets/images/projects/preview-personal-800.webp 800w
                   " sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1200px) calc(50vw - 2.5rem), 570px" alt="Dark mode developer portfolio hero section with typography and project showcases" loading="lazy" decoding="async" width="400" height="220" />
-              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Personal Portfolio">Case Study <span aria-hidden="true">↗</span></button>
+              <button type="button" class="project-card__case-study-pill" aria-haspopup="dialog" aria-label="Open case study for Personal Portfolio">Case Study</button>
             </div>
             <div class="project-card__body">
               <h3 class="project-card__title">Personal Portfolio</h3>
               <p class="project-card__desc">
-                The initial version of the site you're looking at. Highly-optimized with a perfect Lighthouse score. A
-                simple yet bold portfolio that showcases my front-end and design skills.
+                High-performance portfolio built with semantic HTML5 and vanilla JavaScript. Engineered for perfect 100 Lighthouse scores, responsive typography, and sub-second load times.
               </p>
               <footer class="project-card__footer">
-                <span class="project-card__tech">HTML · CSS · JS</span>
+                <span class="project-card__tech">HTML5 · CSS3 · JavaScript</span>
                 <div class="project-card__links">
                   <a class="project-card__links-item" href="https://github.com/Epitome87/personal-portfolio-2023" target="_blank" rel="noopener noreferrer" aria-label="View code for Personal Portfolio (2023) on GitHub">Code</a>
                   <a href="https://epitome87.github.io/personal-portfolio-2023" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Personal Portfolio (2023)">Live</a>
@@ -534,100 +570,19 @@
         <section class="ide-chassis" aria-label="Interactive Code Studio">
           <div class="ide-window-header">
             <div class="ide-window-header__left">
-              <div class="ide-dots" aria-hidden="true">
-                <div class="ide-dot dot-r"></div>
-                <div class="ide-dot dot-y"></div>
-                <div class="ide-dot dot-g"></div>
+              <div class="window-dots" aria-hidden="true">
+                <span class="window-dot window-dot--r"></span>
+                <span class="window-dot window-dot--y"></span>
+                <span class="window-dot window-dot--g"></span>
               </div>
-              <!-- Desktop Window Title -->
-              <span class="ide-window-title ide-window-title--desktop" id="window-title-text">matthew-mcgrath // overview.md</span>
-              <!-- Mobile Unified Explorer Dropdown Button -->
-              <button type="button" class="mobile-explorer-dropdown-btn" id="mobile-explorer-toggle-bar" aria-expanded="false" aria-controls="mobile-file-drawer" aria-label="Toggle file explorer">
-                <span id="mob-current-file-label"><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span>
-                <span class="dropdown-chevron" id="mob-exp-chevron" aria-hidden="true">▾</span>
-              </button>
             </div>
-            <div class="ide-window-header__right">
-              <span class="ide-file-badge" id="ide-file-badge">24 Files</span>
-            </div>
+            <!-- Desktop Window Title (macOS-style centered) -->
+            <span class="ide-window-title ide-window-title--desktop" id="window-title-text">Skills Studio</span>
           </div>
 
-          <!-- MOBILE COLLAPSIBLE FILE TREE DRAWER -->
-          <nav class="mobile-file-tree-drawer" id="mobile-file-drawer" aria-label="Mobile File Explorer">
-            <!-- Root File: Overview -->
-            <div class="ide-root-file-wrap" role="tablist" aria-label="Root Documentation">
-              <button type="button" class="file-item file-item--root active" id="mob-side-overview" data-skill="overview" role="tab" aria-selected="true"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span></button>
-            </div>
-
-            <!-- Mobile Folder 1: Frontend -->
-            <button type="button" class="folder-header" data-folder-target="mob-folder-frontend" aria-expanded="true" aria-controls="mob-folder-frontend">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 FRONTEND</span>
-              </div>
-              <span class="folder-count">9 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-frontend" role="tablist" aria-label="Frontend Files">
-              <button type="button" class="file-item" id="mob-side-react" data-skill="react" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-react"></use></svg> React.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-nextjs" data-skill="nextjs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nextjs"></use></svg> Next.js.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-typescript" data-skill="typescript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-typescript"></use></svg> TypeScript.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-sass" data-skill="sass" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-sass"></use></svg> Sass.scss</span></button>
-              <button type="button" class="file-item" id="mob-side-tailwind" data-skill="tailwind" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-tailwindcss"></use></svg> Tailwind.css</span></button>
-              <button type="button" class="file-item" id="mob-side-storybook" data-skill="storybook" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-storybook"></use></svg> Storybook.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-javascript" data-skill="javascript" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-javascript"></use></svg> JavaScript.js</span></button>
-              <button type="button" class="file-item" id="mob-side-html5" data-skill="html5" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-html5"></use></svg> HTML5.html</span></button>
-              <button type="button" class="file-item" id="mob-side-css3" data-skill="css3" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-css3"></use></svg> CSS3.css</span></button>
-            </div>
-
-            <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-backend" aria-expanded="true" aria-controls="mob-folder-backend">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 BACKEND</span>
-              </div>
-              <span class="folder-count">5 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-backend" role="tablist" aria-label="Backend Files">
-              <button type="button" class="file-item" id="mob-side-nodejs" data-skill="nodejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-nodejs"></use></svg> Node.mjs</span></button>
-              <button type="button" class="file-item" id="mob-side-express" data-skill="express" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-express"></use></svg> Express.js</span></button>
-              <button type="button" class="file-item" id="mob-side-postgresql" data-skill="postgresql" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postgresql"></use></svg> PostgreSQL.sql</span></button>
-              <button type="button" class="file-item" id="mob-side-mongodb" data-skill="mongodb" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-mongodb"></use></svg> MongoDB.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-python" data-skill="python" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-python"></use></svg> Python.py</span></button>
-            </div>
-
-            <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-tools" aria-expanded="true" aria-controls="mob-folder-tools">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 TOOLS &amp; VCS</span>
-              </div>
-              <span class="folder-count">5 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-tools" role="tablist" aria-label="Tools Files">
-              <button type="button" class="file-item" id="mob-side-git" data-skill="git" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-git"></use></svg> Git.config</span></button>
-              <button type="button" class="file-item" id="mob-side-npm" data-skill="npm" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-npm"></use></svg> package.json</span></button>
-              <button type="button" class="file-item" id="mob-side-postman" data-skill="postman" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-postman"></use></svg> Postman.json</span></button>
-              <button type="button" class="file-item" id="mob-side-vscode" data-skill="vscode" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-vscode"></use></svg> VSCode.json</span></button>
-              <button type="button" class="file-item" id="mob-side-trello" data-skill="trello" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-trello"></use></svg> Trello.board</span></button>
-            </div>
-
-            <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="mob-folder-leveling" aria-expanded="true" aria-controls="mob-folder-leveling">
-              <div class="folder-title-left">
-                <span class="folder-chevron" aria-hidden="true">▼</span>
-                <span>📁 LEVELING UP</span>
-              </div>
-              <span class="folder-count">5 files</span>
-            </button>
-            <div class="folder-content" id="mob-folder-leveling" role="tablist" aria-label="Leveling Up Files">
-              <button type="button" class="file-item" id="mob-side-angular" data-skill="angular" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-angular"></use></svg> Angular.ts</span></button>
-              <button type="button" class="file-item" id="mob-side-reactnative" data-skill="reactnative" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-reactnative"></use></svg> ReactNative.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-java" data-skill="java" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-java"></use></svg> Java.java</span></button>
-              <button type="button" class="file-item" id="mob-side-chakraui" data-skill="chakraui" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-chakraui"></use></svg> ChakraUI.tsx</span></button>
-              <button type="button" class="file-item" id="mob-side-threejs" data-skill="threejs" role="tab" aria-selected="false"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/skills.svg#skill-threejs"></use></svg> ThreeJS.ts</span></button>
-            </div>
-          </nav>
-
           <div class="ide-body">
-            <!-- Desktop Explorer Sidebar with Collapsible Folders -->
-            <nav class="ide-sidebar" id="desktop-sidebar" aria-label="Desktop File Explorer">
+            <!-- Unified File Explorer Sidebar with Collapsible Folders -->
+            <nav class="ide-sidebar" id="ide-sidebar" aria-label="File Explorer">
               <!-- Root File: Overview -->
               <div class="ide-root-file-wrap" role="tablist" aria-label="Root Documentation">
                 <button type="button" class="file-item file-item--root active" id="side-overview" data-skill="overview" role="tab" aria-selected="true"><span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span></button>
@@ -705,9 +660,10 @@
             <!-- Main Pane -->
             <div class="ide-main-pane">
               <div class="tab-bar">
-                <div class="editor-tab" id="active-tab-title">
-                  <span><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span>
-                </div>
+                <button type="button" class="editor-tab editor-tab--interactive" id="active-tab-title" aria-expanded="false" aria-controls="ide-sidebar" aria-label="Open file switcher">
+                  <span class="editor-tab__label" id="tab-label-text"><svg class="file-svg-icon" aria-hidden="true"><use href="assets/images/sprites/icons.svg#i14"></use></svg> overview.md</span>
+                  <span class="editor-tab__chevron" id="tab-chevron" aria-hidden="true">▾</span>
+                </button>
                 <div class="tab-bar-right">
                   <button type="button" class="btn-tab-back hidden" id="btn-back-to-overview" data-skill="overview" aria-label="Return to overview.md">← overview.md</button>
                 </div>
@@ -730,7 +686,7 @@
               </svg>
               <span>Career Milestones</span>
             </span>
-            <span class="status-badge" id="drawer-indicator-text">7 commits ▾</span>
+            <span class="status-badge" id="drawer-indicator-text">5 commits ▾</span>
           </button>
 
           <!-- The Responsive Simplified Console Drawer -->
@@ -747,7 +703,7 @@
               <ol class="git-milestone-stream" role="list">
                 <!-- Milestone 1: WGU -->
                 <li class="milestone-entry">
-                  <div class="milestone-node node-purple" aria-hidden="true">⭘──┐</div>
+                  <div class="milestone-node" aria-hidden="true">⭘──┐</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
                       <span class="commit-sha" aria-hidden="true">7f2a91c</span>
@@ -760,7 +716,7 @@
 
                 <!-- Milestone 2: Freelance -->
                 <li class="milestone-entry">
-                  <div class="milestone-node node-green" aria-hidden="true">│ ⭘</div>
+                  <div class="milestone-node" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
                       <span class="commit-sha" aria-hidden="true">4b8e23f</span>
@@ -771,35 +727,22 @@
                   </article>
                 </li>
 
-                <!-- Milestone 3: React Bootcamp -->
+                <!-- Milestone 3: Full-Stack & React Bootcamp -->
                 <li class="milestone-entry">
-                  <div class="milestone-node node-amber" aria-hidden="true">│ ⭘</div>
+                  <div class="milestone-node" aria-hidden="true">│ ⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
                       <span class="commit-sha" aria-hidden="true">9c118da</span>
                       <time class="commit-date" datetime="2021">2021 – 2022</time>
                     </div>
-                    <h3 class="milestone-title">React Bootcamp</h3>
-                    <p class="milestone-desc">Focused training in modern React architecture, state management, TypeScript, and full-stack Next.js deployment.</p>
+                    <h3 class="milestone-title">Full-Stack &amp; React Bootcamp</h3>
+                    <p class="milestone-desc">Comprehensive curriculum covering modern React architecture, state management, TypeScript, Node.js, and database systems.</p>
                   </article>
                 </li>
 
-                <!-- Milestone 4: Web Dev Bootcamp -->
+                <!-- Milestone 4: Indie Games -->
                 <li class="milestone-entry">
-                  <div class="milestone-node node-amber" aria-hidden="true">│ ⭘</div>
-                  <article class="milestone-content">
-                    <div class="milestone-meta-row">
-                      <span class="commit-sha" aria-hidden="true">3e5d0a1</span>
-                      <time class="commit-date" datetime="2021">2021 – 2022</time>
-                    </div>
-                    <h3 class="milestone-title">Web Development Bootcamp</h3>
-                    <p class="milestone-desc">Full-stack curriculum covering HTML5, CSS3, modern JavaScript, Node.js, MongoDB, PostgreSQL, and Sass.</p>
-                  </article>
-                </li>
-
-                <!-- Milestone 5: Indie Games -->
-                <li class="milestone-entry">
-                  <div class="milestone-node node-green" aria-hidden="true">├──┘</div>
+                  <div class="milestone-node" aria-hidden="true">├──┘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
                       <span class="commit-sha" aria-hidden="true">a104f67</span>
@@ -810,9 +753,9 @@
                   </article>
                 </li>
 
-                <!-- Milestone 6: Westwood -->
+                <!-- Milestone 5: Westwood -->
                 <li class="milestone-entry">
-                  <div class="milestone-node node-purple" aria-hidden="true">⭘</div>
+                  <div class="milestone-node" aria-hidden="true">⭘</div>
                   <article class="milestone-content">
                     <div class="milestone-meta-row">
                       <span class="commit-sha" aria-hidden="true">18d9b23</span>
@@ -820,19 +763,6 @@
                     </div>
                     <h3 class="milestone-title">B.S. Game Software Development: Westwood College</h3>
                     <p class="milestone-desc">4.0 GPA, Dean's List. Three years of C#, object-oriented design, 3D graphics math, and software engineering principles.</p>
-                  </article>
-                </li>
-
-                <!-- Milestone 7: High School -->
-                <li class="milestone-entry">
-                  <div class="milestone-node node-purple" aria-hidden="true">⭘</div>
-                  <article class="milestone-content">
-                    <div class="milestone-meta-row">
-                      <span class="commit-sha" aria-hidden="true">001init</span>
-                      <time class="commit-date">Early Foundations</time>
-                    </div>
-                    <h3 class="milestone-title">Yucaipa High School</h3>
-                    <p class="milestone-desc">3.9 GPA, Gifted &amp; Talented Education. First C++ and Java experience at age 15.</p>
                   </article>
                 </li>
               </ol>
@@ -853,7 +783,7 @@
       <canvas class="about__stardust" id="aboutStardust" aria-hidden="true"></canvas>
       <div class="container">
         <div class="about__header reveal">
-          <p class="section-label">The Human Behind the Code</p>
+          <p class="section-label">Background</p>
           <h2 class="section-title" id="about-heading">About Me</h2>
           <p class="about__headline">
             Hi, I'm <span>Matthew McGrath</span>, a California-based <span>Full-Stack Web Developer</span> with an obsession for beautiful, functional design.
@@ -865,15 +795,12 @@
 
           <!-- Window Top Bar -->
           <div class="about__window-bar">
-            <div class="about__window-meta">
-              <div class="about__window-dots" aria-hidden="true">
-                <span class="about__window-dot about__window-dot--r"></span>
-                <span class="about__window-dot about__window-dot--y"></span>
-                <span class="about__window-dot about__window-dot--g"></span>
-              </div>
-              <span class="about__window-filename">about_matthew.md</span>
+            <div class="window-dots" aria-hidden="true">
+              <span class="window-dot window-dot--r"></span>
+              <span class="window-dot window-dot--y"></span>
+              <span class="window-dot window-dot--g"></span>
             </div>
-            <span class="about__window-badge">Markdown</span>
+            <span class="about__window-filename">about_matthew.md</span>
           </div>
 
           <!-- Split-Pane Grid Chassis -->
@@ -888,10 +815,6 @@
                     <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
                   </div>
                 </button>
-              </div>
-              <div class="about__author-lockup">
-                <p class="about__author-name">Matthew McGrath</p>
-                <p class="about__author-title">Full-Stack Developer</p>
               </div>
             </aside>
 
@@ -922,7 +845,7 @@
                     <div class="about__seg-bar" aria-hidden="true"></div>
                     <span class="about__seg-lbl">
                       <span class="about__seg-num">3</span>
-                      <span class="about__seg-name">Stack</span>
+                      <span class="about__seg-name">Craft</span>
                     </span>
                   </button>
                   <button type="button" class="about__seg" role="tab" aria-selected="false" data-chapter-index="3" id="about-tab-3" aria-controls="about-slide-3">
@@ -966,34 +889,25 @@
                   <div class="about__slide" id="about-slide-2" role="tabpanel" aria-labelledby="about-tab-2">
                     <h3 class="about__slide-title">
                       <span class="about__syntax">##</span>
-                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Go-To Tech Stack">Go-To Tech Stack</span><span class="about__cursor" aria-hidden="true"></span></span>
+                      <span class="about__title-text"><span class="about__typed-title" data-full-text="Systems to Web">Systems to Web</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h3>
                     <p class="about__slide-prose">
-                      My go-to stack is <span class="about__code-pill about__code-pill--cyan">React</span> and <span class="about__code-pill about__code-pill--green">Node.js</span>, but I adapt quickly to existing codebases and select the right tool for the job.
+                      Building game engines from scratch instilled a deep respect for memory, render cycles, and systems architecture. I bring that same low-level engineering discipline to modern web applications.
                     </p>
-                    <div class="about__table-wrap">
-                      <table class="about__table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Layer</th>
-                            <th scope="col">Primary Tooling</th>
-                            <th scope="col">Core Focus</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><span class="about__table-layer">Frontend</span></td>
-                            <td><span class="about__table-code">React 19</span> <span class="about__table-code">Next.js</span> <span class="about__table-code">TypeScript</span></td>
-                            <td>Fast, Accessible UI</td>
-                          </tr>
-                          <tr>
-                            <td><span class="about__table-layer">Backend</span></td>
-                            <td><span class="about__table-code">Node.js</span> <span class="about__table-code">Express</span> <span class="about__table-code">PostgreSQL</span></td>
-                            <td>Type-Safe &amp; Scalable APIs</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <ul class="about__task-list">
+                      <li class="about__task-item">
+                        <span class="about__task-box" aria-hidden="true">[x]</span>
+                        <span class="about__task-text">Performance-first mindset &mdash; sub-second loads and zero layout shift</span>
+                      </li>
+                      <li class="about__task-item">
+                        <span class="about__task-box" aria-hidden="true">[x]</span>
+                        <span class="about__task-text">Architectural rigor &mdash; clear boundaries from UI components to database schemas</span>
+                      </li>
+                      <li class="about__task-item">
+                        <span class="about__task-box" aria-hidden="true">[x]</span>
+                        <span class="about__task-text">User-centric polish &mdash; thoughtful typography, accessibility, and micro-interactions</span>
+                      </li>
+                    </ul>
                   </div>
 
 
@@ -1016,25 +930,6 @@
               </div>
 
 
-              <!-- Streamlined Bottom Controls Integrated into Window Footer -->
-              <div class="about__controls">
-                <button type="button" class="about__next-cta" data-about-action="next" aria-label="Proceed to next chapter">
-                  <span>Up next:</span>
-                  <span class="about__next-label" id="about-next-title">Modern Web Focus &rarr;</span>
-                </button>
-                <div class="about__arrow-group">
-                  <button type="button" class="about__arrow-btn" data-about-action="prev" aria-label="Previous chapter">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                  </button>
-                  <button type="button" class="about__arrow-btn" data-about-action="next" aria-label="Next chapter">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -1105,21 +1000,16 @@
 
           <!-- TITLEBAR -->
           <div class="term-titlebar">
-            <div class="term-dots" aria-hidden="true">
-              <span class="t-dot t-dot--r"></span>
-              <span class="t-dot t-dot--y"></span>
-              <span class="t-dot t-dot--g"></span>
+            <div class="window-dots" aria-hidden="true">
+              <span class="window-dot window-dot--r"></span>
+              <span class="window-dot window-dot--y"></span>
+              <span class="window-dot window-dot--g"></span>
             </div>
             <div class="term-title-text">
               <span>terminal</span>
               <span>—</span>
               <strong>zsh</strong>
               <span class="term-title-dim"><span aria-hidden="true">—</span><span>118x36</span></span>
-            </div>
-            <div class="term-live-tag">
-              <span class="live-pulse" aria-hidden="true"></span>
-              <span class="term-live-pid">PID: 41829 </span>
-              <span class="term-live-status">ACTIVE</span>
             </div>
           </div>
 
@@ -1153,11 +1043,9 @@
                 <!-- Neofetch Specs -->
                 <div class="neofetch-specs">
                   <div class="spec-header-line">
-                    <span>matthew@workstation</span>
-                    <span class="spec-status">[ACTIVE]</span>
+                    <span>matthew@dev</span>
                   </div>
                   <div class="spec-sep" aria-hidden="true">-----------------------------------------------------</div>
-                  <div class="spec-row"><span class="spec-k">USER</span><span class="spec-v"><strong>Matthew McGrath</strong></span></div>
                   <div class="spec-row"><span class="spec-k">UPTIME</span><span class="spec-v"><strong id="stat-streak">1,883 days</strong> commit streak</span></div>
                   <div class="spec-row"><span class="spec-k">REPOS</span><span class="spec-v"><strong>24+</strong> active repositories</span></div>
                   <div class="spec-row"><span class="spec-k">PROFILE</span><span class="spec-v">github.com/Epitome87</span></div>
@@ -1171,7 +1059,7 @@
                       <span class="ansi-block" style="background: var(--cyan);" title="Cyan"></span>
                       <span class="ansi-block" style="background: var(--green);" title="Green"></span>
                       <span class="ansi-block" style="background: var(--complementary);" title="Amber"></span>
-                      <span class="ansi-block" style="background: var(--purple, #c084fc);" title="Purple"></span>
+                      <span class="ansi-block" style="background: var(--purple);" title="Purple"></span>
                       <span class="ansi-block" style="background: var(--dot-r);" title="Red"></span>
                       <span class="ansi-block" style="background: #f8fafc;" title="White"></span>
                     </div>
@@ -1257,10 +1145,6 @@
               <div class="plat-container">
                 <!-- LEETCODE PANEL -->
                 <div class="plat-section active" id="panel-leetcode" role="tabpanel" aria-labelledby="tab-btn-lc">
-                  <div class="algo-program-header">
-                    <span class="algo-badge-ascii">[TARGET: LEETCODE]</span>
-                  </div>
-
                   <div class="ascii-table-wrap">
                     <table class="ascii-box-table">
                       <thead>
@@ -1320,10 +1204,6 @@
 
                 <!-- CODEWARS PANEL -->
                 <div class="plat-section" id="panel-codewars" role="tabpanel" aria-labelledby="tab-btn-cw" hidden>
-                  <div class="algo-program-header">
-                    <span class="algo-badge-ascii algo-cw-badge">[TARGET: CODEWARS]</span>
-                  </div>
-
                   <div class="ascii-table-wrap">
                     <table class="ascii-box-table">
                       <thead>
@@ -1429,10 +1309,10 @@
                 Looking for a dependable engineer to join your product team? In addition to contract work, I am actively interviewing for full-time <strong>Frontend</strong> and <strong>Full-Stack Software Engineering</strong> positions. I bring deep experience with modern React and TypeScript architectures, a strong computer science foundation, and a track record of daily commit discipline.
               </p>
               <div class="services__hero-actions">
-                <a href="#contact" class="services__btn services__btn--primary" data-service-subject="Inquiry: Full-Time Software Engineering Role" data-service-msg="Hi Matthew, I'd like to discuss a full-time software engineering role on our team..." aria-label="Inquire about hiring Matthew for full-time software engineering roles">
-                  <span>Inquire for Roles →</span>
+                <a href="#contact" class="btn-primary" data-service-subject="Inquiry: Full-Time Software Engineering Role" data-service-msg="Hi Matthew, I'd like to discuss a full-time software engineering role on our team..." aria-label="Inquire about hiring Matthew for full-time software engineering roles">
+                  <span>Hire Me →</span>
                 </a>
-                <a href="resume/" class="services__btn services__btn--ghost" aria-label="View Matthew's resume">
+                <a href="resume/" class="btn-ghost" aria-label="View Matthew's resume">
                   <span>View Resume ↗</span>
                 </a>
               </div>
@@ -1636,13 +1516,12 @@
     <!-- CONTACT -->
     <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <p class="section-label">Get In Touch</p>
+        <p class="section-label">Contact Me</p>
         <div class="contact__hero-lockup">
           <h2 class="section-title contact__title" id="contact-heading">Let's Talk</h2>
           <div class="contact__avatar-chassis" id="contact-avatar-chassis">
             <!-- Dynamic Speech Bubble (Positioned at mouth Y-level) -->
             <div class="contact__speech-bubble" id="contact-speech-bubble" aria-hidden="true">
-              <div class="contact__bubble-tag" id="contact-bubble-tag">👋 Let's Connect!</div>
               <div class="contact__bubble-title" id="contact-bubble-title">How can I help?</div>
               <div class="contact__bubble-sub" id="contact-bubble-sub">Tell me about what you're looking to build or hire for.</div>
             </div>
@@ -1665,8 +1544,8 @@
               <form id="contact-form" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
-                <input type="hidden" name="_template" value="table" />
-                <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <label for="form-honey" class="sr-only">Leave this field blank to verify you are human</label>
+                <input type="text" id="form-honey" name="_honey" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
                 <!-- 2-Column Name & Email -->
                 <div class="form-grid">
@@ -1719,7 +1598,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <p class="footer__copy">Built with ❤️ and ☕ by Matthew McGrath &copy; 2026</p>
+        <p class="footer__copy">Built with ❤️ by Matthew McGrath &copy; 2026</p>
         <div class="footer__brand">
           <img src="assets/images/branding/favicon-96x96.png" alt="" aria-hidden="true" class="footer__brand-avatar" width="32" height="32" loading="lazy" decoding="async" /><span class="footer__brand-name">Matthew<span class="footer__brand-dot">.</span></span>
         </div>
@@ -1762,28 +1641,25 @@
         <button type="button" class="project-modal__close" id="modal-close-btn" aria-label="Close dialog">✕</button>
         <p class="project-modal__category" id="modal-category">Category</p>
         <h2 class="project-modal__title" id="modal-title">Project Title</h2>
-        <p class="project-modal__tagline" id="modal-tagline">Project Tagline</p>
+        <p class="project-modal__intro" id="modal-overview"></p>
       </header>
 
       <div class="project-modal__stats" id="modal-stats"></div>
 
       <div class="project-modal__video" id="modal-video-wrap" hidden></div>
 
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">Overview</h3>
-        <p class="project-modal__text" id="modal-overview"></p>
-      </div>
-
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">The Engineering Challenge</h3>
-        <div class="project-modal__callout project-modal__callout--challenge">
+      <div class="project-modal__bento-grid">
+        <div class="project-modal__bento-card project-modal__bento-card--challenge">
+          <div class="project-modal__bento-header">
+            <span class="project-modal__badge project-modal__badge--challenge">⚡ Challenge</span>
+          </div>
           <p class="project-modal__text" id="modal-challenge"></p>
         </div>
-      </div>
 
-      <div class="project-modal__section">
-        <h3 class="project-modal__section-title">Architecture &amp; Solutions</h3>
-        <div class="project-modal__callout">
+        <div class="project-modal__bento-card project-modal__bento-card--architecture">
+          <div class="project-modal__bento-header">
+            <span class="project-modal__badge project-modal__badge--architecture">🛠️ Architecture</span>
+          </div>
           <p class="project-modal__text" id="modal-architecture"></p>
         </div>
       </div>
@@ -1794,7 +1670,7 @@
       </div>
 
       <footer class="project-modal__footer">
-        <a href="#" class="project-modal__btn project-modal__btn--live" id="modal-live-btn" target="_blank" rel="noopener noreferrer">
+        <a href="#" class="btn-primary" id="modal-live-btn" target="_blank" rel="noopener noreferrer">
           <span>View Live Demo</span>
           <svg width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -1802,7 +1678,7 @@
             <line x1="10" y1="14" x2="21" y2="3"></line>
           </svg>
         </a>
-        <a href="#" class="project-modal__btn project-modal__btn--code" id="modal-code-btn" target="_blank" rel="noopener noreferrer">
+        <a href="#" class="btn-ghost" id="modal-code-btn" target="_blank" rel="noopener noreferrer">
           <svg width="14" height="14" aria-hidden="true">
             <use href="assets/images/sprites/icons.svg#i02"></use>
           </svg>

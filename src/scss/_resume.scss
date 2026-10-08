@@ -21,7 +21,7 @@
 .resume-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 3rem 2rem 5rem;
+  padding: calc(var(--nav-h) + var(--space-6)) 2rem 5rem;
 }
 
 // ── Page header ───────────────────────────────────────────────

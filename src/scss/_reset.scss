@@ -14,7 +14,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   scrollbar-gutter: stable; /* reserves space for scrollbar consistently */
-  overflow-x: hidden; // Todo: shouldn't need this with proper design!
+  overflow-x: clip;
 }
 
 body {
@@ -95,8 +95,8 @@ address {
   left: var(--space-4, 1rem);
   z-index: var(--z-tooltip);
   padding: var(--space-3, 0.75rem) var(--space-6, 1.5rem);
-  background: var(--primary, #61a6fa);
-  color: var(--text-inverse, #0b0f14);
+  background: var(--primary);
+  color: var(--text-inverse);
   font-family: var(--font-mono, monospace);
   font-size: var(--text-sm);
   font-weight: 400; // normal weight for better readability
@@ -106,7 +106,7 @@ address {
 
   &:focus {
     top: 0;
-    outline: 3px solid var(--primary, #61a6fa);
+    outline: 3px solid var(--primary);
     outline-offset: 2px;
   }
 }
@@ -117,140 +117,77 @@ address {
 }
 
 *:focus-visible {
-  outline: 2px solid var(--primary, #61a6fa);
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 // Pill-shaped elements get matching border-radius on focus ring
 .nav__links a,
-.nav__cta,
 .nav__theme-toggle,
-.github__year-btn,
-.btn--code,
-.btn--live,
-.btn-primary,
-.btn-ghost {
+.github__year-btn {
   &:focus-visible {
     border-radius: var(--radius-pill);
   }
 }
 
-// == Reduced motion =====
-/* == Reduced motion */
+// Engineered 8px buttons get matching border-radius on focus ring
+.btn--code,
+.btn--live,
+.btn-primary,
+.btn-ghost {
+  &:focus-visible {
+    border-radius: var(--radius-sm);
+  }
+}
+
+// == Reduced motion (WCAG 2.2 compliant) =====
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  /* Disable all scroll reveal animations */
-  .reveal,
-  .project-card,
-  .service-card,
-  .about__portrait-outer,
-  .back-to-top,
-  .coding__col,
-  .form-group {
-    /* Remove all transitions */
-    transition: none !important;
-    transform: none !important;
-
-    /* Disable any existing animations */
-    animation: none !important;
-  }
-
-  /* Ensure elements are always visible instantly */
-  .reveal:not(.visible),
-  .project-card,
-  .service-card {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  /* Disable theme toggle animation */
-  #theme-toggle {
-    transition: none !important;
-    animation: none !important;
-  }
-
-  /* Disable back-to-top rocket animation */
-  .back-to-top {
-    transition: none !important;
-    animation: none !important;
-  }
-
-  /* Disable portrait bounce animation */
-  .about__portrait-outer {
-    transition: none !important;
-    animation: none !important;
-  }
-
-  /* Footer - stop pop-in animations (CRITICAL FIX!) */
-  /* This targets footer__inner > * which is the staggered entrance */
-  .footer__inner > *,
-  .footer__copy,
-  .footer__brand,
-  .footer__socials {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
-
-  /* Hero name - stop character pop-in */
-  .hero__name-line--first span,
-  .hero__name-char {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  /* Hero meta-row (status/location text) - CRITICAL FIX */
-  .hero__meta-row {
-    animation: none !important;
-    opacity: 1 !important;
-    transition: none !important;
-  }
-
-  /* Hero bottom container (everything else in hero) - CRITICAL FIX */
-  .hero__bottom {
-    animation: none !important;
-    opacity: 1 !important;
-    transition: none !important;
-  }
-
-  /* Hero stats div - CRITICAL FIX */
-  .hero__stats {
-    animation: none !important;
-    opacity: 1 !important;
-    transition: none !important;
-  }
-
-  /* Footer brand gradient */
-  .footer__brand-avatar,
-  .footer__brand-name {
-    animation: none !important;
-  }
-
-  /* Smooth scrolling should be instant, not smooth */
   html {
     scroll-behavior: auto !important;
   }
 
-  /* Additional fallback for any remaining animations */
+  // Neutralize looping infinite spatial animations and background shifts
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  }
+
+  // Explicitly disable infinite background floats, pulses, and spinning keyframes
+  .hero__glow-orb,
+  .experience__glow-orb,
+  .coding__glow-orb,
+  .about__glow-orb,
+  .footer__brand-name,
+  .social-btn svg,
+  .about__portrait-ring::before {
+    animation: none !important;
+  }
+
+  // Ensure scroll reveals, hero headlines, and lazy elements render immediately visible at rest
+  .reveal,
+  .reveal:not(.visible),
+  .project-card,
+  .about__window,
+  .footer__inner > *,
+  .footer__copy,
+  .footer__brand,
+  .footer__socials,
+  .hero__name-line--first span,
+  .hero__name-char,
+  .hero__bottom,
+  .hero__tagline-block,
+  .hero__actions {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  // Disable intense spatial jump triggers on interactive Easter eggs
+  .about__portrait-outer,
+  .back-to-top.is-launching {
+    animation: none !important;
     transform: none !important;
   }
 }

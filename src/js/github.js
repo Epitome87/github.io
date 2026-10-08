@@ -167,6 +167,15 @@ const renderGraph = (contributions, year = activeYear) => {
   const first = contributions[0].date;
   const last = contributions[contributions.length - 1].date;
 
+  const totalPeriodContributions = contributions.reduce((sum, d) => sum + (d?.count || 0), 0);
+  const dateRangeStr = `${formatDate(first, { month: 'short', year: 'numeric' })} to ${formatDate(last, { month: 'short', year: 'numeric' })}`;
+
+  grid.setAttribute('role', 'region');
+  grid.setAttribute(
+    'aria-label',
+    `GitHub contribution graph for ${year === 'last' ? 'the trailing 12 months' : year}: ${totalPeriodContributions.toLocaleString()} total contributions from ${dateRangeStr}`
+  );
+
   if (subtitle) {
     subtitle.textContent = `${formatDate(first, { month: 'short', year: 'numeric' })} → ${formatDate(last, { month: 'short', year: 'numeric' })}`;
   }

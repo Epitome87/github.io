@@ -7,7 +7,6 @@
 
 .projects {
   padding: var(--space-24) 0;
-  background-color: var(--bg-raise);
 
   @include bp(lg) {
     padding: var(--space-32) 0;
@@ -55,21 +54,6 @@
       gap: var(--space-6);
     }
   }
-
-  &__cta-heading {
-    font-family: var(--font-display);
-    font-size: var(--text-md);
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    line-height: var(--leading-tight);
-  }
-
-  &__cta-desc {
-    font-size: var(--text-base);
-    color: var(--text-secondary);
-    margin-top: var(--space-2);
-  }
 }
 
 .project-featured {
@@ -81,9 +65,27 @@
   overflow: hidden;
   margin-bottom: var(--space-6);
   cursor: pointer;
+  position: relative;
 
   @include bp(lg) {
     grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .project-card__case-study-pill {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 10;
+
+    @include bp(md) {
+      top: var(--space-4);
+      right: var(--space-4);
+    }
+
+    @include bp(lg) {
+      top: var(--space-6);
+      right: var(--space-6);
+    }
   }
 
   &:hover {
@@ -97,6 +99,7 @@
     aspect-ratio: 16/9;
     overflow: hidden;
     background: var(--bg-float);
+    position: relative;
 
     @include bp(lg) {
       aspect-ratio: 4/3;
@@ -114,35 +117,14 @@
   }
 
   &__body {
-    position: relative;
+    @include card-sheen-sweep(0.6s);
     padding: var(--space-4);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: hidden;
 
     @include bp(xs) {
       padding: var(--space-6);
-    }
-
-    // For sheen effect
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        115deg,
-        transparent 18%,
-        rgba(255, 255, 255, 0.18) 46%,
-        rgba(255, 255, 255, 0.08) 54%,
-        transparent 74%
-      );
-      opacity: 0;
-      transform: translateX(-135%);
-      transition:
-        transform 0.62s var(--ease-out),
-        opacity var(--t-fast);
-      pointer-events: none;
     }
 
     @include bp(md) {
@@ -155,41 +137,6 @@
     transform: translateX(135%);
   }
 
-  &__num {
-    @include mono-label(var(--text-2xs), var(--tracking-wide), var(--primary-light));
-    margin-bottom: var(--space-4);
-  }
-
-  &__case-study-btn {
-    position: relative;
-    background: none;
-    border: none;
-    padding: var(--space-1) var(--space-2);
-    margin-left: var(--space-1);
-    font: inherit;
-    color: var(--primary-light);
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    transition: color var(--t-fast);
-
-    // Minimum 44x44px touch hit area for mobile/touch ergonomics
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 44px;
-      min-height: 44px;
-      width: 100%;
-      height: 100%;
-    }
-
-    &:hover {
-      color: var(--text-primary);
-    }
-  }
-
   &__title {
     font-family: var(--font-display);
     font-size: clamp(1.7rem, 3.2vw, 2.6rem);
@@ -198,12 +145,21 @@
     line-height: var(--leading-tight);
     margin-bottom: var(--space-4);
     letter-spacing: -0.022em;
+
+    @include bp(lg) {
+      padding-right: 120px;
+    }
   }
 
   &__desc {
     font-size: var(--text-base);
     color: var(--text-secondary);
     line-height: var(--leading-normal);
+    margin-bottom: var(--space-6);
+  }
+
+  &__tech {
+    @include mono-label(var(--text-xs), var(--tracking-normal), var(--primary-light));
     margin-bottom: var(--space-6);
   }
 
@@ -217,29 +173,6 @@
     @include bp(xs) {
       gap: var(--space-3);
     }
-  }
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-8);
-}
-
-.project-tag {
-  @include mono-label(var(--text-2xs), var(--tracking-tight), var(--text-muted));
-  padding: var(--space-1) var(--space-3);
-  background: var(--bg-float);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  transition:
-    border-color var(--t-base),
-    color var(--t-base);
-
-  &:hover {
-    border-color: var(--primary);
-    color: var(--primary-light);
   }
 }
 
@@ -278,22 +211,12 @@
     }
   }
 
-  &__num {
-    @include mono-label(var(--text-2xs), var(--tracking-normal), var(--text-primary));
-    position: absolute;
-    top: var(--space-3);
-    left: var(--space-3);
-    background: rgba(11, 15, 20, 0.78); // --bg-base at 78% opacity — badge backdrop
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-sm);
-    backdrop-filter: blur(8px);
-  }
-
   &__case-study-pill {
     @include mono-label(var(--text-xs), var(--tracking-normal), var(--primary-light));
     position: absolute;
     top: var(--space-3);
     right: var(--space-3);
+    z-index: 5;
     background: rgba(11, 15, 20, 0.78);
     border: 1px solid var(--border-bright);
     padding: 0.3rem 0.6rem;
@@ -307,18 +230,7 @@
       color var(--t-fast),
       box-shadow var(--t-fast);
 
-    // Minimum 44x44px touch hit area for mobile/touch ergonomics
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 44px;
-      min-height: 44px;
-      width: 100%;
-      height: 100%;
-    }
+    @include touch-target(44px);
 
     [data-theme='light'] & {
       background: rgba(255, 255, 255, 0.88);
@@ -326,7 +238,9 @@
       color: var(--primary);
     }
 
-    &:hover {
+    &:hover,
+    .project-card:hover &,
+    .project-featured:hover & {
       border-color: var(--primary);
       color: #fff;
       background: rgba(56, 189, 248, 0.2);
@@ -334,45 +248,18 @@
       [data-theme='light'] & {
         background: rgba(235, 245, 255, 0.95);
         border-color: var(--primary);
-        color: var(--primary-hover);
+        color: var(--primary-light);
       }
     }
   }
 
-  &:hover &__case-study-pill {
-    border-color: var(--primary);
-    color: #fff;
-    background: rgba(56, 189, 248, 0.2);
-
-    [data-theme='light'] & {
-      background: rgba(235, 245, 255, 0.95);
-      border-color: var(--primary);
-      color: var(--primary-hover);
-    }
-  }
-
   &__body {
-    position: relative;
+    @include card-sheen-sweep(0.55s);
     padding: var(--space-5) var(--space-6) var(--space-6);
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    overflow: hidden;
-
-    // For sheen effect
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.14) 48%, transparent 72%);
-      opacity: 0;
-      transform: translateX(-135%);
-      transition:
-        transform 0.55s var(--ease-out),
-        opacity var(--t-fast);
-      pointer-events: none;
-    }
   }
 
   &:hover &__body::after {
@@ -413,7 +300,7 @@
     position: relative;
     z-index: 5;
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space-3);
 
     &-item {
       position: relative;

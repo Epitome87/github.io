@@ -8,7 +8,6 @@
 // ── Coding Section Container ───────────────────────────────────────────────
 .coding {
   padding: var(--space-24) 0;
-  background-color: var(--bg-base);
   position: relative;
 
   @include bp(lg) {
@@ -21,7 +20,6 @@
     inset: 0;
     pointer-events: none;
     z-index: var(--z-base);
-    overflow: hidden;
   }
 
   &__glow-orb {
@@ -105,39 +103,13 @@
   padding: var(--space-2) var(--space-4);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   user-select: none;
   position: relative;
   z-index: 2;
 
   @include bp(md) {
-    padding: var(--space-2-5, 10px) var(--space-5);
-  }
-}
-
-.term-dots {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.t-dot {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  border-radius: var(--radius-circle);
-
-  &--r {
-    @include tech-window-dot('r');
-  }
-
-  &--y {
-    @include tech-window-dot('y');
-  }
-
-  &--g {
-    @include tech-window-dot('g');
+    padding: var(--space-2-5) var(--space-5);
   }
 }
 
@@ -148,6 +120,11 @@
   align-items: center;
   gap: var(--space-1-5);
   letter-spacing: var(--tracking-tight);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  white-space: nowrap;
 
   @include bp(md) {
     gap: var(--space-2);
@@ -168,53 +145,10 @@
   }
 }
 
-.term-live-tag {
-  font-size: 0.68rem;
-  color: var(--green);
-  display: flex;
-  align-items: center;
-  gap: var(--space-1-5);
-  letter-spacing: var(--tracking-tight);
-}
-
-.term-live-pid {
-  display: none;
-
-  @include bp(md) {
-    display: inline;
-  }
-}
-
-.term-live-status {
-  font-weight: 600;
-}
-
-.live-pulse {
-  width: 6px;
-  height: 6px;
-  background: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--green);
-  display: inline-block;
-  animation: pulseLive 2s infinite ease-in-out;
-}
-
-@keyframes pulseLive {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(0.85);
-  }
-}
-
 // ── Terminal Content Stream ────────────────────────────────────────────────
 .term-content {
   @include tech-viewport-backlight;
-  padding: var(--space-5) var(--space-3-5, 14px);
+  padding: var(--space-5) var(--space-3-5);
   display: flex;
   flex-direction: column;
   gap: var(--space-10, 40px);
@@ -280,7 +214,7 @@
 }
 
 .p-branch {
-  color: var(--purple, #c084fc);
+  color: var(--purple);
   font-size: 0.72rem;
 }
 
@@ -343,8 +277,14 @@
 }
 
 .flag-btn {
+  position: relative;
+  @include touch-target(44px);
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
   background: transparent;
   border: 1px solid var(--border-bright);
   color: var(--text-muted);
@@ -423,13 +363,6 @@
   }
 }
 
-.art-white {
-  color: #ffffff;
-  [data-theme='light'] & {
-    color: var(--text-primary);
-  }
-}
-
 .ascii-rainbow {
   font-weight: 700;
 
@@ -446,7 +379,7 @@
     color: var(--complementary);
   }
   .art-c5 {
-    color: var(--purple, #c084fc);
+    color: var(--purple);
   }
 }
 
@@ -465,11 +398,6 @@
   color: var(--primary-light);
   margin-bottom: 2px;
   flex-wrap: wrap;
-}
-
-.spec-status {
-  color: var(--text-muted);
-  font-size: 0.72rem;
 }
 
 .spec-sep {
@@ -648,7 +576,7 @@
     color: var(--text-primary);
     border: 1px solid var(--border-bright);
     border-radius: var(--radius-xs);
-    padding: var(--space-1) var(--space-2-5, 10px);
+    padding: var(--space-1) var(--space-2-5);
     font-family: var(--font-mono);
     font-size: 0.72rem;
     white-space: nowrap;
@@ -692,25 +620,6 @@
 }
 
 // ── 3. Algorithm Verification (LeetCode & Codewars) ────────────────────────
-.algo-program-header {
-  font-size: 0.74rem;
-  color: var(--text-muted);
-  border-bottom: 1px dashed var(--border-bright);
-  padding-bottom: var(--space-1-5);
-  margin-bottom: var(--space-2);
-  user-select: none;
-}
-
-.algo-badge-ascii {
-  color: var(--complementary-light, #fac27d);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-.algo-cw-badge {
-  color: #f87171;
-}
-
 .plat-section {
   display: none;
 
@@ -839,14 +748,9 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  color: #ffffff;
+  color: var(--text-primary);
 
-  [data-theme='light'] & {
-    color: var(--text-primary);
-  }
-
-  &.tag-dim,
-  &.tag-muted {
+  &.tag-dim {
     color: var(--text-muted);
     font-weight: 500;
   }
@@ -856,14 +760,14 @@
 .gauge-stream {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2-5, 10px);
+  gap: var(--space-2-5);
   margin-top: var(--space-3);
 }
 
 .gauge-grid-2col {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-2-5, 10px) var(--space-6);
+  gap: var(--space-2-5) var(--space-6);
 
   @include bp(lg) {
     grid-template-columns: 1fr 1fr;
@@ -908,13 +812,10 @@
   }
 
   &.cw-js {
-    color: var(--purple, #c084fc);
+    color: var(--purple);
   }
   &.cw-sql {
-    color: #ffffff;
-    [data-theme='light'] & {
-      color: var(--text-primary);
-    }
+    color: var(--text-primary);
   }
   &.cw-ts {
     color: var(--primary-light);
@@ -953,13 +854,10 @@
   }
 
   &.cw-js {
-    color: var(--purple, #c084fc);
+    color: var(--purple);
   }
   &.cw-sql {
-    color: #ffffff;
-    [data-theme='light'] & {
-      color: var(--text-primary);
-    }
+    color: var(--text-primary);
   }
   &.cw-ts {
     color: var(--primary-light);
@@ -1008,7 +906,7 @@
 .term-footer {
   background: var(--bg-raise);
   border-top: 1px solid var(--border-bright);
-  padding: var(--space-2) var(--space-3-5, 14px);
+  padding: var(--space-2) var(--space-3-5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1018,7 +916,7 @@
   color: var(--text-muted);
 
   @include bp(md) {
-    padding: var(--space-2-5, 10px) var(--space-5);
+    padding: var(--space-2-5) var(--space-5);
     justify-content: space-between;
   }
 
@@ -1046,7 +944,7 @@
 
     @include bp(md) {
       width: auto;
-      gap: var(--space-3-5, 14px);
+      gap: var(--space-3-5);
       justify-content: flex-end;
     }
 

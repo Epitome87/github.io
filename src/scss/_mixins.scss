@@ -73,25 +73,6 @@
   }
 }
 
-// ── card-base ──────────────────────────────────────────────────
-// Standard card shell. $radius defaults to --radius-xl; pass
-// var(--radius-lg) for smaller cards (e.g. project-card).
-@mixin card-base($radius: var(--radius-xl), $padding: var(--space-8)) {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: $radius;
-  padding: $padding;
-}
-
-// ── card-spotlight ─────────────────────────────────────────────
-// Featured card shell with subtle primary glow gradient.
-@mixin card-spotlight($radius: var(--radius-xl), $padding: var(--space-8)) {
-  background: var(--card-spotlight);
-  border: 1px solid var(--border-bright);
-  border-radius: $radius;
-  padding: $padding;
-  box-shadow: var(--shadow-card);
-}
 
 // ── card-hover ─────────────────────────────────────────────────
 // Lift-and-brighten hover. Sets the transition on the host element
@@ -111,6 +92,32 @@
   }
 }
 
+// ── card-sheen-sweep ───────────────────────────────────────────
+// Diagonal specular highlight sweep across a card surface on hover.
+@mixin card-sheen-sweep($duration: 0.6s) {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 18%,
+      rgba(255, 255, 255, 0.16) 46%,
+      rgba(255, 255, 255, 0.08) 54%,
+      transparent 72%
+    );
+    opacity: 0;
+    transform: translateX(-135%);
+    transition:
+      transform $duration var(--ease-out),
+      opacity var(--t-fast);
+    pointer-events: none;
+  }
+}
+
 // ── mono-label ─────────────────────────────────────────────────
 // Mono font + uppercase label cluster. Used ~15 times across the
 // codebase for section labels, stat labels, dates, badges, etc.
@@ -123,107 +130,7 @@
   color: $color;
 }
 
-// ── icon-box ───────────────────────────────────────────────────
-// Square icon container with pale blue background and border.
-// Used in service-card__icon, trust-item__icon, and timeline-item__icon.
-// $size    — width and height. Default 42px.
-// $padding — inner padding. Default var(--space-1-5) (5px optical).
-// $radius  — border-radius. Default var(--radius-md).
-@mixin icon-box($size: 42px, $padding: var(--space-1-5), $radius: var(--radius-md)) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: $size;
-  height: $size;
-  padding: $padding;
-  background: var(--primary-pale);
-  border: 1px solid var(--border-bright);
-  border-radius: $radius;
-  color: var(--primary);
-}
 
-// ── stat-card ───────────────────────────────────────────────────
-// Shared stat tile used by both .github__stat and .leetcode__stat.
-// Apply to the wrapper element; use stat-card-num, stat-card-label,
-// and stat-card-sub mixins on the inner elements.
-@mixin stat-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  // background: var(--bg-float);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  transition: border-color var(--t-base);
-  min-width: 0;
-
-  &:hover {
-    border-color: var(--border-bright);
-  }
-}
-
-@mixin stat-card-num {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: var(--leading-none);
-
-  span {
-    color: var(--primary-light);
-  }
-}
-
-@mixin stat-card-label {
-  @include mono-label;
-}
-
-@mixin stat-card-sub {
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  margin-top: 1px; // 1px optical nudge — too small for a spacing token
-}
-
-// ── stat-card-responsive ────────────────────────────────────────
-// Responsive overrides for stat card inner elements when displayed
-// in a compact grid (used by both .github__stats and .leetcode__stats).
-// Apply inside the stats grid container, passing the stat class name.
-@mixin stat-card-responsive($prefix) {
-  .#{$prefix}__stat {
-    min-width: 0;
-    padding: var(--space-3) var(--space-4);
-    gap: var(--space-2);
-    flex-direction: column;
-    align-items: flex-start;
-
-    // @media (min-width: map-get($breakpoints, md)) {
-    //   padding: var(--space-2) var(--space-3);
-    // }
-  }
-
-  .#{$prefix}__stat-num {
-    font-size: var(--text-lg);
-    line-height: var(--leading-none);
-  }
-
-  .#{$prefix}__stat-label {
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: var(--leading-snug);
-    font-size: var(--text-2xs);
-  }
-
-  .#{$prefix}__stat-sub {
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: var(--text-xs);
-    line-height: var(--leading-snug);
-  }
-}
 
 // ── tech-glass-chassis ──────────────────────────────────────────
 // Hardware monitor glass elevation with 1px top bevel highlight,
@@ -237,17 +144,13 @@
   overflow: hidden;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    0 16px 40px -8px rgba(0, 0, 0, 0.45);
+    var(--shadow-lg);
   transition:
     border-color var(--t-base),
     box-shadow var(--t-base);
 
   @if $is-floating {
-    animation:
-      heroDeckFloat 6.5s ease-in-out infinite alternate,
-      breathingGlow 5s ease-in-out infinite alternate;
-  } @else {
-    animation: breathingGlow 6s ease-in-out infinite alternate;
+    animation: heroDeckFloat 6.5s ease-in-out infinite alternate;
   }
 
   // 1. Top-edge milled glass bezel highlight (1px subtle)
@@ -259,9 +162,9 @@
     background: linear-gradient(
       90deg,
       transparent 5%,
-      rgba(255, 255, 255, 0.25) 35%,
+      var(--sheen-border) 35%,
       var(--primary) 50%,
-      rgba(255, 255, 255, 0.25) 65%,
+      var(--sheen-border) 65%,
       transparent 95%
     );
     z-index: 10;
@@ -288,7 +191,6 @@
     pointer-events: none;
     opacity: 0;
     z-index: 15;
-    animation: periodicSheen 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   }
 
   // 3. Hover: instant crisp specular sweep  elevated border glow
@@ -314,67 +216,10 @@
   }
 }
 
-// ── tech-window-dot ─────────────────────────────────────────────
-// Jewel LED dot for hardware chassis window controls (Close/Min/Max).
-// Features internal specular highlights and static colored LED glow halo.
-@mixin tech-window-dot($type) {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  border-radius: var(--radius-circle);
-  position: relative;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition:
-    transform var(--t-fast) var(--ease-out),
-    box-shadow var(--t-fast) ease;
-  &:hover {
-    transform: scale(1.22);
-  }
-  @if $type == 'r' or $type == 'close' {
-    background: radial-gradient(circle at 35% 35%, #ff8585, var(--dot-r) 60%, #b91c1c 100%);
-    box-shadow:
-      0 0 7px var(--dot-r),
-      0 0 2px rgba(255, 255, 255, 0.6) inset;
-  } @else if $type == 'y' or $type == 'min' {
-    background: radial-gradient(circle at 35% 35%, #fde68a, var(--dot-y) 60%, #b45309 100%);
-    box-shadow:
-      0 0 7px var(--dot-y),
-      0 0 2px rgba(255, 255, 255, 0.6) inset;
-  } @else if $type == 'g' or $type == 'max' {
-    background: radial-gradient(circle at 35% 35%, #6ee7b7, var(--dot-g) 60%, #047857 100%);
-    box-shadow:
-      0 0 7px var(--dot-g),
-      0 0 2px rgba(255, 255, 255, 0.6) inset;
-  }
-}
 // ── tech-viewport-backlight ─────────────────────────────────────
-// Full-screen atmospheric optical depth glow across entire monitor displays.
-// Radiates cold ice-blue and electric cyan depth across both sidebar & viewport.
+// Solid background for IDE and Terminal chassis viewports
 @mixin tech-viewport-backlight {
-  background:
-    radial-gradient(ellipse 700px 450px at 90% 10%, rgba(97, 166, 250, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 550px 350px at 10% 90%, rgba(34, 211, 238, 0.055) 0%, transparent 65%), var(--bg-card);
-  background: var(--bg-card); // <-- Uncomment this line for Flat
-}
-
-@keyframes periodicSheen {
-  0%,
-  75% {
-    transform: translate(-35%, -35%) rotate(25deg);
-    opacity: 0;
-  }
-  78% {
-    opacity: 1;
-  }
-  92% {
-    transform: translate(30%, 30%) rotate(25deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(30%, 30%) rotate(25deg);
-    opacity: 0;
-  }
+  background: var(--bg-card);
 }
 
 @keyframes hoverSheenSweep {
@@ -397,22 +242,5 @@
   }
   100% {
     transform: translateY(-3px) rotate(-0.3deg);
-  }
-}
-
-@keyframes breathingGlow {
-  0% {
-    border-color: var(--border-bright);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-      0 16px 40px -8px rgba(0, 0, 0, 0.45),
-      0 0 15px -5px rgba(97, 166, 250, 0.08);
-  }
-  100% {
-    border-color: rgba(97, 166, 250, 0.35);
-    box-shadow:
-      0 0 0 1px rgba(97, 166, 250, 0.2) inset,
-      0 20px 50px -10px rgba(0, 0, 0, 0.55),
-      0 0 30px -5px var(--primary-glow);
   }
 }

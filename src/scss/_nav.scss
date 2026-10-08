@@ -12,16 +12,24 @@
   transform: translateX(-50%);
   z-index: var(--z-nav);
   width: min(calc(100% - 3rem), var(--max-w));
+  transition: transform 0.32s var(--ease-out);
 
   @include bp(xs) {
     top: var(--space-4);
+  }
+
+  // Smart headroom: slide out of view on scroll down (mobile & tablet)
+  @media (max-width: 1023px) {
+    &.is-hidden {
+      transform: translate(-50%, -160%);
+    }
   }
 
   &::before {
     content: '';
     position: absolute;
     inset: -3px;
-    border-radius: var(--radius-pill);
+    border-radius: calc(var(--radius-md) + 3px);
     background: linear-gradient(
       110deg,
       var(--primary-dim) 0%,
@@ -50,7 +58,7 @@
     backdrop-filter: blur(var(--blur-nav));
     -webkit-backdrop-filter: blur(var(--blur-nav));
     border: 0;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-md);
     box-shadow:
       var(--shadow-md),
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -178,30 +186,6 @@
     }
   }
 
-  &__cta {
-    @include mono-label(var(--text-xs), var(--tracking-normal), var(--text-inverse));
-    display: none;
-    font-weight: 700; // override mixin — CTA needs bold
-    padding: 0.5rem 1.25rem;
-    background: var(--primary);
-    border-radius: var(--radius-pill);
-    transition:
-      background var(--t-base),
-      box-shadow var(--t-base),
-      transform var(--t-base);
-    white-space: nowrap;
-
-    @include bp(lg) {
-      display: initial;
-    }
-
-    &:hover {
-      background: var(--primary-light);
-      transform: scale(1.05);
-      box-shadow: 0 0 22px var(--primary-glow);
-    }
-  }
-
   &__theme-toggle {
     display: flex;
     align-items: center;
@@ -269,8 +253,7 @@
       border-radius: 1px;
       transition:
         transform var(--t-base),
-        opacity var(--t-base),
-        width var(--t-base);
+        opacity var(--t-base);
     }
 
     &.open span {

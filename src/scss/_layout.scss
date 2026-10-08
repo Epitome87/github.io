@@ -11,7 +11,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-  overflow-x: hidden;
+  overflow-x: clip;
 
   // Subtle noise grain overlay
   &::after {
@@ -39,36 +39,8 @@ body {
 
 section {
   position: relative;
-  background-color: transparent !important;
+  background-color: transparent;
   z-index: var(--z-raised);
-
-  // Full-Width Horizon Whisper Glow between all sections (except hero)
-  // &:not(.hero)::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   height: 120px;
-  //   transform: translateY(-50%);
-  //   background: linear-gradient(90deg, transparent 0%, rgba(97, 166, 250, 0.12) 50%, transparent 100%);
-  //   filter: blur(36px);
-  //   pointer-events: none;
-  //   z-index: 2;
-  // }
-}
-
-// Allow atmospheric aurora orbs to spill across section boundaries naturally
-// Allow atmospheric aurora orbs to spill across section boundaries naturally
-.hero,
-.experience,
-.about,
-.coding {
-  overflow: visible !important;
-
-  &__aurora {
-    overflow: visible !important;
-  }
 }
 
 .section-label {
@@ -106,28 +78,9 @@ section {
     opacity var(--t-slow) var(--ease-out),
     transform var(--t-slow) var(--ease-out);
 
-  &.from-left {
-    transform: translateX(-32px);
-  }
-  &.from-right {
-    transform: translateX(32px);
-  }
-  &.scale-in {
-    transform: scale(0.92);
-  }
   &.visible {
     opacity: 1;
     transform: none;
-  }
-}
-
-// Stagger animation delays
-// Uses --stagger-step token (0.06s) as the delay increment
-.stagger {
-  @for $i from 1 through 12 {
-    > *:nth-child(#{$i}):not(.visible) {
-      transition-delay: #{0.05s + ($i - 1) * 0.06s};
-    }
   }
 }
 
@@ -152,15 +105,51 @@ section {
   border-width: 0;
 }
 
-// ── Shared keyframes ───────────────────────────────────────────
-// blink — used by hero__available-dot and trust-item availability dot
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
+// ── Window chassis controls (macOS-style Jewel LED dots) ─────────
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.window-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-circle);
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    transform var(--t-fast) var(--ease-out),
+    box-shadow var(--t-fast) ease;
+
+  &:hover {
+    transform: scale(1.22);
   }
-  50% {
-    opacity: 0.25;
+
+  &--r {
+    background: radial-gradient(circle at 35% 35%, #ff8585, var(--dot-r) 60%, #b91c1c 100%);
+    box-shadow:
+      0 0 7px var(--dot-r),
+      0 0 2px rgba(255, 255, 255, 0.6) inset;
+  }
+
+  &--y {
+    background: radial-gradient(circle at 35% 35%, #fde68a, var(--dot-y) 60%, #b45309 100%);
+    box-shadow:
+      0 0 7px var(--dot-y),
+      0 0 2px rgba(255, 255, 255, 0.6) inset;
+  }
+
+  &--g {
+    background: radial-gradient(circle at 35% 35%, #6ee7b7, var(--dot-g) 60%, #047857 100%);
+    box-shadow:
+      0 0 7px var(--dot-g),
+      0 0 2px rgba(255, 255, 255, 0.6) inset;
   }
 }
 
