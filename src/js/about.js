@@ -104,16 +104,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const track = aboutSection.querySelector('.about__track');
   if (track) {
     track.addEventListener('keydown', (e) => {
+      const segs = Array.from(track.querySelectorAll('.about__seg'));
+      if (!segs.length) return;
+
+      const activeIdx = segs.findIndex((s) => s.classList.contains('active'));
+      let targetIdx = -1;
+
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         e.preventDefault();
-        nextChapter();
-        const activeSeg = track.querySelector(`.about__seg[data-chapter-index="${currentChapter}"]`);
-        if (activeSeg) activeSeg.focus();
+        targetIdx = (activeIdx + 1) % totalChapters;
       } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
-        prevChapter();
-        const activeSeg = track.querySelector(`.about__seg[data-chapter-index="${currentChapter}"]`);
-        if (activeSeg) activeSeg.focus();
+        targetIdx = (activeIdx - 1 + totalChapters) % totalChapters;
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        targetIdx = 0;
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        targetIdx = totalChapters - 1;
+      }
+
+      if (targetIdx !== -1) {
+        goToChapter(targetIdx);
+        segs[targetIdx]?.focus();
       }
     });
   }
@@ -191,35 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   observer.observe(aboutSection);
-
-  // WAI-ARIA tablist keyboard navigation on .about__track
-  const tabTrack = aboutSection.querySelector('.about__track');
-  if (tabTrack) {
-    tabTrack.addEventListener('keydown', (e) => {
-      const segs = Array.from(tabTrack.querySelectorAll('.about__seg'));
-      const activeIdx = segs.findIndex((s) => s.classList.contains('active'));
-      let targetIdx = -1;
-
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        targetIdx = (activeIdx + 1) % totalChapters;
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        targetIdx = (activeIdx - 1 + totalChapters) % totalChapters;
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        targetIdx = 0;
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        targetIdx = totalChapters - 1;
-      }
-
-      if (targetIdx !== -1) {
-        goToChapter(targetIdx);
-        segs[targetIdx]?.focus();
-      }
-    });
-  }
 
   // Initialize Lower-Zone Ambient Stardust Particles
   const stardustCanvas = document.getElementById('aboutStardust');

@@ -118,6 +118,69 @@
   }
 }
 
+// ── project-card-surface ───────────────────────────────────────
+// Shared bento surface chassis for featured and standard project cards.
+%project-card-surface {
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+// ── project-media ──────────────────────────────────────────────
+// Shared image thumbnail viewport with smooth zoom & saturation transition.
+@mixin project-media-viewport($scale: 1.05, $saturate: 1) {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--bg-float);
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+      transform 0.55s var(--ease-out),
+      filter var(--t-slow);
+    filter: saturate(0.78) brightness(0.85);
+  }
+
+  &:hover img,
+  :hover > & img {
+    transform: scale($scale);
+    filter: saturate($saturate) brightness(1);
+  }
+}
+
+// ── glass-pill-badge ───────────────────────────────────────────
+// Translucent frosted glass badge for case studies, categories, and chips.
+@mixin glass-pill-badge($blur: 8px) {
+  @include mono-label(var(--text-xs), var(--tracking-normal), var(--primary-light));
+  background: rgba(11, 15, 20, 0.78);
+  border: 1px solid var(--border-bright);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    color var(--t-fast),
+    box-shadow var(--t-fast);
+
+  @include touch-target(44px);
+
+  [data-theme='light'] & {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(203, 213, 225, 0.85);
+    color: var(--primary);
+  }
+}
+
+
 // ── mono-label ─────────────────────────────────────────────────
 // Mono font + uppercase label cluster. Used ~15 times across the
 // codebase for section labels, stat labels, dates, badges, etc.
@@ -244,3 +307,45 @@
     transform: translateY(-3px) rotate(-0.3deg);
   }
 }
+
+// ── atmospheric-aurora ──────────────────────────────────────────
+// Shared atmospheric backdrop layer with floating blurred gradient orbs.
+// Provides unified opacity, blur filter, reduced-motion fallbacks, and themes.
+@mixin atmospheric-aurora {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: var(--z-base);
+}
+
+@mixin atmospheric-orb($duration: 28s, $blur: 130px, $opacity: 0.1) {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur($blur);
+  opacity: $opacity;
+  pointer-events: none;
+  animation: ambientOrbFloat $duration ease-in-out infinite alternate;
+
+  [data-theme='light'] & {
+    opacity: 0.08;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes ambientOrbFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-35px, 25px) scale(1.08);
+  }
+  100% {
+    transform: translate(25px, -20px) scale(0.95);
+  }
+}
+

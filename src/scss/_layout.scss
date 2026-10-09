@@ -132,21 +132,21 @@ section {
   }
 
   &--r {
-    background: radial-gradient(circle at 35% 35%, #ff8585, var(--dot-r) 60%, #b91c1c 100%);
+    background: radial-gradient(circle at 35% 35%, var(--danger-light), var(--dot-r) 60%, var(--danger) 100%);
     box-shadow:
       0 0 7px var(--dot-r),
       0 0 2px rgba(255, 255, 255, 0.6) inset;
   }
 
   &--y {
-    background: radial-gradient(circle at 35% 35%, #fde68a, var(--dot-y) 60%, #b45309 100%);
+    background: radial-gradient(circle at 35% 35%, var(--complementary-light), var(--dot-y) 60%, var(--complementary) 100%);
     box-shadow:
       0 0 7px var(--dot-y),
       0 0 2px rgba(255, 255, 255, 0.6) inset;
   }
 
   &--g {
-    background: radial-gradient(circle at 35% 35%, #6ee7b7, var(--dot-g) 60%, #047857 100%);
+    background: radial-gradient(circle at 35% 35%, var(--green-pale), var(--dot-g) 60%, var(--green) 100%);
     box-shadow:
       0 0 7px var(--dot-g),
       0 0 2px rgba(255, 255, 255, 0.6) inset;

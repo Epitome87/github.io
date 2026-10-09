@@ -13,24 +13,11 @@
   }
   // Atmospheric Aurora Glow Layer (Royal Indigo + Electric Cyan Variation)
   &__aurora {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: var(--z-base);
+    @include atmospheric-aurora;
   }
   &__glow-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(130px);
-    opacity: 0.1;
-    pointer-events: none;
-    animation: experienceGlowFloat 28s ease-in-out infinite alternate;
-    [data-theme='light'] & {
-      opacity: 0.08;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
-    }
+    @include atmospheric-orb(28s, 130px, 0.1);
+
     &--1 {
       width: 650px;
       height: 650px;
@@ -65,17 +52,6 @@
     line-height: var(--leading-normal);
     max-width: 780px;
     margin-top: var(--space-4);
-  }
-}
-@keyframes experienceGlowFloat {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-35px, 30px) scale(1.09);
-  }
-  100% {
-    transform: translate(30px, -20px) scale(0.94);
   }
 }
 

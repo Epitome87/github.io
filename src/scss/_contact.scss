@@ -77,7 +77,9 @@
     border: 3px solid color-mix(in srgb, var(--primary) 45%, transparent);
     box-shadow: 0 0 35px color-mix(in srgb, var(--primary) 28%, transparent);
     background: var(--primary); // Seamless match with avatar graphic background
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
 
     &:hover {
       border-color: var(--primary);
@@ -90,7 +92,11 @@
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      background: radial-gradient(circle at var(--contact-light-x, 30%) var(--contact-light-y, 30%), rgba(255, 255, 255, 0.28) 0%, transparent 60%);
+      background: radial-gradient(
+        circle at var(--contact-light-x, 30%) var(--contact-light-y, 30%),
+        rgba(255, 255, 255, 0.28) 0%,
+        transparent 60%
+      );
       pointer-events: none;
       mix-blend-mode: overlay;
       z-index: 5;
@@ -245,8 +251,7 @@
 
       input[type='text'],
       input[type='email'],
-      textarea,
-      .form-select {
+      textarea {
         width: 100%;
         padding: var(--space-3) var(--space-4);
         background: var(--bg-float);
@@ -270,18 +275,48 @@
           border-color: var(--primary);
           box-shadow: 0 0 0 3px var(--primary-pale);
         }
+
+        // Clean theme-adaptive browser autofill override (inputs only)
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-text-fill-color: var(--text-primary) !important;
+          caret-color: var(--text-primary) !important;
+          -webkit-box-shadow: 0 0 0 1000px var(--bg-input-solid) inset !important;
+          box-shadow: 0 0 0 1000px var(--bg-input-solid) inset !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
       }
 
       .select-wrapper {
         position: relative;
+        width: 100%;
       }
 
       .form-select {
+        width: 100%;
+        padding: var(--space-3) var(--space-4);
+        padding-right: 2.4rem;
+        background: var(--bg-input-solid);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-body);
+        font-size: var(--text-sm);
+        color: var(--text-primary);
+        outline: none;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
         cursor: pointer;
-        padding-right: 2.4rem;
+        transition:
+          border-color var(--t-base),
+          box-shadow var(--t-base);
+
+        &:focus {
+          border-color: var(--primary);
+          box-shadow: 0 0 0 3px var(--primary-pale);
+        }
 
         option {
           background: var(--bg-card);

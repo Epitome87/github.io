@@ -9,6 +9,8 @@
 .coding {
   padding: var(--space-24) 0;
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 850px;
 
   @include bp(lg) {
     padding: var(--space-32) 0;
@@ -16,27 +18,11 @@
 
   // Atmospheric Aurora Glow Layer (Warm Amber + Cool Sapphire Balance)
   &__aurora {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: var(--z-base);
+    @include atmospheric-aurora;
   }
 
   &__glow-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.12;
-    pointer-events: none;
-    animation: codingGlowFloat 28s ease-in-out infinite alternate;
-
-    [data-theme='light'] & {
-      opacity: 0.08;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
-    }
+    @include atmospheric-orb(28s, 140px, 0.12);
 
     // Orb 1: Warm Amber / Ember Glow (Top-Right)
     &--1 {
