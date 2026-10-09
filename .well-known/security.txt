@@ -1,0 +1,5 @@
+Contact: mailto:matthew.mcgrath.b@gmail.com
+Expires: 2028-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://matthewmcgrath.dev/.well-known/security.txt
+Policy: https://matthewmcgrath.dev/
