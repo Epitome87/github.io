@@ -1,16 +1,15 @@
-/* ==========================================================================
-   SKILLS & EXPERIENCE STUDIO
-   ========================================================================== */
+// ==========================================================================
+// SKILLS & EXPERIENCE STUDIO
+// Interactive IDE workspace with file tree, overview doc, and commit timeline
+// ==========================================================================
 
 @use 'tokens' as *;
 @use 'mixins' as *;
 
+// ── Section Container & Atmospheric Auroras ───────────────────────
 .experience {
-  padding: var(--space-24) 0;
   position: relative;
-  @include bp(lg) {
-    padding: var(--space-32) 0;
-  }
+  padding: var(--space-24) 0;
   // Atmospheric Aurora Glow Layer (Royal Indigo + Electric Cyan Variation)
   &__aurora {
     @include atmospheric-aurora;
@@ -19,20 +18,20 @@
     @include atmospheric-orb(28s, 130px, 0.1);
 
     &--1 {
-      width: 650px;
-      height: 650px;
-      background: var(--orb-gradient-indigo);
       top: 15%;
       left: 5%;
+      background: var(--orb-gradient-indigo);
+      width: 650px;
+      height: 650px;
     }
     &--2 {
-      width: 580px;
-      height: 580px;
-      background: var(--orb-gradient-cyan);
-      bottom: 10%;
       right: 5%;
+      bottom: 10%;
       animation-duration: 34s;
       animation-direction: alternate-reverse;
+      background: var(--orb-gradient-cyan);
+      width: 580px;
+      height: 580px;
     }
   }
   .container {
@@ -47,17 +46,18 @@
     }
   }
   &__desc {
+    margin-top: var(--space-4);
+    max-width: 780px;
+    line-height: var(--leading-normal);
     color: var(--text-secondary);
     font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    max-width: 780px;
-    margin-top: var(--space-4);
+  }
+  @include bp(lg) {
+    padding: var(--space-32) 0;
   }
 }
 
-/* ─────────────────────────────────────────────────────────────
-+   1. AUTHENTIC IDE WORKSPACE (DESKTOP SIDEBAR + MOBILE FILE DRAWER)
-    ───────────────────────────────────────────────────────────── */
+// ── IDE Workspace Chassis (.ide-chassis) ───────────────────────────
 .ide-chassis {
   @include tech-glass-chassis(var(--radius-lg));
   display: flex;
@@ -65,26 +65,26 @@
 }
 
 .ide-window-header {
-  position: relative;
-  background: var(--bg-raise);
-  border-bottom: 1px solid var(--border);
-  padding: var(--space-2) var(--space-4);
   display: flex;
-  justify-content: space-between;
+  position: relative;
   align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-raise);
+  padding: var(--space-2) var(--space-4);
+  color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-muted);
-
-  @include bp(md) {
-    padding: var(--space-3) var(--space-5);
-  }
 
   &__left {
     display: flex;
-    align-items: center;
     gap: var(--space-3);
+    align-items: center;
     min-width: 0;
+  }
+
+  @include bp(md) {
+    padding: var(--space-3) var(--space-5);
   }
 }
 
@@ -104,11 +104,11 @@
 }
 
 .ide-body {
-  position: relative;
+  @include tech-viewport-backlight;
   display: flex;
+  position: relative;
   flex-direction: column;
   min-height: 440px;
-  @include tech-viewport-backlight;
 
   @include bp(md) {
     display: grid;
@@ -119,62 +119,62 @@
   }
 }
 
-/* File Explorer Sidebar & Mobile Dropdown Overlay */
+// ── File Explorer Sidebar & Mobile Drawer (.ide-sidebar) ───────────
 .ide-sidebar {
   display: block;
   position: absolute;
   top: 40px;
-  left: 0;
   right: 0;
-  z-index: 25;
-  background: var(--bg-card);
-  border-bottom: 1px solid var(--border-bright);
-  box-shadow: var(--shadow-lg);
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  max-height: 65vh;
-  overflow-y: auto;
-  padding: var(--space-2) 0 var(--space-4);
-  opacity: 0;
+  left: 0;
   transform: translateY(-8px);
-  pointer-events: none;
-  visibility: hidden;
   transition:
     opacity 0.25s var(--ease-out),
     transform 0.25s var(--ease-out),
     visibility 0.25s var(--ease-out);
+  visibility: hidden;
+  opacity: 0;
+  z-index: var(--z-drawer);
+  border-bottom: 1px solid var(--border-bright);
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-card);
+  padding: var(--space-2) 0 var(--space-4);
+  max-height: 65vh;
+  max-height: 65dvh;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  pointer-events: none;
 
   &.open {
+    transform: translateY(0);
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
   }
 
   [data-theme='light'] & {
     background: rgba(244, 247, 252, 0.98);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
   }
 
   @include bp(md) {
     position: static;
     top: auto;
-    left: auto;
     right: auto;
-    z-index: auto;
-    box-shadow: none;
-    max-height: none;
+    left: auto;
+    transform: none;
+    transition: none;
     visibility: visible;
     opacity: 1;
-    transform: none;
-    pointer-events: auto;
-    transition: none;
-    background: rgba(11, 14, 20, 0.55);
-    border-bottom: none;
+    z-index: auto;
     border-right: 1px solid var(--border);
+    border-bottom: none;
+    box-shadow: none;
+    background: rgba(11, 14, 20, 0.55);
     padding: var(--space-3) 0;
     height: 100%;
+    max-height: none;
     overflow-y: auto;
+    pointer-events: auto;
 
     [data-theme='light'] & {
       background: rgba(233, 239, 250, 0.65);
@@ -183,31 +183,26 @@
 }
 
 .folder-header {
-  padding: 0.45rem 1rem;
-  min-height: 34px;
-  margin-top: var(--space-1-5);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  user-select: none;
-  background: transparent;
-  border: none;
-  width: 100%;
-  text-align: left;
   transition:
     background var(--t-fast),
     color var(--t-fast);
-
-  @include bp(md) {
-    padding: 0.4rem 1rem;
-    min-height: auto;
-  }
+  margin-top: var(--space-1-5);
+  border: none;
+  background: transparent;
+  padding: 0.45rem 1rem;
+  width: 100%;
+  min-height: 34px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     background: var(--bg-hover);
@@ -215,34 +210,39 @@
   }
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--primary);
     border-radius: var(--radius-xs);
+    box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--primary);
   }
   &.collapsed .folder-chevron {
     transform: rotate(-90deg);
   }
+
+  @include bp(md) {
+    padding: 0.4rem 1rem;
+    min-height: auto;
+  }
 }
 
 .folder-count {
-  font-size: var(--text-2xs);
   color: var(--text-muted);
+  font-size: var(--text-2xs);
 }
 .console-branch-label {
-  font-size: var(--text-xs);
   color: var(--text-muted);
+  font-size: var(--text-xs);
 }
 
 .folder-title-left {
   display: flex;
-  align-items: center;
   gap: 0.4rem;
+  align-items: center;
   font-weight: 700;
 }
 
 .folder-chevron {
-  font-size: 0.65rem;
-  transition: transform var(--t-fast);
   display: inline-block;
+  transition: transform var(--t-fast);
+  font-size: 0.65rem;
 }
 
 .folder-content {
@@ -255,29 +255,24 @@
 }
 
 .file-item {
-  padding: 0.45rem 1rem 0.45rem 1.6rem;
-  min-height: 32px;
   display: flex;
+  gap: 0.45rem;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.45rem;
-  color: var(--text-secondary);
-  border: none;
-  cursor: pointer;
   transition:
     color var(--t-fast),
     background-color var(--t-fast),
     border-left-color var(--t-fast);
-  font-family: var(--font-mono);
-  user-select: none;
+  border: none;
   border-left: 2px solid transparent;
+  padding: 0.45rem 1rem 0.45rem 1.6rem;
   width: 100%;
+  min-height: 32px;
   text-align: left;
-
-  @include bp(md) {
-    padding: 0.35rem 1rem 0.35rem 1.6rem;
-    min-height: auto;
-  }
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     background: var(--bg-hover);
@@ -285,31 +280,36 @@
   }
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--primary);
     border-radius: var(--radius-xs);
+    box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--primary);
   }
   &.active {
+    border-left-color: var(--primary-light);
     background: var(--primary-pale);
     color: var(--primary-light);
-    border-left-color: var(--primary-light);
     font-weight: 600;
+  }
+
+  @include bp(md) {
+    padding: 0.35rem 1rem 0.35rem 1.6rem;
+    min-height: auto;
   }
 }
 
 .file-svg-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  margin-right: 0.35rem;
   width: 14px;
   height: 14px;
-  flex-shrink: 0;
-  display: inline-block;
   vertical-align: -2px;
-  margin-right: 0.35rem;
   fill: currentColor;
 }
 
 .ide-root-file-wrap {
-  padding-bottom: var(--space-1-5);
   margin-bottom: var(--space-1-5);
   border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-1-5);
 }
 
 .file-item--root {
@@ -317,71 +317,71 @@
   font-weight: 600;
 }
 
-/* Editor Main Pane */
+// ── Editor Main Viewport (.ide-main-pane) ─────────────────────────
 .ide-main-pane {
+  @include tech-viewport-backlight;
   display: flex;
   flex-direction: column;
+  min-width: 0;
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  @include tech-viewport-backlight;
-  min-width: 0;
 }
 
 .tab-bar {
   display: flex;
-  justify-content: space-between;
+  gap: var(--space-3);
   align-items: flex-end;
-  background: var(--bg-base);
+  justify-content: space-between;
   border-bottom: 1px solid var(--border);
+  background: var(--bg-base);
   padding: 0 var(--space-4) 0 var(--space-2);
   height: 40px;
-  gap: var(--space-3);
 }
 
 .tab-bar-right {
   display: flex;
-  align-items: center;
   gap: var(--space-3);
-  margin-left: auto;
+  align-items: center;
   align-self: center;
+  margin-left: auto;
 }
 
 .btn-tab-back {
-  position: relative;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.2rem 0.65rem;
   @include touch-target(44px);
-  background: var(--complementary-dim);
-  border: 1px solid var(--border-bright);
-  color: var(--complementary-light);
-  border-radius: var(--radius-pill);
-  cursor: pointer;
   display: inline-flex;
-  align-items: center;
+  position: relative;
   gap: 0.35rem;
+  align-items: center;
   transition:
     background-color var(--t-fast),
     border-color var(--t-fast),
     color var(--t-fast);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-pill);
+  background: var(--complementary-dim);
+  padding: 0.2rem 0.65rem;
   white-space: nowrap;
-
-  [data-theme='light'] & {
-    color: var(--complementary);
-    border-color: var(--border-complementary);
-  }
+  color: var(--complementary-light);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
 
   &:hover {
+    border-color: var(--complementary);
     background: var(--complementary);
     color: var(--text-inverse);
-    border-color: var(--complementary);
   }
 
   &:focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--primary);
+  }
+
+  [data-theme='light'] & {
+    border-color: var(--border-complementary);
+    color: var(--complementary);
   }
 
   &.hidden {
@@ -390,40 +390,40 @@
 }
 
 .editor-tab {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--primary-light);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: var(--bg-card);
   padding: 0 var(--space-4);
   height: 32px;
+  color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 0.76rem;
   font-weight: 600;
-  color: var(--text-primary);
-  background: var(--bg-card);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  border: 1px solid var(--border);
-  border-bottom: 2px solid var(--primary-light);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 
   &--interactive {
-    cursor: pointer;
     background: transparent;
-
-    @include bp(md) {
-      cursor: default;
-      pointer-events: none;
-      background: var(--bg-card);
-    }
+    cursor: pointer;
 
     &:hover {
       background: var(--bg-hover);
     }
+
+    @include bp(md) {
+      background: var(--bg-card);
+      cursor: default;
+      pointer-events: none;
+    }
   }
 
   &__chevron {
-    font-size: 0.7rem;
-    color: var(--primary-light);
-    margin-left: 2px;
     transition: transform var(--t-fast);
+    margin-left: 2px;
+    color: var(--primary-light);
+    font-size: 0.7rem;
 
     [aria-expanded='true'] & {
       transform: rotate(180deg);
@@ -436,34 +436,18 @@
 }
 
 .code-canvas {
-  padding: var(--space-4) var(--space-3);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  line-height: 1.7;
-  color: var(--text-primary);
   flex: 1;
+  background: transparent;
+  padding: var(--space-4) var(--space-3);
   overflow-x: auto;
   overflow-y: auto;
+  line-height: 1.7;
   white-space: pre;
-  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   scrollbar-width: thin;
   scrollbar-color: var(--border-bright) transparent;
-
-  &.is-overview {
-    white-space: normal;
-    font-family: var(--font-body);
-    padding: var(--space-4) var(--space-3);
-    overflow-y: auto;
-
-    @include bp(md) {
-      padding: var(--space-5) var(--space-6);
-    }
-  }
-
-  &.is-code {
-    white-space: pre;
-    font-family: var(--font-mono);
-  }
 
   &::-webkit-scrollbar {
     height: 6px;
@@ -474,8 +458,8 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: var(--border-bright);
     border-radius: var(--radius-pill);
+    background: var(--border-bright);
 
     &:hover {
       background: var(--primary-light);
@@ -487,28 +471,39 @@
     box-shadow: inset 0 0 0 2px var(--primary);
   }
 
-  .btn-back-to-overview {
+  &.is-overview {
+    padding: var(--space-4) var(--space-3);
+    overflow-y: auto;
+    white-space: normal;
+    font-family: var(--font-body);
+
+    @include bp(md) {
+      padding: var(--space-5) var(--space-6);
+    }
+  }
+
+  &.is-code {
+    white-space: pre;
     font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 0.35rem 0.85rem;
-    background: var(--complementary-dim);
-    border: 1px solid var(--border-bright);
-    color: var(--complementary-light);
-    border-radius: var(--radius-pill);
-    cursor: pointer;
+  }
+
+  .btn-back-to-overview {
     display: inline-flex;
-    align-items: center;
     gap: 0.35rem;
+    align-items: center;
     transition:
       background-color var(--t-fast),
       border-color var(--t-fast),
       color var(--t-fast);
-
-    [data-theme='light'] & {
-      color: var(--complementary);
-      border-color: var(--border-complementary);
-    }
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-pill);
+    background: var(--complementary-dim);
+    padding: 0.35rem 0.85rem;
+    color: var(--complementary-light);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
 
     &:hover {
       background: var(--complementary);
@@ -518,6 +513,11 @@
     &:focus-visible {
       outline: none;
       box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--primary);
+    }
+
+    [data-theme='light'] & {
+      border-color: var(--border-complementary);
+      color: var(--complementary);
     }
   }
 
@@ -533,58 +533,56 @@
 
 .code-line {
   display: flex;
+  position: relative;
   gap: var(--space-4);
   align-items: baseline;
-  position: relative;
-  padding: 0.05rem 0.5rem 0.05rem 0;
+  transition: background-color var(--t-fast);
   margin-left: -0.5rem;
   border-radius: 4px;
-  transition: background-color var(--t-fast);
+  padding: 0.05rem 0.5rem 0.05rem 0;
 
   &:hover {
     background: var(--primary-pale);
 
-    .line-no {
-      color: var(--primary-light);
-      opacity: 1;
-    }
-
     &::before {
-      content: '';
       position: absolute;
-      left: 0;
       top: 2px;
       bottom: 2px;
-      width: 2px;
-      background: var(--primary);
+      left: 0;
       border-radius: 2px;
       box-shadow: 0 0 6px var(--primary);
+      background: var(--primary);
+      width: 2px;
+      content: '';
+    }
+
+    .line-no {
+      opacity: 1;
+      color: var(--primary-light);
     }
   }
 }
 
 .line-no {
-  color: var(--text-muted);
-  width: 20px;
-  text-align: right;
-  opacity: 0.45;
-  user-select: none;
-  font-size: 0.75rem;
   flex-shrink: 0;
   transition:
     color var(--t-fast),
     opacity var(--t-fast);
+  opacity: 0.45;
+  width: 20px;
+  text-align: right;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  user-select: none;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   4. CARDLESS / UN-BOXED OVERVIEW.MD STYLING
-   ───────────────────────────────────────────────────────────── */
+// ── Overview Document Article (.overview-article) ─────────────────
 .overview-article {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  max-width: 860px;
   animation: overviewFadeIn 0.25s ease;
+  max-width: 860px;
 
   @include bp(md) {
     gap: var(--space-6);
@@ -593,19 +591,19 @@
 
 @keyframes overviewFadeIn {
   from {
-    opacity: 0;
     transform: translateY(4px);
+    opacity: 0;
   }
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
 .overview-doc-header {
+  margin-bottom: 0;
   border-bottom: 1px solid var(--border);
   padding-bottom: var(--space-2);
-  margin-bottom: 0;
 
   @include bp(md) {
     padding-bottom: var(--space-3);
@@ -613,16 +611,16 @@
 }
 
 .overview-h1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: baseline;
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 2vw, 1.45rem);
   font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2);
 }
 
 .overview-section {
@@ -632,53 +630,53 @@
 
 .overview-h2-wrap {
   display: flex;
+  gap: var(--space-2);
   align-items: center;
   justify-content: space-between;
+  margin-bottom: var(--space-4);
   border-bottom: 1px solid var(--border);
   padding-bottom: var(--space-2);
-  margin-bottom: var(--space-4);
-  gap: var(--space-2);
 }
 
 .overview-h2 {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary-light);
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--primary-light);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
 
   @include bp(md) {
-    font-size: 0.92rem;
-    letter-spacing: 0.08em;
     gap: 0.5rem;
+    letter-spacing: 0.08em;
+    font-size: 0.92rem;
   }
 }
 
 .overview-h2-sub {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
-  color: var(--text-muted);
-  white-space: nowrap;
-  flex-shrink: 0;
 
   @include bp(md) {
     font-size: 0.72rem;
   }
 }
 
-/* Option B: Markdown Table Spec (Un-boxed, No thead / lines) */
+// ── Markdown Skills Table Spec (.skills-table-spec) ───────────────
 .skills-table-spec {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  margin-bottom: var(--space-2);
   width: 100%;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  margin-bottom: var(--space-2);
 
   tbody {
     display: flex;
@@ -691,22 +689,22 @@
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
-    padding-bottom: var(--space-3);
     border-bottom: 1px dashed var(--border);
+    padding-bottom: var(--space-3);
     width: 100%;
   }
 
   td {
     display: block;
-    padding: 0;
     border: none;
+    padding: 0;
     color: var(--text-secondary);
   }
 
   @include bp(md) {
     display: table;
-    border-collapse: collapse;
     gap: 0;
+    border-collapse: collapse;
 
     tbody {
       display: table-row-group;
@@ -715,9 +713,9 @@
 
     tr {
       display: table-row;
+      gap: 0;
       border-bottom: none;
       padding: 0;
-      gap: 0;
 
       &:hover td {
         background: var(--bg-hover);
@@ -726,18 +724,18 @@
 
     td {
       display: table-cell;
-      padding: var(--space-3) var(--space-2);
       border-bottom: 1px solid var(--border);
+      padding: var(--space-3) var(--space-2);
       vertical-align: middle;
     }
   }
 }
 
 .col-domain {
+  width: 100%;
+  color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--text-primary);
-  width: 100%;
 
   strong {
     color: var(--text-primary);
@@ -745,8 +743,8 @@
 
   @include bp(md) {
     width: 190px;
-    white-space: nowrap;
     vertical-align: middle;
+    white-space: nowrap;
   }
 }
 
@@ -766,46 +764,33 @@
 }
 
 .arch-tag {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  padding: 0.35rem 0.55rem;
-  border-radius: var(--radius-sm);
-  background: var(--bg-raise);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  cursor: pointer;
+  box-sizing: border-box;
   display: flex;
+  gap: 0.35rem;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.35rem;
   transition:
     background-color var(--t-fast),
     border-color var(--t-fast),
     color var(--t-fast),
     transform var(--t-fast);
-  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-raise);
+  padding: 0.35rem 0.55rem;
   width: 100%;
   min-width: 0;
-  box-sizing: border-box;
-
-  @include bp(md) {
-    display: inline-flex;
-    width: auto;
-    font-size: 0.78rem;
-    padding: 0.25rem 0.6rem;
-  }
-
-  span:first-child {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  cursor: pointer;
 
   &:hover {
-    background: var(--primary-pale);
-    border-color: var(--primary);
-    color: var(--text-primary);
     transform: translateY(-1px);
+    border-color: var(--primary);
+    background: var(--primary-pale);
+    color: var(--text-primary);
   }
 
   &:focus-visible {
@@ -813,21 +798,34 @@
     box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--primary);
   }
 
+  span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   &--static {
-    cursor: default;
     opacity: 0.85;
     border-style: dashed;
+    cursor: default;
 
     &:hover {
-      background: var(--bg-raise);
-      border-color: var(--border);
-      color: var(--text-secondary);
       transform: none;
+      border-color: var(--border);
+      background: var(--bg-raise);
+      color: var(--text-secondary);
     }
+  }
+
+  @include bp(md) {
+    display: inline-flex;
+    padding: 0.25rem 0.6rem;
+    width: auto;
+    font-size: 0.78rem;
   }
 }
 
-/* High-Density Compact Milestones in overview.md */
+// ── High-Density Milestones (.overview-compact-stream) ─────────────
 .overview-compact-stream {
   display: flex;
   flex-direction: column;
@@ -837,22 +835,22 @@
 
 .overview-compact-card {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 0.65rem;
-  padding: 0.45rem 0.7rem;
-  background: var(--bg-raise);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: space-between;
   transition:
     background-color var(--t-fast),
     border-color var(--t-fast),
     transform var(--t-fast);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-raise);
+  padding: 0.45rem 0.7rem;
 
   &:hover {
-    background: var(--bg-card);
-    border-color: var(--border-bright);
     transform: translateY(-1px);
+    border-color: var(--border-bright);
+    background: var(--bg-card);
   }
 }
 
@@ -864,37 +862,37 @@
 }
 
 .overview-compact-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-primary);
   font-family: var(--font-display);
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .overview-compact-org {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
 }
 
 .overview-timeline-date {
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
-  color: var(--text-muted);
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   background: var(--bg-card);
   padding: 0.15rem 0.45rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
   white-space: nowrap;
-  flex-shrink: 0;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
 }
 
-/* Syntax Highlighting */
+// ── Code Syntax Token Highlighting ────────────────────────────────
 .kw {
   color: var(--primary);
   font-weight: 600;
@@ -916,29 +914,27 @@
   font-style: italic;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   3. RESPONSIVE CONSOLE DRAWER & GIT MILESTONE STREAM
-   ───────────────────────────────────────────────────────────── */
+// ── Status Bar & Git Commit Console Drawer ─────────────────────────
 .ide-status-bar {
-  background: var(--bg-raise);
-  border: none;
-  border-top: 1px solid var(--border);
-  padding: var(--space-2) var(--space-3);
-  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: var(--space-2);
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
   transition:
     background var(--t-fast),
     color var(--t-fast);
-  user-select: none;
-  color: var(--text-muted);
-  text-align: left;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: var(--bg-raise);
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
   min-width: 0;
+  text-align: left;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     background: var(--bg-hover);
@@ -958,14 +954,14 @@
 
 .status-prompt {
   display: inline-flex;
-  align-items: center;
   gap: 0.45rem;
-  color: var(--primary-light);
-  font-weight: 600;
-  white-space: nowrap;
+  align-items: center;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--primary-light);
+  font-weight: 600;
 
   svg {
     flex-shrink: 0;
@@ -973,30 +969,30 @@
 }
 
 .status-badge {
-  background: var(--primary-pale);
-  border: 1px solid var(--border-bright);
-  color: var(--primary-light);
-  font-size: var(--text-2xs);
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
-  font-weight: 700;
-  flex-shrink: 0;
   display: inline-flex;
-  align-items: center;
+  flex-shrink: 0;
   gap: 0.3rem;
-  white-space: nowrap;
+  align-items: center;
   transition:
     background-color var(--t-fast),
     border-color var(--t-fast),
     color var(--t-fast);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-pill);
+  background: var(--primary-pale);
+  padding: 2px 8px;
+  white-space: nowrap;
+  color: var(--primary-light);
+  font-size: var(--text-2xs);
+  font-weight: 700;
 }
 
 .git-drawer {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.35s var(--ease-out);
-  background: var(--bg-card);
   border-top: 1px solid var(--border);
+  background: var(--bg-card);
 
   &.open {
     grid-template-rows: 1fr;
@@ -1004,14 +1000,14 @@
 }
 
 .drawer-inner {
-  overflow: hidden;
-  min-height: 0;
   padding: 0 var(--space-3);
+  min-height: 0;
+  overflow: hidden;
 
   .git-drawer.open & {
     padding: var(--space-3) var(--space-3);
-    overflow-y: auto;
     max-height: 550px;
+    overflow-y: auto;
   }
 
   @include bp(md) {
@@ -1024,15 +1020,15 @@
 }
 
 .console-header-line {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: var(--space-4);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
   border-bottom: 1px dashed var(--border);
+  padding-bottom: var(--space-2);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
 
   .cmd {
     color: var(--primary-light);
@@ -1048,31 +1044,31 @@
 
 .milestone-entry {
   display: grid;
+  position: relative;
   grid-template-columns: 36px 1fr;
   gap: var(--space-3);
-  position: relative;
 
   &:not(:last-child)::before {
-    content: '';
     position: absolute;
-    left: 17px;
     top: 24px;
     bottom: -16px;
-    width: 2px;
+    left: 17px;
     background: var(--border);
+    width: 2px;
+    content: '';
   }
 }
 
 .milestone-node {
-  width: 36px;
-  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-weight: bold;
-  font-size: 1rem;
+  width: 36px;
+  height: 24px;
   color: var(--primary-light);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .milestone-content {
@@ -1083,37 +1079,37 @@
 
 .milestone-meta-row {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
   flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
 }
 
 .commit-sha {
+  letter-spacing: 0.02em;
+  color: var(--complementary);
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  color: var(--complementary);
   font-weight: 600;
-  letter-spacing: 0.02em;
   user-select: none;
 }
 
 .commit-date {
+  color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-muted);
 }
 
 .milestone-title {
+  margin: 2px 0;
+  line-height: 1.35;
+  color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.35;
-  margin: 2px 0;
 }
 
 .milestone-desc {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
   margin: 0;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
 }

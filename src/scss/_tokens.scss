@@ -1,7 +1,9 @@
-/* ==========================================================================
-   DESIGN TOKENS
-   ========================================================================== */
+// ==========================================================================
+// DESIGN TOKENS
+// Font face declarations and runtime CSS custom properties (dark/light themes)
+// ==========================================================================
 
+// ── Typography & Font Face Declarations ───────────────────────────────────
 // Clash Display (used for headings, hero name, section titles)
 @font-face {
   font-family: 'Clash Display';
@@ -45,37 +47,22 @@
   font-display: swap;
 }
 
-// ===== SASS Breakpoint variables =====
-$breakpoints: (
-  xs: 480px,
-  sm: 640px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1240px,
-);
-
-// ===== CSS Custom Properties =====
+// ── CSS Custom Properties (Dark Theme / Root) ─────────────────────────────
 :root {
-  color-scheme: dark;
   // Backgrounds, dark
   --bg-base: hsl(220, 29%, 6%);
-  --bg-raise: hsl(220, 29%, 6%);
+  --bg-raise: hsl(220, 28%, 8%);
   --bg-float: rgba(203, 213, 225, 0.08);
   --bg-input-solid: #171d27;
   --bg-hover: rgba(203, 213, 225, 0.08);
   --bg-card: #12141a;
-  --bg-card-hover: #202a3d;
   --bg-nav: rgb(17, 24, 32);
-
-  // Unified Card Spotlight Gradients
-  --card-spotlight: linear-gradient(145deg, var(--bg-card) 60%, rgba(97, 166, 250, 0.05) 100%);
-  --card-spotlight-amber: linear-gradient(145deg, var(--bg-card) 60%, rgba(250, 181, 97, 0.05) 100%);
 
   // Borders
   --border: rgba(97, 166, 250, 0.09);
   --border-bright: rgba(97, 166, 250, 0.2);
 
-  // Primary color pallette
+  // Primary color palette
   --primary: hsl(213, 74%, 68%);
   --primary-light: #93c5fd;
   --primary-dim: #1e3a5f;
@@ -85,7 +72,6 @@ $breakpoints: (
 
   // Accent to the primary color
   --cyan: #22d3ee;
-  --cyan-dim: rgba(34, 211, 238, 0.13);
 
   // Complementary contrast palette, amber
   --complementary: #fab561;
@@ -94,10 +80,11 @@ $breakpoints: (
   --complementary-glow: rgba(250, 181, 97, 0.28);
   --border-complementary: rgba(250, 181, 97, 0.4);
 
-  // Status color
-  --green: #10b981; // 'Available' / positive status
-  --green-glow: rgba(16, 185, 129, 0.25);
-  --green-pale: rgba(16, 185, 129, 0.12);
+  // Status / Success palette (WCAG AAA / AA compliant)
+  --success: #10b981; // 'Available' / positive status
+  --success-pale: rgba(16, 185, 129, 0.12);
+  --green: var(--success); // Backward-compatibility alias
+  --green-pale: var(--success-pale);
 
   // Danger / Error palette
   --danger: #ef4444;
@@ -111,12 +98,14 @@ $breakpoints: (
 
   // Purple / Codewars & CLI palette
   --purple: #c489fd;
-  --purple-dim: rgba(192, 132, 252, 0.15);
 
-  // Window chassis dots
-  --dot-r: #ef4444;
-  --dot-y: #f59e0b;
-  --dot-g: #10b981;
+  // Window chassis dots (macOS window controls)
+  --dot-red: #ef4444;
+  --dot-amber: #f59e0b;
+  --dot-green: #10b981;
+  --dot-r: var(--dot-red); // Backward-compatibility alias
+  --dot-y: var(--dot-amber);
+  --dot-g: var(--dot-green);
 
   // Text color palette
   --text-primary: #f8fafc;
@@ -193,24 +182,25 @@ $breakpoints: (
   --nav-h: 72px;
   --max-w: 1340px;
   --page-pad: 1.25rem;
+  --blur-nav: 14px;
+
+  // Border radii
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-xl: 30px;
-  --radius-2xl: 30px; // Alias to prevent undefined token breakages
+  --radius-2xl: 36px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
 
   // Shadows
   --shadow-card: 0 4px 20px -4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-primary: 0 8px 36px var(--primary-glow);
-  --shadow-complementary: 0 8px 32px var(--complementary-glow);
-
-  // Border radii
-  --radius-pill: 999px;
-  --radius-circle: 50%;
-  --blur-nav: 14px;
+  --shadow-modal: 0 24px 48px -12px rgba(0, 0, 0, 0.65);
+  --shadow-2xl: var(--shadow-modal); // Backward-compatibility alias
+  --shadow-tab-active: 0 -2px 8px rgba(0, 0, 0, 0.2);
 
   // Easing
   --ease-spring: cubic-bezier(0.36, 0.07, 0.19, 0.97);
@@ -218,14 +208,17 @@ $breakpoints: (
   --ease-bounce: cubic-bezier(0.16, 1, 0.3, 1);
 
   // Z-index scale
-  --z-base: 0;
+  --z-base: 0; // Auroras, background canvas
+  --z-raised: 1; // Containers, surface content
+  --z-elevated: 5; // Interactive pills, links, floating cards
+  --z-overlay: 10; // Floating speech bubbles, interactive overlays
+  --z-drawer: 25; // Mobile sliding drawers & menus
+  --z-nav: 1000; // Fixed site navigation bar
+  --z-modal: 1100; // Fullscreen case study modal
+  --z-tooltip: 9999; // Floating tooltips, skip-nav anchor
   --z-portrait-glow: 1;
   --z-portrait-img: 2;
   --z-portrait-ring: 3;
-  --z-raised: 1;
-  --z-overlay: 10;
-  --z-nav: 1000;
-  --z-tooltip: 9999;
 
   // GitHub Contribution Graph Palette (Authentic Emerald Scale)
   --gh-0: #151b23;
@@ -233,29 +226,24 @@ $breakpoints: (
   --gh-2: #006d32;
   --gh-3: #26a641;
   --gh-4: #39d353;
-  --gh-glow: rgba(57, 211, 83, 0.25);
 
   // Transitions
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 0.15s;
   --t-base: 0.26s;
   --t-slow: 0.48s;
+  color-scheme: dark;
 }
 
-// ===== Light theme overrides =====
+// ── Light Theme Overrides ─────────────────────────────────────────────────
 [data-theme='light'] {
-  color-scheme: light;
   --bg-base: #f4f7ff;
   --bg-raise: #eaeff9;
   --bg-float: #dde5f5;
   --bg-input-solid: #ffffff;
+  --bg-hover: rgba(37, 99, 200, 0.1);
   --bg-card: #ffffff;
-  --bg-card-hover: #f0f4ff;
   --bg-nav: rgba(248, 250, 255, 0.98);
-
-  // Unified Card Spotlight Gradients (Light)
-  --card-spotlight: linear-gradient(145deg, #ffffff 65%, rgba(37, 99, 200, 0.04) 100%);
-  --card-spotlight-amber: linear-gradient(145deg, #ffffff 65%, rgba(195, 141, 75, 0.06) 100%);
 
   --border: rgba(37, 99, 200, 0.12);
   --border-bright: rgba(37, 99, 200, 0.25);
@@ -268,7 +256,6 @@ $breakpoints: (
   --primary-pale: rgba(30, 78, 178, 0.08);
 
   --cyan: #0e7490;
-  --cyan-dim: rgba(14, 116, 144, 0.12);
 
   --complementary: #92400e;
   --complementary-light: #b45309;
@@ -276,10 +263,11 @@ $breakpoints: (
   --complementary-glow: rgba(180, 83, 9, 0.22);
   --border-complementary: rgba(180, 83, 9, 0.35);
 
-  // Status color (Light: WCAG AA compliant 5.48:1 on light backgrounds)
-  --green: #047857;
-  --green-glow: rgba(4, 120, 87, 0.2);
-  --green-pale: rgba(4, 120, 87, 0.1);
+  // Status / Success palette (Light: WCAG AA compliant 5.48:1 on light backgrounds)
+  --success: #047857;
+  --success-pale: rgba(4, 120, 87, 0.1);
+  --green: var(--success);
+  --green-pale: var(--success-pale);
 
   // Danger / Error palette (Light: WCAG AAA compliant 7.01:1 on canvas, 7.52:1 on white)
   --danger: #a61b1b;
@@ -290,12 +278,14 @@ $breakpoints: (
 
   // Purple / Codewars & CLI palette (Light: WCAG AAA compliant 7.73:1 on light backgrounds)
   --purple: #761cc2;
-  --purple-dim: rgba(118, 28, 194, 0.12);
 
   // Window chassis dots
-  --dot-r: #ef4444;
-  --dot-y: #f59e0b;
-  --dot-g: #10b981;
+  --dot-red: #ef4444;
+  --dot-amber: #f59e0b;
+  --dot-green: #10b981;
+  --dot-r: var(--dot-red);
+  --dot-y: var(--dot-amber);
+  --dot-g: var(--dot-green);
 
   // Text color palette
   --text-primary: #0f172a;
@@ -318,8 +308,9 @@ $breakpoints: (
   --shadow-card: 0 4px 16px -4px rgba(15, 23, 42, 0.08);
   --shadow-md: 0 8px 32px rgba(15, 23, 42, 0.1);
   --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.14);
-  --shadow-primary: 0 8px 36px var(--primary-glow);
-  --shadow-complementary: 0 8px 32px var(--complementary-glow);
+  --shadow-modal: 0 24px 48px -12px rgba(15, 23, 42, 0.25);
+  --shadow-2xl: var(--shadow-modal);
+  --shadow-tab-active: 0 -2px 8px rgba(15, 23, 42, 0.08);
 
   // GitHub Contribution Graph (Light Theme Emerald Palette)
   --gh-0: #ebedf0;
@@ -327,5 +318,5 @@ $breakpoints: (
   --gh-2: #40c463;
   --gh-3: #30a14e;
   --gh-4: #216e39;
-  --gh-glow: rgba(33, 110, 57, 0.2);
+  color-scheme: light;
 }

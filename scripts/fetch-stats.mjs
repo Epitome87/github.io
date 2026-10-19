@@ -25,16 +25,129 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 12000) {
   }
 }
 
-async function fetchLeetCodeStats(username) {
-  const sources = [
+async function fetchLeetCodeDirect(username) {
+  const query = `
+    query getCompleteLeetCodeData($username: String!) {
+      allQuestionsCount {
+        difficulty
+        count
+      }
+      matchedUser(username: $username) {
+        username
+        profile {
+          ranking
+          reputation
+        }
+        submitStatsGlobal {
+          acSubmissionNum {
+            difficulty
+            count
+            submissions
+          }
+          totalSubmissionNum {
+            difficulty
+            count
+            submissions
+          }
+        }
+        submissionCalendar
+      }
+      userContestRanking(username: $username) {
+        attendedContestsCount
+        rating
+        globalRanking
+        totalParticipants
+        topPercentage
+        badge {
+          name
+        }
+      }
+    }
+  `;
+
+  const res = await fetchWithTimeout(
+    'https://leetcode.com/graphql',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        Referer: 'https://leetcode.com',
+      },
+      body: JSON.stringify({ query, variables: { username } }),
+    },
+    10000,
+  );
+
+  const data = res?.data;
+  if (!data?.matchedUser) {
+    throw new Error('LeetCode GraphQL returned no matchedUser');
+  }
+
+  const qMap = {};
+  for (const q of data.allQuestionsCount || []) {
+    qMap[q.difficulty] = q.count;
+  }
+
+  const acList = data.matchedUser.submitStatsGlobal?.acSubmissionNum || [];
+  const acMap = {};
+  for (const ac of acList) {
+    acMap[ac.difficulty] = ac;
+  }
+
+  const totalList = data.matchedUser.submitStatsGlobal?.totalSubmissionNum || [];
+  const totalSubmissions = totalList.find((t) => t.difficulty === 'All')?.submissions || 0;
+  const acSubmissions = acMap['All']?.submissions || 0;
+  const acceptanceRate = totalSubmissions > 0 ? (acSubmissions / totalSubmissions) * 100 : 83.47;
+
+  let submissionCalendar = {};
+  if (typeof data.matchedUser.submissionCalendar === 'string') {
+    try {
+      submissionCalendar = JSON.parse(data.matchedUser.submissionCalendar);
+    } catch {}
+  } else if (typeof data.matchedUser.submissionCalendar === 'object') {
+    submissionCalendar = data.matchedUser.submissionCalendar || {};
+  }
+
+  const contest = data.userContestRanking;
+
+  return {
+    status: 'success',
+    message: 'retrieved',
+    totalSolved: acMap['All']?.count ?? 0,
+    totalQuestions: qMap['All'] || 4086,
+    easySolved: acMap['Easy']?.count ?? 0,
+    totalEasy: qMap['Easy'] || 972,
+    mediumSolved: acMap['Medium']?.count ?? 0,
+    totalMedium: qMap['Medium'] || 2130,
+    hardSolved: acMap['Hard']?.count ?? 0,
+    totalHard: qMap['Hard'] || 984,
+    acceptanceRate: Math.round(acceptanceRate * 100) / 100,
+    ranking: data.matchedUser.profile?.ranking ?? 14840,
+    contributionPoints: 0,
+    reputation: data.matchedUser.profile?.reputation ?? 0,
+    submissionCalendar,
+    contestRating: contest?.rating != null ? Math.round(contest.rating) : 1737,
+    contestTopPercentage: contest?.topPercentage != null ? Math.round(contest.topPercentage * 10) / 10 : 11.6,
+    contestGlobalRanking: contest?.globalRanking ?? 0,
+    contestTotalParticipants: contest?.totalParticipants ?? 0,
+    contestAttended: contest?.attendedContestsCount ?? 0,
+    contestBadge: contest?.badge?.name ?? null,
+  };
+}
+
+async function fetchLeetCodeProxies(username) {
+  const profileSources = [
     `https://alfa-leetcode-api.onrender.com/userProfile/${username}`,
-    `https://leetcode-stats-api.herokuapp.com/${username}`,
     `https://leetcode-api-faisalshohag.vercel.app/${username}`,
+    `https://leetcode-stats-api.herokuapp.com/${username}`,
   ];
 
-  for (const url of sources) {
+  let baseStats = null;
+  for (const url of profileSources) {
     try {
-      console.log(`Fetching LeetCode from ${url}...`);
+      console.log(`Fetching LeetCode from proxy (${url})...`);
       const data = await fetchWithTimeout(url, {}, 10000);
       if (data && (data.totalSolved != null || data.solvedProblem != null)) {
         const totalSolved = data.totalSolved ?? data.solvedProblem;
@@ -45,31 +158,82 @@ async function fetchLeetCodeStats(username) {
             ? data.acceptanceRate
             : totalSubmissions
               ? (acSubmissions / totalSubmissions) * 100
-              : 83.4;
+              : 83.47;
 
-        return {
+        baseStats = {
           status: 'success',
           message: 'retrieved',
           totalSolved,
-          totalQuestions: data.totalQuestions || 4060,
+          totalQuestions: data.totalQuestions || 4086,
           easySolved: data.easySolved ?? 0,
-          totalEasy: data.totalEasy || 966,
+          totalEasy: data.totalEasy || 972,
           mediumSolved: data.mediumSolved ?? 0,
-          totalMedium: data.totalMedium || 2117,
+          totalMedium: data.totalMedium || 2130,
           hardSolved: data.hardSolved ?? 0,
-          totalHard: data.totalHard || 977,
+          totalHard: data.totalHard || 984,
           acceptanceRate: Math.round(computedAcceptance * 100) / 100,
-          ranking: data.ranking ?? 15117,
+          ranking: data.ranking ?? 14840,
           contributionPoints: data.contributionPoint ?? data.contributionPoints ?? 0,
           reputation: data.reputation ?? 0,
           submissionCalendar: data.submissionCalendar ?? {},
+          contestRating: 1737,
+          contestTopPercentage: 11.6,
+          contestGlobalRanking: 101386,
+          contestTotalParticipants: 888637,
+          contestAttended: 6,
+          contestBadge: null,
         };
+        break;
       }
     } catch (err) {
-      console.warn(`LeetCode source failed (${url}):`, err.message);
+      console.warn(`LeetCode proxy profile failed (${url}):`, err.message);
     }
   }
-  return null;
+
+  if (!baseStats) return null;
+
+  const contestUrls = [
+    `https://alfa-leetcode-api.onrender.com/userContestRankingInfo/${username}`,
+    `https://alfa-leetcode-api.onrender.com/${username}/contest`,
+  ];
+  for (const url of contestUrls) {
+    try {
+      const data = await fetchWithTimeout(url, {}, 10000);
+      const ranking = data?.userContestRanking || data;
+      const rating = ranking?.rating ?? ranking?.contestRating;
+      const topPercentage = ranking?.topPercentage ?? ranking?.contestTopPercentage;
+      if (rating != null) {
+        baseStats.contestRating = Math.round(rating);
+        baseStats.contestTopPercentage = Math.round(topPercentage * 10) / 10;
+        baseStats.contestGlobalRanking = ranking.globalRanking ?? ranking.contestGlobalRanking ?? 0;
+        baseStats.contestTotalParticipants = ranking.totalParticipants ?? 0;
+        baseStats.contestAttended = ranking.attendedContestsCount ?? ranking.contestAttend ?? 0;
+        baseStats.contestBadge = ranking.badge?.name ?? ranking.contestBadges?.name ?? null;
+        break;
+      }
+    } catch {}
+  }
+
+  return baseStats;
+}
+
+async function fetchLeetCodeStats(username) {
+  // Strategy 1: Direct unified GraphQL query to LeetCode (fastest, single round-trip, authoritative)
+  try {
+    console.log('Fetching all LeetCode stats via direct GraphQL query...');
+    const directData = await fetchLeetCodeDirect(username);
+    if (directData && directData.totalSolved > 0) {
+      console.log(
+        `Direct LeetCode GraphQL succeeded: ${directData.totalSolved} solved, rank #${directData.ranking}, contest rating ${directData.contestRating} (top ${directData.contestTopPercentage}%).`,
+      );
+      return directData;
+    }
+  } catch (err) {
+    console.warn('Direct LeetCode GraphQL query failed, attempting proxy fallbacks:', err.message);
+  }
+
+  // Strategy 2: Third-party REST proxy APIs
+  return await fetchLeetCodeProxies(username);
 }
 
 async function main() {
@@ -81,9 +245,6 @@ async function main() {
 
   try {
     leetcodeData = await fetchLeetCodeStats(USERNAME);
-    if (leetcodeData) {
-      console.log(`LeetCode fetched successfully (${leetcodeData.totalSolved} solved, rank ${leetcodeData.ranking}).`);
-    }
   } catch (err) {
     console.warn('Failed to fetch live LeetCode stats:', err.message);
   }
@@ -119,7 +280,7 @@ async function main() {
     existingStats = imported;
   } catch {}
 
-  const finalLeetCode = leetcodeData || existingStats.LEETCODE_SNAPSHOT;
+  const finalLeetCode = leetcodeData || existingStats.LEETCODE_SNAPSHOT || {};
   const rawLast =
     githubLastData && Array.isArray(githubLastData.contributions)
       ? githubLastData.contributions

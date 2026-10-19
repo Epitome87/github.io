@@ -82,7 +82,6 @@ if (hasGitHubDom) {
 }
 
 // Helpers
-const formatCount = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}K` : String(n));
 const formatDate = (d, opts) => new Date(`${d}T12:00:00`).toLocaleDateString('en-US', opts);
 
 // Year selector UI

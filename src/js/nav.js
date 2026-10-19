@@ -12,12 +12,23 @@ let lastScrollY = window.scrollY;
 let accumulatedDelta = 0;
 let isHidden = false;
 
+let backToTopThreshold = (document.body.scrollHeight - window.innerHeight) / 2;
+let resizeRafId = null;
+const updateScrollThresholds = () => {
+  if (resizeRafId) cancelAnimationFrame(resizeRafId);
+  resizeRafId = requestAnimationFrame(() => {
+    backToTopThreshold = (document.body.scrollHeight - window.innerHeight) / 2;
+    resizeRafId = null;
+  });
+};
+window.addEventListener('resize', updateScrollThresholds, { passive: true });
+
 window.addEventListener(
   'scroll',
   () => {
     const scrollY = window.scrollY;
     const isScrolled = scrollY > 80;
-    const isBackToTopVisible = scrollY > document.body.scrollHeight / 2 - window.innerHeight / 2;
+    const isBackToTopVisible = scrollY > backToTopThreshold;
 
     // ── Smart Headroom (Directional Accumulator for Mobile/Tablet) ──
     if (window.innerWidth < 1024) {
@@ -107,7 +118,7 @@ if (hamburger && mobileMenu) {
 }
 
 // ── Active nav link on scroll (Scrollspy) ───────────────────
-const navLinks = document.querySelectorAll('.nav__links a[href^="#"]');
+const navLinks = document.querySelectorAll('.nav__link[href^="#"]');
 const sections = document.querySelectorAll('main section[id], section[id]');
 
 if (navLinks.length && sections.length) {

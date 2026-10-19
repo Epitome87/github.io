@@ -1,30 +1,28 @@
-// ============================================================
-//  main.scss — single entry point
-//  Compile with:  sass scss/main.scss css/main.css
-//  or watch with: sass --watch scss/main.scss css/main.css
+// ==========================================================================
+// MAIN ENTRY POINT
+// Root stylesheet orchestrating cascade load order and design systems
 //
-//  Load order matters: tokens first (custom properties),
-//  then reset, then layout utilities, then components,
-//  then responsive overrides last.
+// Load order matters: tokens first (custom properties),
+// then mixins, reset, layout utilities, components, and print overrides.
 //
-//  Property ordering convention (used throughout all partials):
-//  1. Position:   position, top, right, bottom, left, inset, z-index
-//  2. Box model:  display, flex/grid props, width, height, padding,
-//                 margin, overflow, visibility, cursor
-//  3. Typography: font-family, font-size, font-weight, line-height,
-//                 letter-spacing, text-transform, text-align, color
-//  4. Visual:     background, border, border-radius, outline,
-//                 box-shadow, opacity, filter
-//  5. Animation:  transform, transition, animation
-// ============================================================
+// Property ordering convention (used throughout all partials):
+// 1. Position:   position, top, right, bottom, left, inset, z-index
+// 2. Box model:  display, flex/grid props, width, height, padding,
+//                margin, overflow, visibility, cursor
+// 3. Typography: font-family, font-size, font-weight, line-height,
+//                letter-spacing, text-transform, text-align, color
+// 4. Visual:     background, border, border-radius, outline,
+//                box-shadow, opacity, filter
+// 5. Animation:  transform, transition, animation
+// ==========================================================================
 
-// Abstract styles
+// ── Abstract Styles ───────────────────────────────────────────────────────
 @use 'tokens'; // CSS custom properties & design tokens
-@use 'mixins'; // shared mixins & placeholders
+@use 'mixins'; // Shared mixins & placeholders
 @use 'reset'; // Normalize + base element styles
 @use 'layout'; // Container, grid utilities, scroll-reveal
 
-// Component styles
+// ── Component Styles ──────────────────────────────────────────────────────
 @use 'nav';
 @use 'hero';
 @use 'buttons';
@@ -37,5 +35,5 @@
 @use 'coding';
 @use 'footer';
 
-// Print styles
+// ── Print Styles ──────────────────────────────────────────────────────────
 @use 'print';

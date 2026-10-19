@@ -1,7 +1,9 @@
-/* ==========================================================================
-   RESETS
-   ========================================================================== */
+// ==========================================================================
+// RESETS & BASE DEFAULTS
+// Box sizing, typography resets, smooth scrolling, and accessibility baselines
+// ==========================================================================
 
+// ── Box Model & Base Elements ──────────────────────────────────────────────
 *,
 *::before,
 *::after {
@@ -11,17 +13,27 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  scrollbar-gutter: stable; /* reserves space for scrollbar consistently */
   overflow-x: clip;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable; /* reserves space for scrollbar consistently */
 }
 
 body {
+  transition:
+    background-color var(--t-base),
+    color var(--t-base);
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
+  min-height: 100dvh;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// ── Text Selection Highlight ──────────────────────────────────────
+::selection {
+  background: var(--primary);
+  color: #ffffff;
 }
 
 img,
@@ -50,9 +62,22 @@ h6 {
   overflow-wrap: break-word;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 ul,
@@ -61,18 +86,27 @@ ol {
 }
 
 button {
-  cursor: pointer;
   border: 0;
   background: none;
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled,
+[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 address {
   font-style: normal;
 }
 
-// == Custom scrollbar =====
+// ── Custom Scrollbar ──────────────────────────────────────────────
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -80,29 +114,37 @@ address {
 }
 
 ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
   background: var(--primary-dim);
-  border-radius: 3px;
 
   &:hover {
     background: var(--primary);
   }
 }
 
-// == Skip navigation link =====
+// Firefox fallback (doesn't support ::-webkit-scrollbar)
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-dim) var(--bg-base);
+  }
+}
+
+// ── Skip Navigation Link (Accessibility) ──────────────────────────
 .skip-nav {
   position: absolute;
   top: -100%;
   left: var(--space-4, 1rem);
+  transition: top 0.2s;
   z-index: var(--z-tooltip);
-  padding: var(--space-3, 0.75rem) var(--space-6, 1.5rem);
+  border-radius: 0 0 8px 8px;
   background: var(--primary);
+  padding: var(--space-3, 0.75rem) var(--space-6, 1.5rem);
+  text-decoration: none;
   color: var(--text-inverse);
   font-family: var(--font-mono, monospace);
   font-size: var(--text-sm);
   font-weight: 400; // normal weight for better readability
-  border-radius: 0 0 8px 8px;
-  text-decoration: none;
-  transition: top 0.2s;
 
   &:focus {
     top: 0;
@@ -111,7 +153,7 @@ address {
   }
 }
 
-// == Focus visible =====
+// ── Focus Visible Rings & Keyboard Navigation ─────────────────────
 *:focus {
   outline: none;
 }
@@ -123,7 +165,8 @@ address {
 }
 
 // Pill-shaped elements get matching border-radius on focus ring
-.nav__links a,
+.nav__link,
+.nav__mobile-link,
 .nav__theme-toggle,
 .github__year-btn {
   &:focus-visible {
@@ -141,7 +184,7 @@ address {
   }
 }
 
-// == Reduced motion (WCAG 2.2 compliant) =====
+// ── Reduced Motion (WCAG 2.2 AAA Compliance) ──────────────────────
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
@@ -179,15 +222,39 @@ address {
   .hero__bottom,
   .hero__tagline-block,
   .hero__actions {
-    opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+    opacity: 1 !important;
   }
 
   // Disable intense spatial jump triggers on interactive Easter eggs
   .about__portrait-outer,
   .back-to-top.is-launching {
-    animation: none !important;
     transform: none !important;
+    animation: none !important;
+  }
+}
+
+// ── Windows High Contrast Mode (WCAG AAA Forced Colors) ───────────
+@media (forced-colors: active) {
+  .project-card,
+  .project-featured,
+  .ide-chassis,
+  .term-block,
+  .about__window,
+  .about__metric,
+  .about__code-pill,
+  .services__card,
+  .nav__inner,
+  .nav__mobile,
+  .project-modal,
+  .btn-ghost {
+    border: 1px solid ButtonBorder !important;
+  }
+
+  .nav__link.active,
+  .nav__mobile-link.active,
+  .ide-tab.active {
+    outline: 2px solid Highlight !important;
   }
 }

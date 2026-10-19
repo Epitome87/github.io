@@ -232,14 +232,6 @@ function handleTreeKeydown(e, container) {
   }
 }
 
-// Attach globally to window for resilience
-if (typeof window !== 'undefined') {
-  window.loadSkill = loadSkill;
-  window.toggleFolder = toggleFolder;
-  window.toggleMobileExplorer = toggleMobileExplorer;
-  window.toggleConsoleDrawer = toggleConsoleDrawer;
-}
-
 // Delegated Click Handling on document
 document.addEventListener('click', (e) => {
   // 1. Skill Trigger Click (Sidebar file, Overview matrix tag, or Back button)

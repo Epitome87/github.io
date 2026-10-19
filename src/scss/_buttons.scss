@@ -1,50 +1,54 @@
-/* ==========================================================================
-   BUTTONS (ENGINEERED PRECISION SYSTEM — 8px)
-   ========================================================================== */
+// ==========================================================================
+// BUTTONS (8px Precision System)
+// Primary action triggers, frosted ghost buttons, and compact mono project links
+// ==========================================================================
 
 @use 'tokens' as *;
 @use 'mixins' as *;
 
+// ── Primary Action Button (.btn-primary) ──────────────────────────────────
 .btn-primary {
   @include mono-label(var(--text-xs), var(--tracking-normal), var(--text-inverse));
-  font-weight: 700;
-  position: relative;
   display: inline-flex;
+  position: relative;
+  gap: var(--space-2);
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  padding: 0.65rem 1.45rem;
-  overflow: hidden;
-  background: var(--primary);
-  border: 1px solid var(--sheen-border);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  box-shadow: 0 4px 18px var(--primary-glow);
   transition:
     background var(--t-fast) var(--ease-out),
     box-shadow var(--t-fast) var(--ease-out),
     transform var(--t-fast) var(--ease-out),
     border-color var(--t-fast) var(--ease-out);
+  border: 1px solid var(--sheen-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 18px var(--primary-glow);
+  background: var(--primary);
+  padding: 0.65rem 1.45rem;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 700;
+  cursor: pointer;
 
   &::before {
-    content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--sheen-border) 0%, transparent 80%);
-    opacity: 0;
     transition: opacity var(--t-fast);
+    opacity: 0;
+    background: linear-gradient(135deg, var(--sheen-border) 0%, transparent 80%);
+    content: '';
   }
 
   &:hover {
-    background: var(--primary-light);
-    border-color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 26px var(--primary-glow);
+    @media (hover: hover) {
+      transform: translateY(-2px);
+      border-color: var(--primary-light);
+      box-shadow: 0 8px 26px var(--primary-glow);
+      background: var(--primary-light);
 
-    &::before {
-      opacity: 1;
+      &::before {
+        opacity: 1;
+      }
     }
   }
 
@@ -53,44 +57,68 @@
     box-shadow: none;
   }
 
+  &:disabled,
+  &[aria-disabled='true'] {
+    transform: none;
+    opacity: 0.6;
+    box-shadow: none;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &::before {
+      opacity: 0;
+    }
+  }
+
   @include bp(xs) {
     padding: 0.72rem 1.75rem;
   }
 }
 
+// ── Ghost Glass Button (.btn-ghost) ───────────────────────────────────────
 .btn-ghost {
   @include mono-label(var(--text-xs), var(--tracking-normal), var(--text-primary));
-  font-weight: 700;
   display: inline-flex;
+  gap: var(--space-2);
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  padding: 0.65rem 1.45rem;
-  background: rgba(97, 166, 250, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-bright);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
   transition:
     background var(--t-fast) var(--ease-out),
     border-color var(--t-fast) var(--ease-out),
     color var(--t-fast) var(--ease-out),
     box-shadow var(--t-fast) var(--ease-out),
     transform var(--t-fast) var(--ease-out);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(12px);
+  background: rgba(97, 166, 250, 0.08);
+  padding: 0.65rem 1.45rem;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 700;
+  cursor: pointer;
 
   &:hover {
-    background: rgba(97, 166, 250, 0.16);
-    border-color: var(--primary);
-    color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--primary-pale);
+    @media (hover: hover) {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: 0 6px 20px var(--primary-pale);
+      background: rgba(97, 166, 250, 0.16);
+      color: var(--primary-light);
+    }
   }
 
   &:active {
     transform: scale(0.97) translateY(0);
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    transform: none;
+    opacity: 0.6;
+    box-shadow: none;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 
   [data-theme='light'] & {
@@ -98,9 +126,11 @@
     color: var(--text-primary);
 
     &:hover {
-      background: rgba(37, 99, 200, 0.12);
-      border-color: var(--primary);
-      color: var(--primary-light);
+      @media (hover: hover) {
+        border-color: var(--primary);
+        background: rgba(37, 99, 200, 0.12);
+        color: var(--primary-light);
+      }
     }
   }
 
@@ -109,23 +139,26 @@
   }
 }
 
+// ── Compact Code Button (.btn--code) ──────────────────────────────────────
 .btn--code {
   @extend %btn-small;
-  background: var(--bg-float);
-  border-color: var(--border-bright);
-  color: var(--text-secondary);
-  border-radius: var(--radius-sm);
   transition:
     color var(--t-fast),
     background var(--t-fast),
     border-color var(--t-fast),
     transform var(--t-fast);
+  border-radius: var(--radius-sm);
+  border-color: var(--border-bright);
+  background: var(--bg-float);
+  color: var(--text-secondary);
 
   &:hover {
-    border-color: var(--primary);
-    background: var(--primary-pale);
-    color: var(--primary-light);
-    transform: translateY(-1px);
+    @media (hover: hover) {
+      transform: translateY(-1px);
+      border-color: var(--primary);
+      background: var(--primary-pale);
+      color: var(--primary-light);
+    }
   }
 
   &:active {
@@ -133,39 +166,42 @@
   }
 }
 
+// ── Live Demo Action Button (.btn--live) ──────────────────────────────────
 .btn--live {
   @extend %btn-small;
-  background: var(--complementary-dim);
-  border: 1px solid var(--border-complementary);
-  color: var(--complementary-light);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 2px 10px var(--complementary-dim);
   transition:
     color var(--t-fast),
     background var(--t-fast),
     border-color var(--t-fast),
     box-shadow var(--t-fast),
     transform var(--t-fast);
-
-  .btn--live-arrow {
-    display: inline-block;
-    transition: transform var(--t-fast) var(--ease-spring);
-  }
+  border: 1px solid var(--border-complementary);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 10px var(--complementary-dim);
+  background: var(--complementary-dim);
+  color: var(--complementary-light);
 
   &:hover {
-    background: var(--complementary);
-    border-color: var(--complementary-light);
-    color: var(--text-inverse);
-    font-weight: 700;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px var(--complementary-glow);
+    @media (hover: hover) {
+      transform: translateY(-1px);
+      border-color: var(--complementary-light);
+      box-shadow: 0 6px 20px var(--complementary-glow);
+      background: var(--complementary);
+      color: var(--text-inverse);
+      font-weight: 700;
 
-    .btn--live-arrow {
-      transform: translate(2px, -2px);
+      .btn--live-arrow {
+        transform: translate(2px, -2px);
+      }
     }
   }
 
   &:active {
     transform: scale(0.97);
+  }
+
+  .btn--live-arrow {
+    display: inline-block;
+    transition: transform var(--t-fast) var(--ease-spring);
   }
 }

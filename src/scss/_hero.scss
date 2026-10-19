@@ -1,6 +1,7 @@
-/* ==========================================================================
-   HERO
-   ========================================================================== */
+// ==========================================================================
+// HERO
+// Main landing centerpiece, atmospheric auroras, and interactive developer deck
+// ==========================================================================
 
 @use 'tokens' as *;
 @use 'mixins' as *;
@@ -10,60 +11,36 @@
   padding-top: calc(var(--nav-h) + var(--space-5, 20px));
   padding-bottom: var(--space-12);
 
-  @include bp(md) {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: calc(var(--nav-h) + var(--space-6));
-    padding-bottom: var(--space-12);
-  }
-
-  // Atmospheric Aurora Glow Layer (Electric Cyan + Warm Amber Horizon)
+  // ── Atmospheric Aurora & Glowing Orbs ─────────────────────────────
   &__aurora {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: var(--z-base);
+    @include atmospheric-aurora;
   }
 
   &__glow-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(130px);
-    opacity: 0.1;
-    pointer-events: none;
-    animation: heroGlowFloat 26s ease-in-out infinite alternate;
-
-    [data-theme='light'] & {
-      opacity: 0.08;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
-    }
+    @include atmospheric-orb(26s, 130px, 0.1);
 
     // Orb 1: Electric Cyan & Ice Blue (Top-Left behind name)
     &--1 {
-      width: 650px;
-      height: 650px;
-      background: var(--orb-gradient-cyan);
       top: -100px;
       left: 5%;
+      background: var(--orb-gradient-cyan);
+      width: 650px;
+      height: 650px;
     }
 
     // Orb 2: Warm Amber / Golden Sunset (Bottom-Right behind CTAs & JSON deck)
     &--2 {
-      width: 580px;
-      height: 580px;
-      background: var(--orb-gradient-amber);
-      bottom: 5%;
       right: 5%;
+      bottom: 5%;
       animation-duration: 32s;
       animation-direction: alternate-reverse;
+      background: var(--orb-gradient-amber);
+      width: 580px;
+      height: 580px;
     }
   }
 
+  // ── Main Content Grid & Typography ────────────────────────────────
   &__content {
     position: relative;
     z-index: var(--z-raised);
@@ -72,28 +49,27 @@
     @include bp(md) {
       padding-bottom: var(--space-12);
     }
+
+    @media (min-width: 1024px) and (max-height: 950px) {
+      padding-bottom: var(--space-4);
+    }
   }
 
   &__name {
-    font-size: clamp(3.2rem, 13vw, 4.8rem);
-    font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.028em;
-    line-height: 0.96;
     position: relative;
     margin-bottom: var(--space-4);
+    line-height: 0.96;
+    letter-spacing: -0.028em;
     color: var(--text-primary);
-
-    @include bp(md) {
-      font-size: clamp(5.5rem, 14vw, 15rem);
-      margin-bottom: var(--space-8);
-    }
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 13vw, 4.8rem);
+    font-weight: 700;
 
     &-line {
       display: block;
-      overflow: hidden;
-      padding-bottom: 0.08em;
       margin-bottom: -0.08em;
+      padding-bottom: 0.08em;
+      overflow: hidden;
 
       &--first span {
         display: block;
@@ -101,26 +77,35 @@
       }
 
       &--last {
-        overflow: visible;
         display: block;
         padding-left: 0.06em;
+        overflow: visible;
       }
     }
 
     &-char {
       display: inline-block;
-      color: var(--text-primary);
-      animation: slide-up 0.9s calc(0.3s + var(--char-i) * 0.055s) var(--ease-out) both;
       position: relative;
+      animation: slide-up 0.9s calc(0.3s + var(--char-i) * 0.055s) var(--ease-out) both;
+      color: var(--text-primary);
+    }
+
+    @include bp(md) {
+      margin-bottom: var(--space-8);
+      font-size: clamp(5.5rem, 14vw, 15rem);
+    }
+
+    @media (min-width: 1024px) and (max-height: 950px) {
+      margin-bottom: var(--space-5);
     }
   }
 
   &__bottom {
     display: flex;
     flex-direction: column;
+    gap: var(--space-8);
     align-items: flex-start;
     justify-content: space-between;
-    gap: var(--space-8);
     animation: fade-up 0.8s 0.55s var(--ease-out) both;
 
     @include bp(lg) {
@@ -134,42 +119,39 @@
   }
 
   &__tagline-lead {
-    font-family: var(--font-display);
-    font-size: clamp(1.3rem, 2.2vw, 1.85rem);
-    font-weight: 600;
+    margin-bottom: var(--space-3);
+    max-width: 100%;
     line-height: 1.25;
     letter-spacing: -0.02em;
     color: var(--text-primary);
-    max-width: 100%;
-    margin-bottom: var(--space-3);
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+    font-weight: 600;
 
-    @include bp(lg) {
-      max-width: 28ch;
-      margin-bottom: var(--space-4);
+    .hero__tagline-accent {
+      color: var(--complementary);
     }
 
-    span {
-      color: var(--complementary);
+    @include bp(lg) {
+      margin-bottom: var(--space-4);
+      max-width: 28ch;
     }
   }
 
   &__tagline {
-    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-    color: var(--text-secondary);
-    line-height: var(--leading-normal);
-    max-width: 46ch;
     margin-bottom: var(--space-5);
+    max-width: 46ch;
+    line-height: var(--leading-normal);
+    color: var(--text-secondary);
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   }
 
+  // ── Action Buttons & CTA Triggers ─────────────────────────────────
   &__actions {
     display: flex;
-    gap: var(--space-4);
     flex-wrap: wrap;
+    gap: var(--space-4);
     width: 100%;
-
-    @include bp(lg) {
-      width: initial;
-    }
 
     .btn-primary {
       flex: 1;
@@ -191,28 +173,25 @@
       }
     }
 
-    .btn-primary svg {
-      transition: transform var(--t-base) var(--ease-spring);
+    @include bp(lg) {
+      width: initial;
     }
 
-    .btn-primary:hover svg {
-      transform: translateX(3px);
-    }
   }
 
   // ── Interactive Multi-Tab JSON Deck ───────────────────────
   &__deck {
     @include tech-glass-chassis(var(--radius-lg), true);
+    flex-shrink: 0;
     width: 100%;
     max-width: 540px;
     font-family: var(--font-mono);
-    flex-shrink: 0;
 
     &-topbar {
-      background: var(--bg-raise);
-      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-raise);
       padding: 0 var(--space-2) 0 var(--space-3);
       height: 42px;
       overflow: hidden;
@@ -220,11 +199,11 @@
 
     &-left {
       display: flex;
-      align-items: center;
-      gap: var(--space-3, 12px);
-      height: 100%;
       flex: 1;
+      gap: var(--space-3, 12px);
+      align-items: center;
       min-width: 0;
+      height: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -234,172 +213,185 @@
     }
 
     .window-dots {
-      padding-left: var(--space-1);
       padding-right: var(--space-2);
+      padding-left: var(--space-1);
     }
 
     &-tabs {
       display: flex;
-      height: 100%;
-      align-items: flex-end;
-      gap: var(--space-1);
       flex-shrink: 0;
+      gap: var(--space-1);
+      align-items: flex-end;
       padding-top: 4px;
+      height: 100%;
     }
 
     &-tab {
       display: inline-flex;
-      align-items: center;
+      flex-shrink: 0;
       gap: var(--space-1-5);
-      height: 32px;
-      padding: 0 var(--space-3);
-      font-size: 0.74rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      border-bottom: 2px solid transparent;
-      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-      border-top: 1px solid transparent;
-      border-left: 1px solid transparent;
-      border-right: 1px solid transparent;
-      cursor: pointer;
-      background: transparent;
-      font-family: var(--font-mono);
+      align-items: center;
       transition:
         color var(--t-fast),
         border-color var(--t-fast),
         background var(--t-fast);
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 2px solid transparent;
+      border-left: 1px solid transparent;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      background: transparent;
+      padding: 0 var(--space-3);
+      height: 32px;
       white-space: nowrap;
-      flex-shrink: 0;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover {
+        background: var(--bg-hover);
+        color: var(--text-primary);
+      }
+
+      &.is-active {
+        border-bottom: 2px solid var(--primary-light);
+        border-top-color: var(--border-bright);
+        border-right-color: var(--border);
+        border-left-color: var(--border);
+        box-shadow: var(--shadow-tab-active);
+        background: var(--bg-card);
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      &-icon {
+        color: var(--complementary);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
 
       @include bp(xs) {
         gap: var(--space-2);
         padding: 0 var(--space-4);
       }
-
-      &:hover {
-        color: var(--text-primary);
-        background: var(--bg-hover);
-      }
-
-      &.is-active {
-        color: var(--text-primary);
-        font-weight: 600;
-        background: var(--bg-card);
-        border-top-color: var(--border-bright);
-        border-left-color: var(--border);
-        border-right-color: var(--border);
-        border-bottom: 2px solid var(--primary-light);
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      &-icon {
-        color: var(--complementary);
-        font-weight: 700;
-        font-size: 0.75rem;
-      }
     }
 
     // ── CSS Grid Stacking: Locks container height to tallest panel across all viewports with zero shift
     &-content {
-      display: grid;
-      grid-template-columns: 100%;
-      position: relative;
       @include tech-viewport-backlight;
+      display: grid;
+      position: relative;
+      grid-template-columns: 100%;
     }
 
     &-body {
-      grid-area: 1 / 1 / 2 / 2;
-      padding: var(--space-3) var(--space-4) var(--space-3) var(--space-2);
       display: flex;
+      grid-area: 1 / 1 / 2 / 2;
+      transition: opacity var(--t-fast) ease;
+      visibility: hidden;
+      opacity: 0;
+      padding: var(--space-3) var(--space-4) var(--space-3) var(--space-2);
+      overflow-x: auto;
       line-height: 1.6;
       font-size: 0.82rem;
-      overflow-x: auto;
-      opacity: 0;
-      visibility: hidden;
       pointer-events: none;
-      transition: opacity var(--t-fast) ease;
 
       &.is-active {
-        opacity: 1;
         visibility: visible;
+        opacity: 1;
         pointer-events: auto;
       }
     }
 
     &-lines {
-      padding-right: var(--space-3);
-      color: var(--text-muted);
       opacity: 0.45;
-      user-select: none;
-      text-align: right;
+      padding-right: var(--space-3);
       min-width: 2rem;
-      font-size: 0.78rem;
+      text-align: right;
       line-height: 1.6;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      user-select: none;
     }
 
     &-code {
       flex: 1;
       margin: 0;
-      padding: 0;
-      background: transparent;
       border: none;
+      background: transparent;
+      padding: 0;
+      line-height: 1.6;
+      white-space: pre;
+      color: var(--text-primary);
       font-family: inherit;
       font-size: inherit;
-      line-height: 1.6;
-      color: var(--text-primary);
-      white-space: pre;
 
       code {
         font-family: inherit;
         font-size: inherit;
       }
+    }
 
-      .token-k {
-        color: var(--primary);
-        font-weight: 600;
-      }
-      .token-s {
-        color: var(--complementary-light);
+    .token-k {
+      color: var(--primary);
+      font-weight: 600;
+    }
 
-        [data-theme='light'] & {
-          color: var(--complementary);
-        }
-      }
-      .token-n {
-        color: var(--green);
-      }
-      .token-p {
-        color: var(--text-muted);
-      }
+    .token-s {
+      color: var(--complementary-light);
+    }
+
+    [data-theme='light'] & .token-s {
+      color: var(--complementary);
+    }
+
+    .token-n {
+      color: var(--green);
+    }
+
+    .token-p {
+      color: var(--text-muted);
     }
 
     &-row {
       display: block;
       position: relative;
-      padding: 0 0.5rem;
+      transition: background-color var(--t-fast);
       margin: 0 -0.5rem;
       border-radius: 4px;
-      transition: background-color var(--t-fast);
+      padding: 0 0.5rem;
 
       &:hover {
         background: var(--primary-pale);
 
         &::before {
-          content: '';
           position: absolute;
-          left: 0;
           top: 2px;
           bottom: 2px;
-          width: 2px;
-          background: var(--primary);
+          left: 0;
           border-radius: 2px;
           box-shadow: 0 0 6px var(--primary);
+          background: var(--primary);
+          width: 2px;
+          content: '';
         }
       }
     }
   }
+
+  @include bp(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: calc(var(--nav-h) + var(--space-6));
+    padding-bottom: var(--space-12);
+    min-height: 100dvh;
+  }
 }
 
+// ── Keyframe Animations ───────────────────────────────────────────
 @keyframes slide-up {
   from {
     transform: translateY(110%);
@@ -410,23 +402,11 @@
 }
 @keyframes fade-up {
   from {
-    opacity: 0;
     transform: translateY(20px);
+    opacity: 0;
   }
   to {
-    opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes heroGlowFloat {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(45px, -30px) scale(1.09);
-  }
-  100% {
-    transform: translate(-30px, 35px) scale(0.94);
+    opacity: 1;
   }
 }

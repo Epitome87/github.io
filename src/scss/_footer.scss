@@ -1,22 +1,24 @@
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
+// ==========================================================================
+// FOOTER
+// Site conclusion shell, brand identity, copyright, and social link badges
+// ==========================================================================
 
 @use 'tokens' as *;
 @use 'mixins' as *;
 
+// ── Footer Shell & Responsive Layout (.footer) ────────────────────
 .footer {
-  background: var(--bg-base);
   border-top: 1px solid var(--border);
+  background: var(--bg-base);
   padding: var(--space-10) 0;
 
   &__inner {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--space-5);
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-5);
-    flex-wrap: wrap;
     text-align: center;
 
     .footer__brand {
@@ -31,68 +33,18 @@
       order: 3;
     }
 
-    // Medium / Tablet: 2-Row Split (640px - 1023px)
-    @include bp(sm) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: var(--space-6);
-      max-width: 860px;
-      margin-inline: auto;
-      width: 100%;
-
-      .footer__brand {
-        order: 1;
-        flex: 0 0 auto;
-      }
-
-      .footer__socials {
-        order: 2;
-        flex: 0 0 auto;
-      }
-
-      .footer__copy {
-        order: 3;
-        flex: 0 0 100%;
-        width: 100%;
-        text-align: center;
-        margin-top: var(--space-2);
-      }
-    }
-
-    // Desktop: 1-Row Spread (1024px+)
-    @include bp(lg) {
-      max-width: 100%;
-      flex-wrap: nowrap;
-      gap: var(--space-8);
-
-      .footer__brand,
-      .footer__socials,
-      .footer__copy {
-        order: initial;
-        flex: initial;
-        width: auto;
-        margin-top: 0;
-      }
-
-      .footer__copy {
-        text-align: left;
-      }
-    }
-
     // Staggered entrance — each child slides up and fades in
     & > * {
-      opacity: 0;
       transform: translateY(16px);
       transition:
         opacity var(--t-slow) var(--ease-out),
         transform var(--t-slow) var(--ease-out);
+      opacity: 0;
     }
 
     &.is-visible > * {
-      opacity: 1;
       transform: translateY(0);
+      opacity: 1;
     }
 
     // Stagger delays for each child
@@ -105,17 +57,68 @@
     & > *:nth-child(3) {
       transition-delay: 0.2s;
     }
+
+    // Medium / Tablet: 2-Row Split (640px - 1023px)
+    @include bp(sm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-6);
+      align-items: center;
+      justify-content: space-between;
+      margin-inline: auto;
+      width: 100%;
+      max-width: 860px;
+
+      .footer__brand {
+        flex: 0 0 auto;
+        order: 1;
+      }
+
+      .footer__socials {
+        flex: 0 0 auto;
+        order: 2;
+      }
+
+      .footer__copy {
+        flex: 0 0 100%;
+        order: 3;
+        margin-top: var(--space-2);
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    // Desktop: 1-Row Spread (1024px+)
+    @include bp(lg) {
+      flex-wrap: nowrap;
+      gap: var(--space-8);
+      max-width: 100%;
+
+      .footer__brand,
+      .footer__socials,
+      .footer__copy {
+        flex: initial;
+        order: initial;
+        margin-top: 0;
+        width: auto;
+      }
+
+      .footer__copy {
+        text-align: left;
+      }
+    }
   }
 
   &__brand {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    color: var(--text-primary);
     font-family: var(--font-display);
     font-size: var(--text-2xl);
     font-weight: 700;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
 
+    /* stylelint-disable */
     &-name {
       // Animated gradient covers both "Matthew" and the dot together
       background: linear-gradient(90deg, var(--primary) 0%, var(--complementary) 50%, var(--primary) 100%);
@@ -125,13 +128,14 @@
       -webkit-text-fill-color: transparent;
       animation: brand-gradient 4s linear infinite;
     }
+    /* stylelint-enable */
 
     &-avatar {
+      border-radius: var(--radius-circle);
+      box-shadow: 0 0 10px var(--primary-glow);
       width: 32px;
       height: 32px;
-      border-radius: var(--radius-circle);
       object-fit: cover;
-      box-shadow: 0 0 10px var(--primary-glow);
     }
   }
 
@@ -155,42 +159,42 @@
   }
 }
 
-// ── Social buttons ──────────────────────────────────────────
+// ── Social Media Action Buttons (.social-btn) ──────────────────────
 .social-btn {
-  width: 46px;
-  height: 46px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-secondary);
-  cursor: pointer;
   transition:
     border-color var(--t-base),
     color var(--t-base),
     background var(--t-base),
     box-shadow var(--t-base),
     transform var(--t-fast);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  width: 46px;
+  height: 46px;
+  color: var(--text-secondary);
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 6px 22px var(--primary-glow-lg);
+    background: var(--primary-pale);
+    color: var(--primary-light);
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
 
   svg {
     width: 18px;
     height: 18px;
     fill: currentColor;
-  }
-
-  &:hover,
-  &:focus-visible {
-    border-color: var(--primary);
-    color: var(--primary-light);
-    background: var(--primary-pale);
-    box-shadow: 0 6px 22px var(--primary-glow-lg);
-    outline: none;
-  }
-
-  &:active {
-    transform: scale(0.94);
   }
 
   // ── Per-platform hover animations ───────────────────────────

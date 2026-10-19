@@ -118,7 +118,7 @@ if (contactForm && formStatus && formSubmitBtn) {
       formStatus.setAttribute('role', 'alert');
       formStatus.className = 'form-status form-status--error is-visible';
       formStatus.innerHTML =
-        'Could not send message automatically. Please email me directly at <a href="mailto:matthew.mcgrath.b@gmail.com" style="text-decoration: underline;">matthew.mcgrath.b@gmail.com</a>.';
+        'Could not send message automatically. Please email me directly at <a href="mailto:matthew.mcgrath.b@gmail.com" class="form-status__link">matthew.mcgrath.b@gmail.com</a>.';
     } finally {
       contactForm.removeAttribute('aria-busy');
     }
@@ -184,7 +184,6 @@ const avatarChassis = document.getElementById('contact-avatar-chassis');
 const avatarWrap = document.getElementById('contact-avatar-wrap');
 const avatarImg = document.getElementById('contact-avatar-img');
 const speechBubble = document.getElementById('contact-speech-bubble');
-const bubbleTag = document.getElementById('contact-bubble-tag');
 const bubbleTitle = document.getElementById('contact-bubble-title');
 const bubbleSub = document.getElementById('contact-bubble-sub');
 
@@ -233,7 +232,6 @@ let isHoveringAvatar = false;
 
 const setBubbleContent = (content) => {
   if (!speechBubble || !bubbleTitle || !bubbleSub) return;
-  if (bubbleTag && content.tag) bubbleTag.textContent = content.tag;
   bubbleTitle.textContent = content.title;
   bubbleSub.textContent = content.sub;
 };

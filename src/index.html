@@ -27,7 +27,7 @@
   <meta property="og:image" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
   <meta property="og:image:secure_url" content="https://matthewmcgrath.dev/assets/images/social/og-preview.png" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:url" content="https://matthewmcgrath.dev" />
+  <meta property="og:url" content="https://matthewmcgrath.dev/" />
   <meta property="og:site_name" content="Matthew McGrath Portfolio" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:width" content="1200" />
@@ -48,9 +48,6 @@
   <link rel="apple-touch-icon" href="assets/images/branding/apple-touch-icon.png" sizes="180x180" />
   <meta name="apple-mobile-web-app-title" content="Matthew McGrath" />
   <link rel="manifest" href="manifest.json" />
-
-  <!-- DNS prefetch for late-loading third-party origins. -->
-  <link rel="dns-prefetch" href="https://www.codewars.com" />
 
   <!-- Preload critical above-fold fonts -->
   <link rel="preload" href="assets/fonts/clash-display/ClashDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
@@ -258,13 +255,13 @@
         Matthew<span class="nav__logo-dot">.</span>
       </a>
       <ul class="nav__links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Skills</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#coding">Activity</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="resume/">Resume</a></li>
+        <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+        <li class="nav__item"><a href="#experience" class="nav__link">Skills</a></li>
+        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+        <li class="nav__item"><a href="#coding" class="nav__link">Activity</a></li>
+        <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+        <li class="nav__item"><a href="resume/" class="nav__link">Resume</a></li>
       </ul>
       <button type="button" class="nav__theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="true">
         <!-- Sun: shown in dark mode -->
@@ -289,13 +286,13 @@
       </button>
     </div>
     <ul class="nav__mobile" id="mobile-menu" aria-hidden="true">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Skills</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#coding">Activity</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="resume/">Resume</a></li>
+      <li class="nav__mobile-item"><a href="#projects" class="nav__mobile-link">Projects</a></li>
+      <li class="nav__mobile-item"><a href="#experience" class="nav__mobile-link">Skills</a></li>
+      <li class="nav__mobile-item"><a href="#about" class="nav__mobile-link">About</a></li>
+      <li class="nav__mobile-item"><a href="#coding" class="nav__mobile-link">Activity</a></li>
+      <li class="nav__mobile-item"><a href="#services" class="nav__mobile-link">Services</a></li>
+      <li class="nav__mobile-item"><a href="#contact" class="nav__mobile-link">Contact</a></li>
+      <li class="nav__mobile-item"><a href="resume/" class="nav__mobile-link">Resume</a></li>
     </ul>
   </nav>
 
@@ -311,7 +308,6 @@
         <h1 class="hero__name" id="hero-heading" aria-label="Matthew McGrath">
           <span class="hero__name-line hero__name-line--first"><span>Matthew</span></span>
           <span class="hero__name-line hero__name-line--last" aria-hidden="true"><span class="hero__name-char" style="--char-i: 0">M</span><span class="hero__name-char" style="--char-i: 1">c</span><span class="hero__name-char" style="--char-i: 2">G</span><span class="hero__name-char" style="--char-i: 3">r</span><span class="hero__name-char" style="--char-i: 4">a</span><span class="hero__name-char" style="--char-i: 5">t</span><span class="hero__name-char" style="--char-i: 6">h</span></span>
-          <span class="sr-only">McGrath</span>
         </h1>
       </div>
 
@@ -320,7 +316,7 @@
           <!-- Tagline + CTAs -->
           <div class="hero__tagline-block">
             <p class="hero__tagline-lead">
-              Fast web applications that look sharp, feel fluid, and <span>convert.</span>
+              Fast web applications that look sharp, feel fluid, and <span class="hero__tagline-accent">convert.</span>
             </p>
             <p class="hero__tagline">
               I help businesses and engineering teams build accessible, polished software with React, Next.js, and TypeScript.
@@ -414,13 +410,13 @@
             </p>
             <p class="project-featured__tech">C# · XNA Framework · Blender · Xbox Live</p>
             <div class="project-featured__links">
-              <a href="https://github.com/Epitome87/Avatars-In-Grave-Danger" class="btn--code" target="_blank" rel="noopener noreferrer" aria-label="View code for Avatars in Grave Danger on GitHub">
+              <a href="https://github.com/Epitome87/Avatars-In-Grave-Danger" class="btn--code" target="_blank" rel="noopener noreferrer" aria-label="View code for Avatars in Grave Danger on GitHub, opens in new tab">
                 <svg width="14" height="14" aria-hidden="true">
                   <use href="assets/images/sprites/icons.svg#i02"></use>
                 </svg>
                 Code
               </a>
-              <a href="https://www.youtube.com/watch?v=6DuTH5mqsXY" class="btn--live" target="_blank" rel="noopener noreferrer" aria-label="Watch gameplay footage for Avatars in Grave Danger">Watch Footage <span class="btn--live-arrow" aria-hidden="true">↗</span></a>
+              <a href="https://www.youtube.com/watch?v=6DuTH5mqsXY" class="btn--live" target="_blank" rel="noopener noreferrer" aria-label="Watch gameplay footage for Avatars in Grave Danger, opens in new tab">Watch Footage <span class="btn--live-arrow" aria-hidden="true">↗</span></a>
             </div>
           </div>
         </article>
@@ -443,8 +439,8 @@
               <footer class="project-card__footer">
                 <span class="project-card__tech">React · Material UI</span>
                 <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/React-Flat-UI" target="_blank" rel="noopener noreferrer" aria-label="View code for Flat UI Clone on GitHub">Code</a>
-                  <a href="https://epitome87.github.io/React-Flat-UI/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Flat UI Clone">Live</a>
+                  <a class="project-card__links-item" href="https://github.com/Epitome87/React-Flat-UI" target="_blank" rel="noopener noreferrer" aria-label="View code for Flat UI Clone on GitHub, opens in new tab">Code</a>
+                  <a href="https://epitome87.github.io/React-Flat-UI/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Flat UI Clone, opens in new tab">Live</a>
                 </div>
               </footer>
             </div>
@@ -467,7 +463,7 @@
               <footer class="project-card__footer">
                 <span class="project-card__tech">HTML5 · CSS3 · Sass · JavaScript</span>
                 <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/front-end-mentor-journey" target="_blank" rel="noopener noreferrer" aria-label="View code for Frontend Collection on GitHub">Code</a>
+                  <a class="project-card__links-item" href="https://github.com/Epitome87/front-end-mentor-journey" target="_blank" rel="noopener noreferrer" aria-label="View code for Frontend Collection on GitHub, opens in new tab">Code</a>
                 </div>
               </footer>
             </div>
@@ -517,8 +513,8 @@
               <footer class="project-card__footer">
                 <span class="project-card__tech">HTML5 · CSS3 · Sass · JavaScript</span>
                 <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/Omni-Food" target="_blank" rel="noopener noreferrer" aria-label="View code for Omnifood on GitHub">Code</a>
-                  <a href="https://epitome87.github.io/Omni-Food/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Omnifood">Live</a>
+                  <a class="project-card__links-item" href="https://github.com/Epitome87/Omni-Food" target="_blank" rel="noopener noreferrer" aria-label="View code for Omnifood on GitHub, opens in new tab">Code</a>
+                  <a href="https://epitome87.github.io/Omni-Food/" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Omnifood, opens in new tab">Live</a>
                 </div>
               </footer>
             </div>
@@ -541,8 +537,8 @@
               <footer class="project-card__footer">
                 <span class="project-card__tech">HTML5 · CSS3 · JavaScript</span>
                 <div class="project-card__links">
-                  <a class="project-card__links-item" href="https://github.com/Epitome87/personal-portfolio-2023" target="_blank" rel="noopener noreferrer" aria-label="View code for Personal Portfolio (2023) on GitHub">Code</a>
-                  <a href="https://epitome87.github.io/personal-portfolio-2023" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Personal Portfolio (2023)">Live</a>
+                  <a class="project-card__links-item" href="https://github.com/Epitome87/personal-portfolio-2023" target="_blank" rel="noopener noreferrer" aria-label="View code for Personal Portfolio (2023) on GitHub, opens in new tab">Code</a>
+                  <a href="https://epitome87.github.io/personal-portfolio-2023" class="project-card__links-item project-card__links-item--live" target="_blank" rel="noopener noreferrer" aria-label="View live demo of Personal Portfolio (2023), opens in new tab">Live</a>
                 </div>
               </footer>
             </div>
@@ -592,7 +588,7 @@
               <button type="button" class="folder-header" data-folder-target="folder-frontend" aria-expanded="true" aria-controls="folder-frontend">
                 <div class="folder-title-left">
                   <span class="folder-chevron" aria-hidden="true">▼</span>
-                  <span>📁 FRONTEND</span>
+                  <span><span aria-hidden="true">📁</span> FRONTEND</span>
                 </div>
                 <span class="folder-count">9 files</span>
               </button>
@@ -609,10 +605,10 @@
               </div>
 
               <!-- Folder 2: Backend -->
-              <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-backend" aria-expanded="true" aria-controls="folder-backend">
+              <button type="button" class="folder-header" data-folder-target="folder-backend" aria-expanded="true" aria-controls="folder-backend">
                 <div class="folder-title-left">
                   <span class="folder-chevron" aria-hidden="true">▼</span>
-                  <span>📁 BACKEND</span>
+                  <span><span aria-hidden="true">📁</span> BACKEND</span>
                 </div>
                 <span class="folder-count">5 files</span>
               </button>
@@ -625,10 +621,10 @@
               </div>
 
               <!-- Folder 3: Tools -->
-              <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-tools" aria-expanded="true" aria-controls="folder-tools">
+              <button type="button" class="folder-header" data-folder-target="folder-tools" aria-expanded="true" aria-controls="folder-tools">
                 <div class="folder-title-left">
                   <span class="folder-chevron" aria-hidden="true">▼</span>
-                  <span>📁 TOOLS &amp; VCS</span>
+                  <span><span aria-hidden="true">📁</span> TOOLS &amp; VCS</span>
                 </div>
                 <span class="folder-count">5 files</span>
               </button>
@@ -641,10 +637,10 @@
               </div>
 
               <!-- Folder 4: Leveling Up -->
-              <button type="button" class="folder-header" style="margin-top: 0.4rem;" data-folder-target="folder-leveling" aria-expanded="true" aria-controls="folder-leveling">
+              <button type="button" class="folder-header" data-folder-target="folder-leveling" aria-expanded="true" aria-controls="folder-leveling">
                 <div class="folder-title-left">
                   <span class="folder-chevron" aria-hidden="true">▼</span>
-                  <span>📁 LEVELING UP</span>
+                  <span><span aria-hidden="true">📁</span> LEVELING UP</span>
                 </div>
                 <span class="folder-count">5 files</span>
               </button>
@@ -812,7 +808,7 @@
                 <button class="about__portrait-outer" type="button" aria-label="Click to interact with Matthew's portrait">
                   <div class="about__portrait-ring" aria-hidden="true"></div>
                   <div class="about__portrait">
-                    <img src="assets/images/illustrations/matthew-cartoon-320.webp" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
+                    <img src="assets/images/illustrations/matthew-cartoon-320.webp" srcset="assets/images/illustrations/matthew-cartoon-320.webp 1x, assets/images/illustrations/matthew-cartoon-640.webp 2x" alt="Matthew McGrath portrait" loading="lazy" decoding="async" width="280" height="280" />
                   </div>
                 </button>
               </div>
@@ -864,7 +860,7 @@
                   <!-- Slide 1 -->
                   <div class="about__slide active" id="about-slide-0" role="tabpanel" aria-labelledby="about-tab-0">
                     <h3 class="about__slide-title">
-                      <span class="about__syntax">##</span>
+                      <span class="about__syntax" aria-hidden="true">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Origins &amp; Foundations">Origins &amp; Foundations</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h3>
                     <p class="about__slide-prose">
@@ -876,7 +872,7 @@
                   <!-- Slide 2 -->
                   <div class="about__slide" id="about-slide-1" role="tabpanel" aria-labelledby="about-tab-1">
                     <h3 class="about__slide-title">
-                      <span class="about__syntax">##</span>
+                      <span class="about__syntax" aria-hidden="true">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Modern Web Focus">Modern Web Focus</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h3>
                     <p class="about__slide-prose">
@@ -888,7 +884,7 @@
                   <!-- Slide 3 -->
                   <div class="about__slide" id="about-slide-2" role="tabpanel" aria-labelledby="about-tab-2">
                     <h3 class="about__slide-title">
-                      <span class="about__syntax">##</span>
+                      <span class="about__syntax" aria-hidden="true">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Systems to Web">Systems to Web</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h3>
                     <p class="about__slide-prose">
@@ -914,15 +910,15 @@
                   <!-- Slide 4 -->
                   <div class="about__slide" id="about-slide-3" role="tabpanel" aria-labelledby="about-tab-3">
                     <h3 class="about__slide-title">
-                      <span class="about__syntax">##</span>
+                      <span class="about__syntax" aria-hidden="true">##</span>
                       <span class="about__title-text"><span class="about__typed-title" data-full-text="Reliability &amp; Mindset">Reliability &amp; Mindset</span><span class="about__cursor" aria-hidden="true"></span></span>
                     </h3>
                     <p class="about__slide-prose">
                       Whether working independently or with a team, I believe clear communication, dependable follow-through, and thoughtful collaboration are just as essential as clean code.
-                      <span class="about__blockquote">
-                        <span class="about__blockquote-sym" aria-hidden="true">&gt;</span> &ldquo;I build solutions meant to be read, maintained, and scaled with confidence.&rdquo;
-                      </span>
                     </p>
+                    <blockquote class="about__blockquote">
+                      <span class="about__blockquote-sym" aria-hidden="true">&gt;</span> &ldquo;I build solutions meant to be read, maintained, and scaled with confidence.&rdquo;
+                    </blockquote>
                   </div>
 
                 </div>
@@ -938,7 +934,7 @@
       <!-- /container -->
 
       <!-- Story-Driven Tall Hairline Milestone Columns (Full-Width Free-Form Ribbon) -->
-      <div class="about__metrics about__metrics--full reveal" aria-label="Career milestones and engineering background">
+      <section class="about__metrics about__metrics--full reveal" aria-label="Career milestones and engineering background">
         <div class="about__metrics-inner">
           <div class="about__metric">
             <div class="about__metric-header">
@@ -977,7 +973,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </section>
     </section>
 
     <!-- CODING ACTIVITY (AUTHENTIC UNIX TERMINAL) -->
@@ -1041,14 +1037,14 @@
                 </div>
 
                 <!-- Neofetch Specs -->
-                <div class="neofetch-specs">
+                <dl class="neofetch-specs">
                   <div class="spec-header-line">
                     <span>matthew@dev</span>
                   </div>
                   <div class="spec-sep" aria-hidden="true">-----------------------------------------------------</div>
-                  <div class="spec-row"><span class="spec-k">UPTIME</span><span class="spec-v"><strong id="stat-streak">1,883 days</strong> commit streak</span></div>
-                  <div class="spec-row"><span class="spec-k">REPOS</span><span class="spec-v"><strong>24+</strong> active repositories</span></div>
-                  <div class="spec-row"><span class="spec-k">PROFILE</span><span class="spec-v">github.com/Epitome87</span></div>
+                  <div class="spec-row"><dt class="spec-k">UPTIME</dt><dd class="spec-v"><strong id="stat-streak">1,883 days</strong> commit streak</dd></div>
+                  <div class="spec-row"><dt class="spec-k">REPOS</dt><dd class="spec-v"><strong>24+</strong> active repositories</dd></div>
+                  <div class="spec-row"><dt class="spec-k">PROFILE</dt><dd class="spec-v">github.com/Epitome87</dd></div>
 
                   <!-- ANSI 8-Color Palette -->
                   <div class="ansi-palette-row" aria-hidden="true">
@@ -1064,7 +1060,7 @@
                       <span class="ansi-block" style="background: #f8fafc;" title="White"></span>
                     </div>
                   </div>
-                </div>
+                </dl>
               </div>
             </section>
 
@@ -1158,25 +1154,25 @@
                       </thead>
                       <tbody>
                         <tr>
+                          <td><span class="metric-prefix">Contest </span>Rating</td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><strong id="lc-stat-3">1,737</strong></td>
+                          <td class="col-pipe" aria-hidden="true">│</td>
+                          <td><span class="stdout-tag tag-top" id="lc-stat-3-tag">[TOP 11.6%]</span></td>
+                        </tr>
+                        <tr>
                           <td>Rank</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><strong id="lc-stat-2">15,090</strong></td>
+                          <td><strong id="lc-stat-2">14,840</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
                           <td><span class="stdout-tag tag-top">[TOP 15%]</span></td>
                         </tr>
                         <tr>
                           <td>Solved</td>
                           <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><strong id="lc-stat-1">1,270</strong></td>
+                          <td><strong id="lc-stat-1">1,282</strong></td>
                           <td class="col-pipe" aria-hidden="true">│</td>
                           <td><span class="stdout-tag tag-pass">[TOP 1.0%]</span></td>
-                        </tr>
-                        <tr>
-                          <td>Acceptance</td>
-                          <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><strong id="lc-stat-3">83.4%</strong></td>
-                          <td class="col-pipe" aria-hidden="true">│</td>
-                          <td><span class="stdout-tag tag-dim">OPTIMAL</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -1187,17 +1183,17 @@
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-easy">EASY</span>
                       <span class="g-bar-ascii lc-easy" id="lc-easy-bar" aria-hidden="true">[<span class="g-fill">███████████████████████████████</span><span class="g-empty">█████</span>]</span>
-                      <span class="g-count-ascii" id="lc-easy-count"><span class="g-solved-total">828 / 968 </span><strong class="g-pct">(85.5%)</strong></span>
+                      <span class="g-count-ascii" id="lc-easy-count"><span class="g-solved-total">832 / 972 </span><strong class="g-pct">(85.6%)</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-medium">MEDIUM</span>
                       <span class="g-bar-ascii lc-medium" id="lc-medium-bar" aria-hidden="true">[<span class="g-fill">███████</span><span class="g-empty">█████████████████████████████</span>]</span>
-                      <span class="g-count-ascii" id="lc-medium-count"><span class="g-solved-total">428 / 2,122 </span><strong class="g-pct">(20.2%)</strong></span>
+                      <span class="g-count-ascii" id="lc-medium-count"><span class="g-solved-total">436 / 2,130 </span><strong class="g-pct">(20.5%)</strong></span>
                     </div>
                     <div class="gauge-row-ascii">
                       <span class="g-label-ascii lc-hard">HARD</span>
                       <span class="g-bar-ascii lc-hard" id="lc-hard-bar" aria-hidden="true">[<span class="g-fill">█</span><span class="g-empty">███████████████████████████████████</span>]</span>
-                      <span class="g-count-ascii" id="lc-hard-count"><span class="g-solved-total">14 / 979 </span><strong class="g-pct">(1.4%)</strong></span>
+                      <span class="g-count-ascii" id="lc-hard-count"><span class="g-solved-total">14 / 984 </span><strong class="g-pct">(1.4%)</strong></span>
                     </div>
                   </div>
                 </div>
@@ -1278,9 +1274,9 @@
               <span>BRANCH: main</span>
             </div>
             <div class="term-footer-links">
-              <a href="https://github.com/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's GitHub profile, opens in new tab">gh://Epitome87 ↗</a>
-              <a href="https://leetcode.com/u/Epitome87/" target="_blank" rel="noopener noreferrer" aria-label="Matthew's LeetCode profile, opens in new tab">lc://Epitome87 ↗</a>
-              <a href="https://www.codewars.com/users/Epitome87" target="_blank" rel="noopener noreferrer" aria-label="Matthew's Codewars profile, opens in new tab">cw://Epitome87 ↗</a>
+              <a href="https://github.com/Epitome87" class="term-footer-link" target="_blank" rel="noopener noreferrer" aria-label="Matthew's GitHub profile, opens in new tab">gh://Epitome87 ↗</a>
+              <a href="https://leetcode.com/u/Epitome87/" class="term-footer-link" target="_blank" rel="noopener noreferrer" aria-label="Matthew's LeetCode profile, opens in new tab">lc://Epitome87 ↗</a>
+              <a href="https://www.codewars.com/users/Epitome87" class="term-footer-link" target="_blank" rel="noopener noreferrer" aria-label="Matthew's Codewars profile, opens in new tab">cw://Epitome87 ↗</a>
             </div>
           </footer>
 
@@ -1507,7 +1503,7 @@
 
         <p class="services__note">
           Not sure which fits your project?
-          <a href="#contact" data-service-subject="Inquiry: General Hello" data-service-msg="Hi Matthew, I have a project in mind and would like to explore options..." aria-label="Send Matthew a general message">Send me a message</a>
+          <a href="#contact" class="services__note-link" data-service-subject="Inquiry: General Hello" data-service-msg="Hi Matthew, I have a project in mind and would like to explore options..." aria-label="Send Matthew a general message">Send me a message</a>
           and we'll figure it out together. No commitment required.
         </p>
       </div>
@@ -1540,8 +1536,7 @@
         <!-- Contact form -->
         <div class="contact__layout">
           <div class="form">
-            <div class="form__form">
-              <form id="contact-form" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
+            <form id="contact-form" class="form__inner" action="https://formsubmit.co/ajax/b66328d2376be951d08697e043e534b2" method="POST">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll respond as soon as I can." />
                 <label for="form-honey" class="sr-only">Leave this field blank to verify you are human</label>
@@ -1550,18 +1545,18 @@
                 <!-- 2-Column Name & Email -->
                 <div class="form-grid">
                   <div class="form-group">
-                    <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                    <label for="name" class="form__label">Full Name <span class="form__required" aria-hidden="true">*</span></label>
                     <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" spellcheck="false" required aria-required="true" />
                   </div>
                   <div class="form-group">
-                    <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                    <label for="email" class="form__label">Email Address <span class="form__required" aria-hidden="true">*</span></label>
                     <input type="email" id="email" name="email" placeholder="john.smith@example.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-required="true" />
                   </div>
                 </div>
 
                 <!-- Compact Topic / Subject Dropdown (Directly powers FormSubmit subject) -->
                 <div class="form-group">
-                  <label for="topic-select">I'd like to discuss <span aria-hidden="true">*</span></label>
+                  <label for="topic-select" class="form__label">I'd like to discuss <span class="form__required" aria-hidden="true">*</span></label>
                   <div class="select-wrapper">
                     <select id="topic-select" name="_subject" class="form-select" aria-label="Select message topic" autocomplete="off">
                       <option value="Inquiry: Full-Time Software Engineering Role" aria-label="Full-Time Software Engineering Role">💼 Full-Time Software Engineering Role</option>
@@ -1577,7 +1572,7 @@
 
                 <!-- Message Textarea -->
                 <div class="form-group">
-                  <label for="message">Message <span aria-hidden="true">*</span></label>
+                  <label for="message" class="form__label">Message <span class="form__required" aria-hidden="true">*</span></label>
                   <textarea id="message" name="message" rows="5" placeholder="Tell me about what you're looking to build or hire for..." required aria-required="true"></textarea>
                 </div>
 
@@ -1589,7 +1584,6 @@
               </form>
             </div>
           </div>
-        </div>
       </div>
     </section>
   </main>
@@ -1629,7 +1623,7 @@
   </footer>
 
   <!-- Back to top (appears when scrolling down) -->
-  <button class="back-to-top" aria-label="Back to top" title="Back to top"><span aria-hidden="true">🚀</span></button>
+  <button type="button" class="back-to-top" aria-label="Back to top" title="Back to top"><span aria-hidden="true">🚀</span></button>
 
   <script type="module" src="js/ui.js"></script>
   <script defer src="js/analytics.js"></script>
@@ -1638,7 +1632,7 @@
   <dialog id="project-modal" class="project-modal" aria-labelledby="modal-title" aria-modal="true">
     <div class="project-modal__inner">
       <header class="project-modal__header">
-        <button type="button" class="project-modal__close" id="modal-close-btn" aria-label="Close dialog">✕</button>
+        <button type="button" class="project-modal__close" id="modal-close-btn" aria-label="Close dialog"><span aria-hidden="true">✕</span></button>
         <p class="project-modal__category" id="modal-category">Category</p>
         <h2 class="project-modal__title" id="modal-title">Project Title</h2>
         <p class="project-modal__intro" id="modal-overview"></p>
@@ -1651,14 +1645,14 @@
       <div class="project-modal__bento-grid">
         <div class="project-modal__bento-card project-modal__bento-card--challenge">
           <div class="project-modal__bento-header">
-            <span class="project-modal__badge project-modal__badge--challenge">⚡ Challenge</span>
+            <h3 class="project-modal__badge project-modal__badge--challenge"><span aria-hidden="true">⚡</span> Challenge</h3>
           </div>
           <p class="project-modal__text" id="modal-challenge"></p>
         </div>
 
         <div class="project-modal__bento-card project-modal__bento-card--architecture">
           <div class="project-modal__bento-header">
-            <span class="project-modal__badge project-modal__badge--architecture">🛠️ Architecture</span>
+            <h3 class="project-modal__badge project-modal__badge--architecture"><span aria-hidden="true">🛠️</span> Architecture</h3>
           </div>
           <p class="project-modal__text" id="modal-architecture"></p>
         </div>
@@ -1670,7 +1664,7 @@
       </div>
 
       <footer class="project-modal__footer">
-        <a href="#" class="btn-primary" id="modal-live-btn" target="_blank" rel="noopener noreferrer">
+        <a href="#" class="btn-primary" id="modal-live-btn" target="_blank" rel="noopener noreferrer" aria-label="View live demo, opens in new tab">
           <span>View Live Demo</span>
           <svg width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -1678,7 +1672,7 @@
             <line x1="10" y1="14" x2="21" y2="3"></line>
           </svg>
         </a>
-        <a href="#" class="btn-ghost" id="modal-code-btn" target="_blank" rel="noopener noreferrer">
+        <a href="#" class="btn-ghost" id="modal-code-btn" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub, opens in new tab">
           <svg width="14" height="14" aria-hidden="true">
             <use href="assets/images/sprites/icons.svg#i02"></use>
           </svg>

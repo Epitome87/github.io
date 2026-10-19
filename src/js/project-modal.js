@@ -63,21 +63,10 @@ export function openProjectModal(projectId) {
       );
       iframe.setAttribute('allowfullscreen', '');
       iframe.setAttribute('loading', 'lazy');
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.style.aspectRatio = '16 / 9';
-      iframe.style.borderRadius = '12px';
-      iframe.style.border = '1px solid rgba(255, 255, 255, 0.15)';
-      iframe.style.display = 'block';
-      iframe.style.backgroundColor = '#000000';
       modalVideoWrap.appendChild(iframe);
-      modalVideoWrap.removeAttribute('hidden');
-      modalVideoWrap.style.display = 'block';
-      modalVideoWrap.style.width = '100%';
-      modalVideoWrap.style.aspectRatio = '16 / 9';
+      modalVideoWrap.hidden = false;
     } else {
-      modalVideoWrap.setAttribute('hidden', '');
-      modalVideoWrap.style.display = 'none';
+      modalVideoWrap.hidden = true;
     }
   }
 
@@ -137,7 +126,7 @@ export function closeProjectModal() {
   if (!modal || !modal.open) return;
   if (modalVideoWrap) {
     modalVideoWrap.replaceChildren();
-    modalVideoWrap.style.display = 'none';
+    modalVideoWrap.hidden = true;
   }
   modal.close();
   if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {

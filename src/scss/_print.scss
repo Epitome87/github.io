@@ -1,19 +1,22 @@
-// ── PRINT STYLES ──────────────────────────────────────────────
-// Ensures a readable, professional result when a recruiter
-// prints the page or saves it as a PDF.
+// ==========================================================================
+// PRINT STYLES
+// Clean black & white paper optimization and link expansions for print/PDF
+// ==========================================================================
+
 @use 'tokens' as *;
 
+// ── Print Media Overrides ─────────────────────────────────────────────────
 @media print {
   // Force white background and black text throughout
   *,
   *::before,
   *::after {
-    background: #fff !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    animation: none !important;
     transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    text-shadow: none !important;
+    color: #000 !important;
   }
 
   // Hide non-essential elements
@@ -32,22 +35,22 @@
 
   // Page layout
   body {
-    font-size: 12pt;
     line-height: 1.5;
+    font-size: 12pt;
   }
 
   .container {
-    max-width: 100%;
     padding: 0;
+    max-width: 100%;
   }
 
   // Force reveal/animated UI into its final readable state for print
   .reveal,
   .reveal.visible,
   .footer__inner {
-    opacity: 1 !important;
-    visibility: visible !important;
     transform: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   [class$='__icon'],
@@ -62,13 +65,13 @@
 
   // Hero — condensed for print
   .hero {
-    min-height: auto;
     padding: 1rem 0 0.5rem;
+    min-height: auto;
   }
 
   .hero__name {
-    font-size: 3rem;
     margin-bottom: 0.5rem;
+    font-size: 3rem;
   }
 
   .hero__tagline {
@@ -77,9 +80,9 @@
 
   // Show full URLs for links
   a[href]::after {
-    content: ' (' attr(href) ')';
-    font-size: 9pt;
     color: #555 !important;
+    font-size: 9pt;
+    content: ' (' attr(href) ')';
   }
 
   // But not for internal anchors or nav

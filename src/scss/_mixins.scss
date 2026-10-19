@@ -1,20 +1,23 @@
-// ── MIXINS & PLACEHOLDERS ─────────────────────────────────────
-// Shared patterns extracted from component files.
-// Import order: _tokens → _mixins → _reset → components
-//
-// Contents:
-//   %btn-small      — shared base for .btn--code, .btn--live, .service-card__btn
-//   @mixin card-base  — card background/border/radius/padding shell (7 components)
-//   @mixin card-hover — lift-and-brighten hover pattern (6 components)
-//   @mixin mono-label — mono font + uppercase label cluster (~15 sites)
-//   @mixin icon-box   — square icon container with pale bg + border (5 components)
-// ─────────────────────────────────────────────────────────────
-@use 'tokens' as *;
+// ==========================================================================
+// MIXINS & PLACEHOLDERS
+// Reusable layout, atmospheric visual effects, and typography mixins
+// ==========================================================================
+
+@use 'breakpoints' as *;
 @use 'sass:map';
 
-// Breakpoints mixin for media queries. Usage: @include bp(md) { ... }
+// ── bp (Responsive Breakpoint Media Query) ──────────────────────────────
+// Usage: @include bp(md) { ... }
 @mixin bp($size) {
   @media (min-width: map.get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// ── bp-max (Maximum-Width Responsive Breakpoint Media Query) ─────────────
+// Usage: @include bp-max(lg) { ... } -> matches strictly below lg (e.g. max-width: 1023px)
+@mixin bp-max($size) {
+  @media (max-width: (map.get($breakpoints, $size) - 1px)) {
     @content;
   }
 }
@@ -25,15 +28,15 @@
 // without disrupting compact visual styling.
 @mixin touch-target($min-size: 44px) {
   &::before {
-    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: #{$min-size};
-    min-height: #{$min-size};
     width: 100%;
+    min-width: #{$min-size};
     height: 100%;
+    min-height: #{$min-size};
+    content: '';
     pointer-events: auto;
   }
 }
@@ -42,34 +45,34 @@
 // Silent placeholder for small mono buttons (.btn--code, .btn--live,
 // .service-card__btn). @extend this then add border-color + color overrides.
 %btn-small {
-  position: relative;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  gap: var(--space-2);
-  padding: 0.48rem 0.8rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-normal);
-  text-transform: uppercase;
-  cursor: pointer;
   @include touch-target(44px);
+  display: inline-flex;
+  position: relative;
+  gap: var(--space-2);
+  align-items: center;
   transition:
     background var(--t-base),
     border-color var(--t-base),
     color var(--t-base),
     transform var(--t-fast) var(--ease-out),
     box-shadow var(--t-base);
-
-  @include bp(xs) {
-    padding: var(--space-2) var(--space-5);
-  }
+  z-index: var(--z-raised);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 0.48rem 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-normal);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  cursor: pointer;
 
   &:active {
     transform: translateY(0) scale(0.98);
+  }
+
+  @include bp(xs) {
+    padding: var(--space-2) var(--space-5);
   }
 }
 
@@ -86,9 +89,11 @@
     box-shadow var(--t-base);
 
   &:hover {
-    border-color: var(--border-bright);
-    transform: translateY($lift);
-    box-shadow: $shadow;
+    @media (hover: hover) {
+      transform: translateY($lift);
+      border-color: var(--border-bright);
+      box-shadow: $shadow;
+    }
   }
 }
 
@@ -99,9 +104,13 @@
   overflow: hidden;
 
   &::after {
-    content: '';
     position: absolute;
     inset: 0;
+    transform: translateX(-135%);
+    transition:
+      transform $duration var(--ease-out),
+      opacity var(--t-fast);
+    opacity: 0;
     background: linear-gradient(
       115deg,
       transparent 18%,
@@ -109,11 +118,7 @@
       rgba(255, 255, 255, 0.08) 54%,
       transparent 72%
     );
-    opacity: 0;
-    transform: translateX(-135%);
-    transition:
-      transform $duration var(--ease-out),
-      opacity var(--t-fast);
+    content: '';
     pointer-events: none;
   }
 }
@@ -121,35 +126,35 @@
 // ── project-card-surface ───────────────────────────────────────
 // Shared bento surface chassis for featured and standard project cards.
 %project-card-surface {
+  position: relative;
   border-radius: var(--radius-lg);
   background: var(--bg-card);
   overflow: hidden;
   cursor: pointer;
-  position: relative;
 }
 
 // ── project-media ──────────────────────────────────────────────
 // Shared image thumbnail viewport with smooth zoom & saturation transition.
 @mixin project-media-viewport($scale: 1.05, $saturate: 1) {
+  position: relative;
+  background: var(--bg-float);
   aspect-ratio: 16/9;
   overflow: hidden;
-  background: var(--bg-float);
-  position: relative;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition:
-      transform 0.55s var(--ease-out),
-      filter var(--t-slow);
-    filter: saturate(0.78) brightness(0.85);
-  }
 
   &:hover img,
   :hover > & img {
     transform: scale($scale);
     filter: saturate($saturate) brightness(1);
+  }
+
+  img {
+    transition:
+      transform 0.55s var(--ease-out),
+      filter var(--t-slow);
+    filter: saturate(0.78) brightness(0.85);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -157,25 +162,24 @@
 // Translucent frosted glass badge for case studies, categories, and chips.
 @mixin glass-pill-badge($blur: 8px) {
   @include mono-label(var(--text-xs), var(--tracking-normal), var(--primary-light));
-  background: rgba(11, 15, 20, 0.78);
-  border: 1px solid var(--border-bright);
-  padding: 0.3rem 0.6rem;
-  border-radius: var(--radius-sm);
-  backdrop-filter: blur($blur);
-  -webkit-backdrop-filter: blur($blur);
-  cursor: pointer;
-  font-family: inherit;
+
+  @include touch-target(44px);
   transition:
     background var(--t-fast),
     border-color var(--t-fast),
     color var(--t-fast),
     box-shadow var(--t-fast);
-
-  @include touch-target(44px);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur($blur);
+  background: rgba(11, 15, 20, 0.78);
+  padding: 0.3rem 0.6rem;
+  font-family: inherit;
+  cursor: pointer;
 
   [data-theme='light'] & {
-    background: rgba(255, 255, 255, 0.88);
     border-color: rgba(203, 213, 225, 0.85);
+    background: rgba(255, 255, 255, 0.88);
     color: var(--primary);
   }
 }
@@ -186,11 +190,11 @@
 // codebase for section labels, stat labels, dates, badges, etc.
 // Override any parameter at the call site.
 @mixin mono-label($size: var(--text-2xs), $tracking: var(--tracking-normal), $color: var(--text-muted)) {
+  text-transform: uppercase;
+  letter-spacing: $tracking;
+  color: $color;
   font-family: var(--font-mono);
   font-size: $size;
-  letter-spacing: $tracking;
-  text-transform: uppercase;
-  color: $color;
 }
 
 
@@ -201,16 +205,16 @@
 // Pass $is-floating: true for floating centerpiece elements (e.g. Hero Deck).
 @mixin tech-glass-chassis($radius: var(--radius-lg), $is-floating: false) {
   position: relative;
-  background: var(--bg-card);
-  border: 1px solid var(--border-bright);
-  border-radius: $radius;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    var(--shadow-lg);
   transition:
     border-color var(--t-base),
     box-shadow var(--t-base);
+  border: 1px solid var(--border-bright);
+  border-radius: $radius;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    var(--shadow-lg);
+  background: var(--bg-card);
+  overflow: hidden;
 
   @if $is-floating {
     animation: heroDeckFloat 6.5s ease-in-out infinite alternate;
@@ -218,10 +222,9 @@
 
   // 1. Top-edge milled glass bezel highlight (1px subtle)
   &::before {
-    content: '';
     position: absolute;
     inset: 0 0 auto 0;
-    height: 1px;
+    z-index: 10;
     background: linear-gradient(
       90deg,
       transparent 5%,
@@ -230,18 +233,19 @@
       var(--sheen-border) 65%,
       transparent 95%
     );
-    z-index: 10;
+    height: 1px;
+    content: '';
     pointer-events: none;
   }
 
   // 2. Diagonal glass sheen: periodic ambient sweep (every 8s)
   &::after {
-    content: '';
     position: absolute;
     top: -150%;
     left: -100%;
-    width: 300%;
-    height: 400%;
+    transform: rotate(25deg);
+    opacity: 0;
+    z-index: 15;
     background: linear-gradient(
       115deg,
       transparent 43%,
@@ -250,10 +254,10 @@
       var(--primary-glow) 52%,
       transparent 56%
     );
-    transform: rotate(25deg);
+    width: 300%;
+    height: 400%;
+    content: '';
     pointer-events: none;
-    opacity: 0;
-    z-index: 15;
   }
 
   // 3. Hover: instant crisp specular sweep  elevated border glow
@@ -265,8 +269,8 @@
       0 0 25px -5px var(--primary-glow);
 
     &::after {
-      opacity: 1;
       animation: hoverSheenSweep 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      opacity: 1;
     }
   }
 
@@ -314,19 +318,19 @@
 @mixin atmospheric-aurora {
   position: absolute;
   inset: 0;
+  z-index: var(--z-base);
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: var(--z-base);
 }
 
 @mixin atmospheric-orb($duration: 28s, $blur: 130px, $opacity: 0.1) {
   position: absolute;
+  animation: ambientOrbFloat $duration ease-in-out infinite alternate;
+  opacity: $opacity;
   border-radius: 50%;
   filter: blur($blur);
-  opacity: $opacity;
   pointer-events: none;
-  animation: ambientOrbFloat $duration ease-in-out infinite alternate;
 
   [data-theme='light'] & {
     opacity: 0.08;

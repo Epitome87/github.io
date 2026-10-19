@@ -1,24 +1,22 @@
-/* ==========================================================================
-   SERVICES — 1 + 3 + 1 Rounded Card Architecture
-   ========================================================================== */
+// ==========================================================================
+// SERVICES (1 + 3 + 1 Architecture)
+// Engineering offerings: Full-time SWE hero card, 3 deliverables, & retainer strip
+// ==========================================================================
 
 @use 'tokens' as *;
 @use 'mixins' as *;
 
+// ── Section Container & Grid Stack (.services) ────────────────────
 .services {
   padding: var(--space-24) 0;
 
-  @include bp(lg) {
-    padding: var(--space-32) 0;
-  }
-
   &__intro {
-    font-size: clamp(1rem, 1.5vw, 1.15rem);
-    color: var(--text-secondary);
-    line-height: var(--leading-normal);
-    max-width: 680px;
     margin-top: var(--space-4);
     margin-bottom: var(--space-10);
+    max-width: 680px;
+    line-height: var(--leading-normal);
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
 
     @include bp(md) {
       margin-bottom: var(--space-16);
@@ -34,13 +32,13 @@
 
   // Base Card Enclosure (Transparent / Cardless Background)
   &__card {
-    background-color: transparent;
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius-md);
     transition:
       border-color var(--t-base),
       background-color var(--t-base),
       box-shadow var(--t-base);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-md);
+    background-color: transparent;
 
     &:hover {
       border-color: var(--primary);
@@ -55,8 +53,8 @@
       }
 
       .services__link {
-        color: var(--primary-light);
         transform: translateX(4px);
+        color: var(--primary-light);
       }
     }
   }
@@ -64,37 +62,35 @@
   // Green Checkmark Icon
   &__check {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    color: var(--green);
     margin-top: 2px;
+    color: var(--green);
   }
 
-  // =========================================================================
-  // TOP (1): FULL-TIME SWE FLAGSHIP HERO CARD
-  // =========================================================================
+  // ── Flagship Hero Card: Full-Time SWE (.services__card--hero) ────────
   &__card--hero {
-    padding: var(--space-5) var(--space-4);
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
+    padding: var(--space-5) var(--space-4);
     overflow-wrap: break-word;
 
-    @media (min-width: 420px) {
-      padding: var(--space-6) var(--space-6);
+    @include bp(xs) {
+      padding: var(--space-6);
     }
 
     @include bp(md) {
-      padding: var(--space-8) var(--space-8);
       gap: var(--space-8);
+      padding: var(--space-8);
     }
 
     @include bp(lg) {
       grid-template-columns: 1.35fr 1fr;
+      gap: var(--space-10);
       align-items: center;
       padding: var(--space-8) var(--space-10);
-      gap: var(--space-10);
     }
   }
 
@@ -106,19 +102,19 @@
   }
 
   &__hero-title {
+    transition: color var(--t-fast);
+    line-height: var(--leading-snug);
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
     font-family: var(--font-display);
     font-size: clamp(1.45rem, 2.2vw, 1.95rem);
     font-weight: 700;
-    color: var(--text-primary);
-    line-height: var(--leading-snug);
-    letter-spacing: -0.015em;
-    transition: color var(--t-fast);
   }
 
   &__hero-desc {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
     line-height: var(--leading-normal);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
 
     strong {
       color: var(--text-primary);
@@ -130,61 +126,61 @@
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: var(--space-2);
-    width: 100%;
     margin-top: var(--space-4);
+    width: 100%;
 
-    // Ultra-narrow fallback (< 350px) to prevent container blowout
-    @media (max-width: 350px) {
-      grid-template-columns: 1fr;
-    }
-
-    @include bp(sm) {
-      display: flex;
-      align-items: center;
-      width: auto;
-      gap: var(--space-3);
-    }
-
-    .services__btn {
+    .btn-primary,
+    .btn-ghost {
       justify-content: center;
-      text-align: center;
       padding: 0.55rem 0.5rem;
-      font-size: clamp(0.65rem, 2.7vw, 0.75rem);
       min-width: 0;
+      text-align: center;
+      font-size: clamp(0.65rem, 2.7vw, 0.75rem);
 
       @include bp(sm) {
         padding: 0.55rem 1.25rem;
         font-size: var(--text-xs);
       }
     }
-  }
 
-  &__hero-bullets {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-
-    li {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
+    @include bp(sm) {
       display: flex;
-      align-items: flex-start;
       gap: var(--space-3);
-      line-height: var(--leading-normal);
+      align-items: center;
+      width: auto;
+    }
 
-      strong {
-        color: var(--text-primary);
-        font-weight: 600;
-      }
+    // Ultra-narrow fallback (< 350px) to prevent container blowout
+    @media (max-width: 350px) {
+      grid-template-columns: 1fr;
     }
   }
 
-  // =========================================================================
-  // MIDDLE (3): 3-COLUMN CORE DELIVERABLES
-  // =========================================================================
+  &__hero-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li,
+    .services__hero-bullet {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      line-height: var(--leading-normal);
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+  }
+
+  // ── 3-Column Core Deliverables (.services__subgrid) ───────────────
   &__subgrid {
     display: grid;
     grid-template-columns: 1fr;
@@ -197,9 +193,9 @@
   }
 
   &__card--tier {
-    padding: var(--space-6) var(--space-6);
     display: flex;
     flex-direction: column;
+    padding: var(--space-6) var(--space-6);
 
     @include bp(md) {
       padding: var(--space-8) var(--space-6);
@@ -209,56 +205,57 @@
   &__tier-head {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: var(--space-2);
     margin-bottom: var(--space-6);
-    flex-grow: 1;
   }
 
   &__tier-title {
+    transition: color var(--t-fast);
+    line-height: var(--leading-snug);
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
     font-family: var(--font-display);
     font-size: clamp(1.2rem, 1.6vw, 1.35rem);
     font-weight: 700;
-    color: var(--text-primary);
-    line-height: var(--leading-snug);
-    letter-spacing: -0.015em;
-    transition: color var(--t-fast);
   }
 
   &__tier-desc {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
     line-height: var(--leading-normal);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
   }
 
   // Inner Line 1 (Above Bullets)
   &__tier-bullets {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-6) 0;
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+    margin: 0 0 var(--space-6) 0;
+    border-top: 1px solid var(--border);
+    padding: 0;
+    padding-top: var(--space-5);
+    list-style: none;
 
-    li {
-      font-size: var(--text-xs);
-      color: var(--text-secondary);
+    li,
+    .services__tier-bullet {
       display: flex;
-      align-items: flex-start;
       gap: var(--space-2);
+      align-items: flex-start;
       line-height: 1.5;
+      color: var(--text-secondary);
+      font-size: var(--text-xs);
     }
   }
 
   // Inner Line 2 (Above Price / CTA Footer)
   &__tier-foot {
-    border-top: 1px solid var(--border);
-    padding-top: var(--space-5);
     display: flex;
+    gap: var(--space-3);
     align-items: flex-end;
     justify-content: space-between;
-    gap: var(--space-3);
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-5);
   }
 
   // Shared Price Typography
@@ -267,62 +264,60 @@
     flex-direction: column;
 
     small {
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-tight);
+      color: var(--text-muted);
       font-family: var(--font-mono);
       font-size: var(--text-2xs);
       font-weight: 500;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-tight);
-      margin-bottom: 2px;
     }
 
     strong {
+      line-height: var(--leading-none);
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
       font-family: var(--font-display);
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.01em;
-      line-height: var(--leading-none);
     }
   }
 
   // Editorial Inline Link CTA
   &__link {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
     display: inline-flex;
-    align-items: center;
-    gap: var(--space-1);
     position: relative;
+    gap: var(--space-1);
+    align-items: center;
     transition:
       color var(--t-fast),
       transform var(--t-fast) var(--ease-out);
+    text-decoration: none;
     white-space: nowrap;
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
 
     // Expand touch target for mobile thumb tapping without affecting visual alignment
     &::after {
-      content: '';
       position: absolute;
       inset: -12px -8px;
+      content: '';
     }
 
     &:hover {
-      color: var(--primary-light);
       transform: translateX(4px);
+      color: var(--primary-light);
     }
   }
 
-  // =========================================================================
-  // BOTTOM (1): ONGOING MAINTENANCE RETAINER STRIP
-  // =========================================================================
+  // ── Ongoing Maintenance Retainer (.services__card--retainer) ─────
   &__card--retainer {
-    padding: var(--space-6) var(--space-6);
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
+    padding: var(--space-6) var(--space-6);
 
     @include bp(md) {
       padding: var(--space-6) var(--space-8);
@@ -330,9 +325,9 @@
 
     @include bp(lg) {
       flex-direction: row;
+      gap: var(--space-8);
       align-items: center;
       justify-content: space-between;
-      gap: var(--space-8);
       padding: var(--space-6) var(--space-8);
     }
   }
@@ -345,31 +340,31 @@
   }
 
   &__retainer-title {
+    transition: color var(--t-fast);
+    line-height: var(--leading-snug);
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
     font-family: var(--font-display);
     font-size: clamp(1.2rem, 1.6vw, 1.35rem);
     font-weight: 700;
-    color: var(--text-primary);
-    line-height: var(--leading-snug);
-    letter-spacing: -0.015em;
-    transition: color var(--t-fast);
   }
 
   &__retainer-desc {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
     line-height: var(--leading-normal);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
   }
 
   &__retainer-action {
     display: flex;
+    flex-shrink: 0;
+    gap: var(--space-6);
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-6);
-    flex-shrink: 0;
 
     @include bp(lg) {
-      justify-content: flex-end;
       gap: var(--space-8);
+      justify-content: flex-end;
     }
   }
 
@@ -377,18 +372,23 @@
   &__note {
     margin-top: var(--space-10);
     text-align: center;
-    font-size: var(--text-sm);
     color: var(--text-muted);
+    font-size: var(--text-sm);
 
-    a {
-      color: var(--primary-light);
+    a,
+    &-link {
+      transition: color var(--t-base);
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color var(--t-base);
+      color: var(--primary-light);
 
       &:hover {
         color: var(--text-primary);
       }
     }
+  }
+
+  @include bp(lg) {
+    padding: var(--space-32) 0;
   }
 }

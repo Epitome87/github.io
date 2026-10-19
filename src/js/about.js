@@ -79,15 +79,8 @@ export function prevChapter() {
   goToChapter((currentChapter - 1 + totalChapters) % totalChapters);
 }
 
-// Attach to window for inline onclick fallback
-if (typeof window !== 'undefined') {
-  window.goToAboutChapter = goToChapter;
-  window.nextAboutChapter = nextChapter;
-  window.prevAboutChapter = prevChapter;
-}
-
 // Delegated document event listeners
-document.addEventListener('DOMContentLoaded', () => {
+const initAbout = () => {
   const aboutSection = document.getElementById('about');
   if (!aboutSection) return;
 
@@ -210,7 +203,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (stardustCanvas) {
     initAboutStardust(stardustCanvas, aboutSection);
   }
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAbout);
+} else {
+  initAbout();
+}
 
 /**
  * Ambient Lower-Zone Stardust Particles

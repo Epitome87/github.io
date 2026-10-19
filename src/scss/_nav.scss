@@ -1,6 +1,7 @@
-/* ==========================================================================
-   NAVIGATION
-   ========================================================================== */
+// ==========================================================================
+// NAVIGATION
+// Fixed frosted header shell, responsive navigation links, and theme toggle
+// ==========================================================================
 
 @use 'tokens' as *;
 @use 'mixins' as *;
@@ -10,25 +11,15 @@
   top: var(--space-2);
   left: 50%;
   transform: translateX(-50%);
+  transition: transform 0.32s var(--ease-out);
   z-index: var(--z-nav);
   width: min(calc(100% - 3rem), var(--max-w));
-  transition: transform 0.32s var(--ease-out);
-
-  @include bp(xs) {
-    top: var(--space-4);
-  }
-
-  // Smart headroom: slide out of view on scroll down (mobile & tablet)
-  @media (max-width: 1023px) {
-    &.is-hidden {
-      transform: translate(-50%, -160%);
-    }
-  }
 
   &::before {
-    content: '';
     position: absolute;
     inset: -3px;
+    animation: nav-border-shift 4s ease-in-out infinite;
+    z-index: var(--z-base);
     border-radius: calc(var(--radius-md) + 3px);
     background: linear-gradient(
       110deg,
@@ -39,34 +30,40 @@
       var(--primary-dim) 100%
     );
     background-size: 300% 100%;
-    animation: nav-border-shift 4s ease-in-out infinite;
-    z-index: var(--z-base);
+    content: '';
   }
 
   &.is-scrolled::before {
-    opacity: 0;
     animation: none;
+    opacity: 0;
   }
 
+  // ── Navigation Shell (.nav__inner) ───────────────────────────────
   &__inner {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: space-between;
-    padding: 0 var(--space-3);
-    height: 48px;
-    background: var(--bg-nav);
-    backdrop-filter: blur(var(--blur-nav));
-    -webkit-backdrop-filter: blur(var(--blur-nav));
+    transition:
+      background var(--t-base),
+      box-shadow var(--t-base);
+    z-index: var(--z-raised);
     border: 0;
     border-radius: var(--radius-md);
     box-shadow:
       var(--shadow-md),
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    position: relative;
-    z-index: var(--z-raised);
-    transition:
-      background var(--t-base),
-      box-shadow var(--t-base);
+    backdrop-filter: blur(var(--blur-nav));
+    background: var(--bg-nav);
+    padding: 0 var(--space-3);
+    height: 48px;
+
+    &.scrolled {
+      box-shadow:
+        var(--shadow-lg),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      background: rgba(17, 24, 32, 0.8);
+    }
 
     @include bp(xs) {
       padding: 0 var(--space-6);
@@ -77,32 +74,18 @@
       padding: 0 var(--space-4);
       height: 52px;
     }
-
-    &.scrolled {
-      background: rgba(17, 24, 32, 0.8);
-      box-shadow:
-        var(--shadow-lg),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    }
   }
 
+  // ── Brand Logo & Avatar (.nav__logo) ─────────────────────────────
   &__logo {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
     font-family: var(--font-display);
     font-size: var(--text-md);
     font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-
-    @include bp(xs) {
-      font-size: var(--text-xl);
-    }
-
-    &-dot {
-      color: var(--primary);
-    }
 
     &:hover &-avatar {
       box-shadow:
@@ -112,33 +95,42 @@
 
     &:active &-avatar {
       transform: scale(0.68) rotate(-8deg);
-      box-shadow: 0 0 4px var(--primary-glow);
       transition:
         transform 0.09s var(--ease-out),
         box-shadow 0.09s var(--ease-out);
+      box-shadow: 0 0 4px var(--primary-glow);
+    }
+
+    &-dot {
+      color: var(--primary);
     }
 
     &-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--radius-circle);
-      object-fit: cover;
-      border: 2px solid var(--primary);
-      box-shadow: 0 0 10px var(--primary-glow);
       display: block;
       transition:
         transform var(--t-slow) var(--ease-bounce),
         box-shadow var(--t-base);
-      user-select: none;
-      -webkit-user-drag: none;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-circle);
+      box-shadow: 0 0 10px var(--primary-glow);
+      width: 32px;
+      height: 32px;
       pointer-events: none;
+      user-select: none;
+      object-fit: cover;
+      -webkit-user-drag: none;
+    }
+
+    @include bp(xs) {
+      font-size: var(--text-xl);
     }
   }
 
+  // ── Desktop Navigation Links (.nav__links) ───────────────────────
   &__links {
     display: none;
-    align-items: center;
     gap: 1.35rem;
+    align-items: center;
 
     @include bp(lg) {
       display: flex;
@@ -147,113 +139,110 @@
     @include bp(xl) {
       gap: 1.75rem;
     }
+  }
 
-    li {
-      list-style: none;
-    } // li is a flex item; a styles apply normally
+  &__item {
+    list-style: none;
+  }
 
-    a {
-      @include mono-label(var(--text-xs), var(--tracking-normal), var(--text-secondary));
-      position: relative;
-      transition: color var(--t-base);
+  &__link {
+    @include mono-label(var(--text-xs), var(--tracking-normal), var(--text-secondary));
+    position: relative;
+    transition: color var(--t-base);
 
-      &:hover,
-      &.active {
-        color: var(--text-primary);
-      }
+    &::after {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--t-base) var(--ease-out);
+      border-radius: 1px;
+      background: var(--primary);
+      width: 100%;
+      height: 1.5px;
+      content: '';
+    }
 
-      &.active::after {
-        transform: scaleX(1);
-      }
+    &:hover,
+    &.active {
+      color: var(--text-primary);
+    }
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -3px;
-        left: 0;
-        width: 100%;
-        height: 1.5px;
-        background: var(--primary);
-        border-radius: 1px;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform var(--t-base) var(--ease-out);
-      }
+    &:hover::after {
+      transform: scaleX(1);
+    }
 
-      &:hover::after {
-        transform: scaleX(1);
-      }
+    &.active::after {
+      transform: scaleX(1);
     }
   }
 
+  // ── Theme Toggle Button (.nav__theme-toggle) ─────────────────────
   &__theme-toggle {
+    @include touch-target(44px);
     display: flex;
+    position: relative;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    @include touch-target(44px);
-    border-radius: var(--radius-circle);
-    border: 1px solid var(--border-bright);
-    background: transparent;
-    color: var(--text-secondary);
-    cursor: pointer;
     transition:
       border-color var(--t-base),
       color var(--t-base),
       background var(--t-base);
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-circle);
+    background: transparent;
+    width: 36px;
+    height: 36px;
+    color: var(--text-secondary);
+    cursor: pointer;
 
     &:hover {
       border-color: var(--primary);
-      color: var(--primary);
       background: var(--primary-pale);
+      color: var(--primary);
     }
 
     svg {
-      width: 16px;
-      height: 16px;
       position: absolute;
       transition:
         transform var(--t-base) var(--ease-spring),
         opacity var(--t-base);
+      width: 16px;
+      height: 16px;
     }
 
     .icon-sun {
-      opacity: 1;
       transform: rotate(0deg) scale(1);
+      opacity: 1;
     }
     .icon-moon {
-      opacity: 0;
       transform: rotate(-90deg) scale(0.5);
+      opacity: 0;
     }
   }
 
+  // ── Mobile Hamburger Trigger (.nav__hamburger) ───────────────────
   &__hamburger {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 5px;
+    justify-content: center;
     padding: var(--space-2);
     min-width: 44px;
     min-height: 44px;
     cursor: pointer;
 
-    @include bp(lg) {
-      display: none;
-    }
-
     span {
       display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--text-secondary);
-      border-radius: 1px;
       transition:
         transform var(--t-base),
         opacity var(--t-base);
+      border-radius: 1px;
+      background: var(--text-secondary);
+      width: 22px;
+      height: 1.5px;
     }
 
     &.open span {
@@ -261,56 +250,75 @@
         transform: rotate(45deg) translate(4.5px, 4.5px);
       }
       &:nth-child(2) {
-        opacity: 0;
         transform: scaleX(0);
+        opacity: 0;
       }
       &:nth-child(3) {
         transform: rotate(-45deg) translate(4.5px, -4.5px);
       }
     }
+
+    @include bp(lg) {
+      display: none;
+    }
   }
 
+  // ── Mobile Drawer Menu (.nav__mobile) ─────────────────────────────
   &__mobile {
     display: none;
-    flex-direction: column;
-    gap: var(--space-4);
     position: absolute;
     top: calc(100% + var(--space-3));
-    left: 0;
     right: 0;
-    padding: var(--space-6);
-    background: var(--bg-nav);
+    left: 0;
+    flex-direction: column;
+    gap: var(--space-4);
     border: 1px solid var(--border-bright);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(var(--blur-nav));
     box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(var(--blur-nav));
+    background: var(--bg-nav);
+    padding: var(--space-6);
+    max-height: calc(100dvh - var(--nav-h) - var(--space-8));
+    overflow-y: auto;
+    overscroll-behavior: contain;
 
     &.open {
       display: flex;
     }
+  }
 
-    li {
-      list-style: none;
-    } // li is a flex item; a styles apply normally
+  &__mobile-item {
+    list-style: none;
 
-    a {
-      @include mono-label(var(--text-sm), var(--tracking-normal), var(--text-secondary));
-      padding: var(--space-2) 0;
-      border-bottom: 1px solid var(--border);
-      transition: color var(--t-base);
-
-      &:hover {
-        color: var(--primary-light);
-      }
-    }
-
-    li:last-child a {
+    &:last-child .nav__mobile-link {
       border-bottom: none;
+    }
+  }
+
+  &__mobile-link {
+    @include mono-label(var(--text-sm), var(--tracking-normal), var(--text-secondary));
+    transition: color var(--t-base);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-2) 0;
+
+    &:hover {
+      color: var(--primary-light);
+    }
+  }
+
+  @include bp(xs) {
+    top: var(--space-4);
+  }
+
+  // Smart headroom: slide out of view on scroll down (mobile & tablet)
+  @include bp-max(lg) {
+    &.is-hidden {
+      transform: translate(-50%, -160%);
     }
   }
 }
 
-// Light theme nav overrides
+// ── Light Theme Overrides ─────────────────────────────────────────
 [data-theme='light'] {
   .nav__inner {
     background: var(--bg-nav);
@@ -323,16 +331,17 @@
   }
   .nav__theme-toggle {
     .icon-sun {
-      opacity: 0;
       transform: rotate(90deg) scale(0.5);
+      opacity: 0;
     }
     .icon-moon {
-      opacity: 1;
       transform: rotate(0deg) scale(1);
+      opacity: 1;
     }
   }
 }
 
+// ── Keyframe Animations ───────────────────────────────────────────
 @keyframes nav-border-shift {
   0% {
     background-position: 0% 50%;

@@ -11,6 +11,8 @@
     "build:copy": "node scripts/build-dist.mjs --copy",
     "clean:dist": "node scripts/build-dist.mjs --clean",
     "dev": "npm run watch:css",
+    "lint:css": "stylelint \"src/scss/**/*.scss\"",
+    "lint:css:fix": "stylelint \"src/scss/**/*.scss\" --fix",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
@@ -22,6 +24,11 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.5.8",
     "postcss-cli": "^11.0.1",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "stylelint": "^17.16.0",
+    "stylelint-config-concentric-order": "^5.5.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-order": "^8.1.2",
+    "stylelint-scss": "^7.3.0"
   }
 }

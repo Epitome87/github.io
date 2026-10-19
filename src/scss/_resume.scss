@@ -1,8 +1,10 @@
-// ── RESUME PAGE ───────────────────────────────────────────────
-// Styles for resume.html — the standalone resume page.
-// Depends on the main compiled stylesheet (css/main.css) for
-// tokens, reset, nav, and font-face declarations.
-// This file should be compiled separately to css/resume.css.
+// ==========================================================================
+// RESUME PAGE
+// Standalone resume document layout, typography hierarchy, and print paper mode
+//
+// Depends on main.css for global design tokens, reset, and font declarations.
+// Compiled separately to dist/css/resume.css.
+// ==========================================================================
 //
 // Colour notes for the document panel (.resume-doc):
 // The panel mimics a paper document — white bg, dark text.
@@ -14,20 +16,19 @@
 //   #555     — contact info text on white
 //   #666     — meta / secondary doc text on white
 //   #888     — muted doc text (dates, locations) on white
-@use 'tokens' as *;
 @use 'mixins' as *;
 
 // ── Page wrapper ──────────────────────────────────────────────
 .resume-page {
-  max-width: 900px;
   margin: 0 auto;
   padding: calc(var(--nav-h) + var(--space-6)) 2rem 5rem;
+  max-width: 900px;
 }
 
 // ── Page header ───────────────────────────────────────────────
 .resume-page__header {
-  text-align: center;
   margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 .resume-page__eyebrow {
@@ -37,24 +38,24 @@
 }
 
 .resume-page__title {
+  margin-bottom: var(--space-5);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: var(--space-5);
 
-  span {
+  .resume-page__title-accent {
     color: var(--primary-light);
   }
 }
 
 .resume-page__actions {
   display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
   align-items: center;
   justify-content: center;
-  gap: var(--space-3);
-  flex-wrap: wrap;
 }
 
 .resume-page__btn-download {
@@ -68,10 +69,10 @@
 
 // ── Document panel ────────────────────────────────────────────
 .resume-doc {
-  background: #fff;
   border-radius: var(--radius-xl);
-  padding: 2rem 1.5rem;
   box-shadow: var(--shadow-lg); // 0 8px 32px rgba(0,0,0,0.5)
+  background: #fff;
+  padding: 2rem 1.5rem;
   color: var(--doc-text); // document body text on white
 
   @include bp(xs) {
@@ -85,19 +86,19 @@
 }
 
 .resume-doc__name {
+  margin-bottom: var(--space-1);
+  letter-spacing: -0.025em;
+  color: var(--doc-text-strong);
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--doc-text-strong);
-  margin-bottom: var(--space-1);
 }
 
 .resume-doc__title {
+  margin-bottom: var(--space-3);
+  color: var(--primary);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--primary);
-  margin-bottom: var(--space-3);
 }
 
 .resume-doc__contact {
@@ -106,24 +107,28 @@
   gap: var(--space-1) var(--space-5);
 
   a,
-  span {
+  span,
+  .resume-doc__contact-link,
+  .resume-doc__contact-text {
+    transition: color var(--t-base);
+    color: var(--doc-text-soft);
     font-family: var(--font-mono);
     font-size: var(--text-2xs);
-    color: var(--doc-text-soft);
-    transition: color var(--t-base);
   }
 
-  a:hover {
-    color: var(--primary);
+  a:hover,
+  .resume-doc__contact-link:hover {
     text-decoration: underline;
+    color: var(--primary);
   }
 }
 
 // ── Divider ───────────────────────────────────────────────────
 .resume-doc__divider {
-  height: 1px;
-  background: var(--doc-border);
   margin: var(--space-5) 0;
+  border: none;
+  background: var(--doc-border);
+  height: 1px;
 }
 
 // ── Section ───────────────────────────────────────────────────
@@ -137,9 +142,9 @@
 
 .resume-doc__section-label {
   @include mono-label(var(--text-2xs), var(--tracking-wide), var(--primary));
+  margin-bottom: var(--space-4);
   border-bottom: 1px solid var(--doc-accent-soft);
   padding-bottom: var(--space-1);
-  margin-bottom: var(--space-4);
 }
 
 // ── Entry (experience / project) ─────────────────────────────
@@ -150,17 +155,17 @@
 
 .resume-doc__entry-header {
   display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-4);
-  flex-wrap: wrap;
   margin-bottom: var(--space-1);
 }
 
 .resume-doc__entry-title {
+  color: var(--doc-text-strong);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--doc-text-strong);
 }
 
 .resume-doc__entry-date {
@@ -174,12 +179,13 @@
 }
 
 .resume-doc__entry-meta {
+  margin-bottom: var(--space-2);
+  color: var(--doc-text-muted);
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
-  color: var(--doc-text-muted);
-  margin-bottom: var(--space-2);
 
-  a {
+  a,
+  .resume-doc__entry-link {
     color: var(--primary);
     &:hover {
       text-decoration: underline;
@@ -192,18 +198,18 @@
 }
 
 .resume-doc__bullet {
-  font-size: var(--text-sm);
-  color: var(--doc-text);
-  line-height: var(--leading-normal);
-  padding-left: var(--space-4);
   position: relative;
   margin-bottom: var(--space-1);
+  padding-left: var(--space-4);
+  line-height: var(--leading-normal);
+  color: var(--doc-text);
+  font-size: var(--text-sm);
 
   &::before {
-    content: '–';
     position: absolute;
     left: 0;
     color: var(--primary);
+    content: '–';
   }
 }
 
@@ -211,10 +217,10 @@
 .resume-doc__edu-header {
   display: flex;
   flex-direction: column;
-  align-items: baseline;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-1);
+  align-items: baseline;
+  justify-content: space-between;
   margin-bottom: var(--space-1);
 
   @include bp(xs) {
@@ -224,27 +230,27 @@
 }
 
 .resume-doc__edu-school {
+  color: var(--doc-text-strong);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--doc-text-strong);
 }
 
 .resume-doc__edu-location {
+  color: var(--doc-text-faint);
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
-  color: var(--doc-text-faint);
 }
 
 .resume-doc__edu-degree {
-  font-size: var(--text-sm);
-  color: var(--doc-text);
   margin-bottom: var(--space-1);
+  color: var(--doc-text);
+  font-size: var(--text-sm);
 }
 
 .resume-doc__edu-detail {
-  font-size: 0.75rem;
-  color: var(--doc-text-muted);
   line-height: var(--leading-normal);
+  color: var(--doc-text-muted);
+  font-size: 0.75rem;
 }
 
 // ── Skills ────────────────────────────────────────────────────
@@ -256,17 +262,17 @@
 
 .resume-doc__skills-row {
   display: flex;
-  align-items: baseline;
   gap: var(--space-2);
+  align-items: baseline;
   font-size: var(--text-sm);
 }
 
 .resume-doc__skills-category {
   @include mono-label(var(--text-2xs), var(--tracking-normal), var(--primary));
-  font-weight: 700;
-  text-transform: none;
-  min-width: 90px;
   flex-shrink: 0;
+  min-width: 90px;
+  text-transform: none;
+  font-weight: 700;
 }
 
 .resume-doc__skills-list {
@@ -290,8 +296,8 @@
   }
 
   .resume-doc {
-    box-shadow: none;
     border-radius: 0;
+    box-shadow: none;
     padding: 1.5rem 2rem;
   }
 }

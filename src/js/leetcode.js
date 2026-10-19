@@ -14,6 +14,7 @@ const panelCw = document.getElementById('panel-codewars');
 const stat1El = document.getElementById('lc-stat-1');
 const stat2El = document.getElementById('lc-stat-2');
 const stat3El = document.getElementById('lc-stat-3');
+const stat3TagEl = document.getElementById('lc-stat-3-tag');
 
 const lcEasyCountEl = document.getElementById('lc-easy-count');
 const lcMediumCountEl = document.getElementById('lc-medium-count');
@@ -105,14 +106,17 @@ function generateAsciiBar(solved, total, length) {
 function renderLeetCode(stats) {
   if (!stats) return;
 
-  const totalSolved = stats.totalSolved ?? 1270;
-  const ranking = stats.ranking ?? 15090;
-  const easySolved = stats.easySolved ?? 828;
-  const mediumSolved = stats.mediumSolved ?? 428;
+  const totalSolved = stats.totalSolved ?? 1282;
+  const ranking = stats.ranking ?? 14840;
+  const contestRating = stats.contestRating ?? (stats.rating ? Math.round(stats.rating) : 1737);
+  const contestTopPct =
+    stats.contestTopPercentage ?? (stats.topPercentage ? Math.round(stats.topPercentage * 10) / 10 : 11.6);
+  const easySolved = stats.easySolved ?? 832;
+  const mediumSolved = stats.mediumSolved ?? 436;
   const hardSolved = stats.hardSolved ?? 14;
-  const totalEasy = stats.totalEasy || 968;
-  const totalMedium = stats.totalMedium || 2122;
-  const totalHard = stats.totalHard || 979;
+  const totalEasy = stats.totalEasy || 972;
+  const totalMedium = stats.totalMedium || 2130;
+  const totalHard = stats.totalHard || 984;
 
   if (stat1El && currentPlatform === 'leetcode') {
     stat1El.textContent = totalSolved.toLocaleString();
@@ -121,7 +125,10 @@ function renderLeetCode(stats) {
     stat2El.textContent = ranking.toLocaleString();
   }
   if (stat3El && currentPlatform === 'leetcode') {
-    stat3El.textContent = `${(stats.acceptanceRate ?? 83.4).toFixed(1)}%`;
+    stat3El.textContent = contestRating.toLocaleString();
+  }
+  if (stat3TagEl && currentPlatform === 'leetcode') {
+    stat3TagEl.textContent = `[TOP ${contestTopPct}%]`;
   }
 
   const easyRatio = ((easySolved / totalEasy) * 100).toFixed(1);
