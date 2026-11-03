@@ -10,12 +10,11 @@ export const LEETCODE_SNAPSHOT = {
   "totalMedium": 2138,
   "hardSolved": 15,
   "totalHard": 987,
-  "acceptanceRate": 83.54,
-  "ranking": 13895,
+  "acceptanceRate": 83.55,
+  "ranking": 13874,
   "contributionPoints": 0,
   "reputation": 0,
   "submissionCalendar": {
-    "1762128000": 4,
     "1762214400": 8,
     "1762300800": 10,
     "1762387200": 6,
@@ -378,7 +377,7 @@ export const LEETCODE_SNAPSHOT = {
     "1793318400": 6,
     "1793404800": 4,
     "1793491200": 5,
-    "1793577600": 6
+    "1793577600": 9
   },
   "contestRating": 1818,
   "contestTopPercentage": 7.7,
@@ -1851,6 +1850,10 @@ export const GITHUB_LAST_SNAPSHOT = [
   },
   {
     "date": "2026-11-02",
+    "count": 2
+  },
+  {
+    "date": "2026-11-03",
     "count": 0
   }
 ];
@@ -1870,7 +1873,7 @@ export const GITHUB_SNAPSHOT = {
     "2023": 1454,
     "2024": 1184,
     "2025": 663,
-    "2026": 714
+    "2026": 716
   },
   "maxStreak": 1883,
   "contributions": [
@@ -3096,7 +3099,7 @@ export const GITHUB_SNAPSHOT = {
     },
     {
       "date": "2026-11-02",
-      "count": 0
+      "count": 2
     },
     {
       "date": "2026-11-03",
