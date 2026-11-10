@@ -2,20 +2,19 @@
 export const LEETCODE_SNAPSHOT = {
   "status": "success",
   "message": "retrieved",
-  "totalSolved": 1323,
-  "totalQuestions": 4109,
+  "totalSolved": 1325,
+  "totalQuestions": 4110,
   "easySolved": 834,
   "totalEasy": 975,
-  "mediumSolved": 474,
-  "totalMedium": 2145,
+  "mediumSolved": 476,
+  "totalMedium": 2146,
   "hardSolved": 15,
   "totalHard": 989,
   "acceptanceRate": 83.61,
-  "ranking": 13600,
+  "ranking": 13501,
   "contributionPoints": 0,
   "reputation": 0,
   "submissionCalendar": {
-    "1762732800": 3,
     "1762819200": 4,
     "1762905600": 3,
     "1762992000": 8,
@@ -378,7 +377,8 @@ export const LEETCODE_SNAPSHOT = {
     "1793923200": 10,
     "1794009600": 13,
     "1794096000": 1,
-    "1794182400": 5
+    "1794182400": 6,
+    "1794268800": 5
   },
   "contestRating": 1826,
   "contestTopPercentage": 7.4,
@@ -1851,7 +1851,11 @@ export const GITHUB_LAST_SNAPSHOT = [
   },
   {
     "date": "2026-11-09",
-    "count": 0
+    "count": 3
+  },
+  {
+    "date": "2026-11-10",
+    "count": 3
   }
 ];
 
@@ -1870,7 +1874,7 @@ export const GITHUB_SNAPSHOT = {
     "2023": 1454,
     "2024": 1184,
     "2025": 663,
-    "2026": 732
+    "2026": 738
   },
   "maxStreak": 1883,
   "contributions": [
@@ -3124,11 +3128,11 @@ export const GITHUB_SNAPSHOT = {
     },
     {
       "date": "2026-11-09",
-      "count": 0
+      "count": 3
     },
     {
       "date": "2026-11-10",
-      "count": 0
+      "count": 3
     },
     {
       "date": "2026-11-11",
